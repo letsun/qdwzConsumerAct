@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/laonianrenshangcheng/css/reset.css" />
+	<link rel="stylesheet" href="/laonianrenshangcheng/css/animate.min.css" />
+	<link rel="stylesheet" href="/laonianrenshangcheng/css/index.css" />
+	<!-- 样式 end -->
+	<title>老年人活动</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/laonianrenshangcheng/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="result-wrapper" id="resultWrapper">
+			<div class="result-container">
+				<div class="result">
+					<div class="coupon-wrapper">
+						<div class="coupon-scroll">
+							<div class="coupon-list activeCoupon">
+								<div class="coupon-item">
+									<div class="coupon-left">
+										<div class="coupon-price">
+											<span>￥</span>30
+										</div>
+										<div class="coupon-condition">满20元使用</div>
+									</div>
+									<div class="coupon-right">
+										<div class="coupon-name">代金券</div>
+										<div class="coupon-time">有效期2天</div>
+										<a class="coupon-user" href="javascript:void(0);">去使用</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="coupon-tip">每次购买红包不可叠加使用</div>
+					</div>
+
+					<div class="noAward-wrapper">
+						<img class="noAward-tip" src="/laonianrenshangcheng/images/1/1_1.png" alt="">
+						<a href="javascript:void(0);" class="act-btn" id="shopBtn">
+							<img src="/laonianrenshangcheng/images/1/1_2.png" alt="">
+						</a>
+
+						<div class="coupon-tip">每次购买红包不可叠加使用</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script>
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	$('#container').fadeIn();
+	    });
+
+	})
+</script>
+
+</body>
+</html>

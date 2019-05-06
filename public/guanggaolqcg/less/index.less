@@ -1,0 +1,205 @@
+
+@import 'clearFix';
+@import 'newAnimate';
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+	    position: relative;
+
+	    width: 100%;
+	    height: 100%;
+
+	    overflow: hidden;
+
+	    .header {
+		    display: block;
+
+		    width: 100%;
+
+		    .header-bg {
+			    display: block;
+
+			    width: 100%;
+		    }
+
+		    .header-con {
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    z-index: 1;
+
+			    width: 100%;
+			    padding-top: 70px;
+
+			    .header-img {
+				    display: block;
+
+				    margin: 0 auto;
+			    }
+
+			    .header-text {
+				    margin-top: 50px;
+
+				    text-align: center;
+
+				    .header-title {
+					    display: inline-block;
+
+					    .clearFix();
+
+					    .title-left {
+						    float: left;
+
+						    img {
+							    display: block;
+
+							    width: 43px;
+						    }
+					    }
+
+					    .title-right {
+						    float: left;
+
+						    margin-left: 8px;
+
+						    font-size: 43px;
+						    line-height: 43px;
+						    color: #fff;
+						    font-weight: bold;
+					    }
+				    }
+			    }
+
+
+
+			    .header-dec {
+				    padding-top: 15px;
+
+				    font-size: 28px;
+				    color: #fff;
+				    text-align: center;
+			    }
+		    }
+	    }
+    }
+
+	.adver-wra {
+		margin-top: 150px;
+
+		img {
+			display: block;
+
+			width: 100%;
+		}
+	}
+}
+
+@-webkit-keyframes ani1 {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 120%;
+    }
+}
+
+@-webkit-keyframes ani2 {
+    0% {
+        top: 30%;
+    }
+
+    100% {
+        top: 120%;
+    }
+}
+
+@-webkit-keyframes ani3 {
+    0% {
+        transform: scale(0.85);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes ani4 {
+    0% {
+        transform: translateY(-60px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes shakeAni {
+    0% {
+        transform: rotate(4deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);
+    }
+
+    100% {
+        transform: rotate(4deg);
+    }
+}
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,162 @@
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+body {
+  background: #fff;
+}
+#app {
+  width: 100%;
+}
+#app .container {
+  width: 100%;
+}
+#app .container .header {
+  width: 100%;
+  height: 333px;
+  background: url('../images/4_1.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .header .user {
+  width: 100%;
+  padding-top: 10%;
+}
+#app .container .header .user .user-photo {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+}
+#app .container .header .user .user-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+#app .container .header .user .user-name {
+  width: 90%;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  color: #fff;
+}
+#app .container .content .total-amount:before,
+#app .container .content .total-amount:after {
+  content: " ";
+  display: table;
+}
+#app .container .content .total-amount:after {
+  clear: both;
+}
+#app .container .content .total-amount .amount {
+  float: left;
+  box-sizing: border-box;
+  width: 50%;
+  padding: 20px 0;
+  border-left: 1px solid #ededed;
+}
+#app .container .content .total-amount .amount:first-child {
+  border-left: none;
+}
+#app .container .content .total-amount .amount .amount-title {
+  font-size: 24px;
+  text-align: center;
+  color: #323232;
+}
+#app .container .content .total-amount .amount .amount-num {
+  font-size: 32px;
+  padding-top: 10px;
+  text-align: center;
+  color: #cb262a;
+}
+#app .container .content .form {
+  border-top: 10px solid #ededed;
+}
+#app .container .content .form .form-item {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 5%;
+}
+#app .container .content .form .form-item:before,
+#app .container .content .form .form-item:after {
+  content: " ";
+  display: table;
+}
+#app .container .content .form .form-item:after {
+  clear: both;
+}
+#app .container .content .form .form-item .form-left {
+  float: left;
+  width: 70%;
+}
+#app .container .content .form .form-item .form-left .form-input {
+  font-size: 23px;
+  line-height: 70px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 70px;
+  padding: 0 20px;
+  border-radius: 10px;
+  background: #eee;
+}
+#app .container .content .form .form-item .form-right {
+  float: right;
+  width: 25%;
+}
+#app .container .content .form .form-item .form-right .withdraw-btn {
+  font-size: 23px;
+  line-height: 70px;
+  display: block;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  background: #e4312c;
+}
+#app .container .content .form .form-text {
+  font-size: 24px;
+  width: 90%;
+  margin: 0 auto;
+}
+#app .container .content .rebate {
+  position: relative;
+  width: 90%;
+  margin: 10px auto 50px auto;
+}
+#app .container .content .rebate .title {
+  font-size: 28px;
+  line-height: 60px;
+  background: #fff;
+  color: #f00;
+}
+#app .container .content .rebate .rebate-container {
+  overflow: hidden;
+  height: 350px;
+  padding-bottom: 50px;
+}
+#app .container .content .rebate .rebate-container .rebate-list .item {
+  width: 100%;
+  font-size: 24px;
+  height: 82px;
+  line-height: 52px;
+  display: inline-block;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+#app .container .content .rebate .rebate-container .rebate-list .item .time {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  line-height: 47px;
+  font-size: 20px;
+}
+#app .container .content .rebate .rebate-container .tip {
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  color: #999;
+  font-size: 21px;
+}

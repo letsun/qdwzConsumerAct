@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/xiaomuzhi/css/animate.min.css">
+	<link rel="stylesheet" href="/xiaomuzhi/css/index.css" />
+	<!-- 样式 end -->
+	<title></title>
+</head>
+<body>
+
+<div class="container" id="container">
+	<div class="content">
+		<img class="bg" src="/xiaomuzhi/images/1_1.jpg" alt="">
+		<img class="logo" src="/xiaomuzhi/images/logo.png" alt="">
+
+		<!--领取红包-->
+		<div class="receive-wra" id="receive-wra">
+			<img class="receive-bg" src="/xiaomuzhi/images/1_2.png" alt="">
+			<img class="receive-btn" id="receive-btn" src="/xiaomuzhi/images/1_4.png" alt="">
+			<div class="receive-tips">点击开启红包</div>
+		</div>
+
+		<!--中奖结果页面-->
+		<div class="result" id="result">
+			<img class="result-bg" src="/xiaomuzhi/images/1_3.png" alt="">
+			<div class="result-title" id="result-title"></div>
+			<div class="result-dec" id="result-dec"></div>
+			<img class="crying-face" id="crying-face" src="/xiaomuzhi/images/1_5.png" alt="">
+			<div class="result-tips" id="result-tips" style="display: none;">金额会通过微信公众号直接发放，请注意查收</div>
+		</div>
+	</div>
+	<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<%-include('../../../include/commonJs') %>
+<%-include("../../../include/hideMenu") %>
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<script src="/xiaomuzhi/scripts/api.js"></script>
+<script src="/xiaomuzhi/scripts/lib/jweixin-1.0.0.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/xiaomuzhi/scripts/act_index.js"></script>
+<!-- 页面js end-->
+<script>
+    // 页面禁止滑动
+    $('#container').on("touchmove", function (e) {
+        e.preventDefault();
+    }, false);
+
+</script>
+
+</body>
+</html>

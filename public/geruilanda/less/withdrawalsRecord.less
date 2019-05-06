@@ -1,0 +1,98 @@
+@import "headBack";
+@red:#d9341e;
+
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+    position: relative;
+    
+	width: 100%;
+	height: 100%;
+
+	background: #fff;
+
+	.scroll-wrapper {
+		position: absolute;
+		left: 0;
+		top: 70px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		
+		overflow: hidden;
+		
+		.wrapper {
+		    
+		    .withdrawals-list {
+                width: 100%;
+
+                li {
+    
+                    border-bottom: 1px solid #dddddd;
+    
+                    a {
+                        position: relative;
+    
+                        display: block;
+                        width: 100%;
+                        padding: 20px 5%;
+    
+                        box-sizing: border-box;
+    
+                        .clearFix();
+    
+                        .withdrawal-title {
+                            float: left;
+    
+                            width: 19%;
+    
+                            font-size: 26px;
+                            color: #000;
+                        }
+    
+                        .withdrawal-time {
+                            float: right;
+    
+                            width: 49%;
+                            
+                            font-size: 26px;
+                            color: #666;
+                            text-align: right;
+    
+                            .ellipsisNormal();
+                        }
+    
+    
+                        .withdrawal-state {
+                            float: left;
+    
+                            width: 25%;
+                            margin: 0 3%;
+    
+                            text-align: center;
+                        }
+    
+                        .withdrawal-err {
+                            color: @red;
+                        }
+                    }
+    
+                }
+            }
+            
+            .loading {
+                display: none;
+                
+                font-size: 28px;
+                line-height: 60px;
+                color: #000;
+                text-align: center;
+            }
+		}
+
+	}
+
+}

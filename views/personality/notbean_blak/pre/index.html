@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/notbean/css/reset.css" />
+	<link rel="stylesheet" href="/notbean/css/animate.min.css" />
+	<link rel="stylesheet" href="/notbean/css/index.css" />
+	<!-- 样式 end -->
+	<title>不是豆干</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/notbean/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="page page1" id="page1">
+			<img src="/notbean/images/2/1_2.png" alt="" class="abs img1 btn" id="receiveBtn" />
+			
+			<div class="result" id="result">
+
+				<div class="result-wrapper">
+					<div class="result-title">恭喜您获得</div>
+					<div class="result-container" id="resultContainer">
+						<div class="coupon-wrapper">
+							<div class="coupon-container">
+								<div class="coupon-name">代金券</div>
+								<div class="coupon-right">
+									<div class="coupon-top">
+										<span class="unit">￥</span>16
+									</div>
+									<div class="coupon-code">
+										编号：129dw12890
+									</div>
+								</div>
+							</div>
+							<div class="coupon-tip">请到有赞商城核销优惠券</div>
+							<a href="" class="coupon-btn"><img src="/notbean/images/2/2_4.png" alt="" /></a>
+						</div>
+						<div class="red-package">
+							<div class="amount">
+								<span class="unit">￥</span>100
+							</div>
+							<div class="type">现金红包</div>
+							<div class="coupon-btn"><img src="/notbean/images/2/2_5.png" alt="" /></div>
+						</div>
+						<div class="no-award">
+							<img src="/notbean/images/2/4_1.png" class="abs img3 btn" />
+							<div class="coupon-btn"><img src="/notbean/images/2/2_5.png" alt="" /></div>
+							<div class="error-tip">您和红包擦肩而过!!!</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mask"></div>
+
+				<img src="/notbean/images/2/2_3.png" alt="" class="abs img2" />
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<script src="/notbean/scripts/lib/jquery-1.8.1.min.js"></script>
+<script src="/notbean/scripts/common/common.js"></script>
+<script src="/notbean/scripts/lib/jweixin-1.0.0.js"></script>
+
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/notbean/scripts/index_pre.js"></script>
+<!-- 页面js end-->
+
+<script>
+	
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+      WeixinJSBridge.call('hideOptionMenu');
+  	});
+
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	$('#page1').fadeIn();
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	    $(document).on('click', '#receiveBtn', function() {
+	    	$('#result').fadeIn();
+	    	$('#resultContainer').addClass('show');
+	    });
+
+	})
+</script>
+
+</body>
+</html>

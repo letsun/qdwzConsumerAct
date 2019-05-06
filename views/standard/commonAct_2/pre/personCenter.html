@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/commonAct_2/css/personCenter.css">
+    <link rel="stylesheet" href="/commonAct_2/fonts/iconfont.css">
+
+    <!-- 样式 end -->
+    <title>个人中心</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+       
+        <%-include("../include/header", {title: '个人中心'}) %>
+
+       <div class="wrapper">
+            <div class="person-header">
+                <div class="person-infor">
+                    <div class="avator-wrapper">
+                        <div class="avatar-border_1"></div>
+                        <div class="avatar-border_2"></div>
+                        <img src="/commonAct_2/images/user-photo.png" class="avatar" />
+                        <div class="nickname">向往</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-wrapper" id="scrollWrapper">
+                <div class="person-detail">
+                    <div class="account-wrapper">
+                        <div class="account-con">
+                            <i class="icon"></i>
+                            <div class="balance-wrapper">
+                                <div class="balance-title">我的余额</div>
+                                <div class="balance">￥3.00</div>
+                            </div>
+                            <a href="/withdraw" class="withdraw-btn">提现</a>
+                        </div>
+                    </div>
+                    <ul class="person-list">
+                        <li class="person-item">
+                            <a href="/myDiscount">
+                                <i class="icon"></i>
+                                <div class="person-right">
+                                    <div class="person-title">我的优惠券</div>
+                                    <i class="person-icon iconfont icon-qianjin"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="person-item">
+                            <a href="/myAccount">
+                                <i class="icon"></i>
+                                <div class="person-right">
+                                    <div class="person-title">我的积分</div>
+                                    <i class="person-icon iconfont icon-qianjin"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="person-item">
+                            <a href="/awardRecord">
+                                <i class="icon"></i>
+                                <div class="person-right">
+                                    <div class="person-title">中奖记录</div>
+                                    <i class="person-icon iconfont icon-qianjin"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="advertisement fixed">
+                <img src="/commonAct_2/images/5/1_2.gif" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+   $(function() {
+        var doc = $(document);
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();;
+        });
+   })
+</script>
+
+</body>
+</html>

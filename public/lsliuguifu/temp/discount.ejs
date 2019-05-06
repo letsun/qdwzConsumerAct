@@ -1,0 +1,37 @@
+<% var couponName = {
+    '0': '代金券',
+    '1': '折扣券',
+    '2': '兑换券',
+    '3': '满减券',
+}; %>
+
+<% for (var i = 0, len = result.length; i < len; i++) { %>
+<li class="item <% if (result[i].couponType === 0) { %>discount-coupon<% } else if (result[i].couponType === 1) { %>discount-coupon<% } else if (result[i].couponType === 2) { %>exchange-coupon<% } else if (result[i].couponType === 3) { %>full-coupon<% } %> <% if (result[i].status === 1) { %>used-coupon<% } else if (result[i].status === 2) { %>expired-coupon<% } %>">
+    <a href="/personality/lsliuguifu/act/couponDetail?couponId=<%=result[i].couponId %>">
+        <div class="coupon-name">
+            <%= couponName[result[i].couponType] %>
+        </div>
+        <div class="coupon-left">
+            <div class="coupon-con">
+                <% if (result[i].couponType === 0) { %>
+                <span class="unit">￥</span><%= result[i].price %>
+                <% } else if (result[i].couponType === 1) { %>
+                    <%= result[i].discount %><span class="unit">折</span>
+                <% } else if (result[i].couponType === 2) { %>
+                    <span class="unit">￥</span><%= result[i].price %>
+                <% } else if (result[i].couponType === 3) { %>
+                    满<%= result[i].fullPrice %> - <%= result[i].reducePrice %>
+                <% } %>
+            </div>
+            <div class="coupon-desc">
+                <% if (result[i].shopName != null) { %>
+                    <%= result[i].shopName %>
+                <% } %>
+            </div>
+        </div>
+        <div class="coupon-right">
+            <div class="coupon-code">编号：<br /><%= result[i].couponCode %></div>
+        </div>
+    </a>
+</li>
+<% } %>

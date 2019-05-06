@@ -1,0 +1,362 @@
+@import "common/reset";
+
+
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background: #fff;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+}
+
+#container {
+	position: relative;
+
+	width: 100%;
+	height: 100%;
+
+	background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_6.jpg) no-repeat;
+	background-size: 100% 100%;
+
+	.content {
+		position: relative;
+		z-index: 1;
+
+		width: 100%;
+		height: 100%;
+
+		.logo {
+			position: absolute;
+			left: 3%;
+			top: 2%;
+			z-index: 2;
+		}
+
+		.title {
+			position: absolute;
+			left: 1%;
+			top: 12%;
+			z-index: 2;
+
+			width: 98%;
+		}
+
+		.child-title {
+			position: absolute;
+			left: 13%;
+			top: 38%;
+			z-index: 2;
+
+			width: 76%;
+		}
+
+		.product {
+			position: absolute;
+			left: 0;
+			bottom: 14%;
+			z-index: 1;
+
+			width: 100%;
+		}
+
+		.receive-btn {
+			position: absolute;
+			left: 20%;
+			bottom: 0;
+			z-index: 3;
+
+			width: 60%;
+		}
+	}
+}
+
+/*红包结果弹窗*/
+.result-win {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+
+	display: none;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0, 0, 0, .7);
+
+	.result-con {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 1;
+
+		width: 528px;
+		height: 560px;
+		padding-top: 34px;
+
+		background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_9.png') no-repeat;
+		background-size: 100% 100%;
+
+		-webkit-transform: translate(-50%,-50%);
+
+		box-sizing: border-box;
+
+		.result-title {
+			width: 100%;
+
+			text-align: center;
+			font-size: 42px;
+			color: #eea330;
+			line-height: 45px;
+			font-weight: bold;
+		}
+
+		.dec {
+			position: relative;
+
+			display: none;
+			margin-top: 44px;
+
+			text-align: center;
+
+			.num {
+				line-height: 70px;
+				color: #e51523;
+
+				span {
+					display: inline-block;
+
+					font-size: 62px;
+					color: #e51523;
+					font-weight: bold;
+				}
+			}
+
+			.type {
+				margin-top: 12px;
+
+				font-size: 30px;
+				color: #e51523;
+				text-align: center;
+			}
+
+			.tips {
+				margin-top: 6px;
+
+				font-size: 22px;
+				color: #e51523;
+				text-align: center;
+			}
+		}
+
+		.dec2 {
+			margin-top: 54px;
+
+			.cry-img {
+				display: block;
+
+				margin: 0 auto;
+			}
+
+			.name {
+				margin: 26px auto 0 auto;
+
+				line-height: 50px;
+				color: #e51523;
+				font-size: 39px;
+				font-weight: bold;
+			}
+		}
+
+		.result-confirm {
+			position: absolute;
+			left: 21%;
+			bottom: 3%;
+			z-index: 2;
+
+			width: 58%;
+
+			cursor: pointer;
+		}
+	}
+
+	.result-img {
+		position: absolute;
+		left: 50%;
+		top: 44%;
+		z-index: 2;
+
+		display: none;
+
+		width: 626px;
+		height: 261px;
+
+		-webkit-transform: translate(-50%,-50%);
+	}
+}
+
+
+/*关注二维码*/
+.attent-win {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 99;
+
+	display: none;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0,0,0,.6);
+
+	.attent-content {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 1;
+
+		width: 528px;
+		height: 560px;
+		padding-top: 70px;
+
+		background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_11.png');
+		background-size: 100% 100%;
+
+		box-sizing: border-box;
+
+		-webkit-transform: translate(-50%,-50%);
+
+		.attent-title {
+			position: absolute;
+			left: 0;
+			top: 24px;
+			z-index: 1;
+
+			width: 100%;
+
+			font-size: 40px;
+			text-align: center;
+			line-height: 50px;
+			color: #eea330;
+			font-weight: bold;
+		}
+
+		.attent-dec {
+			padding: 30px 0 12px 0;
+
+			border-radius: 0 0 20px 20px;
+		}
+
+		.attent-img {
+			display: block;
+
+			margin: 0 auto;
+		}
+
+		.attent-tips {
+			margin-top: 17px;
+
+			font-size: 22px;
+			color: #e80016;
+			line-height: 34px;
+			text-align: center;
+		}
+
+		.attent-btn {
+			position: absolute;
+			left: 50%;
+			bottom: -18%;
+			z-index: 1;
+
+			-webkit-transform: translateX(-50%);
+		}
+	}
+}
+
+
+
+.loading {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background-color: #fff;
+
+	.loadCon {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+
+		width: 150px;
+		height: 150px;
+		margin-top: -75px;
+		margin-left: -75px;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			display: block;
+
+			width: 100%;
+
+			-webkit-animation: load 4s linear infinite;
+		}
+		#percent {
+			font-size: 24px;
+			line-height: 150px;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: 150px;
+			height: 150px;
+
+			text-align: center;
+		}
+	}
+}
+
+
+@-webkit-keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(0.7);
+	}
+}
+
+
+@-webkit-keyframes rotateA {
+	0% {
+		-webkit-transform: rotateY(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotateY(180deg);
+	}
+}
+
+@-webkit-keyframes rotateB {
+	0% {
+		-webkit-transform: rotateY(180deg);
+	}
+
+	100% {
+		-webkit-transform: rotateY(0deg);
+	}
+}

@@ -1,0 +1,299 @@
+@import 'reset';
+@import 'clearFix';
+@import 'newAnimate';
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: none;
+
+            width: 100%;
+            height: 100%;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            .abs {
+                position: absolute;
+            }
+        }
+        .page1 {
+            background-image: url('../images/2/5_1.jpg');
+            .page1_content {
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+            }
+            .img1 {
+                top: 0;
+                left: 10%;
+                width: 80%;
+                
+            }
+            .img2,
+            .error-tip {
+                z-index: 99;
+                top: 41%;
+                left: 50%;
+                cursor: pointer;
+
+                margin-left: -328 * .5px;
+            }
+            .img2 {
+                display: none;
+            }
+            .error-tip {
+                display: none;
+
+                width: 328px;
+
+                text-align: center;
+                line-height: 50px;
+
+                color: #fced59;
+
+            }
+            .text-tip {
+                position: absolute;
+                font-size: 24px;
+                line-height: 40px;
+
+                top: 49%;
+                left: 16%;
+
+                width: 68%;
+
+                color: #fff;
+            }
+            .img3 {
+                bottom: -2%;
+                left: 5%;
+                width: 90%;
+                z-index: 9;
+            }
+            .img4 {
+                bottom: 0;
+                left: 0;
+                height: 300px;
+                width: 100%;
+            }
+
+            .img7 {
+                position: absolute;
+                left: 50%;
+                top: 0;
+
+                transform: translateX(-50%);
+
+                display: none;
+
+                width: 252px;
+                height: 63px;
+
+            }
+
+            .yyy-wrapper {
+                position: fixed;
+                z-index: 99999;
+                top: 0;
+                left: 0;
+
+                display: none;
+
+                width: 100%;
+                height: 100%;
+
+                background-color: rgba(0, 0, 0, .7);
+                .hand,
+                .yyy-tip {
+                    top: 50%;
+                    left: 0;
+
+                    margin-top: -668 * .5px;
+                }
+                .hand {
+                    -webkit-animation: shakeAni 2s linear infinite;
+                            animation: shakeAni 2s linear infinite;
+                }
+            }
+            .notice-publicAccount {
+                position: fixed;
+                z-index: 99999;
+                top: 0;
+
+                display: none;
+
+                width: 100%;
+                height: 100%;
+
+                background-color: rgba(0, 0, 0, .5);
+                .erweima {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+
+                    width: 440px;
+                    height: 357px;
+
+                    transform: translate(-50%, -50%);
+                    .close {
+                        position: absolute;
+                        top: 10px;
+                        right: 20px;
+
+                        width: 30px;
+                        height: 30px;
+
+                        cursor: pointer;
+                    }
+                }
+            }
+            .result {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+
+                display: none;
+
+                width: 640px;
+                height: 581px;
+                .bg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                .wrapper {
+                    font-size: 33px;
+
+                    position: absolute;
+                    z-index: 99;
+                    top: 8%;
+                    left: 15%;
+
+                    width: 70%;
+
+                    text-align: center;
+
+                    color: #e44237;
+                    .con {
+                        font-weight: bold;
+                        line-height: 47px;
+                    }
+                    .tip {
+                        font-size: 20px;
+                        line-height: 35px;
+
+                        margin-top: 5px;
+                    }
+                }
+                .btn-group {
+                    position: absolute;
+                    z-index: 99;
+                    bottom: 19%;
+                    left: 8%;
+
+                    width: 84%;
+                    height: 63px;
+                    
+                    .img6 {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        
+                        display: block;
+
+                        width: 252px;
+                        height: 63px;
+
+                        cursor: pointer;
+                    }
+                    .img5 {
+                        top: 0;
+                        right: 0;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .share {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+
+        display: none;
+
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}

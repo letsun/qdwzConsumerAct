@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content=" initial-scale=1,user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <title></title>
+    <link href="/commonAct_2/css/map.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="scroll-wra" id="scrollWra">
+        <div class="content">
+            <div class="allmap" id="allmap"></div>
+
+            <!--tab切换-->
+            <div class="nav">
+                <div class="nav-item active">公交</div>
+                <div class="nav-item">驾车</div>
+                <div class="nav-item">步行</div>
+            </div>
+
+            <div class="results-wra" id="resultsWra">
+                <div class="results" id="results">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<%- include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xVvsn3oF1vhtA1Ggi4ZfW4VWWgP3wmML"></script>
+<script src="/commonAct_2/scripts/common/common2.js"></script>
+<script type="text/javascript">
+    var startAddress = '';
+    var endAddress = '';
+
+    // 页面禁止滑动
+    $('#container').on("touchmove", function (e) {
+        e.preventDefault();
+    });
+
+    var myurl=Global.getUrlParam("mapAddress");
+    if(myurl !=null && myurl.toString().length > 1) {
+        endAddress = unescape(myurl);
+    }
+
+    var scroll=new BScroll('#resultsWra',{
+        click:true,
+        scrollbar:true,
+    });
+    // 百度地图API功能
+    map = new BMap.Map("allmap");  // 创建Map实例
+    map.centerAndZoom(new BMap.Point(113.86848,22.572568),14);      // 初始化地图,用城市名设置地图中心点
+    map.enableScrollWheelZoom(true);
+
+    // 公交
+    var transit = new BMap.TransitRoute(map, {
+        renderOptions: {
+            map: map,
+            panel: "results"
+        }
+    });
+
+    // 驾车
+    var driving = new BMap.DrivingRoute(map, {
+        renderOptions: {
+            map   : map,
+            panel : "results",
+            autoViewport: true
+        }
+    });
+
+    // 步行
+    var walk = new BMap.WalkingRoute(map, {
+        renderOptions: {
+            map: map,
+            panel: "results"
+        }
+    });
+
+    dingWei();
+
+    function dingWei (){
+        //定位
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(result){
+            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                map.panTo(result.point);
+                latitude  = result.point.lat;    // 获取到的纬度
+                longitude = result.point.lng;    // 获取到的经度
+                point = new BMap.Point(longitude, latitude);    //创建一个点对象，这里的参数是地图上的经纬度
+                map.centerAndZoom(point, 18);    //这里是将地图的中心移动到我们刚才创建的点；
+                var province=result.address.province ? result.address.province : "";
+                var city=result.address.city ? result.address.city : "";
+                var district=result.address.district ? result.address.district : "";
+                var street=result.address.street ? result.address.street : "";
+                var streetNumber=result.address.streetNumber ? result.address.streetNumber : "";
+                startAddress=province +city+district +street +streetNumber;
+
+                if (startAddress != '' && endAddress != '') {
+                    busRoute(startAddress,endAddress);
+                } else {
+                    common.alert({
+                        mask:true,
+                        content:'地址不存在'
+                    })
+                }
+            }
+        });
+    }
+
+    // 点击tab切换
+    $('.nav-item').on('click',function () {
+        $('#results').html('');
+        var index = $(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+
+        if (startAddress != '' && endAddress != '') {
+            if (index == 0) {
+                busRoute(startAddress,endAddress);
+            } else if (index == 1) {
+                drivingRoute(startAddress,endAddress);
+            } else {
+                walkingRoute(startAddress,endAddress);
+            }
+        } else {
+            common.alert({
+                mask:true,
+                content:'地址不存在'
+            })
+        }
+
+        scroll.refresh();
+    });
+
+    // 公交
+    function busRoute(startAddress,endAddress) {
+        transit.search(startAddress,endAddress);
+    }
+
+    // 驾车
+    function drivingRoute(startAddress,endAddress) {
+        driving.search(startAddress,endAddress);
+    }
+
+    // 步行
+    function walkingRoute(startAddress,endAddress) {
+        walk.search(startAddress,endAddress);
+    }
+
+</script>
+</body>
+</html>

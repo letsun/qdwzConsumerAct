@@ -1,0 +1,353 @@
+@import "clearFix";
+@import "reset";
+@import "color";
+@import "header";
+@import "advertisement";
+
+html,body {
+	height: 100%;
+}
+
+body {
+	background: #fff;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+
+	.container {
+		width: 100%;
+		height: 100%;
+
+		.wrapper {
+		    position: absolute;
+		    top: 81px;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+
+		    .person-header {
+		        position: relative;
+
+		        height: 246px;
+
+		        background: #f26051;
+		        background-size: 100% 100%;
+
+		        .person-infor {
+		            position: absolute;
+		            top: -10px;
+		            left: 50%;
+
+		            transform: translateX(-50%);
+
+		            width: 540px;
+		            height: 280px;
+
+		            .avator-wrapper {
+		                position: absolute;
+		                left: 50%;
+
+		                transform: translateX(-50%);
+
+		                width: 280px;
+		                height: 280px;
+
+		                .avatar-border_1 {
+		                    position: absolute;
+		                    left: 0;
+		                    top: 0;
+
+		                    overflow: hidden;
+
+		                    width: 280px;
+		                    height: 280px;
+
+		                    border-radius: 50%;
+
+		                    background: #f3524a;
+
+		                }
+		                .avatar-border_2 {
+		                    position: absolute;
+		                    left: 50%;
+		                    top: 50%;
+
+		                    transform: translate(-50%, -50%);
+
+		                    overflow: hidden;
+
+		                    border-radius: 50%;
+
+		                    background: #f04740;
+
+		                    width: 200px;
+		                    height: 200px;
+
+		                }
+		                .avatar {
+		                    position: absolute;
+		                    left: 50%;
+		                    top: 50%;
+
+		                    transform: translate(-50%, -50%);
+
+		                    border-radius: 50%;
+
+		                    width: 128px;
+		                    height: 128px;
+
+		                }
+		                .nickname {
+		                    position: absolute;
+		                    left: 0;
+		                    bottom: 35px;
+
+		                    width: 100%;
+		                    line-height: 35px;
+
+		                    text-align: center;
+
+		                    color: #fff;
+							
+							font-size: 25px;
+
+		                }
+		            }
+		        }
+		    }
+		    .scroll-wrapper {
+		        position: absolute;
+		        top: 246px;
+		        bottom: 120px;
+		        left: 0;
+
+		        overflow: hidden;
+
+		        width: 100%;
+
+		        background: #fff;
+
+		        .person-detail {
+		            padding-bottom: 30px;
+		        }
+
+		        .account-wrapper {
+		            position: relative;
+
+		            height: 110px;
+					padding-left: 23px;
+					padding-right: 23px;
+
+		            background: #fff;
+
+		            .account-con {
+		                position: relative;
+		                
+		                width: 100%;
+
+		                font-size: 0;
+
+		                .icon {
+		                    display: inline-block;
+							
+							margin-top: (110 - 41) * 0.5px;
+
+		                    width: 41px;
+		                    height: 41px;
+
+		                    vertical-align: top;
+
+		                    text-align: center;
+
+		                    color: #fc9711;
+		                    
+		                    background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/3_1.png');
+		                    background-size: 100% 100%;
+
+		                }
+
+		                .balance-wrapper {
+		                    display: inline-block;
+
+		                    margin-left: 34px;
+
+		                    .balance-title {
+								padding-top: 15px;
+
+								line-height: 41px;
+
+								font-size: 24px;
+
+		                    }
+		                    .balance {
+		                    	height: 25px;
+		                    	line-height: 25px;
+
+		                    	font-size: 25px;
+		                    }
+		                }
+
+		                .withdraw-btn {
+		                    position: absolute;
+		                    right: 0;
+		                    top: 50%;
+
+		                    display: block;
+		    
+		                    transform: translateY(-50%);
+
+		                    width: 90px;
+		                    height: 50px;
+		                    line-height: 50px;
+
+		                    font-size: 20px;
+
+		                    border: 1px solid @styleColor;
+		                    border-radius: 5px;
+
+		                    text-align: center;
+		                }
+		            }
+		        }
+		        
+		        .person-list {
+		            background: #fff;
+
+		            border-top: 7px solid #e5e5e5;
+		            
+		            .person-item {
+
+		            	height: 79px;
+
+		            	padding: 0 23px;
+
+		                border-bottom: 1px solid #e5e5e5;
+
+		                &:nth-child(1) {
+		                    .icon {
+		                        background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/3_4.png');
+		                        background-size: 100% 100%;
+		                    }
+		                }
+		                &:nth-child(2) {
+		                    .icon {
+		                        background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/3_2.png');
+		                        background-size: 100% 100%;
+		                    }
+		                }
+		                &:nth-child(3) {
+		                    .icon {
+		                        background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/3_3.png');
+		                        background-size: 100% 100%;
+		                    }
+		                }
+		                &:nth-child(4) {
+		                    .icon {
+		                        background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/3_4.png');
+		                        background-size: 100% 100%;
+		                    }
+		                }
+		                &:nth-child(5) {
+		                    .icon {
+		                        background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/3_5.png');
+		                        background-size: 100% 100%;
+		                    }
+		                }
+		                .icon {
+		                    display: inline-block;
+							
+							margin-top: (79 - 41) * 0.5px;
+		                    width: 41px;
+		                    height: 41px;
+
+		                    vertical-align: top;
+
+		                    text-align: center;
+
+		                    color: #fc9711;
+
+		                    background-size: 100% 100%;
+
+		                }
+		                .person-right {
+		                    position: relative;
+
+		                    width: 520px;
+		                    height: 79px;
+		                    margin-left: 15px;
+
+		                    vertical-align: top;
+
+		                    display: inline-block;
+
+		                    .person-title {
+		                    	line-height: 79px;
+
+		                    	font-size: 24px;
+
+		                        color: #000;
+
+		                    }
+
+			                .person-num {
+				                position: absolute;
+				                top: 0;
+				                right: 60px;
+
+				                height: 79px;
+
+				                line-height: 79px;
+				                font-size: 24px;
+				                text-align: center;
+				                color: #000;
+			                }
+
+		                    .person-icon {
+		                        position: absolute;
+		                        top: 25px;
+		                        right: 21px;
+
+		                        width: 29px;
+		                        height: 29px;
+		                        line-height: 29px;
+
+		                        font-size: 29px;
+
+		                        text-align: center;
+
+		                        color: #cfcfd1;
+
+		                    }
+		                    .my-pengbi {
+		                        position: absolute;
+		                        top: 0;
+		                        right: 79px;
+
+		                        line-height: 79px;
+
+		                        color: #676767;
+
+		                        font-size: 25px;
+
+		                    }
+		                }
+		                &:last-child {
+		                    .person-right {
+		                        border-bottom: none;
+		                    }
+		                }
+
+		                a {
+		                	display: block;
+		                }
+		            }
+		        }
+		        .logout-wrapper {
+		        	padding: 50px 40px 30px 40px;
+		        }
+		    }
+		}
+	}
+}

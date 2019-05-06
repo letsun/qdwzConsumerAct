@@ -1,0 +1,49 @@
+<% var couponName = {
+'0': '代金券',
+'1': '折扣券',
+'2': '兑换券',
+'3': '满减券',
+}; %>
+
+<div class="coupon-scroll" id="couponScroll">
+	<% if (result.list.length < 2) { %>
+		<div class="coupon-list activeCoupon">
+			<% for (var i = 0, len = result.list.length; i < len; i++) { %>
+				<div class="coupon-item">
+					<div class="coupon-left">
+						<div class="coupon-price">
+							<span>￥</span><%= result.list[i].reducePrice %>
+						</div>
+						<div class="coupon-condition">满<%= result.list[i].fullPrice %>元使用</div>
+					</div>
+					<div class="coupon-right">
+						<div class="coupon-name"><%= couponName[result.list[i].couponType] %></div>
+						<div class="coupon-time">有效期至<%= result.list[i].endTime %></div>
+						<a class="coupon-user" href="javascript:void(0);">去使用</a>
+					</div>
+				</div>
+			<% } %>
+		</div>
+	<% } else { %>
+		<div class="coupon-list">
+			<% for (var i = 0, len = result.list.length; i < len; i++) { %>
+				<div class="coupon-item">
+					<div class="coupon-left">
+						<div class="coupon-price">
+							<span>￥</span><%= result.list[i].reducePrice %>
+						</div>
+						<div class="coupon-condition">满<%= result.list[i].fullPrice %>元使用</div>
+					</div>
+					<div class="coupon-right">
+						<div class="coupon-name"><%= couponName[result.list[i].couponType] %></div>
+						<div class="coupon-time">有效期至<%= result.list[i].endTime %></div>
+						<a class="coupon-user" href="javascript:void(0);">去使用</a>
+					</div>
+				</div>
+			<% } %>
+		</div>
+	<% } %>
+
+</div>
+
+<div class="coupon-tip">每次购买红包不可叠加使用</div>

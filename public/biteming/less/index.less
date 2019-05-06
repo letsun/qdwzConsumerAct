@@ -1,0 +1,356 @@
+
+@import "clearFix";
+@import "newAnimate";
+@red: #dd3f40;
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+
+	.container {
+		position: relative;
+
+		display: none;
+		width: 100%;
+		height: 100%;
+
+		img {
+			display: block;
+		}
+
+		/*背景*/
+		.container-bg {
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 0;
+
+			width: 100%;
+			height: 100%;
+
+			.bg {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+
+			.receive-btn {
+				position: absolute;
+				left: 50%;
+				top: 47%;
+				z-index: 10;
+
+				display: block;
+
+				-webkit-transform: translateX(-50%);
+
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+
+.loading {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	z-index: 9999;
+
+	.loadCon {
+		width: 150px;
+		height: 150px;
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		margin-left: -75px;
+		margin-top: -75px;
+
+		img {
+			display: block;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			-webkit-animation: load 4s linear infinite;
+		}
+		#percent {
+			width: 150px;
+			height: 150px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			text-align: center;
+			line-height: 150px;
+			font-size: 24px;
+		}
+	}
+}
+
+/*注册弹窗*/
+.register-win {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 99;
+
+	display: none;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0,0,0,.6);
+
+	.form {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 10;
+
+		width: 80%;
+		padding-bottom: 20px;
+
+		border-radius: 10px;
+
+		background: #fff;
+
+		-webkit-transform: translate(-50%,-50%);
+
+		.form-title-wra {
+			position: relative;
+
+			padding: 30px 0;
+
+			background: @red;
+
+			border-radius: 10px 10px 0 0;
+
+			.form-title {
+				text-align: center;
+				font-size: 32px;
+				line-height: 32px;
+				color: #fff;
+				font-weight: bold;
+			}
+
+			.form-close {
+				position: absolute;
+				right: 20px;
+				top: 16px;
+				z-index: 10;
+
+				display: block;
+
+				padding: 20px;
+			}
+		}
+
+		.form-item {
+			display: flex;
+
+			padding: 20px 10px 20px 10px;
+			margin: 0 20px;
+
+			font-size: 28px;
+			line-height: 50px;
+			color: #333;
+
+			border-bottom: 1px solid #ddd;
+
+			.form-key {
+				width: 124px;
+			}
+
+			.form-val {
+				flex: 1;
+
+				.form-input {
+					display: block;
+
+					width: 100%;
+					padding: 0 10px;
+
+					font-size: 28px;
+					line-height: 50px;
+
+					box-sizing: border-box;
+				}
+			}
+		}
+
+		.form-code-item {
+
+			.form-val {
+				.clearFix();
+
+				.form-input {
+					float: left;
+
+					width: 140px;
+				}
+
+				.form-code-btn {
+					float: left;
+
+					display: block;
+
+					width: 180px;
+					height: 50px;
+
+					line-height: 50px;
+					text-align: center;
+					font-size: 26px;
+					color: #333;
+
+					background: none;
+
+					border: 1px solid #ddd;
+				}
+			}
+		}
+
+		.form-sub-item {
+			border-bottom: none;
+
+			.form-sub-btn {
+				display: block;
+
+				width: 80%;
+				margin: 0 auto;
+				height: 60px;
+
+				font-size: 32px;
+				line-height: 60px;
+				text-align: center;
+				color: #fff;
+
+				background: @red;
+
+				border-radius: 10px;
+			}
+		}
+	}
+}
+
+
+/*红包弹窗*/
+.result-win {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 99;
+
+	display: none;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0,0,0,.6);
+
+	.result-bg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 10;
+
+		width: 100%;
+		height: 100%;
+	}
+
+	.result-title {
+		position: absolute;
+		left: 50%;
+		top: 31%;
+		z-index: 14;
+
+		text-align: center;
+		color: #ec4e35;
+		font-size: 24px;
+		line-height: 40px;
+		font-weight: 800;
+
+		-webkit-transform: translateX(-50%);
+	}
+
+	.result-dec {
+		position: absolute;
+		left: 50%;
+		top: 37%;
+		z-index: 14;
+
+		text-align: center;
+		color: #ec4e35;
+		font-size: 30px;
+		line-height: 32px;
+		font-weight: 700;
+
+		-webkit-transform: translateX(-50%);
+
+		.result-dec-num {
+			font-size: 40px;
+		}
+	}
+
+	.result-btn {
+		position: absolute;
+		left: 50%;
+		top: 53%;
+		z-index: 10;
+
+		-webkit-transform: translateX(-50%);
+
+		cursor: pointer;
+	}
+}
+
+/*二维码弹窗*/
+.qrcode-win {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+
+	display: none;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0,0,0,.6);
+	
+	.qrcode-con {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		
+		transform: translate(-50%, -50%);
+
+		width: 524px;
+		height: 418px;
+
+		.code {
+			display: block;
+
+			width: 100%;
+			height: 100%;
+		}
+
+		.code-close {
+			position: absolute;
+			top: 2%;
+    		right: 3%;
+			z-index: 10;
+
+			display: block;
+
+			padding: 20px;
+		}	
+	}
+	
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/zhengsheng/css/reset.css" />
+    <link rel="stylesheet" href="/zhengsheng/css/animate.min.css" />
+    <link rel="stylesheet" href="/zhengsheng/css/index.css" />
+    <!-- 样式 end -->
+    <title></title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/zhengsheng/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+    <div class="container" id="container">
+        <div class="result-wrapper" id="resultWrapper">
+            <div class="result-container">
+                <div class="result">
+                    <img class="result-bg" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/zhengsheng/images/1/1_2.png" />
+
+                    <div class="result-con">
+                        <img class="tit-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/zhengsheng/images/1/1_3.png" />
+
+                        <img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/zhengsheng/images/1/1_6.png" />
+
+                        <div class="award-info" style="display: block;">
+                            <p class="txt1">恭喜发财</p>
+
+                            <p class="txt2" style="display: none;"></p>
+
+                            <p class="txt3" style="display: none;">(收到奖品，请及时领取)</p>
+
+                            <img class="obtain-btn" style="display: block;" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/zhengsheng/images/1/1_4.png" />
+                        </div>
+
+                        <div class="award-fail">
+                            <p>很遗憾</p>
+                            <p>您未中奖</p>
+                        </div>
+
+                        <div class="obtain-success">
+                            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/zhengsheng/images/1/1_5.png" />
+                            <p>领取成功</p>
+                        </div>
+
+                        <div class="code-status"></div>
+                    </div>
+
+                    <!--<img class="close-btn" src="/zhengsheng/images/1/1_1.png" />-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/common/scripts/Func.js"></script>
+<script src="/zhengsheng/scripts/api.js"></script>
+<script src="/zhengsheng/scripts/index_act.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+       /* $(document).on("click",".close-btn",function() {
+            $(".result").hide();
+        });*/
+
+        /*$(document).on("click",".obtain-btn",function() {
+            $(".award-info").hide();
+            $(".obtain-success").show();
+        });*/
+    })
+</script>
+
+</body>
+</html>

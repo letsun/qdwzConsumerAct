@@ -1,0 +1,163 @@
+@import "reset";
+@red:#d9341e;
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	position: relative;
+
+	width: 100%;
+	height: 100%;
+
+	background: #eeeeee;
+
+	.scroll-wrapper {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+
+		overflow: hidden;
+
+		.wrapper {
+			padding-top: 82px;
+
+			.logo {
+				display: block;
+				margin: 0 auto;
+			}
+
+			.form {
+				width: 90%;
+				padding: 50px 30px 70px 30px;
+				margin: 82px auto 0 auto;
+
+				background: #fff;
+
+				border-radius: 10px;
+
+				box-sizing: border-box;
+
+				.form-item {
+					display: flex;
+
+					.form-key {
+						color: #000;
+						line-height: 65px;
+						font-size: 28px;
+					}
+
+					.form-val {
+						flex: 1;
+
+						.form-input {
+							display: block;
+
+							width: 100%;
+							height: 65px;
+							padding: 0 10px;
+
+							line-height: 65px;
+							font-size: 28px;
+
+							border: 1px solid #ddd;
+							border-radius: 10px;
+
+							box-sizing: border-box;
+						}
+					}
+				}
+
+				.form-code-item {
+					margin-top: 35px;
+
+					.form-val {
+						flex: 1;
+
+						.clearFix();
+
+						.form-input {
+							float: left;
+
+							display: block;
+
+							width: 50%;
+						}
+
+						.form-code-btn {
+							float: right;
+
+							display: block;
+
+							width: 40%;
+							height: 65px;
+
+							text-align: center;
+							line-height: 65px;
+							font-size: 28px;
+							color: #000;
+
+							border: 1px solid #ddd;
+							border-radius: 10px;
+
+							background: none;
+
+							box-sizing: border-box;
+
+							cursor: pointer;
+						}
+
+						.active {
+							background: #eee;
+						}
+					}
+				}
+
+				.form-btn-item {
+					margin-top: 70px;
+
+					.clearFix();
+
+					.form-btn {
+						float: left;
+
+						width: 150px;
+						height: 65px;
+
+						line-height: 65px;
+						text-align: center;
+						font-size: 30px;
+						color: #000;
+
+						border: 1px solid #ddd;
+						border-radius: 10px;
+
+						background: #fff;
+
+						box-sizing: border-box;
+
+						cursor: pointer;
+					}
+
+					.form-cancel-btn {
+						margin-left: 112px;
+					}
+
+					.form-confirm-btn {
+						margin-left: 50px;
+
+						color: #fff;
+
+						background: #359a34;
+					}
+				}
+			}
+		}
+
+	}
+
+}

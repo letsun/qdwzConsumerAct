@@ -1,0 +1,225 @@
+
+@import 'clearFix';
+@import 'newAnimate';
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: none;
+
+            width: 100%;
+            height: 100%;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            .abs {
+                position: absolute;
+            }
+            .img5 {
+                z-index: 100;
+                bottom: 6%;
+                left: 50%;
+
+                margin-left: -281 * .5px;
+
+                cursor: pointer;
+            }
+        }
+        .page1 {
+            background-image: url('../images/1/1_6.jpg');
+            .img1 {
+                top: 0;
+                left: 0;
+            }
+            .img2 {
+                z-index: 99;
+                top: 40%;
+                left: 75%;
+            }
+            .img3 {
+                bottom: 12%;
+                left: 50%;
+
+                margin-left: -394 * .5px;
+            }
+            .img4 {
+                z-index: 99;
+                bottom: 0;
+                left: 0;
+
+                cursor: pointer;
+            }
+            .img6 {
+                left: 50%;
+                bottom: 8%;
+
+                z-index: 99;
+
+                margin-left: -467 * .5px;
+
+            }
+            .yyy-wrapper {
+                position: fixed;
+                z-index: 99999;
+                top: 0;
+                left: 0;
+
+                display: none;
+
+                width: 100%;
+                height: 100%;
+
+                background-color: rgba(0, 0, 0, .7);
+                .hand,
+                .yyy-tip {
+                    top: 50%;
+                    left: 0;
+
+                    margin-top: -668 * .5px;
+                }
+                .hand {
+                    -webkit-animation: shakeAni 2s linear infinite;
+                            animation: shakeAni 2s linear infinite;
+                }
+            }
+            .notice-publicAccount {
+                position: fixed;
+                z-index: 99999;
+                top: 0;
+
+                display: none;
+
+                width: 100%;
+                height: 100%;
+
+                background-color: rgba(0, 0, 0, .5);
+                .erweima {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+
+                    width: 440px;
+                    height: 357px;
+
+                    transform: translate(-50%, -50%);
+                    .close {
+                        position: absolute;
+                        top: 10px;
+                        right: 20px;
+
+                        width: 30px;
+                        height: 30px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .result {
+                position: absolute;
+                bottom: 12%;
+
+                left: 50%; 
+
+                display: none;
+
+                width: 394px; 
+                height: 454px;
+                margin-left: -394 * .5px;
+                .bg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                .wrapper {
+                    font-size: 29px;
+
+                    position: absolute;
+                    z-index: 99;
+                    top: 15%;
+                    left: 15%;
+
+                    width: 70%;
+
+                    text-align: center;
+
+                    color: #e44237;
+                    .con {
+                        font-weight: bold;
+                        line-height: 47px;
+                    }
+                    .tip {
+                        font-size: 20px;
+                        line-height: 35px;
+
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}

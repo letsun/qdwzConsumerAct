@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <%-include("../include/commonCss") %>
+    <link rel="stylesheet" href="/commonAct_1/css/awardDetail.css">
+    <link rel="stylesheet" href="/commonAct_1/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>券详情</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+        <%-include("../include/header", {title: '优惠券详情'}) %>
+        <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <ul class="money-list" id="money-list">
+                    
+                    <li class="money-item entry">
+                        <div class="title">优惠券名称</div>
+                        <div class="time" id="couponName"></div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">面值</div>
+                        <div class="time" id="price"></div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">券码</div>
+                        <div class="time" id="couponCode"></div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">有效期</div>
+                        <div class="time" id="useTime"></div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">兑换商家</div>
+                        <div class="time" id="merchant"></div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">兑换地址</div>
+                        <div class="address">
+                            <i class="dizhi-icon iconfont icon-dizhi"></i>
+                            <div class="address-con" id="address"></div>
+                        </div>
+                        <!--<div class="time use-con" id="useCon">
+                            <a href="javascript:void(0);" class="use-btn" id="use-btn">去使用</a>
+                            <i class="icon iconfont icon-qianjin"></i>
+                        </div>-->
+                    </li>
+                    <li class="money-item">
+                        <div class="title">规则</div>
+                        <div class="time" id="rule"></div>
+                    </li>
+
+                </ul>
+                <div class="erweima" id="erweima">
+                    
+                </div>
+                <a href="javascript:void(0);" class="confirm-btn" id="confirmBtn">确认使用</a>
+                <a href="javascript:void(0);" class="confirm-btn" id="rechangeBtn">兑换商家</a>
+            </div>
+        </div>
+        <%-include("../include/advertisement") %>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+
+    <div class="confirm-wrapper" id="confirmfWrapper">
+        <div class="confirm-win">
+            <div class="confirm-header">
+                <div class="confirm-title">确认核销</div>
+            </div>
+            <div class="confirm-content" id="form">
+                <div class="form-input" id="formInput">
+                    <input type="text" class="form-text" data-validateInfor="{strategy:isEmpty,msg:店主编号不能为空}" id="shopkeeperId" placeholder="请输入店主编号" />
+                </div>
+                <div class="btn">
+                    <a href="javascript:void(0)" id="cancelBtn">取消</a>
+                    <a href="javascript:void(0)" id="submitBtn">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/common/scripts/validate.js"></script>
+<script src="/common/scripts/qrcode.js"></script>
+<script src="/commonAct_1/scripts/Func.js"></script>
+<script src="/commonAct_1/scripts/api.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+   $(function() {
+        var doc = $(document);
+        var originShopkeeperId = '';
+        var isRelationShopkeeper = 0;
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();
+        });
+
+        doc.on('click', '#confirmBtn', function() {
+            $('#confirmfWrapper').fadeIn(300);
+        });
+
+        doc.on('click', '#cancelBtn', function() {
+            $('#confirmfWrapper').fadeOut(300);
+        });
+
+        doc.on('click', '#submitBtn', function() {
+
+            if (isRelationShopkeeper) {
+                var flag = Global.initValidate('#form');
+            
+                if (!flag) {
+                    return;
+                }
+            }
+            //debugger;
+            var shopkeeperId = $('#shopkeeperId').val();
+            
+            if (shopkeeperId != originShopkeeperId && isRelationShopkeeper) {
+                common.alert({
+                    content: '店主编号有误',
+                    mask: true
+                });
+                return;
+            }
+
+            Func.cancelCoupon({
+                shopkeeperId: shopkeeperId,
+                actCouponId: Global.getUrlParam('couponId')
+            }, function(res) {
+                if (res.code === 200) {
+                    common.alert({
+                        content: res.msg,
+                        mask: true,
+                        ok: function() {
+                            $('#confirmfWrapper').fadeOut(300);
+                            $('#confirmBtn').css({'display': 'none'});
+                        }
+                    });
+                } else {
+                    common.alert({
+                        content: res.msg,
+                        mask: true
+                    });
+                }
+            });
+        });
+
+        // 券详情页面广告
+        Func.getAdvByAdvPositionName('#advertisement', '券详情页面');
+
+        Func.couponDetail(Global.getUrlParam('couponId'), function(res) {
+            // debugger;
+
+            if (res.code === 200) {
+                $('#couponName').text(res.data.couponName);
+                $('#couponCode').text(res.data.couponCode);
+                $('#useTime').text(res.data.beginTime + '至' + res.data.endTime);
+
+                if (res.data.shopkeeperList.length == 0 || res.data.shopkeeperList == '') {
+                    $('#merchant').parents('.money-item').hide();
+                    $('#address').parents('.money-item').hide();
+                } else if(res.data.shopkeeperList.length == 1) {
+                    $('#merchant').text(res.data.shopkeeperList[0].shopkeeperName);
+                    $('#address').text(res.data.shopkeeperList[0].address);
+                } else {
+                    $('#merchant').parents('.money-item').hide();
+                    $('#address').parents('.money-item').hide();
+                    $('#rechangeBtn').css({'display': 'block'});
+                    $("#rechangeBtn").on("click",function() {
+                        window.location.href = "/standard/commonAct_1/act/couponShoppers?couponId=" + res.data.actCouponId;
+                    });
+                }
+
+                if (res.data.isOpenConsumerCheck && !res.data.status) {
+                    $('#confirmBtn').css({'display': 'block'});
+
+                    isRelationShopkeeper = res.data.isRelationShopkeeper;
+
+                    if (!isRelationShopkeeper) {
+                        
+                        $('#formInput').hide();
+                    }
+
+                    originShopkeeperId = res.data.shopkeeperId;
+                   
+                }
+
+                $('#rule').text(res.data.remark);
+
+                if (res.data.couponType === 0) {
+                    $('#price').text('￥' + res.data.price);
+                } else if (res.data.couponType === 1) {
+                    $('#price').text(res.data.discount + '折');
+                } else if (res.data.couponType === 2) {
+                    $('#price').text('￥' + res.data.price);
+                } else if (res.data.couponType === 3) {
+                    $('#price').text('满' + res.data.fullPrice + '-' + res.data.reducePrice);
+                }
+
+                QRCode.toDataURL(res.data.couponCode, {errorCorrectionLevel: 'H', type: 'image/jpeg'}, function(err, url) {
+                        // debugger;
+
+                        if (err) {
+                            return;
+                        }
+
+                        $('#erweima').html('<img src="' + url + '" id="code" />');
+
+                        $('#loadingWrapper').hide();
+
+                    });
+            } else {
+                common.alert({
+                    content: res.msg,
+                    mask: true
+                });
+
+                $('#loadingWrapper').hide();
+            }
+        });
+
+        // 点击去使用
+       /*doc.on('click','#use-btn',function () {
+           debugger;
+           window.location.href = ;
+       })*/
+   });
+
+   var scroll = new BScroll('#scrollWrapper', {
+        scrollbar: {
+            fade: true
+        },
+        click: true
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+@import "reset";
+@import "color";
+@import "clearFix";
+@import "header";
+@import "advertisement";
+
+html,body {
+    height: 100%;
+}
+
+body {
+    background: #fff;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+        width: 100%;
+        height: 100%;
+
+        .scroll-wrapper {
+            position: absolute;
+            top: 82px;
+            bottom: 120px;
+            left: 0;
+            right: 0;
+
+            overflow: hidden;
+
+            background: #fff;
+            z-index: 0;
+
+            .wrapper {
+                padding-bottom: 10px;
+
+                .shopper-tit {
+                    .clearFix();
+
+                    border-bottom: 1px solid #eee;
+
+                    p {
+                        float: left;
+                        padding: 15px 10px;
+
+                        line-height: 35px;
+                        color: #333;
+                        font-size: 26px;
+                        font-weight: 600;
+                        text-align: center;
+
+                        box-sizing: border-box;
+
+                        &:first-of-type {
+                            width: 40%;
+                        }
+
+                        &:last-of-type {
+                            width: 60%;
+                        }
+                    }
+                }
+
+                .shopper-list {
+                    width: 100%;
+
+                    li {
+                        .clearFix();
+
+                        border-bottom: 1px solid #eee;
+
+                        p {
+                            float: left;
+                            padding: 15px 10px;
+
+                            line-height: 35px;
+                            color: #555;
+                            font-size: 24px;
+                            text-align: center;
+
+                            box-sizing: border-box;
+
+                            &:first-of-type {
+                                width: 40%;
+                            }
+
+                            &:last-of-type {
+                                width: 60%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

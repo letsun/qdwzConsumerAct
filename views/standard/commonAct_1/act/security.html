@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <%-include("../include/commonCss") %>
+    <link rel="stylesheet" href="/commonAct_1/css/security.css">
+    <link rel="stylesheet" href="/commonAct_1/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>防伪验证</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+        <%-include("../include/header", {title: '防伪验证'}) %>
+       <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <div class="security-wrapper" id="securityWrapper">
+                    
+                </div>
+                <%-include("../include/advertisement") %>
+            </div>
+        </div>
+
+        <%-include("../include/bottom", {page: 'security'})%>
+
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/commonAct_1/scripts/api.js"></script>
+<script src="/commonAct_1/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+   $(function() {
+        var doc = $(document);
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();;
+        });
+
+        // 防伪验证页面广告
+        Func.getAdvByAdvPositionName('#advertisement', '防伪验证页面');
+
+        Func.findEncodeFunction(function(res) {
+            if (res.code === 200) {
+
+                if (res.data.security) {
+                    var securityCheckRecord = res.data.securityCheckRecord;
+                    var html = '';
+
+                    html += '<div class="security-count">';
+                    html += securityCheckRecord.valiCount;
+                    html += '</div>';
+                    html += '<div class="security-desc">' + securityCheckRecord.message + '</div>';
+
+                    $('#securityWrapper').html(html);    
+                } else {
+                   common.alert({
+                    content: '防伪验证未开启',
+                    mask: true
+                   }); 
+                }
+            } else {
+                common.alert({
+                    content: res.msg,
+                    mask: true
+               });
+            }
+
+            $('#loadingWrapper').hide();
+        });
+   })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/yingtao/css/withdraw.css">
+
+    <!-- 样式 end -->
+    <title>提现</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+
+        <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <!--头部-->
+                <div class="header">
+                    <div class="user">
+                        <div class="user-photo" id="avator">
+                            
+                        </div>
+                        <div class="user-name" id="nickname">用户名</div>
+                    </div>
+                </div>
+
+                <!--主体-->
+                <div class="content">
+                    <!--总金额-->
+                    <ul class="total-amount">
+                        <li class="amount history">
+                            <div class="amount-title history-title">历史提现总额</div>
+                            <div class="amount-num history-num">￥<span id="historyAmount"></span>元</div>
+                        </li>
+
+                        <li class="amount history">
+                            <div class="amount-title balance-title">余额</div>
+                            <div class="amount-num balance-num">￥<span id="balance"></span>元</div>
+                        </li>
+                    </ul>
+
+                    <div class="form" id="form">
+                        <div class="form-item">
+                            <div class="form-left">
+                                <input class="form-input"  id="amount" data-validateInfor="{strategy:isEmpty,msg:提现金额不能为空}|{strategy:isPrice,msg:提现余额必须为大于1小于200的整数}" type="text" placeholder="请输入提现金额" />
+                            </div>
+
+                            <div class="form-right">
+                                <a class="withdraw-btn" id="withdraw-btn" href="javascript:void(0)">提&nbsp;&nbsp;&nbsp;现</a>
+                            </div>
+                        </div>
+
+                        <div class="form-text">注：一天提现最多只能3次，提现金额只能是1-200元的整数。</div>
+                        
+                    </div>
+            
+                    <div class="rebate">
+                        <div class="title">返利明细</div>
+                        <div class="rebate-container" id="rebate-container">
+                            <div class="rebate-content">
+                                <ul class="rebate-list" id="rebate-list">
+                                    
+                                </ul>
+                                <div class="tip" id="tip"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/common/scripts/validate.js"></script>
+
+<script src="/yingtao/scripts/api.js"></script>
+<script src="/yingtao/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/yingtao/scripts/withdraw.js"></script>
+<!-- 页面js end-->
+
+<script>
+    window.onload = function() {
+        var scroll = new BScroll(document.getElementById('scrollWrapper'), {
+            click: true,
+            scrollbar: {
+                 fade: true
+            }
+        });
+
+        var scroll = new BScroll(document.getElementById('rebate-container'), {
+            click: true,
+            stopPropagation: true,
+            pullUpLoad: {
+                threshold: -30
+            }
+        });
+
+        var hasNext = true, 
+            pageNum = 1, 
+            pageSize = 7;
+
+        Func.findRebate({
+            pageNum: pageNum,
+            pageSize: pageSize
+        }, function(res) {
+            hasNext = res.data.hasNext;
+
+            render(res.data.rebateList);
+
+            if (res.data.rebateList.length < pageSize) {
+                $('#tip').html('已经没有更多了');
+            }
+        });
+
+        // 下拉加载更多
+        scroll.on('pullingUp', function() {   
+
+            if (!hasNext) {
+                $('#tip').html('已经没有更多了');
+                return;
+            }
+
+            $('#tip').html('正在加载中...');
+
+            pageNum++;
+
+            Func.findRebate({
+                pageNum: pageNum,
+                pageSize: pageSize
+            }, function(res) {
+                
+                hasNext = res.data.hasNext;
+
+                render(res.data.rebateList)
+            });
+
+        });
+
+        function render(data) {
+            if (data.length) {
+
+                for (var i = 0, len = data.length; i < len; i++) {
+                    var  html = '';
+                    for (var i = 0, len = data.length; i < len; i++) {
+                        html += '<li class="item" data-style="true" style="display: none;">' + data[i].nickname + '领取红包，获得返利' + currency('￥', data[i].rebateAmount) + '元<span class="time">' + data[i].createDateTime + '</span></li>'
+                    }
+                    $('#rebate-list').append(html);
+                    $('#rebate-list .item[data-style]').fadeIn();
+                    
+                    $('#tip').html('下拉加载更多');
+
+                    scroll.refresh();
+                    scroll.finishPullUp()
+                }
+                
+            } else {
+                $('#tip').html('暂无记录');
+            }
+            
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

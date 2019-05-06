@@ -1,0 +1,145 @@
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #fff;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+#app .container {
+  width: 100%;
+  height: 100%;
+}
+#app .container .header {
+  width: 100%;
+  height: 362px;
+  background: url("../images/4_1.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .header .user {
+  width: 100%;
+  padding-top: 110px;
+}
+#app .container .header .user .user-photo {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+}
+#app .container .header .user .user-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+#app .container .header .user .user-name {
+  width: 90%;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  color: #fff;
+}
+#app .container .content .total-amount:before,
+#app .container .content .total-amount:after {
+  content: " ";
+  display: table;
+}
+#app .container .content .total-amount:after {
+  clear: both;
+}
+#app .container .content .total-amount .amount {
+  float: left;
+  width: 50%;
+  padding: 20px 0;
+  box-sizing: border-box;
+  border-left: 1px solid #ededed;
+}
+#app .container .content .total-amount .amount:first-child {
+  border-left: none;
+}
+#app .container .content .total-amount .amount .amount-title {
+  font-size: 24px;
+  color: #323232;
+  text-align: center;
+}
+#app .container .content .total-amount .amount .amount-num {
+  padding-top: 10px;
+  font-size: 32px;
+  color: #cb262a;
+  text-align: center;
+}
+#app .container .content .form {
+  border-top: 10px solid #ededed;
+}
+#app .container .content .form .form-item {
+  width: 100%;
+  padding: 30px 5%;
+  box-sizing: border-box;
+}
+#app .container .content .form .form-item:before,
+#app .container .content .form .form-item:after {
+  content: " ";
+  display: table;
+}
+#app .container .content .form .form-item:after {
+  clear: both;
+}
+#app .container .content .form .form-item .form-left {
+  float: left;
+  width: 70%;
+}
+#app .container .content .form .form-item .form-left .form-input {
+  width: 100%;
+  height: 70px;
+  padding: 0 20px;
+  line-height: 70px;
+  font-size: 25px;
+  border-radius: 10px;
+  background: #eeeeee;
+  box-sizing: border-box;
+}
+#app .container .content .form .form-item .form-right {
+  float: right;
+  width: 25%;
+}
+#app .container .content .form .form-item .form-right .withdraw-btn {
+  display: block;
+  width: 100%;
+  height: 70px;
+  color: #fff;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 25px;
+  background: #e4312c;
+}
+#app .container .content .form .form-text {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 23px;
+}
+#app .container .content .erweima {
+  margin-top: 30px;
+}
+#app .container .content .erweima img {
+  display: block;
+  margin: 0 auto;
+}
+#app .container .content .company {
+  text-align: center;
+  line-height: 50px;
+  font-size: 25px;
+  color: #e4312c;
+  margin-top: 30px;
+  padding-bottom: 20px;
+}

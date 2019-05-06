@@ -1,0 +1,11 @@
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <% for (var i = 0, len = result.length; i < len; i++) { %>
+        <div class="swiper-slide">
+            <img class="ads" src="<%= result[i].picUrl %>" data-advId="<%= result[i].advId %>" data-href="<%= result[i].linkUrl %>" />
+        </div>
+        <% } %>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+</div>

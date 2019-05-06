@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/luoboke/css/reset.css" />
+    <link rel="stylesheet" href="/luoboke/css/animate.min.css" />
+    <link rel="stylesheet" href="/luoboke/css/index.css" />
+    <!-- 样式 end -->
+    <title>罗伯克二维码红包活动</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/luoboke/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div id="container">
+        
+        <div class="content">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_2.png" alt="" class="logo">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_1.png" alt="" class="title">
+            <img class="receive-btn" id="receive-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_3.png" alt="">
+        </div>
+
+
+        <!--关注二维码弹窗-->
+        <div class="attent-win" id="attent-win">
+
+            <div class="attent-content">
+
+                <img class="attent-title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_12.png" alt="">
+                <img class="qrcode" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_13.png" alt="">
+                <img class="close-attent" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_11.png" alt="">
+
+                <div class="attent-text">
+                    <p>检测到您尚未关注公众号</p>
+                    <p>请长按识别关注公众号后再扫码获取红包</p>
+                </div>
+            </div>
+        </div>
+
+        <!--红包结果弹窗-->
+        <div class="redResult-win" id="redResult-win">
+            <div class="redResult-content">
+
+                <img class="redResult-title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_6.png">
+                <div class="redResult-dec-wra">
+
+                    <div class="redResult-dec redResult-dec1" style="display: block;">
+                        <div class="redResult-amount"><span class="num num1">6.66</span>元</div>
+                        <div class="redResult-type">现金红包</div>
+                    </div>
+
+                    <div class="redResult-dec redResult-dec2">
+                        <img class="redResult-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_9.png" alt="">
+                        <div class="redResult-text">该码已被扫</div>
+                    </div>
+
+                    <div class="redResult-text">
+                        <p>奖励由公众号进行发放</p>
+                        <p>请注意查收</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/luoboke/scripts/index_pre.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+
+</body>
+</html>

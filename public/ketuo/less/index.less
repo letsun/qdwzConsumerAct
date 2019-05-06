@@ -1,0 +1,207 @@
+@import 'clearFix';
+@import 'newAnimate';
+
+.ellipsisNormal {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ellipsis(@line) {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @line;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+        position: relative;
+
+	    display: none;
+
+        width: 100%;
+        height: 100%;
+
+	    .result-wrapper {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+			z-index: 99;
+
+		    display: block;
+
+		    .result-container {
+			    position: absolute;
+			    left: 50%;
+			    top:  50%;
+			    z-index: 999;
+
+			    //display: none;
+
+			    width: 100%;
+			    height: 100%;
+
+			    background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/laiyikou/images/1_2.png") no-repeat;
+			    background-size: 100% 100%;
+
+			    transform: translate(-50%, -50%);
+				-webkit-transform: translate(-50%, -50%);
+
+                .img1 {
+                    position: absolute;
+                    top: 2%;
+                    left: 9%;
+
+                    width: 82%;
+                    display: block;
+                }
+
+                .img2 {
+                    position: absolute;
+                    top: 24%;
+                    left: 10%;
+
+                    width: 80%;
+                    display: block;
+                }
+
+			    .result {
+				    position: absolute;
+				    left: 50%;
+				    top: 37%;
+
+				    transform: translateX(-50%);
+				    -webkit-transform: translateX(-50%);
+
+				    width: 430px;
+
+                    .point-wrapper {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+
+                        width: 100%;
+                        height: 172px;
+
+                        background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/laiyikou/images/1_8.png") no-repeat;
+                        background-size: 100% 100%;
+
+                        .tit {
+                            line-height: 60px;
+                            color: #ea2713;
+                            font-size: 26px;
+                            text-align: center;
+                        }
+
+                        .award-point {
+                            display: none;
+
+                            .num {
+                                margin-top: 35px;
+
+                                text-align: center;
+
+                                span {
+                                    color: #eb2613;
+                                    font-size: 80px;
+                                    font-weight: bolder;
+                                }
+
+                                img {
+                                    margin-left: 10px;
+                                    display: inline-block;
+                                }
+                            }
+                        }
+
+                        .award-none,
+                        .code-scanned {
+                            display: none;
+
+                            .none-img {
+                                margin: 35px auto;
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .point-btn {
+                        position: absolute;
+                        top: 210px;
+                        left: 19%;
+
+                        width: 62%;
+                        display: block;
+
+                        img {
+                            width: 100%;
+                            display: block;
+                        }
+                    }
+			    }
+
+		    }
+	    }
+    }
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}

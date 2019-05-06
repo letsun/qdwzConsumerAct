@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>柳林酒业</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <link rel="stylesheet" href="/liulin/scripts/plug/swiper/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="/liulin/css/font.css">
+    <link rel="stylesheet" href="/liulin/css/productInfor.css">
+</head>
+<body>
+<div id="container">
+
+    <div class="content">
+
+        <img src="" alt="" class="imgUrl" id="imgUrl">
+
+        <!--商品信息-->
+        <div class="infor">
+            <div class="infor-title-wra">
+                <div class="infor-title">商品信息</div>
+            </div>
+
+            <div class="infor-list">
+                <div class="infor-item">
+                    <div class="infor-key">商品名称：</div>
+                    <div class="infor-val" id="productName"></div>
+                </div>
+                <div class="infor-item">
+                    <div class="infor-key">商品条码：</div>
+                    <div class="infor-val" id="productCode"></div>
+                </div>
+                <div class="infor-item">
+                    <div class="infor-key">建议零售价(元)：</div>
+                    <div class="infor-val" id="productOrginalPrice"></div>
+                </div>
+                <div class="infor-item">
+                    <div class="infor-key">保质期描述：</div>
+                    <div class="infor-val" id="expirationDateDes"></div>
+                </div>
+                <div class="infor-item">
+                    <div class="infor-key">生产地址：</div>
+                    <div class="infor-val" id="place"></div>
+                </div>
+                <div class="infor-item">
+                    <div class="infor-key">商品规格：</div>
+                    <div class="infor-val" id="productSpec"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--导航-->
+    <div class="nav-list">
+        <a class="nav-item active" href="/template/liulin/index">商品信息</a>
+        <a class="nav-item" href="/template/liulin/overview">公司简介</a>
+        <a class="nav-item" href="/template/liulin/introduction">活动介绍</a>
+    </div>
+
+</div>
+
+</body>
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/liulin/scripts/api.js"></script>
+<script src="/liulin/scripts/Func.js"></script>
+<script src="/liulin/scripts/lib/jweixin-1.0.0.js"></script>
+
+<script>
+
+    var html = '';
+    var data;
+    $.ajax({
+        url: api.findProduct,
+        type: 'GET',
+        dataType: 'json',
+        headers: getHeader(),
+        success: function(res) {
+            if (res.code == 200) {
+                data = res.data;
+                var jsonPropArr = JSON.parse(data.jsonProp);
+                if (data.imagesUrl.length > 0) {
+                    $('#imgUrl').attr('src',data.imagesUrl);
+                }
+                $('#productName').html(data.productName);
+                $('#productCode').html(data.productCode);
+                $('#productOrginalPrice').html(data.productOrginalPrice);
+                $('#expirationDateDes').html(data.expirationDateDes);
+                $('#productSpec').html(data.productSpec);
+                $('#place').html(data.province + data.city + data.area + data.detailedAddress);
+
+                for (var i = 0; i < jsonPropArr.length; i++) {
+                    var obj = jsonPropArr[i];
+                    for (key in obj) {
+                        html += '<div class="infor-item">';
+                        html += '<div class="infor-key">' + key + '：</div>';
+                        html += '<div class="infor-val" id="place">' + obj[key] + '</div>';
+                        html += '</div>';
+                    }
+                }
+                $('.infor-list').append(html);
+
+
+            } else {
+                common.alert({
+                    mask:true,
+                    content:res.msg
+                })
+            }
+        },
+        error:function (res) {
+            common.alert({
+                mask:true,
+                content:res.msg
+            })
+        }
+    });
+
+</script>
+</html>

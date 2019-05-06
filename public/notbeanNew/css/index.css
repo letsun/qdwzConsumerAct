@@ -1,0 +1,695 @@
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+/* 新增一些iPhone下不兼容的动画库 */
+/*
+ * 1.从左向右出动画
+*/
+@-webkit-keyframes left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes left {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes left {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 2.从右向左出动画
+*/
+@-webkit-keyframes right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes right {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes right {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 3.从上向下出动画
+*/
+@-webkit-keyframes down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes down {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes down {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 4.从下往上出动画
+*/
+@-webkit-keyframes up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes up {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes up {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 5.上下浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown1 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-moz-keyframes upDown1 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-o-keyframes upDown1 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(10px);
+  }
+}
+/*
+ * 6.上下浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown2 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-moz-keyframes upDown2 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-o-keyframes upDown2 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(20px);
+  }
+}
+/*
+ * 7.上下浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown3 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-moz-keyframes upDown3 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-o-keyframes upDown3 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(30px);
+  }
+}
+/*
+ * 8.左右浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight1 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes leftRight1 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-o-keyframes leftRight1 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(10px);
+  }
+}
+/*
+ * 9.左右浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight2 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-moz-keyframes leftRight2 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-o-keyframes leftRight2 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(20px);
+  }
+}
+/*
+ * 10.左右浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight3 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-moz-keyframes leftRight3 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-o-keyframes leftRight3 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(30px);
+  }
+}
+@-webkit-keyframes shakeAni {
+  0% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(4deg);
+  }
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+#app .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#app .container .page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+#app .container .page .abs {
+  position: absolute;
+}
+#app .container .page1 {
+  background-image: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/1_2.jpg');
+}
+#app .container .page1 .img1 {
+  top: 29px;
+  left: 5%;
+}
+#app .container .page1 .img2 {
+  top: 49%;
+  left: 0;
+  transform: translateY(-50%);
+}
+#app .container .page1 .img3 {
+  top: 47%;
+  left: 0;
+  transform: translateY(-50%);
+}
+#app .container .page1 .img4 {
+  bottom: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#app .container .page1 .img5 {
+  bottom: -4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+#app .container .page1 .result-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#app .container .page1 .result-wrapper .img6 {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+#app .container .page1 .result-wrapper .result-bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 496px;
+  height: 730px;
+  background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/2_3.png") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .page1 .result-wrapper .result-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  width: 496px;
+  height: 790px;
+}
+#app .container .page1 .result-wrapper .result-container .close-btn {
+  position: absolute;
+  right: 0px;
+  top: -40px;
+  z-index: 999;
+  display: block;
+  width: 51px;
+  height: 51px;
+}
+#app .container .page1 .result-wrapper .result-container .result {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
+  width: 331px;
+  height: 400px;
+}
+#app .container .page1 .result-wrapper .result-container .result .tip-status {
+  width: 100%;
+  height: 57px;
+  line-height: 57px;
+  font-size: 37px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #fbc105;
+}
+#app .container .page1 .result-wrapper .result-container .result .tip-status.top {
+  position: absolute;
+  left: 0;
+  top: -170px;
+}
+#app .container .page1 .result-wrapper .result-container .result .block {
+  display: none;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-wrapper {
+  position: relative;
+  width: 343px;
+  height: 144px;
+  background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/2_2.png") no-repeat;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-wrapper .coupon-container {
+  position: absolute;
+  left: 23px;
+  top: 18px;
+  width: 290px;
+  height: 97px;
+  color: #752ec8;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-wrapper .coupon-container .coupon-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 216px;
+  height: 97px;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-wrapper .coupon-container .coupon-left .coupon-top {
+  position: relative;
+  width: 100%;
+  margin-top: 5px;
+  height: 65px;
+  line-height: 65px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-wrapper .coupon-container .coupon-left .coupon-top .coupon-price {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 105px;
+  height: 65px;
+  line-height: 65px;
+  font-size: 45px;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-wrapper .coupon-container .coupon-left .coupon-top .coupon-price span {
+  font-size: 22px;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-wrapper .coupon-container .coupon-left .coupon-top .coupon-time {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 115px;
+  height: 65px;
+  line-height: 30px;
+  font-size: 19px;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-wrapper .coupon-container .coupon-left .coupon-bottom {
+  line-height: 32px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-wrapper .coupon-container .coupon-right {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  width: 30px;
+  height: 98px;
+  line-height: 28px;
+  font-size: 23px;
+}
+#app .container .page1 .result-wrapper .result-container .result .coupon-tip {
+  line-height: 35px;
+  margin: 5px 0;
+  text-align: center;
+  font-size: 22px;
+  color: #fff;
+}
+#app .container .page1 .result-wrapper .result-container .result .use-btn {
+  display: block;
+  width: 182px;
+  height: 63px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+#app .container .page1 .result-wrapper .result-container .result .redPackage-wrapper {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  color: #ffc205;
+  text-align: center;
+}
+#app .container .page1 .result-wrapper .result-container .result .redPackage-wrapper .redPackage-price {
+  line-height: 60px;
+  font-size: 45px;
+  font-weight: bold;
+}
+#app .container .page1 .result-wrapper .result-container .result .redPackage-wrapper .redPackage-price span {
+  font-size: 25px;
+}
+#app .container .page1 .result-wrapper .result-container .result .redPackage-wrapper .redPackage-tip {
+  font-size: 30px;
+  font-weight: bold;
+}
+#app .container .page1 .result-wrapper .result-container .result .noAward-wrapper {
+  margin: 20px auto 30px auto;
+}
+#app .container .page1 .result-wrapper .result-container .result .noAward-wrapper .noAward-logo {
+  width: 125px;
+  height: 122px;
+  margin: 0 auto;
+}
+#app .container .page1 .result-wrapper .result-container .result .noAward-wrapper .noAward-tip {
+  margin-top: 10px;
+  line-height: 40px;
+  font-size: 23px;
+  color: #fff;
+  text-align: center;
+}
+#app .container .page1 .result-wrapper .result-container .result .qrcode {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+#app .container .page1 .result-wrapper .result-container .result .qrcode .qrcode-tip {
+  text-align: center;
+  font-size: 20px;
+  color: #f8e100;
+  line-height: 30px;
+}
+#app .container .page1 .phone-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#app .container .page1 .phone-mask .phone-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 494px;
+  height: 456px;
+  background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/3_1.png") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .page1 .phone-mask .phone-box .input-box {
+  position: relative;
+  width: 420px;
+  margin: 50px auto;
+}
+#app .container .page1 .phone-mask .phone-box .input-box input[type="text"] {
+  width: 100%;
+  height: 65px;
+  padding-left: 40px;
+  display: block;
+  line-height: 65px;
+  color: #a1756a;
+  font-size: 24px;
+  background: #fff9f1;
+  border: none;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+#app .container .page1 .phone-mask .phone-box .input-box ::-webkit-input-placeholder {
+  color: #a1756a;
+}
+#app .container .page1 .phone-mask .phone-box .input-box .code-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px;
+  height: 65px;
+  line-height: 55px;
+  color: #fff;
+  font-size: 24px;
+  outline: none;
+  -webkit-appearance: none;
+  background: #ff8d3a;
+  border: 5px solid #000;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+#app .container .page1 .phone-mask .phone-box .input-box .active {
+  background: #eee;
+}
+#app .container .page1 .phone-mask .phone-box .input-phone {
+  margin-top: 70px;
+}
+#app .container .page1 .phone-mask .phone-box .submit-btn {
+  width: 200px;
+  height: 65px;
+  margin: 100px auto;
+  display: block;
+  line-height: 55px;
+  color: #fff;
+  font-size: 26px;
+  text-align: center;
+  outline: none;
+  -webkit-appearance: none;
+  background: #ff5532;
+  border: 5px solid #000;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.loading .loadCon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.loading .loadCon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  font-size: 24px;
+  line-height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}

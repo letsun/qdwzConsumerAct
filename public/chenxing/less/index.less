@@ -1,0 +1,477 @@
+@import "reset";
+@import "clearFix";
+
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+.container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/chenxing/7_2.png') no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+	/*关注公众号*/
+	/*开奖结果*/
+}
+.container .dzp-wrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.container .dzp-wrapper .logo {
+	position: absolute;
+	left: 3%;
+	top: 3%;
+	z-index: 2;
+}
+.container .dzp-wrapper .title {
+	position: absolute;
+	left: 2%;
+	top: 8%;
+	z-index: 2;
+	width: 96%;
+}
+.container .dzp-wrapper .red-pack {
+	position: absolute;
+	left: 1%;
+	top: 28%;
+	z-index: 2;
+	width: 98%;
+}
+.container .dzp-wrapper .cream {
+	position: absolute;
+	left: 3%;
+	top: 27%;
+	z-index: 1;
+	width: 94%;
+}
+.container .dzp-wrapper .person {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 0;
+	width: 100%;
+}
+.container .dzp-wrapper .stand {
+	position: absolute;
+	left: 31%;
+	bottom: 5%;
+	z-index: 1;
+	width: 38%;
+}
+.container .dzp-wrapper .dzp-container {
+	position: absolute;
+	left: 50%;
+	top: 32%;
+	z-index: 10;
+	transform: translateX(-50%);
+	width: 563px;
+	height: 563px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con {
+	width: 100%;
+	height: 100%;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .abs {
+	width: 563px;
+	height: 563px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 450px;
+	height: 450px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 180px;
+	height: 230px;
+	padding: 0 30px;
+	color: #fff;
+
+	background-color: rgba(0, 0, 0, 0);
+	transform-origin: bottom center;
+	box-sizing: border-box;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item .con {
+	position: relative;
+	top: 10%;
+	margin: 0 auto;
+	width: 100%;
+	line-height: 30px;
+	text-align: center;
+	font-size: 24px;
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item:nth-of-type(odd) {
+	color: #fe4940;
+}
+.container .dzp-wrapper .dzp-container .dzp-btn {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 2;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+.container .result-win {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 99;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+}
+.container .result-win .result-content {
+	position: absolute;
+	left: 0;
+	top: 16%;
+	width: 100%;
+	height: 645px;
+	background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_13.png') no-repeat;
+	background-size: 100% 100%;
+	-webkit-animation: up 0.8s ease;
+}
+.container .result-win .result-content .result-bg {
+	display: block;
+	width: 100%;
+}
+.container .result-win .result-content .result-con {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.container .result-win .result-content .result-con .result-title {
+	position: absolute;
+	left: 0;
+	top: 15%;
+	width: 100%;
+	color: #bd4419;
+	font-size: 40px;
+	line-height: 44px;
+	text-align: center;
+	font-weight: bold;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec {
+	display: none;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec .result-img {
+	display: block;
+	margin: 0 auto;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec1 {
+	padding-top: 280px;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec1 .result-num {
+	margin-top: 40px;
+	font-size: 22px;
+	text-align: center;
+	color: #f7d75c;
+	line-height: 50px;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec1 .result-num .amount {
+	font-size: 50px;
+	font-weight: bold;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec1 .result-tips {
+	margin-top: 10px;
+	color: #f7d75c;
+	font-size: 28px;
+	line-height: 40px;
+	text-align: center;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec2 {
+	padding-top: 280px;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec2 .result-sec-wra {
+	display: block;
+	margin: 50px auto 0 auto;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec2 .result-sec-wra .result-sec {
+	display: block;
+	width: 239px;
+	margin: 0 auto;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec3 {
+	padding-top: 280px;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec3 .result-sec {
+	display: block;
+	margin: 40px auto 0 auto;
+}
+.container .result-win .result-content .result-con .go-winning {
+	position: absolute;
+	left: 50%;
+	top: 82%;
+	display: block;
+	width: 397px;
+	height: 67px;
+	font-size: 34px;
+	text-align: center;
+	line-height: 67px;
+	color: #a81213;
+	font-weight: bold;
+	background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_10.png') no-repeat;
+	background-size: 100% 100%;
+	-webkit-transform: translateX(-50%);
+}
+.container .attent-win {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+.container .attent-win .attent-con {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+
+	width: 570px;
+	height: 732px;
+	background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/chenxing/2_1.png');
+	background-size: 100% 100%;
+	-webkit-transform: translate(-50%, -50%);
+}
+.container .attent-win .attent-con .attent-title {
+	width: 100%;
+	height: 238px;
+	padding-top: 130px;
+	font-size: 40px;
+	text-align: center;
+	line-height: 40px;
+	color: #fff;
+	font-weight: bold;
+	box-sizing: border-box;
+}
+.container .attent-win .attent-con .attent-dec {
+	padding: 20px 0 0 0;
+}
+.container .attent-win .attent-con .attent-tip {
+	display: block;
+	margin: 0 auto;
+}
+.container .attent-win .attent-con .attent-text {
+	margin-top: 20px;
+	font-size: 32px;
+	line-height: 32px;
+	text-align: center;
+	color: #666;
+}
+.container .attent-win .attent-con .close-attent {
+	width: 300px;
+	height: 66px;
+	margin: 40px auto 0 auto;
+	background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/chenxing/2_2.png') no-repeat;
+	background-size: 100% 100%;
+}
+.container .result-win {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+}
+.container .result-win .result-con {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: 626px;
+	height: 560px;
+	padding-top: 40px;
+	background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/chenxing/3_1.png') no-repeat;
+	background-size: 100% 100%;
+	-webkit-transform: translate(-50%, -50%);
+	box-sizing: border-box;
+}
+.container .result-win .result-con .result-title {
+	width: 100%;
+	text-align: center;
+	font-size: 38px;
+	color: #eeaa47;
+	line-height: 42px;
+	font-weight: bold;
+}
+.container .result-win .result-con .dec {
+	position: relative;
+	display: none;
+	margin-top: 38px;
+	text-align: center;
+}
+.container .result-win .result-con .dec .num {
+	line-height: 70px;
+	color: #fd575b;
+	font-size: 32px;
+}
+.container .result-win .result-con .dec .num span {
+	display: inline-block;
+	font-size: 66px;
+	color: #fc575b;
+	font-weight: bold;
+}
+.container .result-win .result-con .dec .type {
+	margin-top: 12px;
+	color: #fd575b;
+	font-size: 32px;
+	line-height: 36px;
+	text-align: center;
+}
+.container .result-win .result-con .dec .tips {
+	margin-top: 6px;
+	font-size: 22px;
+	color: #fc575b;
+	text-align: center;
+}
+.container .result-win .result-con .dec3 {
+	margin-top: 14px;
+}
+
+.coupon {
+	display: block;
+
+	margin: 0 auto;
+
+	img {
+		display: block;
+
+		margin: 0 auto;
+	}
+}
+.container .result-win .result-con .dec3 .type {
+	margin-top: 0;
+}
+.container .result-win .result-con .dec3 .tips {
+	margin-top: 3px;
+}
+.container .result-win .result-con .dec4,
+.container .result-win .result-con .dec5 {
+	margin-top: 30px;
+}
+.container .result-win .result-con .dec4 .name,
+.container .result-win .result-con .dec5 .name {
+	line-height: 50px;
+	color: #fd575b;
+	font-size: 38px;
+	font-weight: bold;
+}
+.container .result-win .result-con .dec4 .cry-img,
+.container .result-win .result-con .dec5 .cry-img {
+	display: block;
+	width: 200px;
+	margin: 30px auto 0 auto;
+}
+.container .result-win .result-con .result-confirm {
+	position: absolute;
+	left: 50%;
+	bottom: 6%;
+	z-index: 2;
+	display: none;
+	width: 300px;
+	height: 68px;
+	cursor: pointer;
+	-webkit-transform: translateX(-50%);
+}
+.container .result-win .result-con .result-confirm img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.advertisement {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 999;
+	display: block;
+	width: 100%;
+	height: 120px;
+}
+.advertisement img {
+	display: block;
+	width: 100%;
+	height: 120px;
+}
+.loading {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+}
+.loading .loadCon {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	width: 150px;
+	height: 150px;
+	margin-top: -75px;
+	margin-left: -75px;
+}
+.loading .loadCon img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	-webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+	font-size: 24px;
+	line-height: 150px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 150px;
+	text-align: center;
+}
+
+.advertisement {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 999;
+
+	display: block;
+
+	width: 100%;
+	height: 120px;
+
+	img {
+		display: block;
+
+		width: 100%;
+		height: 120px;
+	}
+}

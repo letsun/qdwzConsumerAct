@@ -1,0 +1,367 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+}
+body {
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  color: #333;
+  background: #fff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+img {
+  border: 0;
+  cursor: pointer;
+}
+div {
+  cursor: pointer;
+}
+input[type='text'],
+input[type='password'],
+input[type='submit'],
+textarea,
+button,
+select {
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+}
+.clearFix:before,
+.clearFix:after {
+  display: table;
+  content: ' ';
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.header-wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 82px;
+  background: #f26051;
+}
+.header-wrapper:before,
+.header-wrapper:after {
+  display: table;
+  content: ' ';
+}
+.header-wrapper:after {
+  clear: both;
+}
+.header-wrapper:before,
+.header-wrapper:after {
+  content: " ";
+  display: table;
+}
+.header-wrapper:after {
+  clear: both;
+}
+.header-wrapper .back {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 23px;
+  text-align: center;
+  z-index: 9;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.header-wrapper .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 82px;
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+}
+.header-wrapper .add-address {
+  position: absolute;
+  top: 30px;
+  right: 56px;
+  line-height: 26px;
+  font-size: 26px;
+  color: #fff;
+}
+.loading {
+  display: none;
+  line-height: 80px;
+  text-align: center;
+  font-size: 20px;
+  color: #777;
+}
+.advertisement {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background: #f1f1f1;
+}
+.advertisement.fixed {
+  position: absolute;
+  bottom: 0;
+}
+.advertisement img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: #fff;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+#app .container {
+  width: 100%;
+  height: 100%;
+}
+#app .container .tab-wrapper {
+  position: absolute;
+  top: 82px;
+  right: 0;
+  left: 0;
+  background: #fff;
+  height: 70px;
+  border-bottom: 1px solid #555;
+}
+#app .container .tab-wrapper .tab-list {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 70px;
+}
+#app .container .tab-wrapper .tab-list .item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+#app .container .tab-wrapper .tab-list .item.active a {
+  color: #ee4a49;
+}
+#app .container .tab-wrapper .tab-list .item.active a:before {
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translate(-50%, -50%);
+  content: "";
+  display: block;
+  width: 146px;
+  height: 4px;
+  background: #ee4a49;
+}
+#app .container .tab-wrapper .tab-list .item a {
+  display: block;
+  line-height: 70px;
+  font-size: 27px;
+}
+#app .container .coupon-wrapper {
+  position: absolute;
+  top: 155px;
+  bottom: 120px;
+  left: 0;
+  right: 0;
+}
+#app .container .scroll-wrapper {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  display: none;
+  overflow: hidden;
+  background: #ffffff;
+  z-index: 0;
+}
+#app .container .scroll-wrapper.active {
+  display: block;
+}
+#app .container .scroll-wrapper.scroll-wrapper2 .wrapper .coupon-list .item.expired-coupon {
+  background: url("../images/1/7_2_1.png") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .scroll-wrapper.scroll-wrapper2 .wrapper .coupon-list .item.used-coupon {
+  background: url("../images/1/7_2_2.png") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .scroll-wrapper.scroll-wrapper2 .wrapper .coupon-list .item .coupon-left .coupon-desc span {
+  color: #999999;
+}
+#app .container .scroll-wrapper.scroll-wrapper2 .wrapper .coupon-list .item .coupon-right .coupon-code {
+  color: #fff;
+}
+#app .container .scroll-wrapper .wrapper {
+  padding-bottom: 10px;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list {
+  position: relative;
+  padding-top: 30px;
+  margin: 30px auto 0 auto;
+  width: 497px;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 155px;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item.discount-coupon {
+  background: url("../images/1/6_2_3.png") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item.full-coupon {
+  background: url("../images/1/6_2_2.png") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item.exchange-coupon {
+  background: url("../images/1/6_2_1.png") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item .coupon-name {
+  position: absolute;
+  left: 36px;
+  top: 58px;
+  width: 78px;
+  height: 31px;
+  line-height: 31px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item .coupon-left {
+  position: absolute;
+  left: 133px;
+  width: 130px;
+  height: 124px;
+  color: #fff;
+  text-align: center;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item .coupon-left .coupon-con {
+  width: 100%;
+  line-height: 40px;
+  padding-top: 19px;
+  font-size: 26px;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item .coupon-left .coupon-con .unit {
+  font-size: 17px;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item .coupon-left .coupon-desc {
+  line-height: 28px;
+  font-size: 17px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item .coupon-right {
+  position: absolute;
+  right: 28px;
+  top: 8px;
+  width: 172px;
+  height: 124px;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item .coupon-right .use-time {
+  padding-top: 17px;
+  line-height: 27px;
+  text-align: center;
+  font-size: 17px;
+  color: #999999;
+}
+#app .container .scroll-wrapper .wrapper .coupon-list .item .coupon-right .coupon-code {
+  margin-top: 35px;
+  line-height: 24px;
+  font-size: 17px;
+  color: #222;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/notbean/css/reset.css" />
+	<link rel="stylesheet" href="/notbean/css/animate.min.css" />
+	<link rel="stylesheet" href="/notbean/css/index.css" />
+	<!-- 样式 end -->
+	<title>不是豆干</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/notbean/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="page page1" id="page1">
+			<img src="/notbean/images/1/logo.png" class="abs img1" />
+			<img src="/notbean/images/1/1_4.png" class="abs img2" />
+			<img src="/notbean/images/1/1_5.png" class="abs img3" />
+			<img src="/notbean/images/1/1_3.png" class="abs img4" />
+			<img src="/notbean/images/1/1_1.png" class="abs img5" id="openRedPackage" />
+
+			<div class="result-wrapper" id="resultWrapper">
+				<div class="result-bg"></div>
+				<div class="result-container">
+					<a href="javascript:void(0)" class="close-btn" id="closeBtn">
+						<img src="/notbean/images/1/2_1.png" />
+					</a>
+					<div class="result">
+						<div class="tip-status top">恭喜您获得</div>
+						
+						<div class="block" style="display: block;">
+							<div class="coupon-wrapper">
+								<div class="coupon-container">
+									<div class="coupon-left">
+										<div class="coupon-top">6.8折黑金卡会员6.8折黑金卡会员
+											<!--<div class="coupon-price">
+												<span>￥</span>30
+											</div>
+											<div class="coupon-time">有效期至2018-8-20</div>--></div>
+										<div class="coupon-bottom">
+											编号：129dw12809
+										</div>
+									</div>
+									<div class="coupon-right">代金券</div>
+								</div>
+							</div>
+							<div class="coupon-tip">请到有赞商城核销优惠券</div>
+							<a href="javascript:void(0)" class="use-btn">
+								<img src="/notbean/images/1/2_5.png" />
+							</a>
+						</div>
+
+						<div class="block">
+							<div class="redPackage-wrapper">
+								<div class="redPackage-price"><span>￥</span>100</div>
+								<div class="redPackage-tip">现金红包</div>
+							</div>
+						</div>
+
+						<div class="block">
+							<div class="noAward-wrapper">
+								<div class="noAward-logo">
+									<img src="/notbean/images/1/4_1.png" />
+								</div>
+								<div class="noAward-tip">您与红包擦肩而过</div>
+							</div>
+						</div>
+
+						<div class="qrcode">
+							<img src="/notbean/images/1/2_6.png" />
+							<div class="qrcode-tip">长按关注公众号</div>
+						</div>
+					</div>
+				</div>
+				<img src="/notbean/images/1/2_4.png" class="abs img6" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<script src="/notbean/scripts/lib/jquery-1.8.1.min.js"></script>
+<script src="/notbean/scripts/common/common.js"></script>
+
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<!-- 页面js end-->
+
+<script>
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	$('#page1').fadeIn();
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	    $(document).on('click', '#openRedPackage', function(e) {
+	    	$('#resultWrapper').fadeIn();
+	    });
+
+	    $(document).on('click', '#closeBtn', function(e) {
+	    	$('#resultWrapper').fadeOut();
+	    });
+
+	})
+</script>
+
+</body>
+</html>

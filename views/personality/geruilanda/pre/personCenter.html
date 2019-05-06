@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no" />
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/geruilanda/fonts/iconfont.css">
+	<link rel="stylesheet" href="/geruilanda/css/personCenter.css">
+	<!-- 样式 end -->
+	<title>个人中心</title>
+</head>
+<body>
+
+<div class="container" id="container">
+	<!--头部-->
+	<div class="header">
+		<div class="user">
+			<div class="user-photo">
+				<img src="/geruilanda/images/user-photo.png" alt="">
+			</div>
+			<div class="user-name">用户名</div>
+		</div>
+	</div>
+
+	<div class="scroll-wrapper" id="scrollWrapper">
+		<div class="wrapper">
+			<!--总金额-->
+			<ul class="total-amount">
+				<li class="amount history">
+					<div class="amount-title history-title">历史提现总额</div>
+					<div class="amount-num history-num">10.20元</div>
+				</li>
+
+				<li class="amount history">
+					<div class="amount-title balance-title">余额</div>
+					<div class="amount-num balance-num">10.20元</div>
+				</li>
+			</ul>
+
+			<div class="form">
+				<div class="form-item">
+					<div class="form-left">
+						<input class="form-input" id="withdrawalAmount" type="text" placeholder="请输入提现金额">
+					</div>
+
+					<div class="form-right">
+						<a class="withdraw-btn" id="withdraw-btn" href="javascript:void(0)">提&nbsp;&nbsp;&nbsp;现</a>
+					</div>
+				</div>
+
+				<div class="form-text">注：一天提现最多只能3次，提现金额只能是1-200元的整数。</div>
+
+			</div>
+
+			<div class="nav-list">
+				<div class="nav-item">
+					<a href="/withdrawalsRecord">
+						<div class="nav-left">
+							<img src="/geruilanda/images/person_01.png" alt="">
+						</div>
+						<div class="nav-mid">提现记录</div>
+						<div class="nav-right iconfont icon-shouqi-copy-copy"></div>
+					</a>
+
+				</div>
+
+				<div class="nav-item">
+					<a href="/winningRecord">
+						<div class="nav-left">
+							<img src="/geruilanda/images/person_02.png" alt="">
+						</div>
+						<div class="nav-mid">中奖记录</div>
+						<div class="nav-right iconfont icon-shouqi-copy-copy"></div>
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<!--底部-->
+	<div class="footer">北京格瑞蓝达生物科技有限公司</div>
+
+</div>
+
+<!--弹窗-->
+<div class="tips-win" id="tips-win">
+	<div class="tips-con">
+		<div class="tips-title">
+			请等待厂家审核，审核完成后，直接通过公众号红包发放给你，审核时间为2-3天。
+		</div>
+		<div class="tips-btn" id="tips-btn">我知道了</div>
+	</div>
+</div>
+<%-include("../../../include/hideMenu") %>
+<script src="/geruilanda/scripts/lib/jquery-2.2.2.min.js"></script>
+<script src="/geruilanda/scripts/lib/common.js"></script>
+<script src="/geruilanda/plugins/betterScroll/bscroll.js"></script>
+
+
+<script>
+    // 禁止页面滚动
+    $('#container').on('touchmove', function(e) {
+        e.preventDefault();
+    });
+    
+    var doc = $(document);
+
+    var scroll = new BScroll('#scrollWrapper', {
+        click: true,
+    });
+
+    var height = $(document).height();
+    $('body').css({height:height + 'px'});
+    
+    doc.on('click','#withdraw-btn',function () {
+		var withdrawalAmount = $('#withdrawalAmount').val();
+		var reg = /^\d+$/;
+		if ($.trim(withdrawalAmount) == '') {
+		    common.alert({
+				mask:true,
+				content:'提现金额不能为空',
+			});
+			return;
+		}
+
+        if (!reg.test(withdrawalAmount)) {
+            common.alert({
+                mask:true,
+                content:'提现金额只能为整数',
+            });
+            return;
+        }
+        $('#withdrawalAmount').val('');
+        $('#tips-win').fadeIn();
+    });
+
+	// 点击关闭提示弹窗
+	doc.on('click','#tips-btn',function () {
+		$('#tips-win').fadeOut();
+    })
+
+</script>
+</body>
+</html>

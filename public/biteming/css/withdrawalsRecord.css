@@ -1,0 +1,208 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+  cursor: pointer;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.loading {
+  line-height: 70px;
+  text-align: center;
+}
+.header-back {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 70px;
+  background: #d9341e;
+}
+.header-back .back-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: block;
+  padding-left: 60px;
+  height: 70px;
+  line-height: 70px;
+  color: #fff;
+}
+.header-back .back-icon .back {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  z-index: 10;
+  display: block;
+  line-height: 70px;
+  font-size: 25px;
+}
+.header-back h3 {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 70px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.container .scroll-wrapper {
+  position: absolute;
+  left: 0;
+  top: 70px;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+}
+.container .scroll-wrapper .wrapper {
+  width: 100%;
+}
+.container .scroll-wrapper .wrapper .withdrawals-list {
+  width: 100%;
+}
+.container .scroll-wrapper .wrapper .withdrawals-list li {
+  border-bottom: 1px solid #dddddd;
+}
+.container .scroll-wrapper .wrapper .withdrawals-list li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 20px 5%;
+  box-sizing: border-box;
+}
+.container .scroll-wrapper .wrapper .withdrawals-list li a:before,
+.container .scroll-wrapper .wrapper .withdrawals-list li a:after {
+  content: " ";
+  display: table;
+}
+.container .scroll-wrapper .wrapper .withdrawals-list li a:after {
+  clear: both;
+}
+.container .scroll-wrapper .wrapper .withdrawals-list li a .withdrawal-title {
+  float: left;
+  width: 25%;
+  font-size: 26px;
+  color: #000;
+}
+.container .scroll-wrapper .wrapper .withdrawals-list li a .withdrawal-time {
+  float: left;
+  width: 44%;
+  margin: 0 3%;
+  font-size: 26px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.container .scroll-wrapper .wrapper .withdrawals-list li a .withdrawal-state {
+  float: right;
+  width: 25%;
+  text-align: right;
+}
+.container .scroll-wrapper .wrapper .withdrawals-list li a .withdrawal-err {
+  color: #d9341e;
+}

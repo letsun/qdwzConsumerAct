@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/zeroduFitness/css/reset.css" />
+	<link rel="stylesheet" href="/zeroduFitness/css/animate.min.css" />
+	<link rel="stylesheet" href="/zeroduFitness/css/index.css" />
+	<!-- 样式 end -->
+	<title><%= title %></title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/zeroduFitness/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		
+		<!-- 第一页 -->
+		<div class="page page1" id="page1">
+			<div class="result">
+				<img src="/zeroduFitness/images/4/1_3.png" alt="" class="title" />
+				<div class="result-content">
+					<div class="result-tip">获得：<span>现金红包</span></div>
+					
+					<!--红包 -->
+					<div class="result-con">
+						￥<span class="price">100</span>
+					</div>
+					
+					<!-- 实物 -->
+					<div class="result-entry">
+						<div class="result-name">充电式LED台灯</div>
+						<div class="entry-tip">已加入个中心中奖记录！</div>
+					</div>
+					
+				</div>
+
+				<!-- 未中奖 -->
+				<div class="no-success">
+					您已经扫过了<br>去个人中心看看吧！
+				</div>
+			</div>
+			
+			<a href="/personCenter" class="img1">
+				<img src="/zeroduFitness/images/4/1_1.png" />
+			</a>
+
+		</div>
+		
+	</div>
+</div>
+
+<!-- 公共js start -->
+<%- include('../../../include/commonJs') %>
+<!-- 公共js end -->
+
+<script>
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	$('#page1').fadeIn();
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	})
+</script>
+
+</body>
+</html>

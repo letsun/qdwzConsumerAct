@@ -1,0 +1,267 @@
+@import "reset";
+@import "color";
+@import "clearFix";
+@import "header";
+@import "advertisement";
+
+html,body {
+	height: 100%;
+}
+
+body {
+	background: #fff;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+
+	.container {
+		width: 100%;
+		height: 100%;
+
+		.tab-wrapper {
+			position: absolute;
+			top: 82px;
+			right: 0;
+			left: 0;
+
+			background: #fff;
+
+			height: 70px;
+			border-bottom: 1px solid #555;
+
+			.tab-list {
+				position: relative;
+
+				display: flex;
+
+				width: 100%;
+				height: 70px;
+
+				
+
+				.item {
+					position: relative;
+
+					flex: 1;
+
+					text-align: center;
+
+					&.active {
+						a {
+							color: #ee4a49;
+
+							&:before {
+								position: absolute;
+								left: 50%;
+								bottom: -2px;
+
+								transform: translate(-50%, -50%);
+
+								content: "";
+								
+								display: block;
+
+								width: 146px;
+								height: 4px;
+
+								background: #ee4a49;
+
+							}
+						}
+					}
+
+					a {
+						display: block;
+						line-height: 70px;
+						font-size: 27px;
+
+						
+						
+					}
+
+				}
+
+			}
+		}
+
+		.coupon-wrapper {
+			position: absolute;
+		    top: 82 + 73px;
+		    bottom: 120px;
+		    left: 0;
+		    right: 0;
+		}
+
+		.scroll-wrapper {
+		    position: absolute;
+		    top: 0px;
+		    bottom: 0px;
+		    left: 0;
+		    right: 0;
+
+		    display: none;
+
+		    overflow: hidden;
+
+		    background: #ffffff;
+		    z-index: 0;
+
+		    &.active {
+		    	display: block;
+		    }
+
+		    &.scroll-wrapper2 {
+				
+				.wrapper {
+					.coupon-list {
+						.item {
+							&.expired-coupon {
+	                            background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/7_2_1.png") no-repeat;
+	                            background-size: 100% 100%;
+	                        }
+
+	                        &.used-coupon {
+	                            background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/7_2_2.png") no-repeat;
+	                            background-size: 100% 100%;
+	                        }
+
+	                        .coupon-left {
+
+	                        	.coupon-desc {
+			                        span {
+				                        color: #999999;
+			                        }
+	                        	}
+	                        }
+
+	                        .coupon-right {
+	                        	.coupon-code {
+	                        		color: #fff;
+	                        	}
+	                        }
+						}
+					}
+				}
+
+		    }
+
+		    .wrapper {
+		    	padding-bottom: 10px;
+		        .coupon-list {
+					position: relative;
+					padding-top: 30px;
+		        	margin: 30px auto 0 auto;
+		        	width: 497px;
+
+                    .item {
+                        position: relative;
+
+                        margin-bottom: 10px;
+
+                        width: 100%;
+                        height: 155px;
+
+                        &.discount-coupon {
+                            background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/6_2_3.png") no-repeat;
+                            background-size: 100% 100%;
+                        }
+
+                        &.full-coupon {
+                            background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/6_2_2.png") no-repeat;
+                            background-size: 100% 100%;
+                        }
+
+                        &.exchange-coupon {
+                            background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/6_2_1.png") no-repeat;
+                            background-size: 100% 100%;
+                        }
+
+                        .coupon-name {
+                        	position: absolute;
+                        	left: 36px;
+                        	top: 58px;
+
+                        	width: 78px;
+                        	height: 31px;
+                        	line-height: 31px;
+
+                        	text-align: center;
+
+                        	font-size: 18px;
+
+                        	color: #fff;
+
+                        }
+
+                        .coupon-left {
+                            position: absolute;
+                            left: 133px;
+
+                            width: 130px;
+                            height: 124px;
+
+                            color: #fff;
+
+                            text-align: center;
+
+                            .coupon-con {
+                                width: 100%;
+                                line-height: 40px;
+
+                                padding-top: 19px;
+
+                                font-size: 26px;
+
+                                .unit {
+                                    font-size: 17px;
+                                }
+                            }
+
+                            .coupon-desc {
+                                line-height: 28px;
+
+                                font-size: 17px;
+
+	                            .ellipsisNormal();
+                            }
+                        }
+
+                        .coupon-right {
+                            position: absolute;
+                            right: 28px;
+                            top: 8px;
+
+                            width: 172px;
+                            height: 124px;
+
+                            .use-time {
+                                padding-top: 17px;
+
+                                line-height: 27px;
+
+                                text-align: center;
+
+                                font-size: 17px;
+
+                                color: #999999;
+                            }
+
+                            .coupon-code {
+                                margin-top: 35px;
+
+                                line-height: 24px;
+
+                                font-size: 17px;
+
+                                color: #222;
+
+                            }
+                        }
+                    }
+                }
+		    }
+		}
+	}
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/laiyikou/css/reset.css" />
+    <link rel="stylesheet" href="/laiyikou/css/animate.min.css" />
+    <link rel="stylesheet" href="/laiyikou/css/index.css" />
+    <!-- 样式 end -->
+    <title>崃一口</title>
+</head>
+<body>
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/zhengsheng/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div class="container" id="container">
+        <div class="result-wrapper" id="resultWrapper">
+            <div class="result-container">
+                <img class="img1" src="/laiyikou/images/1_7.png" />
+                <img class="img2" src="/laiyikou/images/1_6.png" />
+
+                <div class="result">
+                    <div class="point-wrapper">
+                        <!-- 中积分 -->
+                        <div class="award-point">
+                            <p class="tit">恭喜您获得</p>
+
+                            <div class="num">
+                                <span>5</span>
+                                <img src="/laiyikou/images/1_3.png" />
+                            </div>
+                        </div>
+
+                        <!-- 未中奖 -->
+                        <div class="award-none">
+                            <p class="tit">很遗憾</p>
+
+                            <img class="none-img" src="/laiyikou/images/1_4.png" />
+                        </div>
+
+                        <!-- 该码已被扫 -->
+                        <div class="code-scanned">
+                            <p class="tit">很遗憾</p>
+
+                            <img class="none-img" src="/laiyikou/images/1_5.png" />
+                        </div>
+                    </div>
+
+                    <a class="point-btn" href="javascript:;">
+                        <img src="/laiyikou/images/1_1.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+</body>
+</html>

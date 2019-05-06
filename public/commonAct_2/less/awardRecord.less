@@ -1,0 +1,140 @@
+@import "reset";
+@import "color";
+@import "clearFix";
+@import "header";
+@import "advertisement";
+
+html,body {
+	height: 100%;
+}
+
+body {
+	background: #fff;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+
+	.container {
+		width: 100%;
+		height: 100%;
+
+		.scroll-wrapper {
+		    position: absolute;
+		    top: 82px;
+		    bottom: 120px;
+		    left: 0;
+		    right: 0;
+
+		    overflow: hidden;
+
+		    background: #f7f7f7;
+		    z-index: 0;
+
+		    .wrapper {
+		    	padding-bottom: 10px;
+
+		        .money-list {
+
+		            .money-item {
+		                position: relative;
+
+		                height: 35px;
+		                padding: 20px 47px;
+
+		                color: #666;
+		                background: #fff;
+		                border-bottom: 1px solid #e5e5e5;
+
+		                font-size: 0;
+
+		                .clearFix();
+
+		                a {
+		                	display: block;
+		                }
+
+		                .icon {
+			        		position: absolute;
+			        		right: 10px;
+			        		top: 50%;
+							
+							transform: translateY(-50%);
+			        		
+			        		display: block;
+
+			        		width: 25px;
+			        		height: 25px;
+			        		line-height: 25px;
+
+			        		text-align: center;
+
+			        		font-size: 16px;
+
+			        		color: #888;
+			        	}
+
+		                .title {
+		                    
+		                    float: left;
+
+		                    height: 35px;
+		                    width: 290px;
+		                    line-height: 35px;
+
+		                    font-size: 23px;
+
+		                    overflow: hidden;
+		                    text-overflow: ellipsis;
+		                    white-space: nowrap;
+
+		                    vertical-align: middle;
+
+			                .ellipsisNormal();
+
+		                }
+
+		                .btn {
+		                    display: inline-block;
+
+		                    margin-left: 23px;
+
+		                    width: 85px;
+		                    height: 35px;
+		                    line-height: 35px;
+
+		                    font-size: 23px;
+
+		                    vertical-align: middle;
+
+		                    &.physical {
+		                        color: #db1a1b;
+
+		                        text-decoration: underline;
+		                    }
+		                }
+
+		                .time {
+		                    float: right;
+
+
+		                    vertical-align: middle;
+
+		                    margin-left: 20px;
+
+		                    text-align: right;
+
+		                    height: 35px;
+		                    width: 230px;
+		                    line-height: 35px;
+
+		                    font-size: 22px;
+		                }
+		                
+		            }
+		        }
+		    }
+		}
+	}
+}

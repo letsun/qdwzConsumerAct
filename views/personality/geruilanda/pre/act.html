@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no" />
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/geruilanda/fonts/iconfont.css">
+    <link rel="stylesheet" href="/geruilanda/css/act.css">
+
+    <!-- 样式 end -->
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/geruilanda/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+    <div class="container" id="container">
+        <div class="page page1" id="page1">
+            <img class="bg" src="/geruilanda/images/1_1.png" alt="" />
+            <img class="bottom-bg" src="/geruilanda/images/1_2.png" alt="" />
+            <!--<img class="shake-btn" id="shake-btn" src="/geruilanda/images/1_3.png" alt="">-->
+
+            <div class="shake-tips" id="shake-tips">
+                <img class="img1" src="/geruilanda/images/2_1.png" alt="">
+                <img class="img2" src="/geruilanda/images/2_2.png" alt="">
+            </div>
+            <div class="result" id="result">
+                <div class="result-wrapper">
+                    <div class="num-wra"><span class="num">18</span>元</div>
+                    <div class="loty-text">现金</div>
+                    <!--<img class="close-result" id="close-result" src="/geruilanda/images/3_2.png" alt="">-->
+                    <img class="result-bg" src="/geruilanda/images/3_3.png" alt="">
+                    <a class="back-btn" href="/personCenter">
+                        <img src="/geruilanda/images/3_4.png" alt="">
+                    </a>
+                    <div class="result-tips">很遗憾，您与红包擦肩而过</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<%-include("../../../include/hideMenu") %>
+<script src="/geruilanda/scripts/lib/jquery-2.2.2.min.js"></script>
+<script src="/geruilanda/scripts/lib/jweixin-1.0.0.js"></script>
+<script src="/geruilanda/scripts/lib/common.js"></script>
+<script src="/geruilanda/plugins/betterScroll/bscroll.js"></script>
+<script src="/geruilanda/scripts/act_pre.js"></script>
+<script>
+    // 禁止整个页面滑动
+    $('#container').on('touchmove', function (e) {
+        e.preventDefault();
+    });
+
+    /**加载进度*/
+    common.loading($("#percent"));
+
+    window.onload =function () {
+        $('.loading').hide();
+        $('#container').fadeIn(function () {
+            window.addEventListener('devicemotion', rock);
+        });
+    }
+</script>
+</body>
+</html>

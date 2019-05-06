@@ -1,0 +1,69 @@
+<!--单奖 -->
+<% var couponName = {
+'0': '代金券',
+'1': '折扣券',
+'2': '兑换券',
+'3': '满减券',
+}; %>
+<div class="result-dan">
+	<div class="result-con">
+		
+		<% if (result.type === 	0 || result.type === 3) { %>
+			
+			<div class="result-desc">
+				<div class="result-tip">获得：</div>
+				<% if (result.type === 	0) { %>
+					<div class="result">
+						<span class="price-sign">￥</span><%= result.redPack.prizeAmount %>
+					</div>
+					<div class="result-type">现金红包</div>
+				<% } else if (result.type === 3) { %>
+					<div class="result">
+						<span class="price-sign"></span><%= result.point.point %>
+					</div>
+					<div class="result-type">积分</div>
+				<% } %>
+
+			</div>
+		
+		<% } else if (result.type === 1) { %>
+			
+			<div class="result-desc">
+				<div class="result-tip">获得：</div>
+				<div class="coupon-wrapper">
+					<ul class="coupon-list">
+						<% var couponGrants = result.couponGrants; %>
+						<% for (var i = 0, len = couponGrants.length; i < len; i++) { %>
+						<li class="item <% if (couponGrants[i].couponType === 0) { %>discount-coupon<% } else if (couponGrants[i].couponType === 1) { %>discount-coupon<% } else if (couponGrants[i].couponType === 2) { %>exchange-coupon<% } else if (couponGrants[i].couponType === 3) { %>full-coupon<% } %>">
+							<div class="coupon-name">
+								<%= couponName[couponGrants[i].couponType] %>
+							</div>
+							<div class="coupon-left">
+								<div class="coupon-con">
+									<% if (couponGrants[i].couponType === 0) { %>
+									<span class="unit">￥</span><%= couponGrants[i].couponPrice %>
+									<% } else if (couponGrants[i].couponType === 1) { %>
+										<%= couponGrants[i].discount %><span class="unit">折</span>
+									<% } else if (couponGrants[i].couponType === 2) { %>
+										<span class="unit">￥</span><%= couponGrants[i].couponPrice %>
+									<% } else if (couponGrants[i].couponType === 3) { %>
+										<span class="unit">￥</span><%= couponGrants[i].reducePrice %>
+									<% } %>
+								</div>
+								<div class="coupon-desc">
+									<%= couponGrants[i].couponName %>
+								</div>
+							</div>
+							<div class="coupon-right">
+								
+								<div class="coupon-code">编号：<br /><%= couponGrants[i].couponCode %></div>
+							</div>
+						</li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+
+		<% } %>
+	</div>	
+</div>

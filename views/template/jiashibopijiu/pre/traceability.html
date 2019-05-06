@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/commonAct_2/css/traceability.css">
+    <link rel="stylesheet" href="/commonAct_2/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>溯源信息</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+        <%-include("../include/header", {title: '溯源信息'}) %>
+       <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <div class="traceability-wrapper">
+                    <ul class="traceability-list">
+                       <li class="item">
+                           <div class="key">入库批次：</div>
+                           <div class="value">201711220001</div>
+                       </li> 
+                       <li class="item">
+                           <div class="key">入库时间：</div>
+                           <div class="value">2017-11-22 15:23:11</div>
+                       </li> 
+                       <li class="item">
+                           <div class="key">操&nbsp;&nbsp;作&nbsp;&nbsp;人：</div>
+                           <div class="value">张三</div>
+                       </li> 
+                       <li class="item">
+                           <div class="key">入库仓库：</div>
+                           <div class="value">昆明仓库</div>
+                       </li> 
+                       <li class="item">
+                           <div class="key">仓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</div>
+                           <div class="value">A001</div>
+                       </li> 
+                       <li class="item">
+                           <div class="key">图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片：</div>
+                           <div class="value">
+                               <img src="/commonAct_2/images/5/pic.jpg" alt="" />
+                           </div>
+                       </li> 
+                    </ul>    
+                </div>
+                
+                <div class="advertisement fixed">
+                    <img src="/commonAct_2/images/5/1_2.gif" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <%-include("../include/bottom", {page: 'other'})%>
+
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+   $(function() {
+        var doc = $(document);
+        var type = Global.getUrlParam("type");
+
+       if (type != null) {
+           $('.btn-list').hide();
+       }
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function () {
+            window.history.back();;
+        });
+
+        doc.on('click', '#submitBtn', function () {
+            var res = Global.initValidate('#form');
+
+            if (!res) {
+                return;
+            }
+        });
+   })
+</script>
+
+</body>
+</html>

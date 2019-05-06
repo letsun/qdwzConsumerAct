@@ -1,0 +1,9 @@
+@charset "utf-8";
+@font-face {
+	font-family: 'font';
+	src: url("../font/font.TTF");
+}
+@font-face {
+	font-family: 'kaiti';
+	src: url("../font/kaiti.TTF");
+}

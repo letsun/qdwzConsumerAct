@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/geruilanda/css/reset.css" />
+	<link rel="stylesheet" href="/geruilanda/css/index.css" />
+	<!-- 样式 end -->
+	<title>格瑞蓝达</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+	<div class="form-wra">
+		<img class="logo" src="/geruilanda/images/logo.png" alt="">
+		<div class="form">
+			<div class="form-item">
+				<div class="form-key">手机号：</div>
+				<div class="form-val">
+					<input type="text" class="form-input" maxlength="11" id="phone" placeholder="请输入手机号">
+				</div>
+			</div>
+			<div class="form-item form-code-item">
+				<div class="form-key">验证码：</div>
+				<div class="form-val">
+					<input type="text" class="form-input" id="code" maxlength="6" placeholder="请输入验证码">
+					<button class="form-code-btn" id="form-code-btn">获取验证码</button>
+				</div>
+			</div>
+
+			<div class="form-item form-btn-item">
+				<a class="form-btn form-confirm-btn" id="form-confirm-btn" href="javascript:void(0);">确定</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/hideMenu") %>
+<script src="/geruilanda/scripts/lib/jquery-2.2.2.min.js"></script>
+<script src="/geruilanda/scripts/lib/common.js"></script>
+<script src="/geruilanda/scripts/lib/jweixin-1.0.0.js"></script>
+
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/geruilanda/scripts/index_pre.js"></script>
+<!-- 页面js end-->
+
+<script>
+
+	/*document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+      WeixinJSBridge.call('hideOptionMenu');
+  	});*/
+
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	});
+
+
+</script>
+
+</body>
+</html>

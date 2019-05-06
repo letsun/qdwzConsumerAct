@@ -1,0 +1,1228 @@
+@import 'reset';
+@import 'clearFix';
+@import 'btn';
+
+@import "advertisement";
+
+html,
+body {
+    height: 100%;
+}
+
+.actLoading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: none;
+
+    width: 150px;
+
+    z-index: 999;
+
+    img {
+        width: 100%;
+    }
+}
+
+#app {
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    .container {
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+    
+
+        .erweima-wrapper {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            
+            z-index: 999;
+
+            display: none;
+
+            .mask {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .erweima-container {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+
+
+                margin-top: -368 * 0.5px;
+                margin-left: -370 * 0.5px;
+
+                z-index: 1;
+
+                width: 370px;
+                height: 368px;
+
+                background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/erweima_bg.png") no-repeat;
+
+                &.show {
+                    -webkit-animation: showEerweimaContainer 0.5s ease;
+                }
+
+                .closeErweima-btn {
+                    position: absolute;
+                    left: 50%;
+                    bottom: -100px;
+
+                    transform: translateX(-50%);
+
+                    width: 50px;
+                    height: 50px;
+
+                    background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/1_2.png") no-repeat;
+                }
+
+                .erweima-title {
+                    line-height: 80px;
+
+                    text-align: center;
+
+                    font-size: 30px;
+
+                    color: #fbd67d;
+                }
+
+                .erweima {
+                    margin: 18px auto 0 auto;
+
+                    width: 166px;
+                    height: 166px;
+
+                    background: #ccc;
+
+                    border: 1px solid #ddd;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .erweima-tip {
+                    margin-top: 17px;
+
+                    line-height: 30px;
+
+                    text-align: center;
+
+                    font-size: 22px;
+
+                    color: #f3513c;
+                }
+
+                .close-btn {
+                    position: absolute;
+                    left: 50%;
+                    bottom: -100px;
+
+                    transform: translateX(-50%);
+
+                    width: 66px;
+                    height: 66px;
+
+                    background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/1_4.png") no-repeat;
+
+
+                }
+            }
+        }
+
+        .main-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+
+        }
+
+        .iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 120px;
+            left: 0;
+
+            -webkit-overflow-scrolling:touch;
+            overflow:scroll;
+
+            display: none;
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .personBtn {
+            position: absolute;
+            right: 0;
+            top: 50%;
+
+            transform: translateY(-50%);
+        }
+
+        .awardInfor-wrapper {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 120px;
+    
+            z-index: 99;
+
+            display: none;
+
+            overflow: hidden;
+
+            height: 50px;
+            
+            background-color: rgba(0, 0, 0, 0.5);
+
+            .awardInfor-scroll {
+                position: absolute;
+                left: 0;
+                top: 0;
+                
+                width: 5000%;
+                line-height: 50px;
+
+                font-size: 23px;
+
+                color: #fef22c;
+
+                .awardInfor-content {
+                
+                    width: 100%;
+
+                    .awardInfor-scrollContent {
+                       
+                        
+                        span {
+                            margin: 0 30px;
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        .scroll-wrapper {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 120px;
+            left: 0;
+
+            overflow: hidden;
+
+            .wrapper {
+                position: relative;
+
+
+
+                .bg {
+                    display: block;
+
+                    max-width: 100%;
+                }
+
+            }
+
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 99;
+
+            display: none;
+
+            overflow: hidden;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            .abs {
+                position: absolute;
+            }
+        }
+        .page1 {
+            z-index: 101;
+            .dzp-wrapper {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                display: none;
+
+                width: 100%;
+                height: 100%;
+
+                .img1 {
+                    left: 0;
+                    top: 0;
+                }
+
+                .dzp-container {
+                    position: absolute;
+                    left: 50%;
+                    top: 29%;
+
+                    transform: translateX(-50%);
+
+                    width: 439px;
+                    height: 439px;
+
+                    .dzp-con {
+                        width: 100%;
+                        height: 100%;
+
+                        // transform: rotate(-30deg);
+
+                        .award-list {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+
+                            transform: translate(-50%, -50%);
+
+                            width: 390px;
+                            height: 390px;
+
+                            border-radius: 50%;
+
+                            color: #fff;
+
+                            overflow: hidden;
+
+                            .award-item {
+                                position: absolute;
+                                top: 0;
+                                left: 50%;
+
+                                width: 196px;
+                                height: 196px;
+
+                                background-color: rgba(0, 0, 0, 0);
+
+                                transform-origin: bottom center;
+
+                                .con {
+                                    position: relative;
+                                    top: 35%;
+
+                                    transform: translateY(-50%);
+
+                                    margin: 0 auto;
+
+                                    width: 30px;
+                                    line-height: 22px;
+
+                                    text-align: center;
+
+                                    font-size: 20px;
+
+                                    text-shadow: 0px 2px 1px #000;
+                                }
+
+                                // &:nth-child(1) {
+
+                                //     transform: translateX(-50%) rotate(-30deg);
+                                // }
+
+                                // &:nth-child(2) {
+
+                                //     transform: translateX(-50%) rotate(30deg);
+                                // }
+
+                                // &:nth-child(3) {
+
+                                //     transform: translateX(-50%) rotate(90deg);
+                                // }
+
+                                // &:nth-child(4) {
+
+                                //     transform: translateX(-50%) rotate(150deg);
+                                // }
+
+                                // &:nth-child(5) {
+
+                                //     transform: translateX(-50%) rotate(210deg);
+                                // }
+
+                                // &:nth-child(6) {
+
+                                //     transform: translateX(-50%) rotate(270deg);
+                                // }
+
+
+                            }
+                        }
+                    }
+
+                    .dzp-btn {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+
+                        z-index: 2;
+
+                        transform: translate(-50%, -50%);
+
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .zjd-wrapper {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                display: none;
+
+                width: 100%;
+                height: 100%;
+
+                background: rgba(0, 0, 0, 0.6);
+
+                .effect {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+
+                    z-index: 10;
+
+                    display: none;
+
+                    background-color: rgba(0, 0, 0, 0.5);
+
+                }
+
+                .zjd-container {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+
+                    transform: translate(-50%, -50%);
+
+                    width: 546px;
+                    height: 865px;
+
+                    background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_3.png") no-repeat;
+
+                    .selectMe-wrapper {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+
+                        width: 100%;
+                        height: 100%;
+
+                        .select-container {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+
+                            width: 100%;
+                            height: 100%;
+
+                            div {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .jd-result {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+
+                        z-index: 99;
+
+                        display: none;
+
+                        cursor: pointer;
+
+                        width: 100%;
+                        height: 100%;
+
+                        &.vibration {
+                            animation: vibration 0.005s linear infinite alternate;
+                        }
+                    }
+
+                    .hammer {
+                        position: absolute;
+                        left: 252px;
+                        top: 252px;
+
+                        z-index: 999;
+
+                        display: none;
+
+                        width: 127px;
+                        height: 115px;
+
+                        transform-origin: right bottom;
+
+                        background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/2_1.png") no-repeat;
+
+                        &.animate {
+
+                            animation: hammer 0.3s linear;
+                        }
+                    }
+
+                    .jd-wrapper {
+                        position: absolute;
+                        left: 0;
+                        top: 410px;
+
+                        width: 100%;
+                        height: 170px;
+
+                        .item {
+                            position: absolute;
+
+                            cursor: pointer;
+
+                            &:nth-child(1) {
+                                left: 0;
+                                top: 51px;
+                                z-index: 3;
+                            }
+
+                            &:nth-child(2) {
+                                left: 74px;
+                                top: 24px;
+                                z-index: 2;
+                            }
+
+                            &:nth-child(3) {
+                                left: 150px;
+                                top: 6px;
+                                z-index: 1;
+                            }
+
+                            &:nth-child(4) {
+                                left: 224px;
+                                top: 0;
+                            }
+
+                            &:nth-child(5) {
+                                left: 305px;
+                                top: 6px;
+                            }
+
+                            &:nth-child(6) {
+                                left: 376px;
+                                top: 24px;
+                            }
+
+                            &:nth-child(7) {
+                                left: 447px;
+                                top: 51px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .award-wrapper,
+            .result-wrapper {
+                &.show {
+                    animation: show 0.5s ease;
+                }
+            }
+
+            .award-wrapper {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                z-index: 99;
+
+                display: none;
+
+                background-color: rgba(0, 0, 0, 0.6);
+
+                .award-container {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+
+                    transform: translate(-50%, -50%);
+
+                    width: 532px;
+                    height: 712px;
+
+                    background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/1_12.png") no-repeat;
+
+                    .avatar {
+                        width: 76px;
+                        height: 76px;
+
+                        margin: 0 auto;
+
+                        padding-top: 30px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .nickname {
+                        margin-top: 15px;
+
+                        line-height: 40px;
+
+                        text-align: center;
+
+                        font-size: 27px;
+
+                        color: #fee2ba;
+
+                    }
+
+                    .award-tip {
+                        line-height: 50px;
+
+                        text-align: center;
+
+                        font-size: 23px;
+
+                        color: #fee2ba;
+                    }
+
+                    .award-con {
+                        margin-top: 25px;
+
+                        line-height: 50px;
+
+                        text-align: center;
+
+                        font-size: 38px;
+
+                        color: #fee2ba;
+
+                    }
+
+                    .open-awardBtn {
+                        width: 179px;
+                        height: 179px;
+
+                        margin: 20px auto 0 auto;
+
+                        cursor: pointer;
+
+                        background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/1_11.png") no-repeat;
+
+                        animation: scale 0.5s ease infinite alternate;
+
+                    }
+
+                    .ad {
+                        display: block;
+
+                        width: 100%;
+                        height: 100%;
+
+                        overflow: hidden;
+
+                        margin-top: 30px;
+
+                        .ads {
+                            width: 100%;
+
+                        }
+
+                    }
+                }
+            }
+
+            .result-wrapper {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                z-index: 99;
+
+                display: none;
+
+                background-color: rgba(0, 0, 0, 0.6);
+
+                .tip {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+
+                    width: 100%;
+                    height: 100%;
+
+                    z-index: 99;
+
+                    display: none;
+
+                    background-color: rgba(0, 0, 0, 0.7);
+
+                    .share-tip {
+                        position: absolute;
+                        right: 15px;
+                        top: 15px;
+                    }
+
+                    .tip-con {
+
+                        position: absolute;
+                        top: 120px;
+
+                        margin: 0 50px;
+                        padding: 20px 50px;
+
+                        line-height: 42px;
+
+                        text-align: center;
+
+                        border: 1px solid #fff;
+
+                        border-radius: 10px;
+
+                        font-size: 25px;
+
+                        color: #fff;
+                    }
+                }
+
+                .result-container {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+
+                    transform: translate(-50%, -50%);
+
+                    width: 532px;
+                    height: 712px;
+
+                    background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/1_14.png") no-repeat;
+
+                    .close-btn {
+                        position: absolute;
+                        left: 51px;
+                        top: 42px;
+
+                        display: block;
+
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+
+                        text-align: center;
+
+                        color: #000;
+
+                        font-size: 29px;
+                    }
+
+                    .result-content {
+                        position: absolute;
+                        left: 50%;
+                        top: 178px;
+
+                        transform: translateX(-50%);
+
+                        width: 458px;
+                        // height: 328px;
+
+                        // overflow: hidden;
+
+                        .coupon-wrapper {
+                            padding: 4px;
+
+                            .coupon-list {
+                                .item {
+                                    position: relative;
+
+                                    width: 99%;
+                                    height: 135px;
+
+                                    &.discount-coupon {
+                                        background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/5_2_1.png") no-repeat;
+                                        background-size: 100% 100%;
+                                    }
+
+                                    &.full-coupon {
+                                        background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/5_5_1.png") no-repeat;
+                                        background-size: 100% 100%;
+                                    }
+
+                                    &.exchange-coupon {
+                                        background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/5_6_1.png") no-repeat;
+                                        background-size: 100% 100%;
+                                    }
+
+                                    .coupon-name {
+                                        position: absolute;
+                                        left: 30px;
+                                        top: 49px;
+
+                                        width: 78px;
+                                        height: 31px;
+                                        line-height: 31px;
+
+                                        text-align: center;
+
+                                        font-size: 18px;
+
+                                        color: #fff;
+                                    }
+
+                                    .coupon-left {
+                                        position: absolute;
+                                        left: 103px;
+
+                                        width: 142px;
+                                        height: 124px;
+
+                                        color: #fff;
+
+                                        text-align: center;
+
+                                        .coupon-con {
+                                            width: 100%;
+                                            line-height: 40px;
+
+                                            padding-top: 13px;
+
+                                            font-size: 35px;
+
+                                            .unit {
+                                                font-size: 17px;
+                                            }
+                                        }
+
+                                        .coupon-desc {
+                                            line-height: 24px;
+
+                                            font-size: 17px;
+
+                                            .ellipsis(2);
+                                        }
+                                    }
+
+                                    .coupon-right {
+                                        position: absolute;
+                                        right: 0;
+                                        top: 0;
+
+                                        width: 163px;
+                                        height: 124px;
+
+                                        .use-time {
+                                            padding-top: 17px;
+
+                                            line-height: 24px;
+
+                                            text-align: center;
+
+                                            font-size: 17px;
+
+                                            color: #999999;
+                                        }
+
+                                        .coupon-code {
+                                            margin-top: 33px;
+
+                                            line-height: 24px;
+
+                                            font-size: 17px;
+
+                                            color: #222;
+
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    .result-dan {
+                        width: 100%;
+
+                        .result-con {
+                            position: relative;
+                            left: 50%;
+                            margin-top: 14px;
+
+                            transform: translateX(-50%);
+
+                            width: 436px;
+                            padding-bottom: 14px;
+
+                            background: #fff;
+                            border-radius: 8px;
+
+                            box-shadow: 2px 2px 10px 1px #ddd;
+
+                            overflow: hidden;
+
+                            .ads {
+                                display: block;
+                                width: 100%;
+                            }
+
+                            .result-tip {
+                                line-height: 45px;
+                                padding-top: 9px;
+                                padding-left: 58px;
+
+                                font-size: 30px;
+                                font-weight: bold;
+                            }
+                            .result {
+                                line-height: 60px;
+
+                                text-align: center;
+
+                                font-size: 55px;
+                                // font-weight: bold;
+
+                                color: #db291d;
+
+                                .price-sign,
+                                .unit {
+                                    font-size: 24px;
+                                }
+
+                                .coupon-name {
+                                    font-size: 33px;
+                                }
+
+
+                            }
+                            .result-type {
+                                margin: 15px auto 0 auto;
+
+                                width: 155px;
+                                height: 35px;
+
+                                line-height: 35px;
+                                text-align: center;
+
+                                border-radius: 40px;
+
+                                color: #fff;
+                                background: #db291d;
+
+                                font-size: 21px;
+
+
+                            }
+
+                            .error-logo {
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+
+                                z-index: 99;
+                            }
+                        }
+
+                        .card-tip {
+
+                            margin-top: 15px;
+
+                            margin-left: 15px;
+
+                            line-height: 50px;
+
+                            font-size: 27px;
+
+                            color: #cd8715;
+
+                            text-align: center;
+                        }
+                    }
+
+                    .result-double {
+                        position: relative;
+
+                        width: 100%;
+                        height: 370px;
+
+                        .couponScrollWrapper {
+                            position: relative;
+
+                            width: 100%;
+                            height: 320px;
+                            overflow: hidden;
+                        }
+
+                        .up-sign {
+                            position: absolute;
+                            left: 50%;
+                            bottom: 12px;
+
+                            transform: translateX(-50%);
+
+                            width: 37px;
+                            height: 29px;
+
+                            background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/up.png") no-repeat;
+                        }
+
+                        .result-other {
+                            position: relative;
+
+                            width: 100%;
+                            height: 55px;
+
+                            .result-tip {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+
+                                line-height: 55px;
+                                padding-left: 8px;
+
+                                font-size: 25px;
+                            }
+
+                            .result-number {
+                                width: 100%;
+                                line-height: 55px;
+
+                                text-align: center;
+
+                                font-size: 30px;
+                            }
+
+                            .result-type {
+                                position: absolute;
+                                right: 10px;
+                                top: 13px;
+
+                                width: 110px;
+                                height: 31px;
+                                line-height: 31px;
+
+                                text-align: center;
+
+                                border-radius: 30px;
+
+                                background: #ef1d10;
+                                color: #fff;
+
+                                font-size: 20px;
+
+                            }
+
+                        }
+                    }
+
+                    .tip-warn {
+                        position: absolute;
+                        top: 500px;
+                        left: 50%;
+
+                        width: 458px;
+                        margin-left: -229px;
+
+                        color: #f2513d;
+                        font-size: 20px;
+                        text-align: center;
+                    }
+
+                    .get-awardBtn {
+                        position: absolute;
+                        top: 540px;
+                        left: 38%;
+
+                        display: block;
+                        width: 128px;
+                        height: 128px;
+
+                        background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/1_13.png") no-repeat;
+
+                        animation: scale 0.5s ease infinite alternate;
+
+                        a {
+                            display: block;
+
+                            width: 100%;
+                            height: 100%;
+                        }
+
+
+
+                    }
+
+                    .toPerson {
+                        position: absolute;
+                        left: 50%;
+                        bottom: -72px;
+
+                        transform: translateX(-50%);
+
+                        display: block;
+
+                        width: 220px;
+                        height: 60px;
+
+                        line-height: 60px;
+                        text-align: center;
+
+                        border-radius: 50px;
+
+                        background: #f2513d;
+                        color: #fff;
+
+                        font-size: 25px;
+                    }
+                }
+            }
+
+        }
+
+
+    }
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}
+
+@-webkit-keyframes scale {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0;
+        transform: scale(1.3);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes hammer {
+    from {
+        transform: rotate(60deg);
+    }
+    to {
+        transform: scale(0deg);
+    }
+}
+
+@-webkit-keyframes vibration {
+    from {
+        transform: translateX(-5px);
+    }
+    to {
+        transform: translateX(5px);
+    }
+}
+
+@-webkit-keyframes showEerweimaContainer {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

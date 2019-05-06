@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/lsliuguifu/css/reset.css" />
+    <link rel="stylesheet" href="/lsliuguifu/css/newAnimate.css" />
+    <link rel="stylesheet" href="/lsliuguifu/css/index.css" />
+    <!-- 样式 end -->
+    <title>六桂福珠宝</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/lsliuguifu/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div class="container" id="container">
+        <div class="page page1" id="page1">
+            <!-- title -->
+            <img class="abs title" src="/lsliuguifu/images/2/1_1.png" />
+
+            <img class="abs img1" src="/lsliuguifu/images/2/1_4.png" />
+
+            <!--<img class="abs img2" src="/lsliuguifu/images/2/1_17.png" />
+
+            <img class="abs img3" src="/lsliuguifu/images/2/1_18.png" />
+
+            <img class="abs img4" src="/lsliuguifu/images/2/1_21.png" />
+
+            <img class="abs img5" src="/lsliuguifu/images/2/1_20.png" />-->
+
+            <!-- 活动规则 -->
+            <img class="abs rule-btn" src="/lsliuguifu/images/2/1_2.png" />
+
+            <!-- 抢红包 -->
+            <img class="abs yyy-btn" id="yyy-btn" src="/lsliuguifu/images/2/1_3.png" />
+
+            <!--地址-->
+            <img class="address" src="/lsliuguifu/images/2/1_5.png" />
+
+            <!-- 规则弹框 -->
+            <div class="rule-mask">
+                <div class="rule-con">
+                    <img class="rule-img" src="/lsliuguifu/images/2/1_6.png" />
+
+                    <img class="close" src="/lsliuguifu/images/2/1_15.png" />
+                </div>
+            </div>
+
+            <!-- 摇一摇弹框 -->
+            <div class="yyy-mask" id="yyy-mask">
+                <div class="yyy-con">
+                    <img class="yyy-img" src="/lsliuguifu/images/2/1_7.png" />
+                </div>
+            </div>
+
+            <!-- 中奖弹框 -->
+            <div class="award-mask">
+                <div class="award-con">
+                    <div class="con-info">
+                        <img class="info-tit" src="/lsliuguifu/images/2/1_1.png" />
+
+                        <div class="info-desc">
+                            <p class="desc-tit">中奖啦</p>
+
+                            <div class="desc-main desc1">
+                                <p class="main-txt">恭喜获得六桂福珠宝红包</p>
+                                <p class="main-num">1111<span>元</span></p>
+                            </div>
+
+                            <div class="desc-main desc2">
+                                <div class="num-top">
+                                    <p class="desc-num">￥<span>100</span></p>
+                                    <p class="desc-txt"><span>珠宝类</span><span>优惠券</span></p>
+                                </div>
+
+                                <p class="desc-warn">钻石、K金、3D每满1100元使用</p>
+
+                                <p class="desc-quan">AD7653KLQA900176</p>
+                            </div>
+                        </div>
+
+                        <img class="info-bottom" src="/lsliuguifu/images/2/1_10.png" />
+                    </div>
+
+                    <a class="person-center" href="javascript:;">
+                        <img src="/lsliuguifu/images/2/1_11.png" />
+                    </a>
+                </div>
+            </div>
+
+            <!-- 分享弹框 -->
+            <div class="share-mask">
+                <p class="share-con">
+                    您可以分享奖励给<span id="fissionCount"></span>位好友，每位好友领取奖励后，您将再获得一个奖励，点击右上角
+                </p>
+
+                <img class="share-arrow" src="/lsliuguifu/images/2/1_13.png" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<script src="/common/scripts/yyy.js"></script>
+<script src="/lsliuguifu/scripts/lib/jquery-1.8.1.min.js"></script>
+<script src="/lsliuguifu/scripts/common/common.js"></script>
+<script src="/lsliuguifu/scripts/lib/jweixin-1.0.0.js"></script>
+
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/lsliuguifu/scripts/index_pre.js"></script>
+<!-- 页面js end-->
+
+<script>
+
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        WeixinJSBridge.call('hideOptionMenu');
+    });
+
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#page1').fadeIn();
+        });
+
+        /*$(document).on('click', '.abs', function(e) {
+            e.preventDefault();
+        });*/
+
+    })
+</script>
+
+</body>
+</html>

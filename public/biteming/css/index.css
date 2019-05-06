@@ -1,0 +1,594 @@
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+/* 新增一些iPhone下不兼容的动画库 */
+/*
+ * 1.从左向右出动画
+*/
+@-webkit-keyframes left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes left {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes left {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 2.从右向左出动画
+*/
+@-webkit-keyframes right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes right {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes right {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 3.从上向下出动画
+*/
+@-webkit-keyframes down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes down {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes down {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 4.从下往上出动画
+*/
+@-webkit-keyframes up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes up {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes up {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 5.上下浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown1 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-moz-keyframes upDown1 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-o-keyframes upDown1 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(10px);
+  }
+}
+/*
+ * 6.上下浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown2 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-moz-keyframes upDown2 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-o-keyframes upDown2 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(20px);
+  }
+}
+/*
+ * 7.上下浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown3 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-moz-keyframes upDown3 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-o-keyframes upDown3 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(30px);
+  }
+}
+/*
+ * 8.左右浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight1 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes leftRight1 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-o-keyframes leftRight1 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(10px);
+  }
+}
+/*
+ * 9.左右浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight2 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-moz-keyframes leftRight2 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-o-keyframes leftRight2 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(20px);
+  }
+}
+/*
+ * 10.左右浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight3 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-moz-keyframes leftRight3 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-o-keyframes leftRight3 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(30px);
+  }
+}
+@-webkit-keyframes shakeAni {
+  0% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(4deg);
+  }
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+#app .container {
+  position: relative;
+  display: none;
+  width: 100%;
+  height: 100%;
+  /*背景*/
+}
+#app .container img {
+  display: block;
+}
+#app .container .container-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+#app .container .container-bg .bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#app .container .container-bg .receive-btn {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  z-index: 10;
+  display: block;
+  -webkit-transform: translateX(-50%);
+  cursor: pointer;
+}
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 9999;
+}
+.loading .loadCon {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-left: -75px;
+  margin-top: -75px;
+}
+.loading .loadCon img {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 150px;
+  font-size: 24px;
+}
+/*注册弹窗*/
+.register-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.register-win .form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  width: 80%;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  background: #fff;
+  -webkit-transform: translate(-50%, -50%);
+}
+.register-win .form .form-title-wra {
+  position: relative;
+  padding: 30px 0;
+  background: #dd3f40;
+  border-radius: 10px 10px 0 0;
+}
+.register-win .form .form-title-wra .form-title {
+  text-align: center;
+  font-size: 32px;
+  line-height: 32px;
+  color: #fff;
+  font-weight: bold;
+}
+.register-win .form .form-title-wra .form-close {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  z-index: 10;
+  display: block;
+  padding: 20px;
+}
+.register-win .form .form-item {
+  display: flex;
+  padding: 20px 10px 20px 10px;
+  margin: 0 20px;
+  font-size: 28px;
+  line-height: 50px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+.register-win .form .form-item .form-key {
+  width: 124px;
+}
+.register-win .form .form-item .form-val {
+  flex: 1;
+}
+.register-win .form .form-item .form-val .form-input {
+  display: block;
+  width: 100%;
+  padding: 0 10px;
+  font-size: 28px;
+  line-height: 50px;
+  box-sizing: border-box;
+}
+.register-win .form .form-code-item .form-val:before,
+.register-win .form .form-code-item .form-val:after {
+  content: " ";
+  display: table;
+}
+.register-win .form .form-code-item .form-val:after {
+  clear: both;
+}
+.register-win .form .form-code-item .form-val .form-input {
+  float: left;
+  width: 140px;
+}
+.register-win .form .form-code-item .form-val .form-code-btn {
+  float: left;
+  display: block;
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 26px;
+  color: #333;
+  background: none;
+  border: 1px solid #ddd;
+}
+.register-win .form .form-sub-item {
+  border-bottom: none;
+}
+.register-win .form .form-sub-item .form-sub-btn {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  height: 60px;
+  font-size: 32px;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  background: #dd3f40;
+  border-radius: 10px;
+}
+/*红包弹窗*/
+.result-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.result-win .result-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+.result-win .result-title {
+  position: absolute;
+  left: 50%;
+  top: 31%;
+  z-index: 14;
+  text-align: center;
+  color: #ec4e35;
+  font-size: 24px;
+  line-height: 40px;
+  font-weight: 800;
+  -webkit-transform: translateX(-50%);
+}
+.result-win .result-dec {
+  position: absolute;
+  left: 50%;
+  top: 37%;
+  z-index: 14;
+  text-align: center;
+  color: #ec4e35;
+  font-size: 30px;
+  line-height: 32px;
+  font-weight: 700;
+  -webkit-transform: translateX(-50%);
+}
+.result-win .result-dec .result-dec-num {
+  font-size: 40px;
+}
+.result-win .result-btn {
+  position: absolute;
+  left: 50%;
+  top: 53%;
+  z-index: 10;
+  -webkit-transform: translateX(-50%);
+  cursor: pointer;
+}
+/*二维码弹窗*/
+.qrcode-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.qrcode-win .qrcode-con {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 524px;
+  height: 418px;
+}
+.qrcode-win .qrcode-con .code {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.qrcode-win .qrcode-con .code-close {
+  position: absolute;
+  top: 2%;
+  right: 3%;
+  z-index: 10;
+  display: block;
+  padding: 20px;
+}

@@ -1,0 +1,95 @@
+@import "reset";
+@import "color";
+@import "clearFix";
+@import "header";
+
+html,body {
+	height: 100%;
+}
+
+body {
+	background: #fff;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+
+	.container {
+		width: 100%;
+		height: 100%;
+
+		.scroll-wrapper {
+		    position: absolute;
+		    top: 82px;
+		    bottom: 120px;
+		    left: 0;
+		    right: 0;
+
+		    overflow: hidden;
+
+		    background: #f7f7f7;
+		    z-index: 0;
+
+		    .wrapper {
+		    	padding-bottom: 10px;
+		        .money-list {
+		            .money-item {
+		                position: relative;
+
+		                height: 65px;
+		                padding: 29px 47px 19px 47px;
+
+		                color: #666;
+		                background: #fff;
+		                border-bottom: 1px solid #e5e5e5;
+
+		                .title {
+		                	height: 35px;
+		                	line-height: 35px;
+
+		                	font-size: 23px;
+		                }
+		                .time {
+		                	height: 35px;
+		                	line-height: 35px;
+
+		                	font-size: 20px;
+		                    color: #9f9f9f;
+		                }
+		                .balanceScore {
+		                    position: absolute;
+		                    right: 47px;
+		                    top: 50%;
+
+		                    transform: translateY(-50%);
+
+		                    color: #e50102;
+		                    font-size: 23px;
+
+		                }
+		            }
+		        }
+		    }
+		}
+	}
+}
+
+.advertisement {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 999;
+
+	display: block;
+
+	width: 100%;
+	height: 120px;
+
+	img {
+		display: block;
+
+		width: 100%;
+		height: 120px;
+	}
+}

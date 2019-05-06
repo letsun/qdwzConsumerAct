@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/aiwo/css/reset.css" />
+    <link rel="stylesheet" href="/aiwo/css/animate.min.css" />
+    <link rel="stylesheet" href="/aiwo/css/index.css" />
+    <!-- 样式 end -->
+    <title>爱沃农业二维码红包活动</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/aiwo/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+    <div class="container" id="container">
+        <div class="content">
+            <img class="logo" src="/aiwo/images/1/1_1.png">
+            <img class="title" src="/aiwo/images/1/1_2.png">
+            <img class="lottery-btn" id="lottery-btn" src="/aiwo/images/1/1_3.png">
+        </div>
+
+        <!--抽奖结果-->
+        <div class="lottery-win" id="lottery-win">
+            <div class="lottery-con">
+                <div class="lottery-title"></div>
+                <div class="lottery-dec lottery-dec1">
+                    <div class="num"><span>8.88</span>元</div>
+                    <div class="lottery-text">红包已通过公众号发放<br/>请注意查收</div>
+                </div>
+                <div class="lottery-dec lottery-dec2">
+                    <img class="cry-img" src="/aiwo/images/1/1_9.png" alt="">
+                </div>
+                <div class="code-wra">
+                    <img class="code" src="/aiwo/images/1/1_7.png" alt="">
+                    <div class="code-text">关注公众号了解更多活动内容</div>
+                </div>
+
+                <img class="close-lottery" id="close-lottery" src="/aiwo/images/1/1_8.png" alt="">
+            </div>
+        </div>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+<script src="/aiwo/scripts/lib/jweixin-1.0.0.js"></script>
+<script src="/common/scripts/Func.js"></script>
+<script src="/aiwo/scripts/api.js"></script>
+
+<!-- 页面js start -->
+<script src="/aiwo/scripts/index_act.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+        /*document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            // 通过下面这个API隐藏底部导航栏
+            WeixinJSBridge.call('hideToolbar');
+        });*/
+
+    })
+</script>
+
+</body>
+</html>

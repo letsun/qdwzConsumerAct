@@ -1,0 +1,482 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+select {
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+  cursor: pointer;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.header-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 82px;
+  background: #359d96;
+}
+.header-wrapper:before,
+.header-wrapper:after {
+  content: " ";
+  display: table;
+}
+.header-wrapper:after {
+  clear: both;
+}
+.header-wrapper .back {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  display: block;
+  height: 36px;
+  line-height: 36px;
+  font-size: 23px;
+  text-align: center;
+  z-index: 9;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.header-wrapper .back span {
+  display: inline-block;
+  margin-left: 10px;
+}
+.header-wrapper .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 82px;
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+}
+.header-wrapper .add-address {
+  position: absolute;
+  top: 30px;
+  right: 56px;
+  line-height: 26px;
+  font-size: 26px;
+  color: #fff;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #fff;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+#container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifei/1_7.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+#container .content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+#container .content .logo {
+  position: absolute;
+  left: 3%;
+  top: 2%;
+  z-index: 1;
+}
+#container .content .title {
+  position: absolute;
+  left: 20%;
+  top: 11%;
+  z-index: 1;
+  width: 60%;
+}
+#container .content .con-bg {
+  position: absolute;
+  left: 0;
+  top: 27%;
+  z-index: 1;
+  width: 100%;
+}
+#container .content .award-list {
+  position: absolute;
+  left: 20px;
+  top: 44%;
+  z-index: 2;
+  width: 600px;
+  height: 500px;
+}
+#container .content .award-list .award-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 170px;
+  height: 218px;
+}
+#container .content .award-list .award-item:first-child {
+  top: 0;
+  left: 10px;
+}
+#container .content .award-list .award-item:nth-of-type(2) {
+  top: 0;
+  left: 215px;
+}
+#container .content .award-list .award-item:nth-of-type(3) {
+  top: 0;
+  left: 420px;
+}
+#container .content .award-list .award-item:nth-of-type(4) {
+  top: 250px;
+  left: 116px;
+}
+#container .content .award-list .award-item:nth-of-type(5) {
+  top: 250px;
+  left: 324px;
+}
+#container .content .award-list .positive-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  transition: 1s;
+  -webkit-transition: 1s;
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Chrome 和 Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  overflow: hidden;
+}
+#container .content .award-list .back-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 170px;
+  height: 218px;
+  transition: 1s;
+  -webkit-transition: 1s;
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifei/1_5.png') no-repeat;
+  background-size: 100% 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Chrome 和 Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  overflow: hidden;
+}
+#container .content .award-list .back-item .award-title {
+  width: 100%;
+  height: 20px;
+  padding-top: 5px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+  color: #e88100;
+}
+#container .content .award-list .back-item .award-dec {
+  display: none;
+}
+#container .content .award-list .back-item .award-dec .amount {
+  text-align: center;
+  color: #e51141;
+  line-height: 30px;
+  font-size: 20px;
+}
+#container .content .award-list .back-item .award-dec .amount .num {
+  font-size: 30px;
+  font-weight: bold;
+}
+#container .content .award-list .back-item .award-dec1 {
+  margin-top: 34px;
+}
+#container .content .award-list .back-item .award-dec2 {
+  margin-top: 10px;
+}
+#container .content .award-list .back-item .award-dec2 .award-dec-img {
+  display: block;
+  margin: 5px auto 0 auto;
+}
+#container .content .award-list .active .positive-item {
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+}
+#container .content .award-list .active .back-item {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+}
+#container .content .award-list .award-item-bg {
+  position: absolute;
+  left: -110px;
+  top: -100px;
+  z-index: 0;
+  display: none;
+  width: 384px;
+}
+#container .content .award-list .layer-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: none;
+  width: 100%;
+  height: 218px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+}
+#container .content .tips {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  line-height: 40px;
+  color: #ffeb00;
+}
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+/*关注二维码*/
+.attent-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.attent-win .attent-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 528px;
+  height: 559px;
+  padding-top: 70px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifei/1_9.png');
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  -webkit-transform: translate(-50%, -50%);
+}
+.attent-win .attent-content .attent-title {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  z-index: 1;
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  line-height: 50px;
+  color: #eca330;
+  font-weight: bold;
+}
+.attent-win .attent-content .attent-dec {
+  padding: 30px 0 12px 0;
+  border-radius: 0 0 20px 20px;
+}
+.attent-win .attent-content .attent-img {
+  display: block;
+  margin: 0 auto;
+}
+.attent-win .attent-content .attent-tips {
+  margin-top: 17px;
+  font-size: 22px;
+  color: #ec284c;
+  line-height: 34px;
+  text-align: center;
+}
+.attent-win .attent-content .attent-btn {
+  position: absolute;
+  left: 50%;
+  bottom: -18%;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+}
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.loading .loadCon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.loading .loadCon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  font-size: 24px;
+  line-height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+  }
+}
+@-webkit-keyframes rotateA {
+  0% {
+    -webkit-transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg);
+  }
+}
+@-webkit-keyframes rotateB {
+  0% {
+    -webkit-transform: rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+  }
+}

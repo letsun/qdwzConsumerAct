@@ -1,0 +1,512 @@
+@import 'clearFix';
+@import 'newAnimate';
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: none;
+
+            width: 100%;
+            height: 100%;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            .abs {
+                position: absolute;
+            }
+        }
+        .page1 {
+            background-image: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/1_2.jpg');
+            
+            .img1 {
+                top: 29px;
+    			left: 5%;
+            }
+            .img2 {
+               top: 49%;
+               left: 0;
+				
+				transform: translateY(-50%);
+            }
+            .img3 {
+               top: 47%;
+               left: 0;
+				
+				transform: translateY(-50%);
+            }
+
+            .img4 {
+               bottom: 3%;
+               left: 50%;
+				
+				transform: translate(-50%, -50%);
+            }
+
+            .img5 {
+               bottom: -4%;
+               left: 50%;
+				
+				transform: translate(-50%, -50%);
+
+                cursor: pointer;
+            }
+
+            .result-wrapper {
+            	position: absolute;
+            	left: 0;
+            	top: 0;
+            	right: 0;
+            	bottom: 0;
+
+            	display: none;
+
+            	z-index: 99;
+
+            	background-color: rgba(0, 0, 0, 0.8);
+
+            	.img6 {
+            		top: 50%;
+            		left: 0;
+
+            		transform: translateY(-50%);
+            	}
+
+                .result-bg {
+                    position: absolute;
+
+                    left: 50%;
+                    top:  50%;
+                    
+                    transform: translate(-50%, -50%);
+
+                    width: 496px;
+                    height: 730px;
+
+                    background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/2_3.png") no-repeat;
+                    background-size: 100% 100%;
+                }
+
+            	.result-container {
+            		position: absolute;
+
+            		left: 50%;
+					top:  50%;
+
+                    z-index: 999;
+					
+					transform: translate(-50%, -50%);
+
+            		width: 496px;
+            		height: 790px;
+
+            		.close-btn {
+            			position: absolute;
+            			right: 0px;
+            			top: -40px;
+
+                        z-index: 999;
+
+            			display: block;
+
+            			width: 51px;
+            			height: 51px;
+            		}
+
+            		.result {
+            			position: absolute;
+            			left: 50%;
+            			top: 35%;
+
+            			transform: translateX(-50%);
+
+            			width: 331px;
+            			height: 400px;
+
+            			.tip-status {
+            				width: 100%;
+            				height: 57px;
+            				line-height: 57px;
+							
+							font-size: 37px;
+							font-weight: bold;
+
+							text-align: center;
+
+							letter-spacing: 2px;
+
+							color: #fbc105;
+
+							&.top {
+								position: absolute;
+								left: 0;
+								top: -170px;
+							}
+            			}
+
+            			.block {
+            				display: none;
+            			}
+
+            			.coupon-wrapper {
+            				position: relative;
+            				width: 343px;
+            				height: 144px;
+
+            				background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/2_2.png") no-repeat;
+
+            				.coupon-container {
+            					position: absolute;
+            					left: 23px;
+            					top: 18px;
+
+            					width: 290px;
+            					height: 97px;
+
+            					color: #752ec8;
+
+            					.coupon-left {
+            						position: absolute;
+            						left: 0;
+            						top: 0;
+
+            						width: 216px;
+            						height: 97px;
+
+            						.coupon-top {
+            							position: relative;
+
+            							width: 100%;
+										margin-top: 5px;
+            							height: 65px;
+
+										line-height: 65px;
+										font-size: 24px;
+										text-align: center;
+							            font-weight: 600;
+
+							            overflow: hidden;
+
+							            white-space: nowrap;
+							            text-overflow: ellipsis;
+
+            							.coupon-price {
+            								position: absolute;
+            								left: 0;
+            								top: 0;
+
+            								width: 105px;
+            								height: 65px;
+            								line-height: 65px;
+
+            								font-size: 45px;
+
+            								span {
+            									font-size: 22px;
+            								}
+            							}
+
+            							.coupon-time {
+            								position: absolute;
+            								right: 0;
+            								top: 0;
+
+            								width: 115px;
+            								height: 65px;
+            								line-height: 30px;
+
+            								font-size: 19px;
+            							}
+            						}
+            						.coupon-bottom {
+            							line-height: 32px;
+
+            							font-size: 18px;
+
+            							margin-left: 10px;
+            						}
+
+            					}
+
+            					.coupon-right {
+            						position: absolute;
+            						right: 8px;
+    								top: 4px;
+									
+									width: 30px;
+            						height: 98px;
+            						line-height: 28px;
+
+            						font-size: 23px;
+            					}
+            				}
+            			}
+
+            			.coupon-tip {
+            				line-height: 35px;
+            				margin: 5px 0;
+
+            				text-align: center;
+
+            				font-size: 22px;
+
+							color: #fff;
+            			}
+
+            			.use-btn {
+            				display: block;
+
+            				width: 182px;
+            				height: 63px;
+
+            				margin: 0 auto;
+
+            				margin-top: 10px;
+            			}
+
+            			.redPackage-wrapper {
+            				margin-top: 20px;
+            				margin-bottom: 40px;
+
+            				color: #ffc205;
+
+            				text-align: center;
+
+            				.redPackage-price {
+            					line-height: 60px;
+            					font-size: 45px;
+                                font-weight: bold;
+            					span {
+            						font-size: 25px;
+            					}
+            				}
+
+            				.redPackage-tip {
+								font-size: 30px;
+                                font-weight: bold;
+            				}
+            			}
+
+            			.noAward-wrapper {
+            				margin: 20px auto 30px auto;
+
+            				.noAward-logo {
+            					width: 125px;
+            					height: 122px;
+
+            					margin: 0 auto;
+            				}
+
+            				.noAward-tip {
+            					margin-top: 10px;
+            					line-height: 40px;
+
+            					font-size: 23px;
+
+            					color: #fff;
+
+            					text-align: center;
+            				}
+
+            			}
+
+            			.qrcode {
+            				width: 150px;
+            				height: 150px;
+
+            				margin: 0 auto;
+
+            				margin-top: 20px;
+
+            				text-align: center;
+
+            				.qrcode-tip {
+            					text-align: center;
+
+            					font-size: 20px;
+            					color: #f8e100;
+
+            					line-height: 30px;
+            				}
+            			}
+
+            		}
+            	}
+            }
+
+			.phone-mask {
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+
+				display: none;
+
+				z-index: 99;
+
+				background-color: rgba(0, 0, 0, 0.8);
+
+				.phone-box {
+					position: absolute;
+
+					left: 50%;
+					top:  50%;
+
+					transform: translate(-50%, -50%);
+
+					width: 494px;
+					height: 456px;
+
+					background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/3_1.png") no-repeat;
+					background-size: 100% 100%;
+
+					.input-box {
+						position: relative;
+
+						width: 420px;
+						margin: 50px auto;
+
+						input[type="text"] {
+							width: 100%;
+							height: 65px;
+							padding-left: 40px;
+							display: block;
+
+							line-height: 65px;
+							color: #a1756a;
+							font-size: 24px;
+
+							background: #fff9f1;
+
+							border: none;
+							border-radius: 30px;
+
+							box-sizing: border-box;
+						}
+
+						::-webkit-input-placeholder {
+							color: #a1756a;
+						}
+
+						.code-btn {
+							position: absolute;
+							top: 0;
+							right: 0;
+
+							width: 180px;
+							height: 65px;
+
+							line-height: 55px;
+							color: #fff;
+							font-size: 24px;
+							outline: none;
+							-webkit-appearance: none;
+
+							background: #ff8d3a;
+
+							border: 5px solid #000;
+							border-radius: 30px;
+
+							box-sizing: border-box;
+						}
+
+						.active {
+							background: #eee;
+						}
+					}
+
+					.input-phone {
+						margin-top: 70px;
+					}
+
+					.submit-btn {
+						width: 200px;
+						height: 65px;
+						margin: 100px auto;
+						display: block;
+
+						line-height: 55px;
+						color: #fff;
+						font-size: 26px;
+						text-align: center;
+						outline: none;
+						-webkit-appearance: none;
+
+						background: #ff5532;
+
+						border: 5px solid #000;
+						border-radius: 30px;
+
+						box-sizing: border-box;
+					}
+				}
+			}
+        }
+    }
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}

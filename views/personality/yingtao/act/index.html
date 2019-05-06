@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/yingtao/css/animate.min.css" />
+	<link rel="stylesheet" href="/yingtao/css/index.css" />
+	<!-- 样式 end -->
+	<title>摇一摇</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/yingtao/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="page page1" id="page1">
+			<img src="/yingtao/images/2/1_1.png" alt="" class="abs img1" />
+			
+			<div class="page1_content" id="page1_content">
+				<img src="/yingtao/images/2/1_2.png" alt="" class="abs img2" id="yyy-btn" />
+				<div class="abs error-tip" id="errorTip">红包已经被扫</div>
+				<div class="text-tip abs">
+					您可以分享红包给好友，好友领取红包约多，您收益越多
+				</div>
+				<img src="/yingtao/images/2/1_5.png" alt="" class="abs img3" />
+				<img src="/yingtao/images/2/1_3.png" alt="" class="abs img4" />
+			</div>
+			<div class="notice-publicAccount" id="notice-publicAccount">
+				<div class="erweima">
+					<img src="/yingtao/images/2/3_1.png" />
+					<div class="close" id="close-btn"></div>
+				</div>
+				
+			</div>
+			<div class="yyy-wrapper" id="yyy-wrapper">
+				<img src="/yingtao/images/2/2_2.png" alt="" class="abs hand" />
+				<img src="/yingtao/images/2/2_1.png" alt="" class="abs yyy-tip" />
+			</div>
+			
+			<div class="result" id="result">
+				<!-- 摇一摇的结果 -->
+				<div class="wrapper">
+					<div class="con" id="con">恭喜获得红包<br />6.66元</div>
+					<div class="tip">（请前往个人中心提现）</div>
+				</div>
+				<div class="btn-group">
+					<a href="javscript:void(0)" id="toWithdraw" class="img6"><img src="/yingtao/images/2/4_2.png" alt="" class="abs" /></a>
+					<img src="/yingtao/images/2/4_3.png" alt="" class="abs img5" id="shareBtn" />
+				</div>
+				<img src="/yingtao/images/2/4_1.png" alt="" class="abs bg" />
+			</div>
+		</div>
+	</div>
+	<img src="/yingtao/images/2/5_1.png" alt="" class="share" id="share" />
+
+	<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<script src="/common/scripts/wxjs/jweixin-1.0.0.js"></script>
+<script src="/common/scripts/wxjs/myweixin-1.0.js"></script>
+<script src="/common/scripts/yyy.js"></script>
+<script src="/common/scripts/currency.js"></script>
+
+<script src="/yingtao/scripts/api.js"></script>
+<script src="/yingtao/scripts/Func.js"></script>
+
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/yingtao/scripts/index_act.js"></script>
+<!-- 页面js end-->
+
+<script>
+
+	// 签名处理
+	getHeader();
+	var href = window.location.href.split('?');
+	if (window.sessionStorage.headerInfor) {
+		if (href[1]) {
+			window.location.href = href[0];
+		}
+	}
+
+	$(function() {
+
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	$('#page1').fadeIn(function() {
+	    		
+	    		Func.findActivityByEncode(function(res) {
+	    			
+	    			if (res.code === 200 || res.code === 201) {
+	    				$('#yyy-btn').show();
+	    				$('#errorTip').hide();
+	    			} else {
+	    				$('#yyy-btn').hide();
+	    				$('#errorTip').show();
+	    				$('#errorTip').text(res.msg);
+	    			}
+
+	    			// 微信分享
+	    			Func.findShareParams({
+	    				thisUrl: window.location.href.split('#')[0]
+	    			}, function(res) {
+						$('#loadingWrapper').hide();
+
+						if (res.code === 200) {
+							var data = res.data;
+
+							wx.config({
+							    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+							    appId: data.autAppid, // 必填，公众号的唯一标识
+							    timestamp: data.timestamp, // 必填，生成签名的时间戳
+							    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+							    signature: data.signature,// 必填，签名
+							    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表
+							});
+
+							wx.ready(function(){
+								wx.onMenuShareTimeline({
+								    title: data.shareTitle, // 分享标题
+								    link: data.fissionUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+								    imgUrl: data.shareImgurl, // 分享图标
+								    success: function () {
+								    // 用户点击了分享后执行的回调函数
+									}
+								});
+
+								wx.onMenuShareAppMessage({
+									title: data.shareTitle, // 分享标题
+									desc: data.shareDesc, // 分享描述
+									link: data.fissionUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+									imgUrl: data.shareImgurl, // 分享图标
+									type: '', // 分享类型,music、video或link，不填默认为link
+									dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+									success: function () {
+									// 用户点击了分享后执行的回调函数
+									}
+								});
+							});
+						} else {
+							common.alert({
+								content: res.msg,
+								mask: true
+							});
+						}
+					});
+	    		});
+
+	    		
+	    	});
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	})
+</script>
+
+</body>
+</html>

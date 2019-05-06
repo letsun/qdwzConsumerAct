@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <%-include("../include/commonCss") %>
+    <link rel="stylesheet" href="/lsliuguifu/css/rebateRecord.css">
+    <link rel="stylesheet" href="/lsliuguifu/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>返利记录</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+       <%-include("../include/header", {title: '返利记录'}) %>
+       <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <ul class="money-list" id="money-list">
+                    <!-- 数据 -->
+                </ul>
+                <!-- 下拉加载更多 -->
+                <div class="loading" id="loading">下拉加载更多</div>
+            </div>
+        </div>
+        <%-include("../include/advertisement") %>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/lsliuguifu/scripts/Func.js"></script>
+<script src="/lsliuguifu/scripts/api.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+    var hasNext = true;
+    var page = 1;
+
+   $(function() {
+        var doc = $(document);
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();
+        });
+
+        // 返利记录页面广告
+        Func.getAdvByAdvPositionName('#advertisement', '返利记录页面');
+
+        // 初始化数据
+        Func.findRebate({
+                page: page,
+                limit: 20
+        }, function(res) {
+            var data = res.data;
+
+            if (res.code === 200) {
+                hasNext = data.hasNext;
+                render(data.rebateList);
+
+                if (data.rebateList.length >= 20) {
+                    $('#loading').show();
+                }
+            }
+
+            $('#loadingWrapper').hide();
+        });
+   });
+
+   var scroll = new BScroll('#scrollWrapper', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+          threshold: 0
+        }
+    });
+    
+    scroll.on('pullingUp', () => {
+        if (!hasNext) {
+            $('#loading').text('已经没有更多了');
+            return;
+        }
+
+        $('#loading').text('正在加载中...');
+
+        page++;
+
+        // 拉取数据
+        Func.findRebate({
+                page: page,
+                limit: 20
+        }, function(res) {
+            var data = res.data;
+
+            if (res.code === 200) {
+                hasNext = data.hasNext;
+                render(data.rebateList);
+
+                $('#loading').text('下拉加载更多');
+            } else {
+                common.alert({
+                    content: res.msg,
+                    mask: true
+                });
+            }
+        }); 
+    });
+
+    /**
+     * 渲染数据
+     * @param  object data 需要的数据
+     * @return null
+     */
+    function render(data) {
+        var html = '';
+        var prizeType = {
+            '0': '红包',
+            '1': '优惠券',
+            '2': '实物',
+            '3': '积分',
+        };
+
+        for (var i = 0; i < data.length; i++) {
+            html += '<li class="money-item">';
+            html += '<div class="title">' + (typeof prizeType[data[i].prizeType] !== 'undefined' ? prizeType[data[i].prizeType] : '') + '</div>';
+            html += '<div class="time">' + data[i].createDateTime + '</div>';
+            html += '<div class="nickname">' + data[i].nickname + '</div>';
+
+            if (data[i].prizeType === 0) {
+                html += '<div class="balanceScore">' + currency('￥', data[i].rebateAmount) + '</div>';
+            } else if (data[i].prizeType === 1) {
+                html += '<div class="balanceScore">' + data[i].prizeName + '</div>';
+            } else if (data[i].prizeType === 2) {
+                html += '<div class="balanceScore">' + data[i].prizeName + '</div>';
+            } else if (data[i].prizeType === 3) {
+                html += '<div class="balanceScore">' + currency('￥', data[i].rebateAmount) + '</div>';
+            }
+            
+            html += '</li>';
+        }
+        
+        $('#money-list').append(html);
+
+        scroll.finishPullUp();
+        scroll.refresh();
+    }
+
+</script>
+
+</body>
+</html>

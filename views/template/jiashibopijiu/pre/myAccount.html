@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/commonAct_2/css/myAccount.css">
+    <link rel="stylesheet" href="/commonAct_2/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>我的积分</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+        <%-include("../include/header", {title: '我的积分'}) %>
+       <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <ul class="money-list" id="money-list">
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">扫码获得积分</div>
+                        <div class="time">2018.06.30</div>
+                        <div class="balanceScore">+30.00</div>
+                    </li>
+                </ul>
+                <!-- 下拉加载更多 -->
+                <div class="loading" id="loading">下拉加载更多</div>
+            </div>
+        </div>
+        <div class="advertisement fixed">
+            <img src="/commonAct_2/images/5/1_2.gif" alt="" />
+        </div>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+   $(function() {
+        var doc = $(document);
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();;
+        });
+   });
+
+   var scroll = new BScroll('#scrollWrapper', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+          threshold: 0
+        }
+    });
+
+   var timer = null;
+   var pageSize = 3;
+   var hasNext = true;
+    
+    scroll.on('pullingUp', () => {
+        if (!hasNext) {
+            $('#loading').text('已经没有更多了');
+            return;
+        }
+
+        $('#loading').text('正在加载中...');
+
+        timer = setTimeout(function() {
+
+            var html = '';
+            for (var i = 0; i < 8; i++) {
+                html += '<li class="money-item">';
+                html += '<div class="title">红包10元</div>';
+                html += '<div class="time">2018.06.30</div>';
+                html += '<div class="balanceScore">+30.00</div>';
+                html += '</li>';
+            }
+
+            $('#loading').text('下拉加载更多');
+            $('#money-list').append(html);
+
+            hasNext = false;
+
+            scroll.finishPullUp();
+            scroll.refresh();
+        }, 100);
+    });
+</script>
+
+</body>
+</html>

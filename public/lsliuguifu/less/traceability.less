@@ -1,0 +1,98 @@
+@import "reset";
+@import "clearFix";
+@import "color";
+@import "header";
+@import 'btn';
+@import "advertisement";
+
+html,body {
+	height: 100%;
+}
+
+body {
+	background: #fff;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+
+	.container {
+		position: relative;
+
+		width: 100%;
+		height: 100%;
+
+		.scroll-wrapper {
+		    position: absolute;
+		    top: 82px;
+		    bottom: 80px;
+		    left: 0;
+		    right: 0;
+
+		    overflow: hidden;
+
+		    background: #fff;
+		    z-index: 0;
+
+		    .wrapper { 
+		        position: absolute;
+			    left: 0;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+
+			    .traceability-scroll {
+				    position: absolute;
+				    left: 0;
+				    top: 0;
+				    right: 0;
+				    bottom: 120px;
+
+				    overflow: hidden;
+			    }
+
+		        .traceability-wrapper {
+		        	padding: 20px 46px;
+
+		        	.traceability-list {
+		        		.item {
+		        			border-bottom: 1px solid #ebebeb;
+							padding: 21px 0;
+							font-size: 24px;
+							line-height: 35px;
+
+							&:last-child {
+								border-bottom: none;
+							}
+							
+
+		        			.clearFix();
+
+							.key {
+								float: left;
+
+								width: 137px;
+								
+
+								color: #666666;
+							}
+
+							.value {
+								margin-left: 137px;
+
+								color: #333333;
+
+								img {
+									display: block;
+
+									max-width: 100%;
+								}
+							}
+		        		}
+		        	}
+		        }
+		    }
+		}
+	}
+}

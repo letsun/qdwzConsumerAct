@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/luoboke/css/reset.css" />
+    <link rel="stylesheet" href="/luoboke/css/animate.min.css" />
+    <link rel="stylesheet" href="/luoboke/css/index.css" />
+    <!-- 样式 end -->
+    <title>罗伯克二维码红包活动</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/luoboke/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div id="container">
+
+        <div class="content">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_2.png" alt="" class="logo">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_1.png" alt="" class="title">
+            <img class="receive-btn" id="receive-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_3.png" alt="">
+        </div>
+
+
+        <!--关注二维码弹窗-->
+        <div class="attent-win" id="attent-win">
+
+            <div class="attent-content">
+
+                <img class="attent-title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_12.png" alt="">
+                <img class="qrcode" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_13.png" alt="">
+                <img class="close-attent" id="close-attent" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_11.png" alt="">
+
+                <div class="attent-text">
+                    <p>检测到您尚未关注公众号</p>
+                    <p>请长按识别关注公众号后再扫码获取红包</p>
+                </div>
+            </div>
+        </div>
+
+        <!--红包结果弹窗-->
+        <div class="redResult-win" id="redResult-win">
+            <div class="redResult-content">
+
+                <img class="redResult-title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_6.png">
+                <div class="redResult-dec-wra">
+
+                    <div class="redResult-dec redResult-dec1">
+                        <div class="redResult-amount"><span class="num num1"></span>元</div>
+                        <div class="redResult-type">现金红包</div>
+                    </div>
+
+                    <div class="redResult-dec redResult-dec2">
+                        <img class="redResult-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_9.png" alt="">
+                        <div class="redResult-text"></div>
+                    </div>
+
+                    <div class="redResult-tips">
+                        <p>奖励由公众号进行发放</p>
+                        <p>请注意查收</p>
+                    </div>
+
+                    <div class="receive-btn2" id="receive-btn2">领取红包</div>
+                </div>
+            </div>
+        </div>
+
+        <!--提交信息弹窗-->
+        <div class="submit-infor" id="submit-infor">
+            <div class="submit-content">
+                <img class="infor-title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_14.png" alt="">
+                <div class="form">
+                    <div class="form-item">
+                        <input class="form-input" type="text" maxlength="15" id="name" placeholder="请输入姓名">
+                    </div>
+                    <div class="form-item form-second-item">
+                        <select class="form-input select-text" id="sex">
+                            <option value="2">请选择性别</option>
+                            <option value="1">男</option>
+                            <option value="0">女</option>
+                        </select>
+                        <input class="form-input" id="age" type="text" placeholder="年龄" maxlength="15">
+                    </div>
+                    <div class="form-item form-three-item">
+                        <input class="form-input" id="mobile" type="text" placeholder="请输入您的电话" maxlength="11">
+                        <button class="form-btn" id="form-btn">获取验证码</button>
+                    </div>
+                    <div class="form-item">
+                        <input class="form-input" id="verCode" type="text" placeholder="请输入验证码" maxlength="6">
+                    </div>
+                    <div class="form-item">
+                        <input class="form-input" id="address" type="text" placeholder="请输入您的联系地址" maxlength="50">
+                    </div>
+                    <div class="form-item form-other-item">
+                        <div class="form-text">*提交信息后即可领取红包</div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-submit" id="form-submit">提交</div>
+                    </div>
+                </div>
+                <img class="close-infor" id="close-infor" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luoboke/1_11.png" alt="">
+            </div>
+
+        </div>
+
+        <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/luoboke/scripts/api.js"></script>
+<script src="/luoboke/scripts/Func.js"></script>
+<script src="/luoboke/scripts/index_act.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+
+</body>
+</html>

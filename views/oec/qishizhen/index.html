@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="/qishizhen/css/index.css">
+</head>
+<body>
+<div id="container">
+
+    <div class="content">
+        <div class="title-wra" style="display: none;">
+            <div class="title">详细信息</div>
+        </div>
+
+        <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="tips">
+        <img src="/qishizhen/images/1_1.png" alt="">
+        <div class="tips-text"></div>
+    </div>
+</div>
+<%-include('../../include/commonJs') %>
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<script src="/qishizhen/scripts/api.js"></script>
+<script src="/qishizhen/scripts/index.js"></script>
+<script>
+    // 禁止页面滚动
+    $('#container').on('touchmove',function (e) {
+        e.preventDefault();
+    });
+
+    var scroll = new BScroll('#scrollWrapper',{
+        click:true,
+    });
+</script>
+</body>
+</html>
+

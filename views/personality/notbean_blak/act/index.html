@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/notbean/css/reset.css" />
+	<link rel="stylesheet" href="/notbean/css/animate.min.css" />
+	<link rel="stylesheet" href="/notbean/css/index.css" />
+	<!-- 样式 end -->
+	<title>不是豆干</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/notbean/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="page page1" id="page1">
+			<img src="/notbean/images/2/1_2.png" alt="" class="abs img1 btn" id="receiveBtn" />
+			
+			<div class="result" id="result">
+
+				<div class="result-wrapper" id="resultWrapper">
+					
+				</div>
+
+				<div class="mask"></div>
+
+				<img src="/notbean/images/2/2_3.png" alt="" class="abs img2" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/notbean/scripts/api.js"></script>
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+	
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+
+	    	Func.findActivityByEncode(function(res) {
+		    	
+		    	$('#loadingWrapper').hide();
+
+		    	if (res.code === 200 || res.code === 201) {
+		    		
+		    	} else {
+
+		    		$('#receiveBtn').hide();
+
+		    		common.alert({
+		    			content: res.msg,
+		    			mask: true
+		    		});
+		    	}
+
+		    	$('.loading').hide();
+	    		$('#page1').fadeIn();
+		    });
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	    $(document).on('click', '#receiveBtn', function() {
+	    	Func.lottery(api.lottery, function(res) {
+	    		if (res.code === 200 || res.code === 201) {
+
+                    Global.requestTempByAjax('/notbean/temp/result.ejs', res, function(template) {
+						console.log(res);
+                        $('#resultWrapper').html(template);
+                        $('#result').fadeIn();
+                        $('#resultContainer').addClass('show');
+
+                    });
+
+                    if (res.code === 200 && res.data.redPack.prizeAmount) {
+                        Func.userCash({
+                            amount: res.data.redPack.prizeAmount,
+                            cashType: 0,
+                        });
+					}
+	   			} else {
+ 					common.alert({
+						mask: true,
+						content: res.msg,
+					})
+				}
+	    	});
+	    });
+
+	})
+</script>
+
+</body>
+</html>

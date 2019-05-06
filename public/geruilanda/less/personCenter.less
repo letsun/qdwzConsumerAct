@@ -1,0 +1,315 @@
+@import 'reset';
+
+@red:#d9341e;
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    background: #fff;
+
+    .scroll-wrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 362px;
+        bottom: 100px;
+
+        overflow: hidden;
+
+        .wrapper {
+            width: 100%;
+        }
+    }
+
+    .header {
+        width: 100%;
+        height: 362px;
+
+        background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/geruilanda/images/4_1.jpg") no-repeat;
+        background-size: 100% 100%;
+
+        .user {
+            width: 100%;
+            padding-top: 110px;
+
+            .user-photo {
+                width: 160px;
+                height: 160px;
+                margin: 0 auto;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+
+                    border-radius: 50%;
+                }
+            }
+
+            .user-name {
+                width: 90%;
+                margin: 20px auto 0 auto;
+
+                text-align: center;
+                color: #fff;
+            }
+        }
+    }
+
+    .total-amount {
+        .clearFix();
+
+        .amount {
+            float: left;
+
+            width: 50%;
+            padding: 20px 0;
+
+            box-sizing: border-box;
+
+            border-left: 1px solid #ededed;
+
+            &:first-child {
+                border-left: none;
+            }
+
+            .amount-title {
+                font-size: 24px;
+                color: #323232;
+                text-align: center;
+            }
+
+            .amount-num {
+                padding-top: 10px;
+
+                font-size: 32px;
+                color: #cb262a;
+                text-align: center;
+            }
+        }
+
+    }
+
+    .form {
+        border-top: 10px solid #ededed;
+
+        .form-item {
+            width: 100%;
+            padding: 30px 5%;
+
+            box-sizing: border-box;
+
+            .clearFix();
+
+            .form-left {
+                float: left;
+
+                width: 70%;
+
+                .form-input {
+                    width: 100%;
+                    height: 70px;
+                    padding: 0 20px;
+
+                    line-height: 70px;
+                    font-size: 28px;
+
+                    border-radius: 10px;
+
+                    background: #eeeeee;
+
+                    box-sizing: border-box;
+                }
+            }
+
+            .form-right {
+                float: right;
+
+                width: 25%;
+
+                .withdraw-btn {
+                    display: block;
+                    width: 100%;
+                    height: 70px;
+
+                    color: #fff;
+                    line-height: 70px;
+                    text-align: center;
+
+                    border-radius: 10px;
+
+                    background: #e4312c;
+
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .form-text {
+            width: 90%;
+            margin: 0 auto;
+
+            font-size: 24px;
+            color: #6c6c6c;
+        }
+    }
+
+    .nav-list {
+        width: 100%;
+        padding: 0 20px;
+        margin-top: 40px;
+
+        box-sizing: border-box;
+
+        border-bottom: 1px solid #dddddd;
+        border-top: 1px solid #dddddd;
+
+        .nav-item {
+            width: 100%;
+            padding: 20px 0;
+
+            border-bottom: 1px solid #dddddd;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            a {
+                display: block;
+
+                .clearFix();
+
+                .nav-left {
+                    float: left;
+
+                    img {
+                        display: block;
+                        margin-top: 10px;
+                    }
+                }
+
+                .nav-mid {
+                    float: left;
+
+                    width: 40%;
+                    margin-left: 50px;
+
+                    color: #000;
+                    font-size: 30px;
+                    line-height: 48px;
+                }
+
+                .nav-right {
+                    float: right;
+
+                    margin-right: 20px;
+
+                    color: #dfdfdf;
+                    font-size: 48px;
+                    line-height: 48px;
+                }
+            }
+        }
+    }
+
+    .btn-group {
+        margin-top: 60px;
+
+        .btn {
+            font-size: 28px;
+            line-height: 58px;
+
+            display: block;
+            width: 60%;
+            height: 58px;
+            margin: 0 auto;
+
+            text-align: center;
+
+            color: @red;
+            border: 2px solid @red;
+            border-radius: 40px;
+
+            background: #fff;
+        }
+
+        .scan-code-text {
+            margin-top: 35px;
+
+            text-align: center;
+            color: #000;
+            font-size: 26px;
+            line-height: 26px;
+        }
+    }
+
+    .footer {
+        position: absolute;
+        left: 0;
+        bottom: 40px;
+        z-index: 99;
+
+        width: 100%;
+
+        text-align: center;
+        color: @red;
+        font-size: 26px;
+    }
+}
+
+
+/*弹窗*/
+.tips-win {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+
+    display: none;
+
+    background: rgba(0,0,0,.7);
+
+    .tips-con {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 10;
+
+        width: 73%;
+
+        background: #fff;
+
+        border-radius: 15px;
+
+        -webkit-transform: translate(-50%,-50%);
+
+        .tips-title {
+            padding: 40px 30px;
+
+            font-size: 26px;
+            line-height: 40px;
+            color: #666;
+        }
+
+        .tips-btn {
+            line-height: 80px;
+            color: @red;
+            text-align: center;
+            font-size: 30px;
+
+            border-top: 1px solid #ddd;
+
+            cursor: pointer;
+        }
+    }
+}

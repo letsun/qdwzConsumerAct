@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <%-include("../include/commonCss") %>
+    <link rel="stylesheet" href="/dongfanghonghainan/css/withdraw.css">
+    <link rel="stylesheet" href="/dongfanghonghainan/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>余额提现</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+       
+       <%-include("../include/header", {title: '余额提现'}) %>
+
+       <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <div class="account-wrapper">
+                    <div class="account-content">
+                        <div class="account-text">账户余额</div>
+                        <div class="account" id="balance">￥3.00</div>
+                    </div>
+                </div>
+                <div class="account-container">
+                    <div class="withdraw-form" id="form">
+                        <input type="text" class="form-text" id="amount" data-validateInfor="{strategy:isEmpty,msg:提现金额不能为空}|{strategy:isPrice,msg:提现余额必须为大于1小于200的整数}" placeholder="请输入提现金额" />
+                        <a href="javascript:void(0)" class="submit-btn" id="submitBtn">提现</a>
+                    </div>
+                    <div class="withdraw-tip">
+                        一天提现最多只能3次，提现金额只能是0.3-200元
+                    </div>
+                    <div class="btn-wrapper">
+                        <a href="/personality/dongfanghonghainan/act/personCenter" class="withdraw-btn">个人中心</a>
+                        <a href="/personality/dongfanghonghainan/act/withdrawRecord" class="withdraw-btn">提现记录</a>
+                    </div>
+                </div>
+            </div>
+       </div>
+        <!--广告-->
+        <a class="advertisement" id="advertisement" href="https://advp-api.lxcyhd.com/advpage/alone/25/84/D1E2A84D02B47D197D4BC0F120CBF0EB">
+            <img src="/dongfanghonghainan/images/adv.jpg" alt="">
+        </a>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/validate.js"></script>
+
+<script src="/common/scripts/currency.js"></script>
+<script src="/dongfanghonghainan/scripts/api.js"></script>
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+   $(function() {
+        var doc = $(document);
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();
+        });
+
+
+        var signature = '';
+        Func.getPersonCenter(function(res) {
+            var data = res.data;
+      
+            if (res.code === 200) {
+                $('#balance').text(currency('￥', data.balance));
+
+                signature = data.signature;
+            } else {
+                common.alert({
+                    content: res.msg,
+                    mask: true
+                });
+            }
+
+            $('#loadingWrapper').hide();
+        });
+
+
+
+        doc.on('click', '#submitBtn', function() {
+            var res = Global.initValidate('#form');
+
+            if (!res) {
+                return;
+            }
+
+            var data = {
+                amount: $('#amount').val(),
+                signature: signature,
+                cashType: 1
+            };
+            $('#loadingWrapper').show();
+            Func.userCash(data, function(res) {
+                $('#loadingWrapper').hide();
+                if (res.code === 200) {
+                    $('#balance').text(currency('', $('#balance').text() - $('#amount').val()));
+                    $('#amount').val('');
+                }
+
+                common.alert({
+                    mask: true,
+                    content: res.msg,
+                });
+            });
+        });
+   })
+
+</script>
+
+</body>
+</html>

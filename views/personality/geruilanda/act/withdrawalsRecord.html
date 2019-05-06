@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no" />
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/geruilanda/fonts/iconfont.css">
+    <link rel="stylesheet" href="/geruilanda/css/withdrawalsRecord.css">
+
+    <!-- 样式 end -->
+    <title>提现记录</title>
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="header-back">
+        <a class="back-icon" href="javascript:history.back(-1)"><span class="iconfont icon-fangxiangzuo back"></span>返回</a>
+        <h3>提现记录</h3>
+    </div>
+
+    <div class="scroll-wrapper" id="scrollWrapper">
+        <div class="wrapper">
+            <ul class="withdrawals-list" id="withdrawals-list">
+
+            </ul>
+            <div class="loading" id="loading">上滑加载更多...</div>
+        </div>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+<%- include('../../../include/commonJs') %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/Func.js"></script>
+<script src="/geruilanda/scripts/api.js"></script>
+<script>
+    // 禁止整个页面滑动
+    $('#wrapper').on('touchmove', function (e) {
+        e.preventDefault();
+    });
+
+    var hasNext = true;
+    var page = 1;
+
+    $(function() {
+        var doc = $(document);
+
+        // 初始化数据
+        Func.guestApplyWithdrawRecord({
+            page: page,
+            limit: 20
+        }, function(res) {
+            var data = res.data;
+
+            if (res.code === 200) {
+                hasNext = data.hasNext;
+                render(data.cashRecordList);
+
+                if (data.cashRecordList.length >= 20) {
+                    $('#loading').show();
+                } else {
+                    $('#loading').hide();
+                }
+            }
+
+            $('#loadingWrapper').hide();
+        });
+    });
+
+    var scroll = new BScroll('#scrollWrapper', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+            threshold: 0
+        }
+    });
+
+    scroll.on('pullingUp', () => {
+        if (!hasNext) {
+            $('#loading').html('已经没有更多了');
+            return;
+        }
+
+        $('#loading').text('正在加载中...');
+
+        page++;
+
+        // 拉取数据
+        Func.guestApplyWithdrawRecord({
+            page: page,
+            limit: 20
+        }, function(res) {
+            var data = res.data;
+
+            if (res.code === 200) {
+                hasNext = data.hasNext;
+                render(data.cashRecordList);
+
+                $('#loading').text('上滑加载更多...');
+            } else {
+                common.alert({
+                    content: res.msg,
+                    mask: true
+                });
+            }
+        });
+    });
+
+    /**
+     * 渲染数据
+     * @param  object data 需要的数据
+     * @return null
+     */
+    function render(data) {
+        var html = '';
+        var stateObj = {
+            '0':'审核中',
+            '1':'审核中',
+            '2':'审核通过',
+            '3':'审核不通过'
+        };
+        for (var i = 0; i < data.length; i++) {
+
+            html += '<li class="withdraw-item">';
+            html += '<a href="javascript:void(0);">';
+            html += '<div class="withdrawal-title">￥<span class="tilte-num">' + data[i].cashAmount + '</span></div>';
+            html += '<div class="withdrawal-state withdrawal-err">' + stateObj[data[i].status] + '</div>';
+            html += '<div class="withdrawal-time">' + data[i].createDate + '</div>';
+            html += '</a>';
+            html += '</li>';
+        }
+
+        $('#withdrawals-list').append(html);
+
+        scroll.finishPullUp();
+        scroll.refresh();
+    }
+
+    Func.guestApplyWithdrawRecord = function(data, callback) {
+
+        if (data.page === 1) {
+            $('#loadingWrapper').show();
+        }
+
+        $.ajax({
+            url: api.guestApplyWithdrawRecord,
+            type: 'GET',
+            data: data,
+            headers: getHeader(),
+            dataType: 'json',
+            success: function(res) {
+                callback(res);
+            }
+        });
+    }
+
+
+</script>
+</body>
+</html>

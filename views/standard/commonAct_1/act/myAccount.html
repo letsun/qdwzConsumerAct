@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <%-include("../include/commonCss") %>
+    <link rel="stylesheet" href="/commonAct_1/css/myAccount.css">
+    <link rel="stylesheet" href="/commonAct_1/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>我的积分</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+        <%-include("../include/header", {title: '我的积分'}) %>
+       <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <ul class="money-list" id="money-list">
+                   
+                </ul>
+                <!-- 下拉加载更多 -->
+                <div class="loading" id="loading">下拉加载更多</div>
+            </div>
+        </div>
+        <%-include("../include/advertisement") %>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/commonAct_1/scripts/Func.js"></script>
+<script src="/commonAct_1/scripts/api.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+    var hasNext = true;
+    var page = 1;
+
+   $(function() {
+        var doc = $(document);
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();
+        });
+
+        // 中奖记录页面广告
+        Func.getAdvByAdvPositionName('#advertisement', '中奖记录页面');
+
+        // 初始化数据
+        Func.findScoreDetail({
+                page: page,
+                limit: 20
+        }, function(res) {
+            var data = res.data;
+
+            if (res.code === 200) {
+                hasNext = data.hasNext;
+                render(data.scoreDetailList);
+
+                if (data.scoreDetailList.length >= 20) {
+                    $('#loading').show();
+                }
+            }
+
+            $('#loadingWrapper').hide();
+        });
+   });
+
+   var scroll = new BScroll('#scrollWrapper', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+          threshold: 0
+        }
+    });
+
+   scroll.on('pullingUp', () => {
+        if (!hasNext) {
+            $('#loading').text('已经没有更多了');
+            return;
+        }
+
+        $('#loading').text('正在加载中...');
+
+        page++;
+
+        // 拉取数据
+        Func.findScoreDetail({
+                page: page,
+                limit: 20
+        }, function(res) {
+            var data = res.data;
+
+            if (res.code === 200) {
+                hasNext = data.hasNext;
+                render(data.scoreDetailList);
+
+                $('#loading').text('下拉加载更多');
+            } else {
+                common.alert({
+                    content: res.msg,
+                    mask: true
+                });
+            }
+        }); 
+    });
+
+    /**
+     * 渲染数据
+     * @param  object data 需要的数据
+     * @return null
+     */
+    function render(data) {
+
+        var originTypeName = {
+            '1': '积分抽奖',
+            '2': '优惠券核销',
+            '3': '抽奖中积分'
+        };
+
+        var html = '';
+
+        for (var i = 0; i < data.length; i++) {
+
+            if (data[i].originType == 3 || data[i].originType == 2) {
+                html += '<li class="money-item">';
+                html += '<div class="title">' + originTypeName[data[i].originType] + '</div>';
+                html += '<div class="time">' + data[i].createDate + '</div>';
+                html += '<div class="balanceScore">+'+ data[i].score +'</div>';
+                html += '</li>';
+            } else {
+                html += '<li class="money-item">';
+                html += '<div class="title">' + originTypeName[data[i].originType] + '</div>';
+                html += '<div class="time">' + data[i].createDate + '</div>';
+                html += '<div class="balanceScore">'+ data[i].score +'</div>';
+                html += '</li>';
+            }
+        }
+        
+        $('#money-list').append(html);
+
+        scroll.finishPullUp();
+        scroll.refresh();
+    }
+
+</script>
+
+</body>
+</html>

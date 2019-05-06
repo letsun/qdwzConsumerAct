@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no" />
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/biteming/fonts/iconfont.css">
+	<link rel="stylesheet" href="/biteming/css/widthdrawCenter.css">
+	<!-- 样式 end -->
+	<title>提现</title>
+</head>
+<body>
+
+<div class="wrapper" id="wrapper">
+	<div class="header-back">
+		<a class="back-icon" href="javascript:history.back(-1)">
+			<i class="back iconfont icon-fanhui"></i>
+			返回
+		</a>
+		<h3>提现</h3>
+	</div>
+
+	<div class="container">
+		<div class="withdraw-content">
+			<div class="withdraw-name">深圳市欣欣达建材有限公司</div>
+			<div class="withdraw-money">￥25.00</div>
+		</div>
+		<div class="withdraw-form">
+			<input type="text" class="form-text" id="withdraw-num" placeholder="请输入提现金额" />
+			<a href="javascript:void(0);" class="btn form-submit" id="withdraw-btn">提&nbsp;&nbsp;&nbsp;现</a>
+		</div>
+		<div class="withdraw-tip">
+			注：一天提现最多只能3次，提现金额只能是1-200元的整数
+		</div>
+
+		<a href="" class="btn present-record">个人中心</a>
+	</div>
+</div>
+
+<!--提现失败-->
+<div class="withdrawal-win withdrawal-err-win" id="withdrawal-err-win">
+	<div class="withdrawal-win-con">
+		<div class="withdrawal-win-tittle">
+			<img class="withdrawal-win-tittle-img" src="/biteming/images/withdrawal-err.png" alt="">
+			<span class="withdrawal-win-tittle-text">提现失败</span>
+		</div>
+
+		<div class="withdrawal-win-dec">（失败的原因可能是余额不足或者账号异常导致）</div>
+
+		<div class="withdrawal-win-btn" id="withdrawal-err-close">我知道了</div>
+	</div>
+
+</div>
+
+<!--提现成功-->
+<div class="withdrawal-win withdrawal-suc-win" id="withdrawal-suc-win">
+	<div class="withdrawal-win-con">
+		<div class="withdrawal-win-tittle">
+			<img class="withdrawal-win-tittle-img" src="/biteming/images/withdrawal-suc.png" alt="">
+			<span class="withdrawal-win-tittle-text">提现成功</span>
+		</div>
+
+		<div class="withdrawal-win-dec">（金额会通过微信公众号发送红包，请注意查收）</div>
+
+		<div class="withdrawal-win-btn" id="withdrawal-suc-close">我知道了</div>
+	</div>
+
+</div>
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<!-- 公共js end -->
+<script>
+
+    // 禁止页面滚动
+    $('#wrapper').on('touchmove', function(e) {
+        e.preventDefault();
+    });
+
+</script>
+</body>
+</html>

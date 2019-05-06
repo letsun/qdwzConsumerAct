@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no" />
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/biteming/fonts/iconfont.css">
+	<link rel="stylesheet" href="/biteming/css/personCenter.css">
+	<!-- 样式 end -->
+	<title>个人中心</title>
+</head>
+<body>
+
+<div class="wrapper" id="wrapper">
+	<div class="infor-header">
+		<div class="header-wrapper">
+			<div class="header-left">
+				<img src="/biteming/images/avator.jpg" alt="" class="avator" />
+			</div>
+			<div class="header-right">
+				<div class="name-wrapper">
+					<span class="name">张南亚</span>
+				</div>
+				<div class="phone">15019906332</div>
+				<div class="code-wra">
+					<div class="code-key">代码：</div>
+					<div class="code-val">001</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="money-wrapper">
+		<div class="money-left">
+			<div class="money-title">我的余额</div>
+			<div class="money-number-wra">￥<span class="money-number">200.00</span></div>
+		</div>
+
+		<div class="money-right">
+			<a href="javascript:void(0);" class="withdraw-btn">提现</a>
+		</div>
+	</div>
+
+	<div class="nav-list">
+		<div class="nav-item">
+			<a href="javascript:void(0);">
+				<div class="nav-left">
+					<img src="/biteming/images/person_01.png" alt="">
+				</div>
+				<div class="nav-mid">提现记录</div>
+				<div class="nav-right fa fa-angle-right"></div>
+			</a>
+
+		</div>
+
+		<div class="nav-item">
+			<a href="javascript:void(0);">
+				<div class="nav-left">
+					<img src="/biteming/images/person_02.png" alt="">
+				</div>
+				<div class="nav-mid">中奖记录</div>
+				<div class="nav-right fa fa-angle-right"></div>
+			</a>
+
+		</div>
+
+	</div>
+
+</div>
+<script src="/biteming/scripts/lib/jquery-2.2.2.min.js"></script>
+<script src="/biteming/scripts/personCenter.js"></script>
+
+<script>
+    // 禁止页面滚动
+    $('#wrapper').on('touchmove', function(e) {
+        e.preventDefault();
+    });
+
+</script>
+</body>
+</html>

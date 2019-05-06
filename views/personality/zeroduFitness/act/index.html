@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/zeroduFitness/css/reset.css" />
+	<link rel="stylesheet" href="/zeroduFitness/css/animate.min.css" />
+	<link rel="stylesheet" href="/zeroduFitness/css/index.css" />
+	<!-- 样式 end -->
+	<title>零度健身</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/zeroduFitness/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		
+		<!-- 第一页 -->
+		<div class="page page1" id="page1">
+			<div class="result" id="result">
+				
+			</div>
+			
+			<a href="/personCenter" class="img1">
+				<img src="/zeroduFitness/images/4/1_1.png" />
+			</a>
+
+		</div>
+	</div>
+	
+	<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+
+<script src="/zeroduFitness/scripts/api.js"></script>
+<!-- 公共js end -->
+
+<script>
+	$(function() {
+		// 页面禁止滑动
+	    $('#app').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	$('#page1').fadeIn();
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	    var html = '';
+
+	    $('#loadingWrapper').show();
+
+	    $.ajax({
+	    	url: api.findActivityByEncode,
+	    	type: 'GET',
+	    	dataType: 'json',
+	    	headers: getHeader(),
+	    	success: function(res) {
+	    		
+	    		if (res.code === 200) {
+	    			$.ajax({
+	    				url: api.lottery,
+	    				type: 'GET',
+	    				dataType: 'json',
+	    				headers: getHeader(),
+	    				success: function(res) {
+	    					$('#loadingWrapper').hide();
+	    					var data = res.data;
+	    					if (res.code === 200) {
+	    						if (data.prizeType === 0) {
+		    						html += '<img src="/zeroduFitness/images/4/1_3.png" alt="" class="title" />';
+									html += '<div class="result-content" style="display: block;">';
+									html += '<div class="result-tip">获得：<span id="awardType">现金红包</span></div>';
+									html += '<div class="result-con" style="display: block;">';
+									html += '￥<span class="price" id="price">' + data.prizeAmount + '</span>';
+									html += '</div>';
+									html += '</div>';
+		    					} else if (data.prizeType === 1) {
+
+		    						if (data.couponType === 2) {
+		    							html += '<img src="/zeroduFitness/images/4/1_3.png" alt="" class="title" />';
+										html += '<div class="result-content" style="display: block;">';
+										html += 'div class="result-tip">获得：<span id="awardType">兑换券</span></div>';
+
+										html += '<div class="result-entry" style="display: block;">';
+										html += '<div class="result-name">' + data.couponName + '</div>';
+										html += '<div class="entry-tip">已加入个中心中奖记录！</div>';
+										html += '</div>';
+										html += '</div>';
+		    						}
+		    					} else {
+		    						html += '<img src="/zeroduFitness/images/4/1_4.png" alt="" class="title" />';
+					    			html += '<div class="no-success" style="display: block;">';
+									html += '您未中奖！';
+									html += '</div>';
+		    					}
+
+		    					$('#result').html(html);
+	    					} else {
+
+	    					}
+	    				}
+	    			});
+	    		} else {
+	    			if (res.code === 500) {
+	    				html += '<img src="/zeroduFitness/images/4/1_4.png" alt="" class="title" />';
+		    			html += '<div class="no-success" style="display: block;">';
+						html += '您已经扫过了<br>去个人中心看看吧！';
+						html += '</div>';
+	    			} else {
+	    				html += '<img src="/zeroduFitness/images/4/1_4.png" alt="" class="title" />';
+		    			html += '<div class="no-success" style="display: block;">';
+						html += res.msg;
+						html += '</div>';
+						
+	    			}
+
+	    			$('#loadingWrapper').hide();
+
+	    			$('#result').html(html);
+	    		}
+	    	}
+	    });
+
+	})
+</script>
+
+</body>
+</html>

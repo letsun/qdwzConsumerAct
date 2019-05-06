@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/bangma/css/reset.css" />
+    <link rel="stylesheet" href="/bangma/css/animate.min.css" />
+    <link rel="stylesheet" href="/bangma/css/index.css" />
+    <!-- 样式 end -->
+    <title></title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/bangma/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div id="container">
+
+        <div class="content">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_1.png" alt="" class="logo">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_2.png" alt="" class="title">
+            <img class="child-title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_3.png" alt="">
+            <img class="product" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_4.png" alt="">
+            <img class="receive-btn" id="receive-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_5.png" alt="">
+        </div>
+
+        <!--关注二维码弹窗-->
+        <div class="attent-win" id="attent-win">
+            <div class="attent-content">
+                <div class="attent-title">温馨提示</div>
+                <div class="attent-dec">
+                    <img class="attent-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_10.png" />
+                    <div class="attent-tips">
+                        检测到您尚未关注公众号<br/>
+                        请长按识别关注公众号后再扫码获取红包
+                    </div>
+                </div>
+
+                <img class="attent-btn" id="attent-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_12.png">
+            </div>
+        </div>
+
+        <!--结果弹窗-->
+        <div class="result-win" id="result-win">
+            <div class="result-con">
+                <div class="result-title">恭喜您获得</div>
+
+                <!--中现金红包-->
+                <div class="dec dec1">
+                    <div class="num"><span></span>元</div>
+                    <div class="type">现金红包</div>
+                    <div class="tips">(请您通过公众号个人中心申请提现)</div>
+                </div>
+
+                <!--未中奖-->
+                <div class="dec dec2">
+                    <img class="cry-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_13.png" alt="">
+                    <div class="name">感恩使用!</div>
+                </div>
+
+                <img class="result-confirm" id="result-confirm" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_8.png" alt="">
+
+            </div>
+
+            <img class="result-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bangma/1_7.png" alt="">
+        </div>
+
+        <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+    </div>
+
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/bangma/scripts/api.js"></script>
+<script src="/bangma/scripts/Func.js"></script>
+<script src="/bangma/scripts/index_act.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+
+</body>
+</html>

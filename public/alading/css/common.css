@@ -1,0 +1,87 @@
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+html,
+body {
+  height: 100%;
+  background: #ddd;
+}
+.wrapper {
+  max-width: 640px;
+  min-height: 100%;
+  margin: 0 auto;
+  background: #fff;
+  /* 头部返回 */
+  /* 列表头部 */
+}
+.wrapper .header-back {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 70px;
+  background: #d9341e;
+}
+.wrapper .header-back .back-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 70px;
+  display: block;
+  line-height: 70px;
+  color: #fff;
+}
+.wrapper .header-back .back-icon span {
+  margin-top: -8px;
+  margin-right: 10px;
+  margin-left: 20px;
+  font-size: 46px;
+  color: #fff;
+  vertical-align: middle;
+}
+.wrapper .header-back h3 {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 70px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.wrapper .list-header {
+  font-weight: 600;
+  line-height: 88px;
+  position: relative;
+  z-index: 99;
+  height: 88px;
+  padding-left: 69px;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+.wrapper .list-header:before {
+  position: absolute;
+  top: 31px;
+  left: 33px;
+  width: 2px;
+  height: 28px;
+  content: '';
+  border: 1px solid #555;
+}
+.wrapper .btn {
+  background: #d8361f;
+  color: #fff;
+  border-radius: 40px;
+  font-size: 25px;
+  height: 62px;
+  line-height: 62px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}

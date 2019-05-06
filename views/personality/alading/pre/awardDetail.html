@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/alading/css/awardDetail.css">
+    <link rel="stylesheet" href="/alading/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>优惠券详情</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+        <%-include("../include/header", {title: '优惠券详情'}) %>
+       <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <ul class="money-list" id="money-list">
+                    <li class="money-item entry">
+                        <div class="title">优惠券名称</div>
+                        <div class="time">充电式LED台灯</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">面值</div>
+                        <div class="time">￥20.00</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">券码</div>
+                        <div class="time">D5fd21D1W</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">有效期</div>
+                        <div class="time">2018.06.23至2018.07.23</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">兑换商家</div>
+                        <div class="time">黄焖鸡米饭</div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">兑换地址</div>
+                        <div class="address">
+                            <i class="dizhi-icon iconfont icon-dizhi"></i>
+                            <div class="address-con">西乡街道河西四坊24号</div>
+                        </div>
+                        <div class="time use-con">
+                            <a href="" class="use-btn">去使用</a>
+                            <i class="icon iconfont icon-qianjin"></i>
+                        </div>
+                    </li>
+                    <li class="money-item">
+                        <div class="title">规则</div>
+                        <div class="time">黄焖鸡米饭</div>
+                    </li>
+                </ul>
+                <div class="erweima">
+                    <img src="/alading/images/4/erweima.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="advertisement fixed">
+            <img src="/alading/images/5/1_2.gif" alt="" />
+        </div>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+   $(function() {
+        var doc = $(document);
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();
+        });
+   });
+
+   var scroll = new BScroll('#scrollWrapper', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+          threshold: 0
+        }
+    });
+
+</script>
+
+</body>
+</html>

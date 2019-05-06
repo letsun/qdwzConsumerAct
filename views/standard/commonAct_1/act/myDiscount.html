@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <%-include("../include/commonCss") %>
+    <link rel="stylesheet" href="/commonAct_1/css/myDiscount.css">
+    <link rel="stylesheet" href="/commonAct_1/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>我的优惠券</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+        <%-include("../include/header", {title: '我的优惠券'}) %>
+        
+        <div class="tab-wrapper">
+            <ul class="tab-list" id="tabList">
+                <li class="item active">
+                    <a href="javascript:void(0)">未使用</a>
+                </li>
+                <li class="item">
+                    <a href="javascript:void(0)">已使用</a>
+                </li>
+                <li class="item">
+                    <a href="javascript:void(0)">已过期</a>
+                </li>
+            </ul>
+        </div>
+        <div class="coupon-wrapper">
+            <div class="scroll-wrapper js-scroll-wrapper active" id="scrollWrapper1">
+                <div class="wrapper">
+                    <ul class="coupon-list js-couponList">
+
+                    </ul>
+                    <!-- 下拉加载更多 -->
+                    <div class="loading js-loading">下拉加载更多</div>
+                </div>
+            </div>
+
+            <div class="scroll-wrapper js-scroll-wrapper scroll-wrapper2" id="scrollWrapper2">
+                <div class="wrapper">
+                    <ul class="coupon-list js-couponList">
+
+                    </ul>
+                    <!-- 下拉加载更多 -->
+                    <div class="loading js-loading">下拉加载更多</div>
+                </div>
+            </div>
+
+            <div class="scroll-wrapper js-scroll-wrapper scroll-wrapper2" id="scrollWrapper3">
+                <div class="wrapper">
+                    <ul class="coupon-list js-couponList">
+
+                    </ul>
+                    <!-- 下拉加载更多 -->
+                    <div class="loading js-loading">下拉加载更多</div>
+                </div>
+            </div>
+        </div>
+        <%-include("../include/advertisement") %>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/common/scripts/ejs.min.js"></script>
+<script src="/commonAct_1/scripts/Func.js"></script>
+<script src="/commonAct_1/scripts/api.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+
+   $(function() {
+        var doc = $(document);
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();
+        });
+
+        doc.on('click', '#tabList li', function() {
+
+            var index = $(this).index();
+
+
+            $('#tabList li').removeClass('active');
+            $(this).addClass('active');
+
+            $('.js-scroll-wrapper').removeClass('active');
+            $('.js-scroll-wrapper').eq(index).addClass('active');
+        });
+
+        new Init('#scrollWrapper1', 0);
+        new Init('#scrollWrapper2', 1);
+        new Init('#scrollWrapper3', 2);
+
+       // 优惠券页面广告
+       Func.getAdvByAdvPositionName('#advertisement', '优惠券页面');
+
+   });
+
+
+    function Init(scrollWrapper, status) {
+
+        var that = this;
+
+        that.pageSize = 1;
+        that.pageNum = 7;
+        that.hasNext = true;
+
+        that.loading = $(scrollWrapper).find('.js-loading');
+
+        // 初始化数据
+        Func.findCoupon({
+                pageNum: that.pageNum,
+                pageSize: that.pageSize,
+                status: status,
+                couponType: ''
+        }, function(res) {
+            var data = res.data;
+
+            if (res.code === 200) {
+                that.hasNext = data.hasNext;
+                render(data.couponList, scroll, scrollWrapper + ' .js-couponList');
+
+                if (data.couponList.length >= 7) {
+                    that.loading.show();
+                }
+            }
+
+            $('#loadingWrapper').hide();
+        });
+        
+
+        var scroll = new BScroll(scrollWrapper, {
+            scrollbar: {
+                fade: true
+            },
+            click: true,
+            pullUpLoad: {
+              threshold: 0
+            }
+        });
+
+        scroll.on('pullingUp', function() {
+            if (!that.hasNext) {
+                that.loading.text('已经没有更多了');
+                return;
+            }
+
+            that.loading.text('正在加载中...');
+
+            that.pageSize++;
+
+            // 拉取数据
+            Func.findCoupon({
+                    pageNum: that.pageNum,
+                    pageSize: that.pageSize,
+                    status: status
+            }, function(res) {
+                var data = res.data;
+
+                if (res.code === 200) {
+                    that.hasNext = data.hasNext;
+                    render(data.couponList, scroll, scrollWrapper + ' .coupon-list');
+
+                    that.loading.text('下拉加载更多');
+                } else {
+                    common.alert({
+                        content: res.msg,
+                        mask: true
+                    });
+                }
+            }); 
+        });
+    }
+
+    /**
+     * 渲染数据
+     * @param  object data 需要的数据
+     * @return null
+     */
+    function render(data, scroll, container) {
+
+        Global.requestTempByAjax('/commonAct_1/temp/discount.ejs', data, function(template) {
+           
+            $(container).append(template);
+
+            if (scroll) {
+                scroll.finishPullUp();
+                scroll.refresh();
+            }
+        });
+        
+    }
+
+</script>
+
+</body>
+</html>

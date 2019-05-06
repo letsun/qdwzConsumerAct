@@ -1,0 +1,294 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  color: #333;
+  background: #fff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+}
+input[type='text'],
+input[type='password'],
+input[type='submit'],
+textarea,
+button,
+select {
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  position: relative;
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  display: table;
+  content: ' ';
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #fff;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#app .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#app .container .scroll-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+#app .container .header {
+  width: 100%;
+  height: 362px;
+  background: url("../images/4_1.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .header .user {
+  width: 100%;
+  padding-top: 110px;
+}
+#app .container .header .user .user-photo {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+}
+#app .container .header .user .user-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+#app .container .header .user .user-name {
+  width: 90%;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  color: #fff;
+}
+#app .container .content .total-amount:before,
+#app .container .content .total-amount:after {
+  display: table;
+  content: ' ';
+}
+#app .container .content .total-amount:after {
+  clear: both;
+}
+#app .container .content .total-amount:before,
+#app .container .content .total-amount:after {
+  content: " ";
+  display: table;
+}
+#app .container .content .total-amount:after {
+  clear: both;
+}
+#app .container .content .total-amount .amount {
+  float: left;
+  width: 50%;
+  padding: 20px 0;
+  box-sizing: border-box;
+  border-left: 1px solid #ededed;
+}
+#app .container .content .total-amount .amount:first-child {
+  border-left: none;
+}
+#app .container .content .total-amount .amount .amount-title {
+  font-size: 24px;
+  color: #323232;
+  text-align: center;
+}
+#app .container .content .total-amount .amount .amount-num {
+  padding-top: 10px;
+  font-size: 32px;
+  color: #cb262a;
+  text-align: center;
+}
+#app .container .content .form {
+  border-top: 10px solid #ededed;
+}
+#app .container .content .form .form-item {
+  width: 100%;
+  padding: 30px 5%;
+  box-sizing: border-box;
+}
+#app .container .content .form .form-item:before,
+#app .container .content .form .form-item:after {
+  display: table;
+  content: ' ';
+}
+#app .container .content .form .form-item:after {
+  clear: both;
+}
+#app .container .content .form .form-item:before,
+#app .container .content .form .form-item:after {
+  content: " ";
+  display: table;
+}
+#app .container .content .form .form-item:after {
+  clear: both;
+}
+#app .container .content .form .form-item .form-left {
+  float: left;
+  width: 70%;
+}
+#app .container .content .form .form-item .form-left .form-input {
+  width: 100%;
+  height: 70px;
+  padding: 0 20px;
+  line-height: 70px;
+  font-size: 24px;
+  border-radius: 10px;
+  background: #eeeeee;
+  box-sizing: border-box;
+}
+#app .container .content .form .form-item .form-right {
+  float: right;
+  width: 25%;
+}
+#app .container .content .form .form-item .form-right .withdraw-btn {
+  display: block;
+  width: 100%;
+  height: 70px;
+  font-size: 25px;
+  color: #fff;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 10px;
+  background: #e4312c;
+}
+#app .container .content .form .form-text {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 23px;
+}
+#app .container .content .rebate {
+  position: relative;
+  width: 90%;
+  margin: 10px auto 50px auto;
+}
+#app .container .content .rebate .title {
+  font-size: 27px;
+  line-height: 60px;
+  background: #fff;
+  color: #f00;
+}
+#app .container .content .rebate .rebate-container {
+  overflow: hidden;
+  height: 350px;
+  padding-bottom: 50px;
+}
+#app .container .content .rebate .rebate-container .rebate-list .item {
+  width: 100%;
+  font-size: 24px;
+  height: 82px;
+  line-height: 52px;
+  display: inline-block;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+#app .container .content .rebate .rebate-container .rebate-list .item .time {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  line-height: 47px;
+  font-size: 20px;
+}
+#app .container .content .rebate .rebate-container .tip {
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  color: #999;
+  font-size: 21px;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/biteming/css/reset.css">
+	<link rel="stylesheet" href="/biteming/css/animate.min.css">
+	<link rel="stylesheet" href="/biteming/css/index.css" />
+	<!-- 样式 end -->
+	<title></title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/biteming/images/loading.png">
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<!--背景-->
+		<div class="container-bg">
+			<img class="bg" src="/biteming/images/1_1.png" alt="">
+			<img class="receive-btn" id="receive-btn" src="/biteming/images/1_2.png" style="display: none;" />
+		</div>
+	</div>
+
+	<!--注册弹窗-->
+	<div class="register-win" id="register-win">
+		<div class="form" id="form">
+			<div class="form-title-wra">
+				<div class="form-title">注册</div>
+				<img class="form-close" id="form-close" src="/biteming/images/1_6.png">
+			</div>
+			<div class="form-item">
+				<div class="form-key">姓名：</div>
+				<div class="form-val">
+					<input type="text" class="form-input" id="name" data-validateInfor="{strategy:isEmpty,msg:姓名不能为空}">
+				</div>
+			</div>
+			<div class="form-item">
+				<div class="form-key">手机号：</div>
+				<div class="form-val">
+					<input type="text" class="form-input" id="mobile" data-validateInfor="{strategy:isEmpty,msg:手机号不能为空}|{strategy:isMobile,msg:手机号格式有错}">
+				</div>
+			</div>
+			<div class="form-item form-code-item">
+				<div class="form-key">验证码：</div>
+				<div class="form-val">
+					<input type="text" class="form-input" id="verCode" data-validateInfor="{strategy:isEmpty,msg:验证码不能为空}">
+					<button class="form-code-btn" id="form-code-btn">获取验证码</button>
+				</div>
+			</div>
+			<div class="form-item form-sub-item">
+				<a class="form-sub-btn" id="form-sub-btn" href="javascript:void(0);">提交</a>
+			</div>
+		</div>
+	</div>
+
+	<!--红包弹窗-->
+	<div class="result-win" id="result-win">
+		<img class="result-bg" src="/biteming/images/1_3.png" alt="">
+		<div id="result-con">
+			
+		</div>
+	</div>
+	
+	<!--二维码弹窗-->
+	<div class="qrcode-win" id="qrcode-win">
+		<div class="qrcode-con">
+			<img class="code" src="/biteming/images/1_5.png" alt="">
+			<img class="code-close" id="code-close" src="/biteming/images/1_6.png" alt="">
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/validate.js"></script>
+<script src="/common/scripts/currency.js"></script>
+<script src="/biteming/scripts/api.js"></script>
+<script src="/common/scripts/Func.js"></script>
+<script src="/biteming/scripts/index_act.js"></script>
+<!-- 公共js end -->
+
+<script>
+    // 页面禁止滑动
+    document.addEventListener("touchmove", function (e) {
+        e.preventDefault();
+    }, false);
+
+    /**加载进度*/
+    common.loading($("#percent"));
+
+    window.onload=function () {
+        $('.loading').fadeOut(function() {
+        	$('#container').fadeIn(function() {
+        		Func.findActivityByEncode(function(res) {
+        			if (res.code !== 200 && res.code !== 201) {
+        				$('#receive-btn').hide();
+
+        				common.alert({
+        					content: res.msg,
+        					mask: true
+        				});
+        			} else {
+        				$('#receive-btn').show();
+        			}
+        		});
+        	});
+        });
+        
+    };
+</script>
+
+</body>
+</html>

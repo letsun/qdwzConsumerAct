@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<link rel="stylesheet" href="/bingyuanlang/css/index.css" />
+	<title>防伪验证系统</title>
+</head>
+<body>
+	<div class="app">
+		<!--加载页-->
+		<div class="loading">
+			<div class="loadCon">
+				<img src="/luoboke/images/loading.png" />
+				<div id="percent">1%</div>
+			</div>
+		</div>
+
+		<div class="container" id="container">
+			<div class="scroll-wrapper">
+				<div class="wrapper">
+					<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bingyuanlang/1_1.png" />
+
+					<!--查询-->
+					<div class="inquire-wra">
+						<img class="inquire-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bingyuanlang/1_2.png" alt="">
+						<div class="num">此防伪码已被查询<br/><span class="amount"></span>次</div>
+						<div class="inquire-time">
+							<div class="time-title">首次查询时间</div>
+							<div class="time-dec"></div>
+						</div>
+					</div>
+
+					<div class="tips">
+						<p>为防止假冒，防伪码只能有效查询一次，如果您首次</p>
+						<p>查询的时间与上述时间不符，请当心该产品是假冒产品，</p>
+						<p>若有疑问请扫描右下方二维码关注我们官方微信公众号进行咨询。</p>
+					</div>
+
+					<!--底部-->
+					<div class="bottom">
+						<a class="go-btn" href="javascript:void(0);">点击访问京东官网</a>
+						<img class="code" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bingyuanlang/1_3.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--<div class="erweima-wrapper" id="erweimaWrapper">
+		<div class="erweima-container">
+			<a href="javascript:void(0)" class="close-btn" id="closeBtn">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanNew/1_7.png" />
+			</a>
+			<div class="erweima">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanNew/1_8.png" />
+			</div>
+			<div class="erweima-text">长按进入公众号,进行防伪查询</div>
+		</div>
+	</div>-->
+
+	<%-include('../../include/commonJs') %>
+	<%-include("../../include/hideMenu") %>
+	<!-- 公共js start -->
+	<script src="/common/scripts/Func.js"></script>
+	<script src="/bingyuanlang/js/api.js"></script>
+	<script src="/bingyuanlang/js/lib/jweixin-1.0.0.js"></script>
+	<script>
+
+        $(function() {
+            /*// 页面禁止滑动
+            $('#container').on("touchmove", function (e) {
+                e.preventDefault();
+            });*/
+
+            var u = navigator.userAgent;
+            /*var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端*/
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            if (isiOS) {
+                $('.tips').css({'font-size':'14px','line-height': '26px'});
+			}
+
+            securityFunc();
+
+            /**加载进度*/
+            common.loading($("#percent"), function(){
+                $('.loading').hide();
+                $('#container').fadeIn(function () {
+
+                });
+            });
+
+        })
+
+        // 防伪查询
+        function securityFunc() {
+            $.ajax({
+                url: api.findEncodeFunction,
+                type: 'GET',
+                dataType: 'json',
+                data:{
+
+                },
+                headers: getHeader(),
+                success: function(res) {
+                    if (res.code === 200) {
+                        var securityCheckRecord = res.data.securityCheckRecord;
+                        var valiCount = securityCheckRecord.valiCount;
+                        var firstValiTime = securityCheckRecord.firstValiTime;
+                        var time = format(firstValiTime);
+                        $('.amount').html(valiCount);
+                        $('.time-dec').html(time);
+                    } else {
+                        common.alert({
+                            mask:true,
+                            content:res.msg
+                        })
+                    }
+                },
+                error:function (res) {
+                    common.alert({
+                        mask:true,
+                        content:res.msg
+                    })
+                }
+
+            });
+        }
+
+        function format(lastValiTime) {
+            var time = new Date(lastValiTime);
+            var y = time.getFullYear();
+            var m = time.getMonth()+1;
+            var d = time.getDate();
+            var h = time.getHours();
+            var mm = time.getMinutes();
+            var s = time.getSeconds();
+            return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+        }
+
+        function add0(m) {
+            return m < 10 ? '0' + m:m
+        }
+	</script>
+</body>
+</html>

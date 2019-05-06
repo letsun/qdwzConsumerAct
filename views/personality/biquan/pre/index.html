@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/biquan/css/index.css" />
+	<!-- 样式 end -->
+	<title>碧泉</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/biquan/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="page page1" id="page1">
+			<img src="/biquan/images/2/1_2.png" alt="" class="abs img1" />
+			<img src="/biquan/images/2/1_1.png" alt="" class="abs img2" />
+			<img src="/biquan/images/2/1_3.png" alt="" class="abs img3 btn" id="nextPage" />
+			<div class="company">吉林省碧泉健康食品开发有限责任公司</div>
+		</div>
+		<div class="page page2" id="page2">
+			<img src="/biquan/images/2/1_2.png" alt="" class="abs img1" />
+			<img src="/biquan/images/2/2_2.png" alt="" class="abs img2" />
+			<img src="/biquan/images/2/2_4.png" alt="" class="abs img3" />
+			<img src="/biquan/images/2/2_5.png" alt="" class="abs img4" />
+			<img src="/biquan/images/2/2_3.png" alt="" class="abs img5 lottery" id="lottery" />
+			<div class="company">吉林省碧泉健康食品开发有限责任公司</div>
+
+			<div class="result-wrapper" id="resultWrapper">
+				<div class="result-container" id="resultContainer">
+					<img src="/biquan/images/2/3_1.png" alt="" class="abs img6" />
+					<div class="result" id="result">
+						<div class="result-title">恭喜获得</div>
+						<div class="result-content">6.66 <span class="unit">元</span></div>
+					</div>
+					<div class="result-tip">长按关注公众号，领取更多惊喜哦！</div>
+				</div>
+				<div class="mask"></div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+
+<!-- 公共js end -->
+
+<script>
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	$('#page1').fadeIn();
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	    $(document).on('click', '#nextPage', function() {
+	    	$('#page1').fadeOut();
+	    	$('#page2').fadeIn();
+	    });
+
+	    $(document).on('click', '#lottery', function() {
+	    	var that = $(this);
+	    	
+	    	that.addClass('rotate');
+
+	    	var timer = setTimeout(function() {
+	    		$('#resultWrapper').fadeIn();
+	    		$('#resultContainer').addClass('show');
+	    		that.removeClass('rotate');
+	    	}, 1000);
+	    	
+	    });
+
+	})
+</script>
+
+</body>
+</html>

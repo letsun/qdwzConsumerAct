@@ -1,0 +1,169 @@
+
+@import "clearFix";
+
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background: #fff;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+
+	.container {
+		width: 100%;
+		height: 100%;
+
+		.header {
+			width: 100%;
+			height: 362px;
+
+			background: url("../images/4_1.jpg") no-repeat;
+			background-size: 100% 100%;
+
+			.user {
+				width: 100%;
+				padding-top: 110px;
+
+				.user-photo {
+					width: 160px;
+					height: 160px;
+					margin: 0 auto;
+
+					img {
+						display: block;
+						width: 100%;
+						height: 100%;
+
+						border-radius: 50%;
+					}
+				}
+
+				.user-name {
+					width: 90%;
+					margin: 20px auto 0 auto;
+
+					text-align: center;
+					color: #fff;
+				}
+			}
+		}
+
+		.content {
+
+			.total-amount {
+				.clearFix();
+
+				.amount {
+					float: left;
+
+					width: 50%;
+					padding: 20px 0;
+
+					box-sizing: border-box;
+
+					border-left: 1px solid #ededed;
+
+					&:first-child {
+						border-left: none;
+					}
+
+					.amount-title {
+						font-size: 24px;
+						color: #323232;
+						text-align: center;
+					}
+
+					.amount-num {
+						padding-top: 10px;
+
+						font-size: 32px;
+						color: #cb262a;
+						text-align: center;
+					}
+				}
+
+			}
+
+			.form {
+				border-top: 10px solid #ededed;
+
+				.form-item {
+					width: 100%;
+					padding: 30px 5%;
+
+					box-sizing: border-box;
+
+					.clearFix();
+
+					.form-left {
+						float: left;
+
+						width: 70%;
+
+						.form-input {
+							width: 100%;
+							height: 70px;
+							padding: 0 20px;
+
+							line-height: 70px;
+							font-size: 25px;
+
+							border-radius: 10px;
+
+							background: #eeeeee;
+
+							box-sizing: border-box;
+						}
+					}
+
+					.form-right {
+						float: right;
+
+						width: 25%;
+
+						.withdraw-btn {
+							display: block;
+							width: 100%;
+							height: 70px;
+
+							color: #fff;
+							line-height: 70px;
+							text-align: center;
+
+							border-radius: 10px;
+							font-size: 25px;
+
+							background: #e4312c;
+						}
+					}
+				}
+
+				.form-text {
+					width: 90%;
+					margin: 0 auto;
+					font-size: 23px;
+				}
+			}
+			.erweima {
+				margin-top: 30px;
+				img {
+					display: block;
+					margin:0 auto;
+				}
+			}
+			.company {
+				text-align: center;
+				line-height: 50px;
+				font-size: 25px;
+				color: #e4312c;
+				margin-top: 30px;
+				padding-bottom: 20px;
+			}
+		}
+	}
+}

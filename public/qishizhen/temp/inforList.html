@@ -1,0 +1,89 @@
+<!--基本信息-->
+<div class="basic-infor">
+    <div class="infor-list">
+        <div class="infor-item">
+            <div class="item-key">生产中心：</div>
+            <div class="item-val"><%= result.proCenter %></div>
+        </div>
+        <div class="infor-item">
+            <div class="item-key">生产地址：</div>
+            <div class="item-val"><%= result.proAddress %></div>
+        </div>
+        <div class="infor-item">
+            <div class="item-key">公司品牌：</div>
+            <div class="item-val"><%= result.comBrand %></div>
+        </div>
+        <div class="infor-item">
+            <div class="item-key">客户姓名：</div>
+            <div class="item-val"><%= result.cusName %></div>
+        </div>
+        <div class="infor-item">
+            <div class="item-key">联系电话：</div>
+            <div class="item-val"><%= result.telephone %></div>
+        </div>
+        <div class="infor-item">
+            <div class="item-key">订单编号：</div>
+            <div class="item-val"><%= result.orderNo %></div>
+        </div>
+        <div class="infor-item">
+            <div class="item-key">送货电话：</div>
+            <div class="item-val"><%= result.deliverTel %></div>
+        </div>
+        <div class="infor-item">
+            <div class="item-key">收货地址：</div>
+            <div class="item-val"><%= result.receiveAdde %></div>
+        </div>
+    </div>
+</div>
+
+<!--商品信息-->
+<div class="prod-infor">
+    <div class="prod-list">
+        <% if (result.orderList.length > 0) { %>
+        <% for(var i = 0; i < result.orderList.length; i++) { %>
+            <div class="prod-item">
+                <div class="infor-item">
+                    <div class="item-key">商品名：</div>
+                    <div class="item-val"><%= result.orderList[i].proName %></div>
+                </div>
+                <div class="infor-item">
+                    <div class="item-key">规格/单位：</div>
+                    <div class="item-val"><%= result.orderList[i].proSpec %></div>
+                </div>
+                <div class="infor-item">
+                    <div class="item-key">数量：</div>
+                    <div class="item-val"><%= result.orderList[i].proNum %></div>
+                </div>
+                <div class="infor-item">
+                    <div class="item-key">批号：</div>
+                    <div class="item-val"><%= result.orderList[i].batchNo %></div>
+                </div>
+                <div class="infor-item">
+                    <div class="item-key">有效期：</div>
+                    <div class="item-val"><%= result.orderList[i].validityTime %></div>
+                </div>
+                <div class="infor-item">
+                    <div class="item-key">检验编号：</div>
+                    <div class="item-val"><%= result.orderList[i].checkNo %></div>
+                </div>
+                <div class="infor-item">
+                    <div class="item-key">检验结果：</div>
+                    <div class="item-val"><%= result.orderList[i].checkRes %></div>
+                </div>
+                <div class="infor-item">
+                    <div class="item-key">生产作坊：</div>
+                    <div class="item-val"><%= result.orderList[i].productionName %></div>
+                </div>
+                <div class="infor-item">
+                    <div class="item-key">操作人：</div>
+                    <div class="item-val"><%= result.orderList[i].operator %></div>
+                </div>
+                <div class="infor-item">
+                    <div class="item-key">食品安全员：</div>
+                    <div class="item-val"><%= result.orderList[i].security %></div>
+                </div>
+            </div>
+            <% } %>
+        <% } %>
+    </div>
+</div>

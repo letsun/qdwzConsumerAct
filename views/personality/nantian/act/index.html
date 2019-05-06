@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/nantian/css/index.css" />
+	<link rel="stylesheet" href="/nantian/fonts/iconfont.css">
+	<%-include("../include/commonCss") %>
+	<!-- 样式 end -->
+	<title></title>
+</head>
+
+<body>
+
+<div id="app">
+
+    <!--加载页-->
+    <div class="loading">
+        <div class="loadCon">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	
+	<!-- 主体内容 -->
+	<div class="container" id="container">
+
+		<div class="main-content" id="mainContent">
+			<div class="scroll-wrapper" id="scrollWrapper">
+				<div class="wrapper" id="wrapper">
+					<!-- 主内容区 start -->
+
+					<!-- 主内容区 end -->
+				</div>
+			</div>
+
+			<div class="iframe" id="iframe"></div>
+			
+			<!-- 中奖记录 -->
+			<div class="awardInfor-wrapper" id="awardInforWrapper">
+				<div class="awardInfor-scroll">
+					<div class="awardInfor-content">
+						<span class="awardInfor-scrollContent" id="awardInforScrollContent">
+							
+						</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- 提示关注公众号 -->
+		<div class="erweima-wrapper" id="erweimaWrapper">
+			<div class="mask"></div>
+			<div class="erweima-container" id="erweimaContainer">
+				<div class="closeErweima-btn" id="closeErweima-btn"></div>
+				<div class="erweima-title">温馨提示</div>
+				<div class="erweima" id="erweima"></div>
+				<div class="erweima-tip">长按关注公众号<br />返回领取奖励</div>
+			</div>
+		</div>
+		
+		<!-- 第一页 start -->
+		<div class="page page1" id="page1">
+
+			<!-- 大转盘弹层 start -->
+			<div class="dzp-wrapper js-dzpWrapper">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/dzp/1_5.png" class="abs img1" />
+
+				<!-- 大转盘容器 start -->
+				<div class="dzp-container">
+					<div class="dzp-con js-dzpCon">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/dzp/1_6.png" class="abs dzp-img" />
+						<!-- <img src="/commonAct_1/images/5/dzp/1_8.png" class="abs dzp-text" /> -->
+						<ul class="award-list" id="awardList">
+							<!-- 奖项 -->
+						</ul>
+					</div>
+
+					<!-- 启动大转盘按钮 -->
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/dzp/1_7.png" class="abs dzp-btn js-dzpBtn" />
+				</div>
+				<!-- 大转盘容器 end -->
+
+			</div>
+			<!-- 大转盘弹层 end -->
+
+			<!-- 砸金蛋弹层 start -->
+			<div class="zjd-wrapper js-zjdWrapper">
+				<!-- 砸金蛋容器 start -->
+				<div class="zjd-container">
+					
+					<!-- 选我 提示 -->
+					<div class="selectMe-wrapper">
+						<div class="select-container js-selectContainer1">
+							<div class="select-me0"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/1_11.png" alt="" /></div>
+							<div class="select-me1"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/1_12.png" alt="" /></div>
+							<div class="select-me2"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/1_13.png" alt="" /></div>
+						</div>
+
+						<div class="select-container js-selectContainer2">
+							<div class="select-me0"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/1_14.png" alt="" /></div>
+							<div class="select-me1"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/1_15.png" alt="" /></div>
+							<div class="select-me2"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/1_16.png" alt="" /></div>
+						</div>
+					</div>
+
+					<!-- 小金蛋 start -->
+					<ul class="jd-wrapper js-jdWrapper">
+						<li class="item" data-noZ="/commonAct_1/images/5/zjd/1_4.png" data-result="/commonAct_1/images/5/zjd/3_2.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/4_1.png" alt="" />
+						</li>
+						<li class="item" data-noZ="/commonAct_1/images/5/zjd/1_5.png" data-result="/commonAct_1/images/5/zjd/3_3.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/4_2.png" alt="" />
+						</li>
+						<li class="item" data-noZ="/commonAct_1/images/5/zjd/1_6.png" data-result="/commonAct_1/images/5/zjd/3_4.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/4_3.png" alt="" />
+						</li>
+						<li class="item" data-noZ="/commonAct_1/images/5/zjd/1_7.png" data-result="/commonAct_1/images/5/zjd/3_5.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/4_4.png" alt="" />
+						</li>
+						<li class="item" data-noZ="/commonAct_1/images/5/zjd/1_8.png" data-result="/commonAct_1/images/5/zjd/3_6.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/4_5.png" alt="" />
+						</li>
+						<li class="item" data-noZ="/commonAct_1/images/5/zjd/1_9.png" data-result="/commonAct_1/images/5/zjd/3_7.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/4_6.png" alt="" />
+						</li>
+						<li class="item" data-noZ="/commonAct_1/images/5/zjd/1_10.png" data-result="/commonAct_1/images/5/zjd/3_8.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/4_7.png" alt="" />
+						</li>
+					</ul>
+					<!-- 小金蛋 end -->
+					
+					<!-- 结果 -->
+					<div class="jd-result js-jdResult">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/1_4.png" alt="" />
+					</div>
+					
+					<!-- 锤子 -->
+					<div class="hammer js-hammer"></div>
+
+					<div class="effect js-effect">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/zjd/3_1.png" />
+					</div>
+
+				</div>
+				<!-- 砸金蛋容器 end -->
+
+			</div>
+			<!-- 砸金蛋弹层 end -->
+
+			<!-- 领红包弹层 start -->
+			<div class="award-wrapper js-awardWrapper">
+				<div class="award-container">
+					<div class="avatar" id="avatar">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_1/images/5/1_10.png" />
+					</div>
+					<div class="nickname" id="nickname">小晕哥</div>
+					<div class="award-tip">获得了一个红包</div>
+					<div class="award-con">恭喜发财，大吉大利</div>
+
+					<div class="open-awardBtn js-openAwardBtn"></div>
+
+					<div class="ad" id="redPackageAd">
+						<!-- <img src="/commonAct_1/images/5/1_16.png" alt="" /> -->
+					</div>
+				</div>
+			</div>
+			<!-- 领红包弹层 end -->
+			
+			<!-- 开奖结果层 start -->
+			<div class="result-wrapper js-resultWrapper">
+				<div class="result-container" id="resultContainer">
+					<a href="javascript:void(0)" class="close-btn iconfont icon-guanbi js-closeResultBtn"></a>
+					<div class="result-content" id="resultContent">
+						
+					</div>
+				</div>
+			</div>
+			<!-- 开奖结果层 end -->
+
+		</div>
+		<!-- 第一页 end -->
+	</div>
+
+	<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+
+	<div class="actLoading" id="actLoading">
+		<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/common/images/loading2.gif" />
+	</div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/nantian/scripts/api.js"></script>
+<script src="/nantian/scripts/Func.js"></script>
+<script src="/nantian/scripts/index_act.js"></script>
+<!-- 公共js end -->
+
+<script>
+	// 大转盘奖项
+	var dzpAwardItem = [];
+
+	var scroll = null;
+
+	var scroll1 = null;
+
+    var url = api.lottery;
+
+    var isopenFollowWechat = 0;
+
+	var wechatData;
+
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+
+            // 开始活动
+            Func.findActivityByEncode(function(res) {
+                var data = res.data;
+                wechatData = res.data;
+
+                if (res.code === 200 || res.code === 201 || res.code === 206) {
+                    isopenFollowWechat = res.data.isopenFollowWechat;
+                    if (res.data.isopenFollowWechat) {
+
+                        Func.isSubscribe(function(res1) {
+                            if (res1.code === 200) {
+                                if (!res1.data.subscribe) {
+                                    $('#erweima').html('<img src="' + data.wechatLogo + '" />');
+                                    $('#erweimaWrapper').fadeIn();
+                                    $('#erweimaContainer').addClass('show');
+                                } else {
+                                    Func.getPersonCenter(function(res) {
+                                        if (res.code === 200) {
+                                            $('#avatar img').attr('src', res.data.headimage);
+                                            $('#nickname').text(res.data.nikeName);
+                                            $('#loadingWrapper').hide();
+                                            $('.js-awardWrapper').fadeIn();
+                                        } else {
+                                            common.alert({
+                                                content: res.msg,
+                                                mask: true
+                                            });
+                                        }
+                                    });
+								}
+
+                            } else {
+                                common.alert({
+                                    content: res1.msg,
+                                    mask: true
+                                });
+                            }
+                        });
+                    }
+
+                    Func.getPersonCenter(function(res) {
+                        if (res.code === 200) {
+                            $('#avatar img').attr('src', res.data.headimage);
+                            $('#nickname').text(res.data.nikeName);
+                            $('#loadingWrapper').hide();
+                            $('.js-awardWrapper').fadeIn();
+                        } else {
+                            common.alert({
+                                content: res.msg,
+                                mask: true
+                            });
+                        }
+                    });
+
+                } else {
+                    common.alert({
+                        content: res.msg,
+                        mask: true
+                    });
+                }
+
+                if (res.code !== 500) {
+                    if (data.activityBackType === IMAGE_TYPE) {
+
+                        var html = '<img class="bg" src="' + data.imageUrl + '" />';
+                        $('#wrapper').prepend(html);
+
+                        $('#iframe').hide();
+                        $('#scrollWrapper').fadeIn(function() {
+                            Func.loadingImage(data.imageUrl, function(width, height) {
+
+                                if (scroll) {
+                                    scroll.refresh();
+                                }
+                            });
+                        });
+
+                    } else if (data.activityBackType === URL_TYPE) {
+                        $('#iframe').prepend('<iframe src="' + data.imageUrl + '" frameborder="0"></iframe>');
+                        $('#scrollWrapper').hide();
+                        $('#iframe').fadeIn();
+                    }
+                }
+
+                $('#app').fadeIn(function() {
+                    $('#loadingWrapper').hide();
+                });
+
+            });
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+
+	});
+
+	scroll = new BScroll('#scrollWrapper', {
+        click: true,
+        scrollbar: {
+        	fade: true
+        }
+    });
+</script>
+
+</body>
+</html>

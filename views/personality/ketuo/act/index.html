@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/ketuo/css/reset.css" />
+    <link rel="stylesheet" href="/ketuo/css/animate.min.css" />
+    <link rel="stylesheet" href="/ketuo/css/index.css" />
+    <!-- 样式 end -->
+    <title>南京科拓生物科技有限公司</title>
+</head>
+<body>
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/zhengsheng/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div class="container" id="container">
+        <div class="result-wrapper" id="resultWrapper">
+            <div class="result-container">
+                <img class="img1" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/laiyikou/images/1_7.png" />
+                <img class="img2" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/laiyikou/images/1_6.png" />
+
+                <div class="result">
+                    <div class="point-wrapper">
+                        <!-- 中积分 -->
+                        <div class="award-point">
+                            <p class="tit">恭喜您获得</p>
+
+                            <div class="num">
+                                <span></span>
+                                <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/laiyikou/images/1_3.png" />
+                            </div>
+                        </div>
+
+                        <!-- 未中奖 -->
+                        <div class="award-none">
+                            <p class="tit">很遗憾</p>
+
+                            <img class="none-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/laiyikou/images/1_4.png" />
+                        </div>
+
+                        <!-- 该码已被扫 -->
+                        <div class="code-scanned">
+                            <p class="tit">很遗憾</p>
+
+                            <img class="none-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/laiyikou/images/1_5.png" />
+                        </div>
+                    </div>
+
+                    <a class="point-btn" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI5MTkzMDI4Mg==&scene=126&bizpsid=0#wechat_redirect">
+                        <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/laiyikou/images/1_1.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/Func.js"></script>
+<script src="/ketuo/scripts/api.js"></script>
+<script src="/ketuo/scripts/index_act.js"></script>
+<!-- 公共js end -->
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+</body>
+</html>

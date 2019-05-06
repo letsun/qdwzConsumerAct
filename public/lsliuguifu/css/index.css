@@ -1,0 +1,779 @@
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+/* 新增一些iPhone下不兼容的动画库 */
+/*
+ * 1.从左向右出动画
+*/
+@-webkit-keyframes left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes left {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes left {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 2.从右向左出动画
+*/
+@-webkit-keyframes right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes right {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes right {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 3.从上向下出动画
+*/
+@-webkit-keyframes down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes down {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-o-keyframes down {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+/*
+ * 4.从下往上出动画
+*/
+@-webkit-keyframes up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes up {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-o-keyframes up {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+/*
+ * 5.上下浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown1 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-moz-keyframes upDown1 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-o-keyframes upDown1 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(10px);
+  }
+}
+/*
+ * 6.上下浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown2 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-moz-keyframes upDown2 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-o-keyframes upDown2 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(20px);
+  }
+}
+/*
+ * 7.上下浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown3 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-moz-keyframes upDown3 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-o-keyframes upDown3 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(30px);
+  }
+}
+/*
+ * 8.左右浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight1 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes leftRight1 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-o-keyframes leftRight1 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(10px);
+  }
+}
+/*
+ * 9.左右浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight2 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-moz-keyframes leftRight2 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-o-keyframes leftRight2 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(20px);
+  }
+}
+/*
+ * 10.左右浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight3 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-moz-keyframes leftRight3 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-o-keyframes leftRight3 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(30px);
+  }
+}
+@-webkit-keyframes shakeAni {
+  0% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(4deg);
+  }
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+#app .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#app .container .page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+#app .container .page .abs {
+  position: absolute;
+}
+#app .container .page1 {
+  background-image: url('../images/2/1_4.jpg');
+  /* 规则弹框样式 */
+  /* 摇一摇弹框样式 */
+  /* 中奖弹框样式 */
+  /* 分享弹框样式 */
+}
+#app .container .page1 .title {
+  width: 70%;
+  top: 10%;
+  left: 15%;
+}
+#app .container .page1 .img1 {
+  width: 100%;
+  top: 18%;
+  left: 0;
+}
+#app .container .page1 .img2 {
+  top: 18%;
+  left: 12%;
+  display: block;
+  animation: ani1 5s ease both infinite;
+  -webkit-animation: ani1 5s ease both infinite;
+}
+#app .container .page1 .img3 {
+  top: 35%;
+  right: 10%;
+  display: block;
+  animation: ani1 5s ease both infinite;
+  -webkit-animation: ani1 5s ease both infinite;
+}
+#app .container .page1 .img4 {
+  top: 82%;
+  left: 5%;
+  display: block;
+  animation: ani2 2.5s linear both infinite;
+  -webkit-animation: ani2 2.5s linear both infinite;
+}
+#app .container .page1 .img5 {
+  top: 77%;
+  right: 15%;
+  display: block;
+  animation: ani2 2.5s linear both infinite;
+  -webkit-animation: ani2 2.5s linear both infinite;
+}
+#app .container .page1 .rule-btn {
+  top: 15%;
+  right: 0;
+  display: block;
+  cursor: pointer;
+  animation: right 1s 0.5s ease both;
+  -webkit-animation: right 1s 0.5s ease both;
+}
+#app .container .page1 .yyy-btn {
+  top: 74%;
+  left: 25%;
+  width: 50%;
+  display: block;
+  cursor: pointer;
+  animation: ani3 1s 1s linear both infinite alternate;
+  -webkit-animation: ani3 1s 1s linear both infinite alternate;
+}
+#app .container .page1 .address {
+  position: absolute;
+  left: 5%;
+  bottom: 2%;
+  z-index: 1;
+  width: 90%;
+}
+#app .container .page1 .error-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+}
+#app .container .page1 .error-mask .error-con {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 498px;
+  margin-left: -249px;
+  animation: ani4 1s ease both;
+  -webkit-animation: ani4 1s ease both;
+}
+#app .container .page1 .error-mask .error-con .con-info {
+  width: 498px;
+  height: 537px;
+  background: url("../images/2/1_12.png") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .page1 .error-mask .error-con .con-info .info-tit {
+  width: 52%;
+  padding-top: 100px;
+  margin: 0 auto;
+  display: block;
+}
+#app .container .page1 .error-mask .error-con .con-info .info-desc {
+  width: 70%;
+  height: 181px;
+  margin: 40px 15% 0 15%;
+  line-height: 40px;
+  color: #e00640;
+  font-size: 32px;
+  text-align: center;
+}
+#app .container .page1 .error-mask .error-con .con-info .info-bottom {
+  width: 44%;
+  margin: 10px auto;
+  display: block;
+}
+#app .container .page1 .error-mask .error-con .person-center {
+  width: 62%;
+  margin: 40px auto;
+  display: block;
+}
+#app .container .page1 .rule-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+}
+#app .container .page1 .rule-mask .rule-con {
+  position: absolute;
+  top: 18%;
+  left: 10%;
+  width: 80%;
+  animation: ani4 1s ease both;
+  -webkit-animation: ani4 1s ease both;
+}
+#app .container .page1 .rule-mask .rule-con .rule-img {
+  width: 100%;
+  display: block;
+}
+#app .container .page1 .rule-mask .rule-con .close {
+  width: 60px;
+  height: 60px;
+  margin: 30px auto;
+  display: block;
+  cursor: pointer;
+}
+#app .container .page1 .yyy-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+}
+#app .container .page1 .yyy-mask .yyy-con {
+  position: absolute;
+  top: 18%;
+  left: 17%;
+  width: 66%;
+  -webkit-animation: shakeAni 2s linear infinite;
+  animation: shakeAni 2s linear infinite;
+}
+#app .container .page1 .yyy-mask .yyy-con .yyy-img {
+  width: 100%;
+  display: block;
+}
+#app .container .page1 .award-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+}
+#app .container .page1 .award-mask .award-con {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 498px;
+  margin-left: -249px;
+  animation: ani4 1s ease both;
+  -webkit-animation: ani4 1s ease both;
+}
+#app .container .page1 .award-mask .award-con .con-info {
+  width: 498px;
+  height: 537px;
+  background: url("../images/2/1_12.png") no-repeat;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-tit {
+  width: 52%;
+  padding-top: 100px;
+  margin: 0 auto;
+  display: block;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc {
+  width: 70%;
+  margin: 40px 15% 0 15%;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc-tit {
+  color: #e00640;
+  font-size: 46px;
+  font-weight: bolder;
+  text-align: center;
+  letter-spacing: 7px;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc-main {
+  margin-top: 25px;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc1 {
+  height: 181px;
+  display: none;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc1 p {
+  line-height: 40px;
+  color: #e00640;
+  text-align: center;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc1 .main-txt {
+  font-size: 24px;
+  letter-spacing: 3px;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc1 .main-num {
+  margin-top: 15px;
+  font-size: 50px;
+  font-weight: bolder;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc1 .main-num span {
+  font-size: 22px;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 {
+  width: 280px;
+  height: 181px;
+  margin: 25px auto 0 auto;
+  display: none;
+  background: url("../images/2/1_8.png") no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .num-top {
+  width: 230px;
+  padding-top: 40px;
+  margin: 0 auto;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .num-top:before,
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .num-top:after {
+  content: " ";
+  display: table;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .num-top:after {
+  clear: both;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .num-top .desc-num {
+  float: left;
+  margin-left: 20px;
+  color: #e00106;
+  font-size: 24px;
+  font-weight: bolder;
+  text-align: center;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .num-top .desc-num span {
+  font-size: 52px;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .num-top .desc-txt {
+  float: right;
+  width: 70px;
+  margin-right: 10px;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .num-top .desc-txt span {
+  display: block;
+  line-height: 27px;
+  color: #e00106;
+  font-size: 22px;
+  font-weight: bolder;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .desc-warn {
+  width: 230px;
+  margin: 5px auto;
+  line-height: 20px;
+  color: #232323;
+  font-size: 14px;
+  text-align: center;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc2 .desc-quan {
+  width: 230px;
+  margin: 10px auto;
+  color: #333;
+  font-size: 20px;
+  text-align: center;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc3 {
+  height: 181px;
+  display: none;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-desc .desc3 .fail-text {
+  line-height: 40px;
+  font-size: 28px;
+  color: #e00640;
+  text-align: center;
+}
+#app .container .page1 .award-mask .award-con .con-info .info-bottom {
+  width: 44%;
+  margin: 10px auto;
+  display: block;
+}
+#app .container .page1 .award-mask .award-con .person-center {
+  width: 62%;
+  margin: 40px auto;
+  display: block;
+}
+#app .container .page1 .share-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+}
+#app .container .page1 .share-mask .share-con {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 70%;
+  padding: 30px 30px 15px 30px;
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  border: 1px solid #f5f5f5;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+#app .container .page1 .share-mask .share-arrow {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  width: 15%;
+  display: block;
+}
+@-webkit-keyframes ani1 {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 120%;
+  }
+}
+@-webkit-keyframes ani2 {
+  0% {
+    top: 30%;
+  }
+  100% {
+    top: 120%;
+  }
+}
+@-webkit-keyframes ani3 {
+  0% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes ani4 {
+  0% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes shakeAni {
+  0% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(4deg);
+  }
+}
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.loading .loadCon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.loading .loadCon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  font-size: 24px;
+  line-height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}

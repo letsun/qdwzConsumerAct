@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/zhuojiu/css/reset.css">
+	<link rel="stylesheet" href="/zhuojiu/css/animate.min.css">
+	<link rel="stylesheet" href="/zhuojiu/css/index.css" />
+	<!-- 样式 end -->
+	<title></title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/zhuojiu/images/loading.png">
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<!--背景-->
+		<div class="container-bg">
+			<img class="bg1" src="/zhuojiu/images/1_1.png" alt="">
+			<img class="bg2" src="/zhuojiu/images/1_3.png" alt="">
+		</div>
+	</div>
+
+	<!--红包弹窗-->
+	<div class="result-win" id="result-win">
+		<img class="result-bg" src="/zhuojiu/images/2_3.png" alt="">
+		<img class="result-btn" id="result-btn" src="/zhuojiu/images/2_2.png" alt="">
+		<div class="result-title" id="result-title"></div>
+		<div class="result-dec" id="result-dec"></div>
+	</div>
+	
+	<!--二维码弹窗-->
+	<div class="qrcode-win" id="qrcode-win">
+		<div class="code-con">
+			<img class="code-wra" src="/zhuojiu/images/3_1.png" alt="">
+			<img class="code" src="/zhuojiu/images/3_2.png" alt="">
+		</div>
+
+	</div>
+</div>
+
+
+<!-- 公共js start -->
+<%- include('../../../include/commonJs') %>
+<!-- 公共js end -->
+<script src="/common/scripts/Func.js"></script>
+<script src="/zhuojiu/scripts/lib/jweixin-1.0.0.js"></script>
+<script src="/zhuojiu/scripts/api.js"></script>
+<script src="/zhuojiu/scripts/act_index.js"></script>
+
+<script>
+    // 页面禁止滑动
+    document.addEventListener("touchmove", function (e) {
+        e.preventDefault();
+    }, false);
+
+    /**加载进度*/
+    common.loading($("#percent"));
+
+
+    window.onload=function () {
+        $('.loading').hide();
+        $('#container').fadeIn(function () {
+            // 摇一摇红包
+            window.addEventListener('devicemotion', rock);
+        });
+    };
+
+</script>
+
+</body>
+</html>

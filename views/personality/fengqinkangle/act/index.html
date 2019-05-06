@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/fengqinkangle/css/reset.css">
+	<link rel="stylesheet" href="/fengqinkangle/css/animate.min.css">
+	<link rel="stylesheet" href="/fengqinkangle/css/temp_3.css" />
+	<!-- 样式 end -->
+	<title>丰庆康乐</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/fengqinkangle/images/loading.png">
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+
+		<!--背景-->
+		<div class="container-bg" id="container-bg">
+			<img src="/fengqinkangle/images/temp_3/1_3.jpg" class="bg" alt="">
+			<img src="/fengqinkangle/images/temp_3/1_5.png" class="abs" alt="">
+		</div>
+
+		<div class="content">
+
+			<!--模块1-->
+			<div class="con con1 js-con1">
+				<div class="error-text" id="errorText">该码已被扫</div>
+				<img class="shake-btn abs" id="shake-btn" src="/fengqinkangle/images/temp_3/1_2.png">
+			</div>
+
+			<!--模块2-->
+			<div class="con con2 js-con2">
+				<img class="shake-prompt abs" src="/fengqinkangle/images/temp_3/2_1.png">
+			</div>
+
+			<!---->
+			<div class="con-wra" id="con-wra">
+				<img class="con-bg abs" src="/fengqinkangle/images/temp_3/3_1.jpg">
+
+				<!--模块3 有红包-->
+				<div class="con con3 js-con3">
+
+					<div class="shake-result-wra" id="shake-result-wra">恭喜获得<span class="shake-result">8.8</span>元</div>
+					<img class="withdraw-btn abs" id="withdraw-btn" src="/fengqinkangle/images/temp_3/3_3.png" alt="">
+
+				</div>
+
+				<!--模块4 没有红包-->
+				<div class="con con4 js-con4">
+					<img class="not-winning-img abs" id="not-winning-img" src="/fengqinkangle/images/temp_3/3_2.png" alt="">
+					<div class="shake-result-wra" id="error">很遗憾未中奖</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<script src="/common/scripts/wxjs/jweixin-1.0.0.js"></script>
+<script src="/common/scripts/currency.js"></script>
+<script src="/common/scripts/yyy.js"></script>
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js start -->
+
+<!-- 页面js start -->
+<script src="/fengqinkangle/scripts/api.js"></script>
+<script src="/fengqinkangle/scripts/temp_3.js"></script>
+<!-- 页面js end-->
+
+<script>
+	// 页面禁止滑动
+
+    $('#app').on('touchmove', function(e) {
+    	e.preventDefault();
+    });
+
+    $(document).on('click', '.abs', function(e) {
+    	e.preventDefault();
+    });
+
+    /**加载进度*/
+    common.loading($("#percent"));
+
+    window.onload=function () {
+        $('.loading').hide();
+        $('#container').fadeIn(function() {
+        	findActivityByEncode();
+        });
+    };
+
+</script>
+
+</body>
+</html>

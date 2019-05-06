@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/notbean/css/reset.css" />
+	<link rel="stylesheet" href="/notbean/css/animate.min.css" />
+	<link rel="stylesheet" href="/notbean/css/index.css" />
+	<!-- 样式 end -->
+	<title>不是豆干</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="page page1" id="page1">
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/logo.png" class="abs img1" />
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/1_4.png" class="abs img2" />
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/1_5.png" class="abs img3" />
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/1_3.png" class="abs img4" />
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/1_1.png" class="abs img5" id="openRedPackage" />
+
+			<div class="result-wrapper" id="resultWrapper">
+				
+			</div>
+
+			<!-- 手机号填写弹框 -->
+			<div class="phone-mask">
+				<div class="phone-box">
+					<div class="input-box input-phone">
+						<input class="phone" id="phone" type="text" maxlength="11" placeholder="请输入手机号" />
+					</div>
+
+					<div class="input-box">
+						<input class="code" id="code" type="text" maxlength="6" placeholder="请输入验证码">
+						<button class="code-btn" id="code-btn">获取验证码</button>
+					</div>
+
+					<a class="submit-btn" id="submit-btn" href="javascript:;">提交</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/notbean/scripts/api.js"></script>
+<script src="/common/scripts/Func.js"></script>
+<script src="/notbean/scripts/index_act.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<!-- 页面js end-->
+
+<script>
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+
+	    	Func.findActivityByEncode(function(res) {
+		    	
+		    	if (res.code === 200 || res.code === 201) {
+		    		
+		    	} else {
+
+		    		$('#openRedPackage').hide();
+
+		    		common.alert({
+		    			content: res.msg,
+		    			mask: true
+		    		});
+		    	}
+
+		    	$('.loading').hide();
+	    		$('#page1').fadeIn();
+		    });
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	    $(document).on('click', '#closeBtn', function(e) {
+	    	$('#resultWrapper').fadeOut();
+	    });
+
+	})
+</script>
+
+</body>
+</html>

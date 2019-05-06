@@ -1,0 +1,50 @@
+@import 'clearFix';
+
+.btn-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    z-index: 100;
+
+    height: 80px;
+
+    background: #fff;
+
+    border-top: 1px solid #eee;
+
+    .btn-list {
+        display: flex;
+
+        width: 100%;
+        padding: 17px 0;
+
+        .item {
+            flex: 1;
+
+            line-height: 46px;
+
+            border-left: 1px solid #ddd;
+
+            &:first-child {
+                border-left: none;
+            }
+
+            a {
+                display: block;
+
+                line-height: 46px;
+
+                text-align: center;
+
+                color: #f2513d;
+
+                font-size: 28px;
+                font-weight: 510;
+
+
+            }
+        }
+    }
+}

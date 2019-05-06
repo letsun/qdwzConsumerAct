@@ -1,0 +1,931 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+  cursor: pointer;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.loading {
+  line-height: 70px;
+  text-align: center;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+/* 新增一些iPhone下不兼容的动画库 */
+/*
+ * 1.从左向右出动画
+*/
+@-webkit-keyframes left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes left {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes left {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 2.从右向左出动画
+*/
+@-webkit-keyframes right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes right {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes right {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 3.从上向下出动画
+*/
+@-webkit-keyframes up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes up {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-o-keyframes up {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+/*
+ * 4.从下往上出动画
+*/
+@-webkit-keyframes down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes down {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-o-keyframes down {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+/*
+ * 5.上下浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown1 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-moz-keyframes upDown1 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-o-keyframes upDown1 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(10px);
+  }
+}
+/*
+ * 6.上下浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown2 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-moz-keyframes upDown2 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-o-keyframes upDown2 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(20px);
+  }
+}
+/*
+ * 7.上下浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown3 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-moz-keyframes upDown3 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-o-keyframes upDown3 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(30px);
+  }
+}
+/*
+ * 8.左右浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight1 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes leftRight1 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-o-keyframes leftRight1 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(10px);
+  }
+}
+/*
+ * 9.左右浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight2 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-moz-keyframes leftRight2 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-o-keyframes leftRight2 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(20px);
+  }
+}
+/*
+ * 10.左右浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight3 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-moz-keyframes leftRight3 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-o-keyframes leftRight3 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(30px);
+  }
+}
+@-webkit-keyframes leftDown {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-60px, 50px);
+    opacity: 0;
+  }
+}
+@-moz-keyframes leftDown {
+  0% {
+    -moz-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-60px, 50px);
+    opacity: 0;
+  }
+}
+@-o-keyframes leftDown {
+  0% {
+    -o-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -o-transform: translate(-60px, 50px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes leftDown_2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-15px, 15px);
+    opacity: 0;
+  }
+}
+@-moz-keyframes leftDown_2 {
+  0% {
+    -moz-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-15px, 15px);
+    opacity: 0;
+  }
+}
+@-o-keyframes leftDown_2 {
+  0% {
+    -o-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -o-transform: translate(-15px, 15px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+  }
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/kaitai/1_3.png') no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  /*关注二维码*/
+  /*该码已被扫*/
+  /*未中奖*/
+}
+.container .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.container .dzp-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.container .dzp-wrapper .title {
+  position: absolute;
+  left: 0;
+  top: 7%;
+  z-index: 2;
+  width: 100%;
+}
+.container .dzp-wrapper .bg {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  z-index: 1;
+  width: 100%;
+}
+.container .dzp-wrapper .dzp-container {
+  position: absolute;
+  left: 50%;
+  top: 36%;
+  z-index: 10;
+  transform: translateX(-50%);
+  width: 546px;
+  height: 475px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con {
+  width: 100%;
+  height: 100%;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/kaitai/1_4.png') no-repeat;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 146px;
+  height: 120px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item:first-child {
+  left: 50px;
+  top: 50px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item:nth-of-type(2) {
+  left: 201px;
+  top: 50px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item:nth-of-type(3) {
+  left: 352px;
+  top: 50px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item:nth-of-type(4) {
+  left: 352px;
+  top: 180px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item:nth-of-type(5) {
+  left: 352px;
+  top: 310px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item:nth-of-type(6) {
+  left: 201px;
+  top: 310px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item:nth-of-type(7) {
+  left: 50px;
+  top: 310px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item:nth-of-type(8) {
+  left: 50px;
+  top: 180px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item .award-img {
+  width: 146px;
+  height: 120px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item .old-img {
+  display: block;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item .new-img {
+  display: none;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .active .old-img {
+  display: none;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .active .new-img {
+  display: block;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .lottery-btn {
+  position: absolute;
+  left: 201px;
+  top: 180px;
+  z-index: 10;
+  width: 146px;
+  height: 120px;
+}
+.container .result-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container .result-win .result-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 492px;
+  height: 775px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/kaitai/3_8.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+}
+.container .result-win .result-content .result-title {
+  margin-top: 294px;
+  color: #fff;
+  font-size: 40px;
+  line-height: 44px;
+  text-align: center;
+  font-weight: bold;
+}
+.container .result-win .result-content .result-dec {
+  padding-top: 20px;
+}
+.container .result-win .result-content .result-dec .result-num {
+  font-size: 28px;
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+  font-weight: bold;
+}
+.container .result-win .result-content .result-dec .result-num .amount {
+  font-size: 50px;
+  font-weight: bold;
+}
+.container .result-win .result-content .result-dec .result-tips {
+  margin-top: 10px;
+  color: #6c0000;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+}
+.container .result-win .result-content .ad-wra {
+  display: block;
+  margin: 20px auto 0 auto;
+}
+.container .result-win .result-content .ad-wra .ad-title {
+  display: block;
+  margin: 0 auto;
+}
+.container .result-win .result-content .ad-wra .ad-dec {
+  display: block;
+  margin: 20px auto 0 auto;
+}
+.container .result-win .result-content .close-result {
+  position: absolute;
+  right: -10%;
+  top: 7%;
+  z-index: 10;
+}
+.container .attent-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.container .attent-win .attent-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 478px;
+  height: 567px;
+  padding-top: 80px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/kaitai/2_3.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.container .attent-win .attent-content .qrcode {
+  display: block;
+  margin: 110px auto 0 auto;
+}
+.container .attent-win .attent-content .attent-text {
+  margin-top: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 38px;
+  font-size: 23px;
+}
+.container .attent-win .attent-content .close-attent {
+  position: absolute;
+  left: 35%;
+  bottom: 3%;
+  z-index: 10;
+  width: 30%;
+}
+.container .scan-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.container .scan-win .scan-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 478px;
+  height: 567px;
+  padding-top: 80px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/kaitai/2_3.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.container .scan-win .scan-content .scan-img {
+  display: block;
+  margin: 145px auto 0 auto;
+}
+.container .scan-win .scan-content .scan-text {
+  margin-top: 32px;
+  color: #fff;
+  text-align: center;
+  line-height: 38px;
+  font-size: 25px;
+}
+.container .scan-win .scan-content .close-scan {
+  position: absolute;
+  left: 35%;
+  bottom: 3%;
+  z-index: 10;
+  width: 30%;
+}
+.container .notWon-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.container .notWon-win .notWon-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 478px;
+  height: 667px;
+  padding-top: 80px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/kaitai/4_4.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.container .notWon-win .notWon-content .notWon-title {
+  margin: 106px auto 0 auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 50px;
+  color: #6e0000;
+}
+.container .notWon-win .notWon-content .notWon-img {
+  display: block;
+  margin: 10px auto 0 auto;
+}
+.container .notWon-win .notWon-content .ad-wra {
+  display: block;
+  margin: 20px auto 0 auto;
+}
+.container .notWon-win .notWon-content .ad-wra .ad-title {
+  display: block;
+  margin: 0 auto;
+}
+.container .notWon-win .notWon-content .ad-wra .ad-dec {
+  display: block;
+  margin: 20px auto 0 auto;
+}
+.container .notWon-win .notWon-content .close-notWon {
+  position: absolute;
+  right: -11%;
+  top: -8%;
+  z-index: 10;
+}
+.container .verific-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.container .verific-win .verific-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 478px;
+  height: 397px;
+  padding-top: 80px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/kaitai/50_2.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.container .verific-win .verific-content .verific-form {
+  padding-top: 100px;
+}
+.container .verific-win .verific-content .verific-form .form-input {
+  display: block;
+  width: 84%;
+  height: 54px;
+  margin: 14px auto 0 auto;
+  padding: 0 10px;
+  font-size: 28px;
+  color: #000000;
+  line-height: 54px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.container .verific-win .verific-content .verific-form .form-input:first-child {
+  margin-top: 0;
+}
+.container .verific-win .verific-content .verific-form .form-submit {
+  display: block;
+  margin: 15px auto 0 auto;
+}
+.container .verific-win .verific-content .close-verific {
+  position: absolute;
+  right: -11%;
+  top: -8%;
+  z-index: 10;
+}
+.container .verificSucc-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.container .verificSucc-win .verificSucc-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  -webkit-transform: translate(-50%, -50%);
+}
+.container .verificSucc-win .verificSucc-content .verificSucc-text {
+  font-size: 36px;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+}
+.container .verificSucc-win .verificSucc-content .verificSucc-img {
+  display: block;
+  margin: 30px auto 0 auto;
+}
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.loading .loadCon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.loading .loadCon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  font-size: 24px;
+  line-height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}

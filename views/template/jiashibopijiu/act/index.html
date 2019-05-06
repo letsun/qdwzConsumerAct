@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/jiashibopijiu/css/index.css" />
+	<link rel="stylesheet" href="/jiashibopijiu/fonts/iconfont.css">
+	<%-include("../include/commonCss") %>
+	<!-- 样式 end -->
+	<title></title>
+</head>
+
+<body>
+
+<div id="app">
+
+    <!--加载页-->
+    <div class="loading">
+        <div class="loadCon">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	
+	<!-- 主体内容 -->
+	<div class="container" id="container">
+
+		<div class="main-content" id="mainContent">
+			<div class="scroll-wrapper" id="scrollWrapper">
+				<div class="wrapper" id="wrapper">
+					<!-- 主内容区 start -->
+
+					<!-- 主内容区 end -->
+				</div>
+			</div>
+
+			<div class="iframe" id="iframe"></div>
+
+			<!-- 中奖记录 -->
+			<div class="awardInfor-wrapper" id="awardInforWrapper">
+				<div class="awardInfor-scroll">
+					<div class="awardInfor-content">
+						<span class="awardInfor-scrollContent" id="awardInforScrollContent">
+							
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<a href="/template/jiashibopijiu/act/personCenter" class="personBtn">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/personBtn.png" />
+			</a>
+
+			<%-include("../include/advertisement") %>
+		</div>
+		
+		<!-- 提示关注公众号 -->
+		<div class="erweima-wrapper" id="erweimaWrapper">
+			<div class="mask"></div>
+			<div class="erweima-container" id="erweimaContainer">
+				<div class="closeErweima-btn" id="closeErweima-btn"></div>
+				<div class="erweima-title">温馨提示</div>
+				<div class="erweima" id="erweima"></div>
+				<div class="erweima-tip">长按关注公众号<br />返回领取奖励</div>
+			</div>
+		</div>
+		
+		<!-- 第一页 start -->
+		<div class="page page1" id="page1">
+
+			<!-- 大转盘弹层 start -->
+			<div class="dzp-wrapper js-dzpWrapper">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/dzp/1_5.png" class="abs img1" />
+
+				<!-- 大转盘容器 start -->
+				<div class="dzp-container">
+					<div class="dzp-con js-dzpCon">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/dzp/1_6.png" class="abs dzp-img" />
+						<!-- <img src="/jiashibopijiu/images/5/dzp/1_8.png" class="abs dzp-text" /> -->
+						<ul class="award-list" id="awardList">
+							<!-- 奖项 -->
+						</ul>
+					</div>
+
+					<!-- 启动大转盘按钮 -->
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/dzp/1_7.png" class="abs dzp-btn js-dzpBtn" />
+				</div>
+				<!-- 大转盘容器 end -->
+
+			</div>
+			<!-- 大转盘弹层 end -->
+
+			<!-- 砸金蛋弹层 start -->
+			<div class="zjd-wrapper js-zjdWrapper">
+				<!-- 砸金蛋容器 start -->
+				<div class="zjd-container">
+					
+					<!-- 选我 提示 -->
+					<div class="selectMe-wrapper">
+						<div class="select-container js-selectContainer1">
+							<div class="select-me0"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_11.png" alt="" /></div>
+							<div class="select-me1"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_12.png" alt="" /></div>
+							<div class="select-me2"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_13.png" alt="" /></div>
+						</div>
+
+						<div class="select-container js-selectContainer2">
+							<div class="select-me0"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_14.png" alt="" /></div>
+							<div class="select-me1"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_15.png" alt="" /></div>
+							<div class="select-me2"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_16.png" alt="" /></div>
+						</div>
+					</div>
+
+					<!-- 小金蛋 start -->
+					<ul class="jd-wrapper js-jdWrapper">
+						<li class="item" data-noZ="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_4.png" data-result="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/3_2.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/4_1.png" alt="" />
+						</li>
+						<li class="item" data-noZ="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_5.png" data-result="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/3_3.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/4_2.png" alt="" />
+						</li>
+						<li class="item" data-noZ="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_6.png" data-result="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/3_4.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/4_3.png" alt="" />
+						</li>
+						<li class="item" data-noZ="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_7.png" data-result="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/3_5.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/4_4.png" alt="" />
+						</li>
+						<li class="item" data-noZ="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_8.png" data-result="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/3_6.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/4_5.png" alt="" />
+						</li>
+						<li class="item" data-noZ="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_9.png" data-result="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/3_7.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/4_6.png" alt="" />
+						</li>
+						<li class="item" data-noZ="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_10.png" data-result="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/3_8.png">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/4_7.png" alt="" />
+						</li>
+					</ul>
+					<!-- 小金蛋 end -->
+					
+					<!-- 结果 -->
+					<div class="jd-result js-jdResult">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/1_4.png" alt="" />
+					</div>
+					
+					<!-- 锤子 -->
+					<div class="hammer js-hammer"></div>
+
+					<div class="effect js-effect">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/zjd/3_1.png" />
+					</div>
+
+				</div>
+				<!-- 砸金蛋容器 end -->
+
+			</div>
+			<!-- 砸金蛋弹层 end -->
+
+			<!-- 领红包弹层 start -->
+			<div class="award-wrapper js-awardWrapper">
+				<div class="award-container">
+					<div class="avatar" id="avatar">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/1_10.png" />
+					</div>
+					<div class="nickname" id="nickname">小晕哥</div>
+					<div class="award-tip">获得了一个红包</div>
+					<div class="award-con">恭喜发财，大吉大利</div>
+
+					<div class="open-awardBtn js-openAwardBtn"></div>
+
+					<div class="ad" id="redPackageAd">
+						<!-- <img src="/jiashibopijiu/images/5/1_16.png" alt="" /> -->
+					</div>
+				</div>
+			</div>
+			<!-- 领红包弹层 end -->
+			
+			<!-- 开奖结果层 start -->
+			<div class="result-wrapper js-resultWrapper">
+				<div class="tip" id="tip">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiashibopijiu/images/5/share-tip1.png" class="share-tip" />
+					<div class="tip-con">您可以分享奖励给<span id="fissionCount"></span>位好友，每位好友领取奖励后，您将再获得一个奖励，点击右上角</div>
+				</div>
+				<div class="result-container" id="resultContainer">
+					<a href="javascript:void(0)" class="close-btn iconfont icon-guanbi js-closeResultBtn"></a>
+					<div class="result-content" id="resultContent">
+						
+					</div>
+					<p class="tip-warn">活动解释权归菏泽市七星酒行所有</p>
+					<a class="get-awardBtn" id="getAwardBtn" href="/template/jiashibopijiu/act/personCenter"></a>
+					<a href="/template/jiashibopijiu/act/personCenter" class="toPerson">个人中心</a>
+				</div>
+			</div>
+			<!-- 开奖结果层 end -->
+
+		</div>
+		<!-- 第一页 end -->
+		
+		
+		<%-include("../include/bottom", {page: 'index'})%>
+		
+	</div>
+	<div class="actLoading" id="actLoading">
+		<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/common/images/loading2.gif" />
+	</div>
+</div>
+
+<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<script src="/common/scripts/currency.js"></script>
+
+<script src="/common/scripts/wxjs/jweixin-1.0.0.js"></script>
+<script src="/common/scripts/wxjs/myweixin-1.0.js"></script>
+
+<script src="/jiashibopijiu/scripts/api.js"></script>
+<script src="/jiashibopijiu/scripts/Func.js"></script>
+<script src="/jiashibopijiu/scripts/index_act.js"></script>
+
+<!-- 公共js end -->
+
+<script>
+	// 大转盘奖项
+	var dzpAwardItem = [];
+
+	var scroll = null;
+
+	var scroll1 = null;
+
+    var url = api.lottery;
+
+    var isopenFollowWechat = 0;
+
+    // 签名处理
+	getHeader();
+	var href = window.location.href.split('?');
+	if (window.sessionStorage.headerInfor) {
+		if (href[1]) {
+			window.location.href = href[0];
+		}
+	}
+
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	// debugger;
+	    	// 查询是否开启溯源和防伪
+	    	Func.findEncodeFunction(function(res) {
+	    		
+	    		if (res.code === 200) {
+	    			
+	    			if (res.data.security == 1 && res.data.origin == 0) {
+	    				$('#btnWrapper li').eq(1).remove();
+	    				$('#btnWrapper li').show();
+	    			}
+
+	    			if (res.data.origin == 1 && res.data.security == 0) {
+	    				$('#btnWrapper li').eq(0).remove();
+	    				$('#btnWrapper li').show();
+	    			}
+
+	    			if (res.data.security == 0 && res.data.origin == 0) {
+	    				$('#scrollWrapper').css({'bottom': 0});
+	    				$('#btnWrapper').remove();
+
+	    				if (scroll) {
+	    					scroll.refresh();
+	    				}
+	    			} else {
+	    				$('#btnWrapper li').show();
+	    			}
+
+	    		} else {
+	    			$('#mainContent').css({'bottom': 0});
+	    			$('#btnWrapper').remove();
+
+	    			if (scroll) {
+    					scroll.refresh();
+    				}
+	    		}
+
+	    		$('#loadingWrapper').hide();
+	    	});
+
+	    	// 微信分享
+			Func.findShareParams({
+				thisUrl: window.location.href.split('#')[0]
+			}, function(res) {
+				// $('#loadingWrapper').hide();
+				// debugger;
+				if (res.code === 200) {
+					var data = res.data;
+
+					wx.config({
+					    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					    appId: data.autAppid, // 必填，公众号的唯一标识
+					    timestamp: data.timestamp, // 必填，生成签名的时间戳
+					    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+					    signature: data.signature,// 必填，签名
+					    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表
+					});
+
+					wx.ready(function(){
+						wx.onMenuShareTimeline({
+						    title: data.shareTitle, // 分享标题
+						    link: data.fissionUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+						    imgUrl: data.shareImgurl, // 分享图标
+						    success: function () {
+						    // 用户点击了分享后执行的回调函数
+							}
+						});
+
+						wx.onMenuShareAppMessage({
+							title: data.shareTitle, // 分享标题
+							desc: data.shareDesc, // 分享描述
+							link: data.fissionUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+							imgUrl: data.shareImgurl, // 分享图标
+							type: '', // 分享类型,music、video或link，不填默认为link
+							dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+							success: function () {
+							// 用户点击了分享后执行的回调函数
+							}
+						});
+					});
+				} else {
+					common.alert({
+						content: res.msg,
+						mask: true
+					});
+				}
+			});
+
+			// 滚动的中奖记录
+	    	Func.companyLotteryRecord({limit: 10}, function(res) {
+	    		if (res.code === 200) {
+	    			// debugger;
+	    			var lotteryRecordList = res.data.lotteryRecordList;
+	    			var html = '';
+	    			var prizeName = {
+	    				'0': '红包',
+	    				'1': '优惠券',
+	    				'2': '实物',
+	    				'3': '积分'
+	    			};
+
+	    			if (lotteryRecordList.length) {
+	    				for (var i = 0, len = lotteryRecordList.length; i < len; i++) {
+	    					
+	    					html += '<span>恭喜' + lotteryRecordList[i].nickname + '抽中' + prizeName[lotteryRecordList[i].prizeType];
+	    					// debugger;
+	    					if (lotteryRecordList[i].prizeType === 0) {
+	    						html += currency('', lotteryRecordList[i].prizeAmount) + '元';
+	    					} else if (lotteryRecordList[i].prizeType === 1) {
+	    						html += lotteryRecordList[i].prizeName;
+	    					} else if (lotteryRecordList[i].prizeType === 2) {
+	    						html += lotteryRecordList[i].prizeName;
+	    					} else if (lotteryRecordList[i].prizeType === 3) {
+	    						html += lotteryRecordList[i].prizeAmount;
+	    					}
+
+	    					html += '</span>';
+	    				}
+
+	    				$('#awardInforScrollContent').html(html);
+
+	    				$('#awardInforWrapper').show();
+	    				// debugger;
+	    				var timer = setTimeout(function() {
+	    					// 滚动的中奖记录
+	    					Func.awardScroll();
+	    				}, 100);
+	    			} else {
+	    				$('#awardInforWrapper').hide();
+	    			}
+	    		} else {
+
+	    			$('#awardInforWrapper').hide();
+
+	    			common.alert({
+	    				content: res.msg,
+	    				mask: true
+	    			});
+	    		}
+	    	});
+
+	    	// 开始活动
+    		Func.findActivityByEncode(function(res) {
+    			var data = res.data;
+
+    			document.title = '超级商圈联盟商家送礼啦'; //typeof data.templatName !== 'undefined' ? data.templatName : '';
+
+				if (res.code === 200 || res.code === 201 || res.code === 206) {
+					
+					$('#fissionCount').text(res.data.fissionCount);
+					$('#tip').fadeIn();
+
+					isopenFollowWechat = res.data.isopenFollowWechat;
+
+					// debugger;
+					if (res.data.isopenFollowWechat) {
+						
+						Func.isSubscribe(function(res1) {
+							if (res1.code === 200) {
+								
+								if (!res1.data.subscribe) {
+									$('#erweima').html('<img src="' + data.wechatLogo + '" />');
+									$('#erweimaWrapper').fadeIn();
+									$('#erweimaContainer').addClass('show');
+								}
+								
+							} else {
+								common.alert({
+									content: res1.msg,
+									mask: true
+								});
+							}
+						});
+						
+					}
+
+					if (res.code === 206) {
+                        common.alert({
+                            content: '是否使用积分抽奖?',
+                            mask: true,
+                            dialog: true,
+                            ok: function() {
+                                url = api.scoreLottery;
+                                lotteryFunc(data);
+                            }
+                        });
+					} else {
+                        lotteryFunc(data);
+					}
+
+	            } else {
+	            	Func.fail({msg: res.msg}, function() {
+	            		$('#page1').fadeIn();
+			            $('.js-resultWrapper').fadeIn(500, function() {
+			                if (scroll1) {
+			                    scroll1.refresh();
+			                }
+			            }).addClass('show');
+	            	});
+	            }
+
+	            if (res.code !== 500) {
+	            	if (data.activityBackType === IMAGE_TYPE) {
+
+	                    var html = '<img class="bg" src="' + data.imageUrl + '" />';
+	                    $('#wrapper').prepend(html);
+
+	                	$('#iframe').hide()
+	                    $('#scrollWrapper').fadeIn(function() {
+	                    	Func.loadingImage(data.imageUrl, function(width, height) {
+	                    	
+		                    	if (scroll) {
+	                    			scroll.refresh();
+	                    		}
+		                    });
+	                    });
+
+	                    
+
+	                } else if (data.activityBackType === URL_TYPE) {
+	                	$('#iframe').prepend('<iframe src="' + data.imageUrl + '"></iframe>');
+	                	$('#scrollWrapper').hide();
+	                	$('#iframe').fadeIn()
+	                	
+	                }
+	            }
+
+	            $('#app').fadeIn(function() {
+	            	$('#loadingWrapper').hide();
+	            });
+
+	            // 活动页面广告
+	    		Func.getAdvByAdvPositionName('#advertisement', '活动页面');
+
+	    		// 开奖红包弹窗广告
+	    		Func.getAdvByAdvPositionName('#redPackageAd', '开奖红包弹窗');
+
+    		});
+	    	
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+	});
+
+	// 实例化滚动条
+	scroll = new BScroll('#scrollWrapper', {
+        click: true,
+        scrollbar: {
+        	fade: true
+        }
+    });
+
+	// 抽奖类型
+	function lotteryFunc(data) {
+		var _html = '';
+		dzpAwardItem = data.prizes;
+		var dzpAwardItems = ['谢谢参与', '一等奖', '二等奖', '幸运奖', '三等奖', '四等奖'];
+
+		var perRotate = 360 / dzpAwardItems.length;
+		var itemRotate = 0;
+
+		for (var i = 0, len = dzpAwardItems.length; i < len; i++) {
+
+			itemRotate = perRotate * i;
+
+			_html += '<li class="award-item" style="transform: translateX(-50%) rotate(' + itemRotate + 'deg)">';
+
+			_html += '<div class="con">' + dzpAwardItems[i] + '</div>';
+			_html += '</li>';
+		}
+
+		$('#awardList').html(_html);
+
+		$('#page1').fadeIn();
+		$('.js-dzpWrapper').fadeIn(300, function () {
+			$('#loadingWrapper').hide();
+		});
+    }
+</script>
+
+</body>
+</html>

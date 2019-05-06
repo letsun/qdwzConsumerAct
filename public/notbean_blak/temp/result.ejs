@@ -1,0 +1,60 @@
+<% var couponName = {
+'0': '代金券',
+'1': '折扣券',
+'2': '兑换券',
+'3': '满减券',
+}; %>
+<div class="result-title"><% if (result.code === 200) { %>恭喜您获得<% } else { %><% } %></div>
+<div class="result-container" id="resultContainer">
+	<% if (result.code === 200 && result.data.type == 1) { %>
+		<% var couponGrants = result.data.couponGrants[0]; %>
+		<% if (couponGrants.couponType == 0 || couponGrants.couponType == 1 || couponGrants.couponType == 2 || couponGrants.couponType == 3) {%>
+			<div class="coupon-wrapper">
+				<div class="coupon-container">
+					<div class="coupon-name"><%= couponName[couponGrants.couponType] %></div>
+					<div class="coupon-right">
+						<div class="coupon-top">
+							<% if (couponGrants.couponType == 0) { %>
+								<span class="unit">￥</span><%= couponGrants.couponPrice %>
+							<% } else if (couponGrants.couponType == 1) { %>
+								<%= couponGrants.discount %>折
+							<% } else if (couponGrants.couponType == 2) {%>
+								<span class="unit">￥</span><%= couponGrants.couponPrice %>
+							<% } else { %>
+								满<%= couponGrants.fullPrice %> - <%= couponGrants.reducePrice %>
+							<% } %>
+
+						</div>
+						<div class="coupon-code">
+							编号：<%= couponGrants.couponCode %>
+						</div>
+					</div>
+				</div>
+				<div class="coupon-tip">请到有赞商城核销优惠券</div>
+				<a href="https://h5.youzan.com/v2/showcase/homepage?alias=v43ns3tOmH" class="coupon-btn"><img src="/notbean/images/2/2_4.png" alt="" /></a>
+				<img src="/notbean/images/2/2_6.png" alt="" class="abs img6" />
+			</div>
+		<% } %>
+	<% } else if (result.code === 200 || result.code === 201) { %>
+
+		<% if (result.code === 200) { %>
+			<div class="red-package">
+				<div class="amount">
+					<span class="unit">￥</span><%= result.data.redPack.prizeAmount %>
+				</div>
+				<div class="type">现金红包</div>
+				<div class="coupon-btn"><img src="/notbean/images/2/2_5.png" alt="" /></div>
+				<img src="/notbean/images/2/2_6.png" alt="" class="abs img6" />
+			</div>
+		<% } else { %>
+			<div class="no-award">
+				<img src="/notbean/images/2/4_1.png" class="abs img3 btn" />
+				<div class="coupon-btn"><img src="/notbean/images/2/2_5.png" alt="" /></div>
+				<img src="/notbean/images/2/2_6.png" alt="" class="abs img6" />
+				<div class="error-tip">您和红包擦肩而过!!!</div>
+			</div>
+		<% } %>
+
+	<% } %>
+
+</div>

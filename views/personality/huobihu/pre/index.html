@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/huobihu/css/reset.css" />
+	<link rel="stylesheet" href="/huobihu/css/animate.min.css" />
+	<link rel="stylesheet" href="/huobihu/css/index.css" />
+	<!-- 样式 end -->
+	<title>火壁虎</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/huobihu/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="page page1" id="page1">
+			<img src="/huobihu/images/1/1_1.png" alt="" class="abs img1" />
+			<img src="/huobihu/images/1/1_2.png" alt="" class="abs img2" />
+			<img src="/huobihu/images/1/1_5.png" alt="" class="abs img3" />
+			<img src="/huobihu/images/1/1_4.png" alt="" class="abs img4" />
+			<img src="/huobihu/images/1/1_3.png" alt="" class="abs img5" id="yyy-btn" />
+			<img src="/huobihu/images/1/4_2.png" alt="" class="abs img6" id="toPersonBtn" style="display: none;" />
+			<div class="notice-publicAccount" id="notice-publicAccount">
+				<div class="erweima">
+					<img src="/huobihu/images/1/3_1.png" />
+					<div class="close" id="close-btn"></div>
+				</div>
+				
+			</div>
+			<div class="yyy-wrapper" id="yyy-wrapper">
+				<img src="/huobihu/images/1/2_2.png" alt="" class="abs hand" />
+				<img src="/huobihu/images/1/2_1.png" alt="" class="abs yyy-tip" />
+			</div>
+			
+			<div class="result" id="result">
+				<!-- 摇一摇的结果 -->
+				<div class="wrapper">
+					<div class="con" id="con">
+						恭喜获得红包<br />66.6元
+					</div>
+					<div class="tip">（请点击我要提现按钮，前往个人中心提现）</div>
+				</div>
+				<img src="/huobihu/images/1/4_1.png" alt="" class="abs bg" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<script src="/common/scripts/yyy.js"></script>
+<script src="/huobihu/scripts/lib/jquery-1.8.1.min.js"></script>
+<script src="/huobihu/scripts/common/common.js"></script>
+<script src="/huobihu/scripts/lib/jweixin-1.0.0.js"></script>
+
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/huobihu/scripts/index_pre.js"></script>
+<!-- 页面js end-->
+
+<script>
+	
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+      WeixinJSBridge.call('hideOptionMenu');
+  	});
+
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	$('#page1').fadeIn();
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	})
+</script>
+
+</body>
+</html>

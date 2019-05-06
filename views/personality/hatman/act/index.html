@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>狼烟天下</title>
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <link rel="stylesheet" href="/hatman/css/index.css" />
+</head>
+<body>
+<div id="container">
+    <!--加载页-->
+    <div class="loading">
+        <div class="loadCon">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <!-- 主体 -->
+    <div class="content">
+        <!-- 背景 -->
+        <img class="bg abs" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/1_7.jpg" />
+
+
+        <!-- 开红包页面 -->
+        <div class="page page1" id="page1">
+            <div class="packet-img abs">
+                <img class="img1 abs" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/1_9.png" />
+
+                <img class="img2 abs" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/1_3.png" />
+
+                <!-- logo -->
+                <img class="img3 abs" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/1_1.png" />
+
+                <!-- 开按钮 -->
+                <img class="img4 lottery abs" id="lottery" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/1_2.png" />
+
+                <p class="word abs">您收到一个红包！</p>
+            </div>
+
+            <p class="bottom abs">深圳市哈特曼科技有限公司</p>
+        </div>
+
+        <!-- 中奖页面 -->
+        <div class="page page2" id="page2">
+            <div class="lottery-img abs">
+                <img class="img1 abs" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/1_9.png" />
+
+                <img class="img2 abs" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/1_6.png" />
+
+                <!-- logo -->
+                <img class="img3 abs" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/1_1.png" />
+
+                <div class="lottery-con abs">
+                    <p class="con-tit"></p>
+
+                    <p class="con-num"><span></span></p>
+
+                    <p class="con-tip"></p>
+                </div>
+
+                <div class="lottery-fail abs">
+                    <img class="fail-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/1_8.png" />
+
+                    <p class="fail-con">该码已被扫</p>
+                </div>
+            </div>
+
+            <!-- 广告 -->
+            <div class="bottom-ad">
+                <a href="https://advp-api.lxcyhd.com/advpage/alone/26/83/80C56A1902A7432C093CE7C9D841A184"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hatman/images/2.gif" /></a>
+            </div>
+        </div>
+    </div>
+
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/common/scripts/currency.js"></script>
+<script src="/hatman/scripts/api.js"></script>
+<script src="/hatman/scripts/Func.js"></script>
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            // 查看二维码参与状态
+            Func.findActivityByEncode(function(res) {
+
+                $('#loadingWrapper').hide();
+                $('.loading').hide();
+
+                if (res.code == 200 || res.code == 201) {
+                    $('#page1').fadeIn();
+                } else if (res.code == 203) {
+                    $('#page2').fadeIn();
+                    $(".lottery-fail").show();
+                } else {
+                    $('#page1').fadeIn();
+
+                    common.alert({
+                        content: res.msg,
+                        mask: true
+                    });
+                }
+            });
+
+        });
+
+        $(document).on('click', '.abs', function(e) {
+            e.preventDefault();
+        });
+
+        $(document).on('click', '#lottery', function() {
+            var that = $(this);
+
+            that.addClass('rotate');
+
+            // 开红包
+            Func.lottery(api.lottery, function(res) {
+                $('#loadingWrapper').hide();
+
+                var html = '';
+                if (res.code === 200) {
+                    html += '<p class="con-tit">恭喜您<br />获得现金</p>';
+                    html += '<p class="con-num">' + currency('', res.data.redPack.prizeAmount) + '<span>元</span></p>';
+                    html += '<p class="con-tip">(红包会通过公众号发送，请注意查收)</p>';
+
+                    Func.userCash({
+                        amount: res.data.redPack.prizeAmount,
+                        cashType: 0,
+                        signature: ''
+                    }, function(res) {
+                        //$('#loadingWrapper').hide();
+                    });
+                } else {
+                    html += '<p class="con-tit">很遗憾~</p>';
+                    html += '<p class="con-num"><span>' + res.msg + '</span></p>';
+                    $(".con-tip").hide();
+                }
+
+                that.removeClass('rotate');
+
+                $('#page1').hide();
+                $('#page2').fadeIn();
+
+                $('.lottery-con').html(html).show();
+            });
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,641 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+select {
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+  cursor: pointer;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.header-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 82px;
+  background: #359d96;
+}
+.header-wrapper:before,
+.header-wrapper:after {
+  content: " ";
+  display: table;
+}
+.header-wrapper:after {
+  clear: both;
+}
+.header-wrapper .back {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  display: block;
+  height: 36px;
+  line-height: 36px;
+  font-size: 23px;
+  text-align: center;
+  z-index: 9;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.header-wrapper .back span {
+  display: inline-block;
+  margin-left: 10px;
+}
+.header-wrapper .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 82px;
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+}
+.header-wrapper .add-address {
+  position: absolute;
+  top: 30px;
+  right: 56px;
+  line-height: 26px;
+  font-size: 26px;
+  color: #fff;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #fff;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+#container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/1_1.png) no-repeat;
+  background-size: 100% 100%;
+}
+#container .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#container .content .logo {
+  position: absolute;
+  left: 3%;
+  top: 2%;
+  z-index: 1;
+}
+#container .content .title {
+  position: absolute;
+  left: 8%;
+  top: 11%;
+  z-index: 1;
+  width: 84%;
+}
+#container .content .receive-btn {
+  position: absolute;
+  left: 31%;
+  bottom: 5%;
+  z-index: 10;
+  display: block;
+  width: 38%;
+}
+/*关注二维码*/
+.attent-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.attent-win .attent-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 530px;
+  -webkit-transform: translate(-50%, -50%);
+}
+.attent-win .attent-content .attent-title {
+  width: 100%;
+  height: 238px;
+  padding-top: 130px;
+  font-size: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-weight: bold;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/5_1.png') no-repeat;
+  background-size: 100% 100%;
+  box-sizing: border-box;
+}
+.attent-win .attent-content .attent-dec {
+  padding: 30px 0 12px 0;
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+}
+.attent-win .attent-content .attent-img {
+  display: block;
+  margin: 0 auto;
+}
+.attent-win .attent-content .attent-tips {
+  margin-top: 17px;
+  font-size: 26px;
+  color: #666;
+  line-height: 32px;
+  text-align: center;
+}
+.attent-win .attent-content .attent-btn {
+  display: block;
+  width: 332px;
+  height: 82px;
+  margin: 34px auto 0 auto;
+  font-size: 30px;
+  color: #fff;
+  line-height: 82px;
+  text-align: center;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/5_3.png') no-repeat;
+}
+/*红包结果弹窗*/
+.result-win {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.result-win .result-con {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 640px;
+  height: 560px;
+  padding-top: 40px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/2_1.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.result-win .result-con .result-title {
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  color: #eeaa47;
+  line-height: 36px;
+  font-weight: bold;
+}
+.result-win .result-con .dec {
+  position: relative;
+  display: none;
+  margin-top: 30px;
+  text-align: center;
+}
+.result-win .result-con .dec .num {
+  line-height: 50px;
+  color: #fd575b;
+}
+.result-win .result-con .dec .num span {
+  display: inline-block;
+  font-size: 50px;
+  color: #fc575b;
+  font-weight: bold;
+}
+.result-win .result-con .dec .type {
+  margin-top: 40px;
+  color: #fd575b;
+  font-size: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+.result-win .result-con .dec .tips {
+  margin-top: 12px;
+  font-size: 22px;
+  color: #fc575b;
+  text-align: center;
+}
+.result-win .result-con .dec2 {
+  margin-top: 23px;
+}
+.result-win .result-con .dec2 .name {
+  padding: 0 96px;
+  line-height: 50px;
+  color: #fd575b;
+  font-size: 23px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.result-win .result-con .dec2 .name .point {
+  margin-left: 16px;
+}
+.result-win .result-con .dec2 .award-img {
+  display: block;
+  margin: 13px auto 0 auto;
+}
+.result-win .result-con .dec3 {
+  margin-top: 30px;
+}
+.result-win .result-con .dec3 .name {
+  line-height: 50px;
+  color: #fd575b;
+  font-size: 39px;
+  font-weight: bold;
+}
+.result-win .result-con .dec3 .cry-img {
+  display: block;
+  width: 200px;
+  margin: 30px auto 0 auto;
+}
+.result-win .result-con .result-confirm {
+  position: absolute;
+  left: 17%;
+  bottom: 5%;
+  z-index: 2;
+  display: none;
+  width: 66%;
+  cursor: pointer;
+}
+.result-win .result-con .result-confirm img {
+  display: block;
+  margin: 0 auto;
+}
+.result-win .result-img {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  z-index: 2;
+  display: none;
+  width: 626px;
+  height: 261px;
+  -webkit-transform: translate(-50%, -50%);
+}
+.submit-infor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.submit-infor .submit-content {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 1;
+  width: 530px;
+  border-radius: 20px;
+  -webkit-transform: translate(-50%, -50%);
+}
+.submit-infor .submit-content .infor-title {
+  width: 100%;
+  height: 238px;
+  padding-top: 130px;
+  font-size: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-weight: bold;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/5_1.png') no-repeat;
+  background-size: 100% 100%;
+  box-sizing: border-box;
+}
+.submit-infor .submit-content .form-wra {
+  margin: 0 auto;
+  padding-bottom: 20px;
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+}
+.submit-infor .submit-content .form {
+  width: 100%;
+  padding: 30px 7% 0 7%;
+  box-sizing: border-box;
+}
+.submit-infor .submit-content .form .form-item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 55px;
+  margin-top: 20px;
+  background: #e0e0e0;
+  border-radius: 35px;
+}
+.submit-infor .submit-content .form .form-item:first-child {
+  margin-top: 0;
+}
+.submit-infor .submit-content .form .form-item .asak {
+  position: absolute;
+  left: 6px;
+  top: 15px;
+  z-index: 1;
+  font-size: 30px;
+  color: #fe0103;
+}
+.submit-infor .submit-content .form .form-item .form-key {
+  display: block;
+  width: 28px;
+  height: 30px;
+  margin: 13px 0 0 22px;
+}
+.submit-infor .submit-content .form .form-item .form-input {
+  flex: 1;
+  display: block;
+  width: 100%;
+  height: 55px;
+  padding: 0 20px 0 20px;
+  font-size: 26px;
+  color: #333;
+  line-height: 55px;
+  border-radius: 35px;
+  background: transparent;
+  box-sizing: border-box;
+}
+.submit-infor .submit-content .form .form-item .form-input::-webkit-input-placeholder {
+  color: #333;
+}
+.submit-infor .submit-content .form .form-item .select-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  border: none;
+}
+.submit-infor .submit-content .form .form-item .select-input option {
+  font-size: 12px;
+}
+.submit-infor .submit-content .form .form-item .icon {
+  position: absolute;
+  right: 30px;
+  top: 0;
+  z-index: 5;
+  display: block;
+  line-height: 55px;
+}
+.submit-infor .submit-content .form .phone-item {
+  background: #fff;
+}
+.submit-infor .submit-content .form .phone-item:before,
+.submit-infor .submit-content .form .phone-item:after {
+  content: " ";
+  display: table;
+}
+.submit-infor .submit-content .form .phone-item:after {
+  clear: both;
+}
+.submit-infor .submit-content .form .phone-item .form-input {
+  float: left;
+  display: block;
+  width: 55%;
+  background: #e0e0e0;
+}
+.submit-infor .submit-content .form .phone-item .form-input::-webkit-input-placeholder {
+  color: #333;
+}
+.submit-infor .submit-content .form .phone-item .get-code {
+  float: right;
+  display: block;
+  width: 40%;
+  height: 55px;
+  font-size: 26px;
+  color: #fff;
+  line-height: 55px;
+  border-radius: 35px;
+  background: #268c9b;
+  cursor: pointer;
+}
+.submit-infor .submit-content .form .phone-item .active {
+  background: #9a9a9a;
+}
+.submit-infor .submit-content .form-text {
+  margin-top: 10px;
+  padding: 0 10px;
+  font-size: 22px;
+  color: #f55152;
+}
+.submit-infor .submit-content .form-submit {
+  width: 300px;
+  height: 66px;
+  margin: 15px auto 0 auto;
+  font-size: 30px;
+  color: #fff;
+  line-height: 66px;
+  text-align: center;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/6_1.png') no-repeat;
+}
+.submit-infor .submit-content .close-submit {
+  position: absolute;
+  left: 44%;
+  bottom: -80px;
+  z-index: 10;
+  display: block;
+  width: 12%;
+}
+.submit-success {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.submit-success .success-con {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 530px;
+  -webkit-transform: translate(-50%, -50%);
+}
+.submit-success .success-con .sign-title {
+  width: 100%;
+  height: 238px;
+  padding-top: 130px;
+  font-size: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-weight: bold;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/5_1.png') no-repeat;
+  background-size: 100% 100%;
+  box-sizing: border-box;
+}
+.submit-success .success-con .success-dec {
+  padding: 40px 0 15px 0;
+  border-radius: 0 0 20px 20px;
+  background: #fff;
+}
+.submit-success .success-con .success-tip {
+  display: block;
+  margin: 0 auto;
+}
+.submit-success .success-con .success-text {
+  margin-top: 34px;
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #666;
+}
+.submit-success .success-con .form-btn {
+  width: 300px;
+  height: 66px;
+  margin: 34px auto 0 auto;
+  font-size: 30px;
+  color: #fff;
+  line-height: 66px;
+  text-align: center;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/5_3.png') no-repeat;
+}
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.loading .loadCon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.loading .loadCon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  font-size: 24px;
+  line-height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+  }
+}

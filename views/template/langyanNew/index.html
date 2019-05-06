@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<link rel="stylesheet" href="/langyanNew/css/index.css" />
+	<title>狼烟天下</title>
+</head>
+<body>
+	<div class="app">
+		<div class="container">
+			<div class="scroll-wrapper">
+				<div class="wrapper">
+					<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanNew/1_2.png" />
+
+					<ul class="btn-list">
+						<li class="item"><a href="javascript:void(0)" id="showErweima"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanNew/1_1.png" /></a></li>
+					</ul>
+
+					<!--<p class="bottom-txt">深圳市哈特曼科技有限公司</p>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="erweima-wrapper" id="erweimaWrapper">
+		<div class="erweima-container">
+			<a href="javascript:void(0)" class="close-btn" id="closeBtn">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanNew/1_7.png" />
+			</a>
+			<div class="erweima">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanNew/1_8.png" />
+			</div>
+			<div class="erweima-text">长按进入公众号,进行防伪查询</div>
+		</div>
+	</div>
+
+	<%-include('../../include/commonJs') %>
+	<%-include("../../include/hideMenu") %>
+	<!-- 公共js start -->
+	<script src="/common/scripts/Func.js"></script>
+	<script src="/langyanNew/js/api.js"></script>
+	<script src="/langyanNew/js/lib/jweixin-1.0.0.js"></script>
+	<script>
+		$(function() {
+			$(document).on('click', '#closeBtn', function() {
+				$('#erweimaWrapper').fadeOut();
+			});
+
+			// 点击防伪查询
+			$(document).on('click', '#showErweima', function() {
+				$('#erweimaWrapper').fadeIn();
+
+                /*isSubscribe(function (res) {
+					if (res.code == 200) {
+					    var data = res.data;
+
+						if (data.subscribe == true) {
+                            window.location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIxOTQxNDg4NA==&scene=126#wechat_redirect';
+						} else {
+							//$('#erweimaText').text('进行防伪查询');
+                            $('#erweimaWrapper').fadeIn();
+						}
+					} else {
+					    common.alert({
+							mask:true,
+							content:res.msg
+						})
+					}
+                })*/
+			});
+		});
+
+        /**
+         * 是否关注公众号接口
+         * @param  function 	callback 	成功后的回调
+         * @return null
+         */
+        function isSubscribe(callback) {
+            $.ajax({
+                url: api.isSubscribe,
+                type: 'GET',
+                headers: getHeader(),
+                dataType: 'json',
+                success: function(res) {
+                    callback(res);
+                }
+            });
+        }
+	</script>
+</body>
+</html>

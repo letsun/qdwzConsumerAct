@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/biquan/css/index.css" />
+	<!-- 样式 end -->
+	<title>碧泉</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/biquan/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="page page1" id="page1">
+			<img src="/biquan/images/2/1_2.png" alt="" class="abs img1" />
+			<img src="/biquan/images/2/1_1.png" alt="" class="abs img2" />
+			<img src="/biquan/images/2/1_3.png" alt="" class="abs img3 btn" id="nextPage" />
+			<div class="company">吉林省碧泉健康食品开发有限责任公司</div>
+		</div>
+		<div class="page page2" id="page2">
+			<img src="/biquan/images/2/1_2.png" alt="" class="abs img1" />
+			<img src="/biquan/images/2/2_2.png" alt="" class="abs img2" />
+			<img src="/biquan/images/2/2_4.png" alt="" class="abs img3" />
+			<img src="/biquan/images/2/2_5.png" alt="" class="abs img4" />
+			<img src="/biquan/images/2/2_3.png" alt="" class="abs img5 lottery" id="lottery" />
+			<div class="company">吉林省碧泉健康食品开发有限责任公司</div>
+
+			<div class="result-wrapper" id="resultWrapper">
+				<div class="result-container" id="resultContainer">
+					<img src="/biquan/images/2/3_1.png" alt="" class="abs img6" />
+					<div class="result" id="result">
+						
+					</div>
+					<div class="result-tip">长按关注公众号，领取更多惊喜哦！</div>
+				</div>
+				<div class="mask"></div>
+			</div>
+
+		</div>
+	</div>
+	<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/biquan/scripts/api.js"></script>
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<script>
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	// 查看二维码参与状态
+		    Func.findActivityByEncode(function(res) {
+		    	
+		    	$('#loadingWrapper').hide();
+
+		    	if (res.code === 200 || res.code === 201) {
+		    		
+		    	} else {
+
+		    		$('#nextPage').hide();
+
+		    		common.alert({
+		    			content: res.msg,
+		    			mask: true
+		    		});
+		    	}
+
+		    	$('.loading').hide();
+	    		$('#page1').fadeIn();
+		    });
+	    	
+	    });
+
+	    $(document).on('click', '.abs', function(e) {
+	    	e.preventDefault();
+	    });
+
+	    $(document).on('click', '#nextPage', function() {
+	    	$('#page1').fadeOut();
+	    	$('#page2').fadeIn();
+	    });
+
+	    $(document).on('click', '#lottery', function() {
+	    	var that = $(this);
+	    	
+	    	that.addClass('rotate');
+
+	   		Func.lottery(api.lottery, function(res) {
+	   			var html = '';
+	   			if (res.code === 200) {
+	   				html += '<div class="result-title">恭喜获得</div>';
+					html += '<div class="result-content"><span class="unit">￥</span>' + currency('', res.data.redPack.prizeAmount) + '<span class="unit">元</span></div>';
+
+					Func.userCash({
+						amount: res.data.redPack.prizeAmount,
+						cashType: 0,
+						signature: ''
+					}, function(res) {
+
+					});
+	   			} else {
+	   				html += '<div class="result-title">很遗憾~</div>';
+					html += '<div class="result-content"><span class="unit">' + res.msg + '</span></div>';
+	   			}
+
+	   			that.removeClass('rotate');
+	   			
+	   			$('#result').html(html);
+	   			$('#resultWrapper').fadeIn();
+	    		$('#resultContainer').addClass('show');
+	   		});
+
+
+	    	
+	    });
+
+	})
+</script>
+
+</body>
+</html>

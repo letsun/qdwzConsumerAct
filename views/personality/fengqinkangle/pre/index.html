@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/fengqinkangle/css/reset.css">
+	<link rel="stylesheet" href="/fengqinkangle/css/animate.min.css">
+	<link rel="stylesheet" href="/fengqinkangle/css/temp_3.css" />
+	<!-- 样式 end -->
+	<title>丰庆康乐</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/fengqinkangle/images/loading.png">
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+
+		<!--背景-->
+		<div class="container-bg" id="container-bg">
+			<img src="/fengqinkangle/images/temp_3/1_1.jpg" alt="">
+		</div>
+
+		<div class="content">
+
+			<!--模块1-->
+			<div class="con con1 js-con1">
+				<img class="shake-btn" id="shake-btn" src="/fengqinkangle/images/temp_3/1_2.png" alt="">
+			</div>
+
+			<!--模块2-->
+			<div class="con con2 js-con2">
+				<img class="shake-prompt" src="/fengqinkangle/images/temp_3/2_1.png" alt="">
+			</div>
+
+			<!---->
+			<div class="con-wra" id="con-wra">
+				<img class="con-bg" src="/fengqinkangle/images/temp_3/3_1.jpg" alt="">
+
+				<!--模块3 有红包-->
+				<div class="con con3 js-con3">
+
+					<div class="shake-result-wra">恭喜获得<span class="shake-result">8.8</span>元</div>
+					<img class="withdraw-btn" id="withdraw-btn" src="/fengqinkangle/images/temp_3/3_3.png" alt="">
+
+				</div>
+
+				<!--模块4 没有红包-->
+				<div class="con con4 js-con4">
+					<img class="not-winning-img" id="not-winning-img" src="/fengqinkangle/images/temp_3/3_2.png" alt="">
+					<div class="shake-result-wra">很遗憾未中奖</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- 公共js start -->
+<script src="/fengqinkangle/scripts/lib/jquery-1.8.1.min.js"></script>
+<script src="/fengqinkangle/scripts/common/common.js"></script>
+<script src="/fengqinkangle/scripts/lib/jweixin-1.0.0.js"></script>
+<!-- 公共js start -->
+
+<!-- 页面js start -->
+<script src="/fengqinkangle/scripts/temp_3.js"></script>
+<!-- 页面js end-->
+
+<script>
+	// 页面禁止滑动
+
+    $('#app').on('touchmove', function(e) {
+    	e.preventDefault();
+    });
+
+    /**加载进度*/
+    common.loading($("#percent"));
+
+    window.onload=function () {
+        $('.loading').hide();
+        $('#container').fadeIn();
+    };
+
+</script>
+
+</body>
+</html>

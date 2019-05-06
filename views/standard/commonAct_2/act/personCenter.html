@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <%-include("../include/commonCss") %>
+    <link rel="stylesheet" href="/commonAct_2/css/personCenter.css">
+    <link rel="stylesheet" href="/commonAct_2/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>个人中心</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+       
+        <%-include("../include/header", {title: '个人中心'}) %>
+
+       <div class="wrapper">
+            <div class="person-header">
+                <div class="person-infor">
+                    <div class="avator-wrapper">
+                        <div class="avatar-border_1"></div>
+                        <div class="avatar-border_2"></div>
+                        <img src="" class="avatar" id="avatar" />
+                        <div class="nickname" id="nickname"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-wrapper" id="scrollWrapper">
+                <div class="person-detail">
+                    <div class="account-wrapper">
+                        <div class="account-con">
+                            <i class="icon"></i>
+                            <div class="balance-wrapper">
+                                <div class="balance-title">我的余额</div>
+                                <div class="balance" id="balance"></div>
+                            </div>
+                            <a href="/standard/commonAct_2/act/withdraw" class="withdraw-btn">提现</a>
+                        </div>
+                    </div>
+                    <ul class="person-list">
+                        <li class="person-item">
+                            <a href="/standard/commonAct_2/act/myDiscount">
+                                <i class="icon"></i>
+                                <div class="person-right">
+                                    <div class="person-title">我的优惠券</div>
+                                    <div class="person-num" id="coupon-num"></div>
+                                    <i class="person-icon iconfont icon-qianjin"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="person-item">
+                            <a href="/standard/commonAct_2/act/myAccount">
+                                <i class="icon"></i>
+                                <div class="person-right">
+                                    <div class="person-title">我的积分</div>
+                                    <div class="person-num" id="integral-num"></div>
+                                    <i class="person-icon iconfont icon-qianjin"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="person-item">
+                            <a href="/standard/commonAct_2/act/awardRecord">
+                                <i class="icon"></i>
+                                <div class="person-right">
+                                    <div class="person-title">中奖记录</div>
+                                    <div class="person-num" id="winning-num"></div>
+                                    <i class="person-icon iconfont icon-qianjin"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="person-item">
+                            <a href="/standard/commonAct_2/act/rebateRecord">
+                                <i class="icon"></i>
+                                <div class="person-right">
+                                    <div class="person-title">返利记录</div>
+                                    <div class="person-num" id="rebate-num"></div>
+                                    <i class="person-icon iconfont icon-qianjin"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="person-item">
+                            <a href="/standard/commonAct_2/act/fissionRecord">
+                                <i class="icon"></i>
+                                <div class="person-right">
+                                    <div class="person-title">裂变记录</div>
+                                    <div class="person-num" id="fission-num"></div>
+                                    <i class="person-icon iconfont icon-qianjin"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <%-include("../include/advertisement") %>
+        </div>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/commonAct_2/scripts/api.js"></script>
+<script src="/commonAct_2/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+   $(function() {
+        var doc = $(document);
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();
+        });
+
+
+        // 获取积分
+       Func.getConsume(function (res) {
+           if (res.code === 200) {
+               var data = res.data;
+               $('#integral-num').html(data.balanceScore);
+           } else {
+               common.alert({
+                   content:res.msg,
+                   mask:true,
+               })
+           }
+       });
+
+       // 获取优惠券
+       Func.findCouponNum(function (res) {
+           if (res.code === 200) {
+               var data = res.data;
+               $('#coupon-num').html(data.counponNum);
+           } else {
+               common.alert({
+                   content:res.msg,
+                   mask:true,
+               })
+           }
+       });
+
+
+       // 获取中奖记录
+       Func.lotteryRecordNum(function (res) {
+           if (res.code === 200) {
+               var data = res.data;
+               $('#winning-num').html(data.lotteryNum);
+           } else {
+               common.alert({
+                   content:res.msg,
+                   mask:true,
+               })
+           }
+       });
+       
+        Func.getPersonCenter(function(res) {
+            var data = res.data;
+      
+            if (res.code === 200) {
+                $('#avatar').attr('src', data.headimage);
+                $('#nickname').text(data.nikeName);
+                $('#balance').text(currency('￥', data.balance));
+            } else {
+                common.alert({
+                    content: res.msg,
+                    mask: true
+                });
+            }
+
+            $('#loadingWrapper').hide();
+        });
+
+        // 获取裂变中奖记录
+       Func.fissionlotteryRecordNum(function (res) {
+           if (res.code === 200) {
+               var data = res.data;
+               $('#fission-num').html(data.lotteryNum);
+           } else {
+               common.alert({
+                   content:res.msg,
+                   mask:true,
+               })
+           }
+       });
+
+        // 获取裂变返利记录
+       Func.fissionrebateRecordNum(function (res) {
+           if (res.code === 200) {
+               var data = res.data;
+               $('#rebate-num').html(data.lotteryNum);
+           } else {
+               common.alert({
+                   content:res.msg,
+                   mask:true,
+               })
+           }
+       });
+
+        // 个人中心页面广告
+        Func.getAdvByAdvPositionName('#advertisement', '个人中心页面');
+   })
+
+   var scroll = new BScroll('#scrollWrapper', {
+        scrollbar: {
+            fade: true
+        },
+        click: true
+    });
+
+</script>
+
+</body>
+</html>

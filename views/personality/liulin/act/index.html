@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/liulin/css/reset.css" />
+    <link rel="stylesheet" href="/liulin/css/animate.min.css" />
+    <link rel="stylesheet" href="/liulin/css/index.css" />
+    <!-- 样式 end -->
+    <title>柳林酒业二维码红包活动</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/liulin/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div id="container">
+        <img class="receive-btn" id="receive-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/liulin/1_2.png" alt="">
+
+        <!--关注二维码弹窗-->
+        <div class="attent-win" id="attent-win">
+
+            <div class="attent-content">
+                <img class="qrcode" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/liulin/2_1.png" alt="">
+
+                <div class="attent-text">
+                    <p>长按关注二维码领取红包</p>
+                    <p>关注后点击返回领红包</p>
+                </div>
+            </div>
+        </div>
+
+        <!--红包结果弹窗-->
+        <div class="redResult-win" id="redResult-win">
+            <div class="redResult-content">
+
+                <!--中红包时文字为恭喜您获得，红包领完的时候 文字更改为很遗憾-->
+                <div class="redResult-title">恭喜您获得</div>
+                <div class="redResult-dec-wra">
+                    <div class="redResult-dec redResult-dec1" style="display: block;"><span class="num">1.80</span>元</div>
+                </div>
+                <div class="redResult-tip">奖励由公众号进行发放<br/>请注意查收</div>
+            </div>
+        </div>
+    </div>
+
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/liulin/scripts/api.js"></script>
+<script src="/liulin/scripts/Func.js"></script>
+<script src="/liulin/scripts/index_act.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+
+</body>
+</html>

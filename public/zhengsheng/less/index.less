@@ -1,0 +1,245 @@
+@import 'clearFix';
+@import 'newAnimate';
+
+.ellipsisNormal {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ellipsis(@line) {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @line;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+        position: relative;
+
+	    display: none;
+
+        width: 100%;
+        height: 100%;
+
+	    .result-wrapper {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+
+		    display: block;
+
+		    z-index: 99;
+
+		    .result-container {
+			    position: absolute;
+			    left: 50%;
+			    top:  50%;
+			    z-index: 999;
+
+			    //display: none;
+
+			    width: 100%;
+			    height: 100%;
+
+			    background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/zhengsheng/images/1/1_6.jpg") no-repeat;
+			    background-size: 100% 100%;
+
+			    transform: translate(-50%, -50%);
+			    -webkit-transform: translate(-50%, -50%);
+
+			    .result {
+					position: absolute;
+					top: 20%;
+					left: 50%;
+
+					width: 468px;
+					margin-left: -234px;
+
+					.result-bg {
+						position: absolute;
+						top: 0;
+						left: 0;
+
+						width: 100%;
+						display: block;
+					}
+
+					.result-con {
+						position: absolute;
+						top: 80px;
+						left: 0;
+
+						width: 100%;
+
+						.tit-img {
+							width: 270px;
+							margin: 0 auto;
+							display: block;
+						}
+
+						.logo {
+							width: 90px;
+							height: 90px;
+							display: block;
+							margin: 70px auto 40px auto;
+						}
+
+						.award-info {
+							display: none;
+
+							.txt1 {
+								color: #fed59d;
+								font-size: 26px;
+								text-align: center;
+							}
+
+							.txt2 {
+								margin-top: 30px;
+
+								color: #fed59d;
+								font-size: 46px;
+								text-align: center;
+
+								span {
+									font-size: 22px;
+								}
+							}
+
+							.txt3 {
+								color: #fed59d;
+								font-size: 22px;
+								text-align: center;
+							}
+
+							.obtain-btn {
+								width: 326px;
+								display: block;
+								margin: 60px auto;
+
+								cursor: pointer;
+							}
+						}
+
+						.award-fail {
+							display: none;
+
+							p {
+								line-height: 60px;
+								color: #fed59d;
+								font-size: 28px;
+								text-align: center;
+
+								&:last-of-type {
+									font-size: 36px;
+								}
+							}
+						}
+
+						.obtain-success {
+							margin-top: 60px;
+							display: none;
+
+							img {
+								width: 80px;
+								display: block;
+								margin: 0 auto;
+							}
+
+							p {
+								line-height: 60px;
+								color: #fed59d;
+								font-size: 28px;
+								text-align: center;
+							}
+						}
+
+						.code-status {
+							margin-top: 60px;
+							display: none;
+
+							line-height: 60px;
+							color: #fed59d;
+							font-size: 30px;
+							text-align: center;
+						}
+					}
+
+					.close-btn {
+						position: absolute;
+						top: 20px;
+						right: 30px;
+
+						width: 25px;
+						height: 25px;
+						display: block;
+
+						cursor: pointer;
+					}
+			    }
+
+		    }
+	    }
+    }
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}

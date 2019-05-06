@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/zeroduFitness/css/reset.css">
+    <link rel="stylesheet" href="/zeroduFitness/css/personCenter.css">
+    <link rel="stylesheet" href="/zeroduFitness/fonts/iconfont.css">
+
+    <!-- 样式 end -->
+    <title>个人中心</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+       
+       <%-include("./inc/header", {title: '个人中心'}) %>
+
+       <div class="wrapper">
+            <div class="person-header">
+                <div class="person-infor">
+                    <div class="avator-wrapper">
+                        <div class="avatar-border_1"></div>
+                        <div class="avatar-border_2"></div>
+                        <img src="" class="avatar" id="avatar" />
+                        <div class="nickname" id="nickname"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-wrapper" id="scrollWrapper">
+                <div class="person-detail">
+                    <div class="account-wrapper">
+                        <div class="account-con">
+                            <i class="icon"></i>
+                            <div class="balance-wrapper">
+                                <div class="balance-title">我的余额</div>
+                                <div class="balance" id="balance"></div>
+                            </div>
+                            <a href="/withdraw" class="withdraw-btn">提现</a>
+                        </div>
+                    </div>
+                    <ul class="person-list">
+                        <li class="person-item">
+                            <a href="/awardRecord">
+                                <i class="icon"></i>
+                                <div class="person-right">
+                                    <div class="person-title">中奖记录</div>
+                                    <i class="person-icon iconfont icon-jiantou2"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/zeroduFitness/scripts/api.js"></script>
+
+<!-- 公共js end -->
+
+<script>
+   $(function() {
+        var doc = $(document);
+
+        $('#app').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();
+        });
+
+        $('#loadingWrapper').show();
+
+        $.ajax({
+            url: api.personCenter,
+            type: 'GET',
+            dataType: 'json',
+            headers: getHeader(),
+            success: function(res) {
+                var data = res.data;
+                if (res.code === 200) {
+                    $('#avatar').attr('src', data.headimage);
+                    $('#nickname').text(data.nikeName);
+                    $('#balance').text(currency('￥', data.balance));
+                    $('#loadingWrapper').hide();
+                }
+            }
+        });
+   })
+</script>
+
+</body>
+</html>

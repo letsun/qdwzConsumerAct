@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/luzhou/css/reset.css" />
+    <link rel="stylesheet" href="/luzhou/css/animate.min.css" />
+    <link rel="stylesheet" href="/luzhou/css/index.css" />
+    <!-- 样式 end -->
+    <title>泸州老窖二维码红包活动</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/luzhou/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+    <div class="container" id="container">
+
+        <!-- 大转盘弹层 start -->
+        <div class="dzp-wrapper js-dzpWrapper">
+            <!-- 大转盘容器 start -->
+            <div class="dzp-container">
+                <div class="dzp-con js-dzpCon">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luzhoulaojiao/1_1.png" class="abs dzp-img" />
+                    <ul class="award-list" id="awardList">
+                        <!-- 奖项 -->
+                        <li class="award-item" style="transform: translateX(-50%) rotate(-22.5deg)">
+                            <div class="con"></div>
+                        </li>
+                        <li class="award-item" style="transform: translateX(-50%) rotate(22.5deg)">
+                            <div class="con"></div>
+                        </li>
+                        <li class="award-item" style="transform: translateX(-50%) rotate(67.5deg)">
+                            <div class="con"></div>
+                        </li>
+                        <li class="award-item" style="transform: translateX(-50%) rotate(112.5deg)">
+                            <div class="con"></div>
+                        </li>
+                        <li class="award-item" style="transform: translateX(-50%) rotate(157.5deg)">
+                            <div class="con"></div>
+                        </li>
+                        <li class="award-item" style="transform: translateX(-50%) rotate(202.5deg)">
+                            <div class="con"></div>
+                        </li>
+                        <li class="award-item" style="transform: translateX(-50%) rotate(247.5deg)">
+                            <div class="con"></div>
+                        </li>
+                        <li class="award-item" style="transform: translateX(-50%) rotate(292.5deg)">
+                            <div class="con"></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 启动大转盘按钮 -->
+                <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luzhoulaojiao/1_3.png" class="abs dzp-btn js-dzpBtn" />
+            </div>
+            <!-- 大转盘容器 end -->
+
+        </div>
+
+        <!--开奖结果-->
+        <div class="result-win" id="result-win">
+            <img class="result-title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luzhoulaojiao/2_1.png">
+            
+            <div class="result-content">
+                <div class="result-dec result-dec1" style="display: block;">
+                    <img class="result-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luzhoulaojiao/2_2.png" alt="">
+                    <div class="result-num">
+                        恭喜您获得<span class="num">8.8</span>元红包！请进入您的微信“零钱”中查看。【该红包只发放一次，请勿重复扫码哟！】
+                    </div>
+                </div>
+                <div class="result-dec result-dec2">
+                    <div class="result-text">
+                        您未中奖
+                    </div>
+                    <img class="result-tips" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luzhoulaojiao/3_2.png" alt="">
+
+                </div>
+            </div>
+
+            <img class="close-win" id="close-win" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luzhoulaojiao/2_4.png" alt="">
+
+            <!--&lt;!&ndash;广告&ndash;&gt;
+            <a class="advertisement" id="advertisement" href="https://advp-api.lxcyhd.com/advpage/alone/28/87/4DB80D0FBE12650FBA185111CC1481F5">
+                <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/luzhoulaojiao/5_1.jpg" alt="">
+            </a>-->
+
+        </div>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/luzhou/scripts/index_pre.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('.dzp-wrapper').fadeIn();
+        });
+
+    })
+</script>
+
+</body>
+</html>

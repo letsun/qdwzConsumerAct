@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/zeroduFitness/css/reset.css">
+    <link rel="stylesheet" href="/zeroduFitness/css/awardRecord.css">
+    <link rel="stylesheet" href="/zeroduFitness/fonts/iconfont.css">
+    <!-- 样式 end -->
+    <title>中奖记录</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="container" id="container">
+        <%-include("./inc/header", {title: '中奖记录'}) %>
+       <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="wrapper">
+                <ul class="money-list" id="money-list">
+                    
+                </ul>
+                
+                <!-- 下拉加载更多 -->
+                <div class="loading" id="loading">下拉加载更多</div>
+            </div>
+        </div>
+    </div>
+    <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<script src="/common/scripts/currency.js"></script>
+<script src="/common/plugins/betterScroll/bscroll.js"></script>
+<script src="/zeroduFitness/scripts/api.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+
+<!-- 页面js end-->
+
+<script>
+    var hasNext = true;
+    var page = 1;
+
+   $(function() {
+        var doc = $(document);
+
+        $('#app').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function(){
+            window.history.back();;
+        });
+
+        $('#loadingWrapper').show();
+
+        $.ajax({
+            url: api.lotteryRecord,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                page: page,
+                limit: 20
+            },
+            headers: getHeader(),
+            success: function(res) {
+                var data = res.data;
+                if (res.code === 200) {
+                    hasNext = data.hasNext;
+                    render(data.lotteryRecordList);
+
+                    if (data.lotteryRecordList.length) {
+                        $('#loading').show();
+                    }
+                }
+
+                $('#loadingWrapper').hide();
+                
+            }
+        });
+   });
+
+   var scroll = new BScroll('#scrollWrapper', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+          threshold: 0
+        }
+    });
+    
+    scroll.on('pullingUp', () => {
+        if (!hasNext) {
+            $('#loading').text('已经没有更多了');
+            return;
+        }
+
+        page++;
+
+        $('#loading').text('正在加载中...');
+
+        $.ajax({
+            url: api.userCashRecord,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                page: page,
+                limit: 20
+            },
+            headers: getHeader(),
+            success: function(res) {
+                var data = res.data;
+                if (res.code === 200) {
+                    hasNext = data.hasNext;
+                    render(data.lotteryRecordList);
+
+                    $('#loading').text('下拉加载更多');
+                }
+                
+            }
+        });
+    });
+
+    function render(data) {
+        var html = '';
+        for (var i = 0; i < data.length; i++) {
+            html += '<li class="money-item">';
+            if (data[i].prizeType === 1) {
+                html += '<a href="/awardDetail">';
+                html += '<div class="title">' + data[i].prizeName + '</div>';
+            } else {
+                html += '<div class="title">' + data[i].prizeName + data[i].prizeAmount + '元</div>';
+            }
+            
+            html += '<div class="time">' + data[i].createDate + '</div>';
+
+            if (data[i].prizeType === 1) {
+                html += '<i class="icon iconfont icon-jiantou"></i>';
+                html += '</a>';
+            }
+
+            html += '</li>';
+        }
+        
+        $('#money-list').append(html);
+
+        scroll.finishPullUp();
+        scroll.refresh();
+    }
+</script>
+
+</body>
+</html>

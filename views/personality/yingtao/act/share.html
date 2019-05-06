@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/yingtao/css/reset.css" />
+	<link rel="stylesheet" href="/yingtao/css/animate.min.css" />
+	<link rel="stylesheet" href="/yingtao/css/index.css" />
+	<!-- 样式 end -->
+	<title>分享页</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/yingtao/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+	<div class="container" id="container">
+		<div class="page page1" id="page1">
+			<img src="/yingtao/images/2/1_1.png" alt="" class="abs img1" />
+			<div class="page1_content" id="page1_content">
+				<img src="/yingtao/images/2/1_2.png" alt="" class="abs img2" id="yyy-btn" />
+				<div class="abs error-tip" id="errorTip"></div>
+				<div class="text-tip abs">
+					<a href="/withdraw" class="img7" id="withdrawBtn"><img src="/yingtao/images/2/4_2.png" class="abs" /></a>
+				</div>
+				<img src="/yingtao/images/2/1_5.png" alt="" class="abs img3" />
+				<img src="/yingtao/images/2/1_3.png" alt="" class="abs img4" />
+			</div>
+			<div class="notice-publicAccount" id="notice-publicAccount">
+				<div class="erweima">
+					<img src="/yingtao/images/2/3_1.png" />
+					<div class="close" id="close-btn"></div>
+				</div>
+				
+			</div>
+			<div class="yyy-wrapper" id="yyy-wrapper">
+				<img src="/yingtao/images/2/2_2.png" alt="" class="abs hand" />
+				<img src="/yingtao/images/2/2_1.png" alt="" class="abs yyy-tip" />
+			</div>
+			
+			<div class="result" id="result">
+				<!-- 摇一摇的结果 -->
+				<div class="wrapper">
+					<div class="con" id="con">恭喜获得红包<br />6.66元</div>
+					<div class="tip">（请前往个人中心提现）</div>
+				</div>
+				<div class="btn-group" style="bottom: 13%;">
+					<a href="/withdraw" style="left: 50%; margin-left: -127px;" class="img6"><img src="/yingtao/images/2/4_2.png" class="abs" /></a>
+				</div>
+				<img src="/yingtao/images/2/4_1.png" alt="" class="abs bg" />
+			</div>
+		</div>
+	</div>
+	<img src="/yingtao/images/2/5_1.png" alt="" class="share" id="share" />
+	<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<script src="/common/scripts/wxjs/jweixin-1.0.0.js"></script>
+<script src="/common/scripts/wxjs/myweixin-1.0.js"></script>
+<script src="/common/scripts/yyy.js"></script>
+<script src="/common/scripts/currency.js"></script>
+
+<script src="/yingtao/scripts/api.js"></script>
+<script src="/yingtao/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/yingtao/scripts/share_act.js"></script>
+<!-- 页面js end-->
+
+<script>
+
+	$(function() {
+		// 页面禁止滑动
+	    $('#container').on("touchmove", function (e) {
+	        e.preventDefault();
+	    });
+	    
+	    /**加载进度*/
+	    common.loading($("#percent"), function(){
+	    	$('.loading').hide();
+	    	$('#page1').fadeIn(function() {
+	    		Func.findFissionActByEncode(function(res) {
+	    			
+	    			debugger;
+	    			if (res.code === 200 || res.code === 201) {
+	    				$('#yyy-btn').show();
+	    				$('#errorTip').hide();
+	    				$('#withdrawBtn').hide();
+	    			} else {
+	    				$('#yyy-btn').hide();
+	    				$('#errorTip').show();
+	    				$('#errorTip').text(res.msg);
+	    				$('#withdrawBtn').show();
+	    			}
+
+	    			$('#loadingWrapper').hide();
+
+	    			
+	    		});
+	    	});
+	    });
+	})
+</script>
+
+</body>
+</html>
