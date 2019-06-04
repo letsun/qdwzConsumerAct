@@ -56,10 +56,10 @@
 <script src="/zhuojiu/scripts/prev_index.js"></script>
 
 <script>
-    // 页面禁止滑动
+/*    // 页面禁止滑动
     document.addEventListener("touchmove", function (e) {
         e.preventDefault();
-    }, false);
+    }, false);*/
 
     /**加载进度*/
     common.loading($("#percent"));
@@ -67,10 +67,7 @@
 
     window.onload=function () {
         $('.loading').hide();
-        $('#container').fadeIn(function () {
-            // 摇一摇红包
-            window.addEventListener('devicemotion', rock);
-        });
+        $('#container').fadeIn(function () {});
     };
 
 </script>

@@ -51,89 +51,72 @@ $(function() {
 
             if (res.code === 200 || res.code === 201) {
                 $('#loadingWrapper').show();
-                Func.isSubscribe(function(res1) {
-                    if (res1.code === 200) {
-                        if (!res1.data.subscribe) {
-                            isClick = true;
-                            $('#loadingWrapper').hide();
-                            $('#attent-win').fadeIn();
-                        } else {
-                            Func.lottery(api.lottery,function (reg) {
-                                $('#loadingWrapper').hide();
-                                var rand = 0;
-                                if (reg.code == 200 || reg.code == 201) {
-                                    for (var i = 0, len = dzpAwardItem.length; i < len; i++) {
-                                        if (dzpAwardItem[i].prizeId === reg.data.prizeId) {
-                                            rand = dzpAwardItem[i].prizeIndex;
-                                            break;
-                                        } else {
-                                            if (reg.code == 201) {
-                                                if (dzpAwardItem[i].prizeName == '谢谢参与') {
-                                                    rand = dzpAwardItem[i].prizeIndex;
-                                                }
-                                            }
-                                        }
+                Func.lottery(api.lottery,function (reg) {
+                    $('#loadingWrapper').hide();
+                    var rand = 0;
+                    if (reg.code == 200 || reg.code == 201) {
+                        for (var i = 0, len = dzpAwardItem.length; i < len; i++) {
+                            if (dzpAwardItem[i].prizeId === reg.data.prizeId) {
+                                rand = dzpAwardItem[i].prizeIndex;
+                                break;
+                            } else {
+                                if (reg.code == 201) {
+                                    if (dzpAwardItem[i].prizeName == '谢谢参与') {
+                                        rand = dzpAwardItem[i].prizeIndex;
                                     }
                                 }
-
-                                var totalRotate = rotate * 4 + perRotate * rand - 22.5;
-
-                                $('.js-dzpCon').css({
-                                    'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
-                                    'transform': 'rotate(' + (-totalRotate) + 'deg)'
-                                });
-
-                                if(reg.code == 200) {
-                                    isLottery = true;
-                                    type = reg.data.type;
-                                    if (reg.data.type == 0) {
-                                        prizeAmount = reg.data.redPack.prizeAmount;
-                                        lotteryId = reg.data.lotteryId;
-                                        $('.result-title').html('恭喜您获得');
-                                        $('.dec').hide();
-                                        $('.dec1').show();
-                                        $('.result-confirm').hide();
-                                        $('#result-confirm1').show();
-                                        $('.dec1 .num').find('span').html(prizeAmount);
-                                    } else if (reg.data.type == 3) {
-                                        $('.result-title').html('恭喜您获得');
-                                        $('.dec').hide();
-                                        $('.dec2').show();
-                                        $('.result-confirm').hide();
-                                        $('#result-confirm2').show();
-                                        $('.dec2 .num').find('span').html(reg.data.point.point);
-                                    } else if (reg.data.type == 4) {
-                                        var originId = reg.data.advOrigin.originId;
-                                        var src = reg.data.advOrigin.imgUrl;
-                                        var href = reg.data.advOrigin.openOriginUrl;
-                                        $('.result-title').html('恭喜您获得');
-                                        $('.coupon').find('img').attr('src',src);
-                                        $('.coupon').attr('href',href);
-                                        if (originId == 2) {
-                                            $('.coupon').find('img').css({'display':'block','width': '250px','margin': '0 auto'});
-                                        }
-                                        $('.dec').hide();
-                                        $('.dec3').show();
-                                        $('.result-confirm').hide();
-                                        $('#result-confirm1').show();
-                                    }
-                                } else if (reg.code == 201) {
-                                    isLottery = false;
-                                    $('.result-title').html('很遗憾');
-                                    $('.dec').hide();
-                                    $('.dec4').show();
-                                    $('.result-confirm').hide();
-                                    $('#result-confirm1').show();
-                                }
-                            });
+                            }
                         }
-                    } else {
-                        isClick = true;
-                        $('#loadingWrapper').hide();
-                        common.alert({
-                            content: res.msg,
-                            mask: true
-                        });
+                    }
+
+                    var totalRotate = rotate * 4 + perRotate * rand - 22.5;
+
+                    $('.js-dzpCon').css({
+                        'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
+                        'transform': 'rotate(' + (-totalRotate) + 'deg)'
+                    });
+
+                    if(reg.code == 200) {
+                        isLottery = true;
+                        type = reg.data.type;
+                        if (reg.data.type == 0) {
+                            prizeAmount = reg.data.redPack.prizeAmount;
+                            lotteryId = reg.data.lotteryId;
+                            $('.result-title').html('恭喜您获得');
+                            $('.dec').hide();
+                            $('.dec1').show();
+                            $('.result-confirm').hide();
+                            $('#result-confirm1').show();
+                            $('.dec1 .num').find('span').html(prizeAmount);
+                        } else if (reg.data.type == 3) {
+                            $('.result-title').html('恭喜您获得');
+                            $('.dec').hide();
+                            $('.dec2').show();
+                            $('.result-confirm').hide();
+                            $('#result-confirm2').show();
+                            $('.dec2 .num').find('span').html(reg.data.point.point);
+                        } else if (reg.data.type == 4) {
+                            var originId = reg.data.advOrigin.originId;
+                            var src = reg.data.advOrigin.imgUrl;
+                            var href = reg.data.advOrigin.openOriginUrl;
+                            $('.result-title').html('恭喜您获得');
+                            $('.coupon').find('img').attr('src',src);
+                            $('.coupon').attr('href',href);
+                            if (originId == 2) {
+                                $('.coupon').find('img').css({'display':'block','width': '250px','margin': '0 auto'});
+                            }
+                            $('.dec').hide();
+                            $('.dec3').show();
+                            $('.result-confirm').hide();
+                            $('#result-confirm1').show();
+                        }
+                    } else if (reg.code == 201) {
+                        isLottery = false;
+                        $('.result-title').html('很遗憾');
+                        $('.dec').hide();
+                        $('.dec4').show();
+                        $('.result-confirm').hide();
+                        $('#result-confirm1').show();
                     }
                 });
 

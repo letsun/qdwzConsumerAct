@@ -25,7 +25,24 @@ $(function () {
                 $('#result-dec').html(res.data.redPack.prizeAmount +'元');
                 $('#result-tips').show();
                 $('#result').fadeIn(function () {
-                    userCash(res.data.redPack.prizeAmount,res.data.lotteryId);
+                    if (res.data.redPack) {
+
+                        if (res.data.redPack.prizeAmount && res.data.lotteryId) {
+                            userCash(res.data.redPack.prizeAmount,res.data.lotteryId);
+                        } else {
+                            common.alert({
+                                mask:true,
+                                content: '奖项Id或者中奖金额不存在'
+                            })
+                        }
+
+                    } else {
+                        common.alert({
+                            mask:true,
+                            content: '找不到中奖数据'
+                        })
+                    }
+
                 });
             } else if (res.code === 201) {
                 $('#result-title').html('很遗憾');

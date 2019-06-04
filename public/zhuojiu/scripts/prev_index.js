@@ -36,13 +36,16 @@ wx.ready(function(){
 $(function() {
     var app=$('#app');
 
-    // 摇一摇红包
-    window.addEventListener('devicemotion', rock);
-
     //点击领取按钮
-    app.on('click','#result-btn',function(e) {
-        e.stopPropagation();
-        $('#qrcode-win').fadeIn();
+    app.on('click','.container-bg',function(e) {
+        // 摇一摇红包
+        if (window.DeviceMotionEvent) {
+            // alert(window.DeviceMotionEvent);
+            window.addEventListener('devicemotion', rock);
+        } else {
+            alert(1);
+        }
+
     });
 
     // 点击本身
@@ -61,12 +64,13 @@ $(function() {
  */
 function rock(event) {
     // 获取重力加速
-    var acceleration = event.accelerationIncludingGravity;
+    // var acceleration = event.accelerationIncludingGravity;
 
     var curTime = new Date().getTime();//获取当前时间戳
     var diffTime = curTime - lastTime;//获取摇动的间隔
+    alert(1);
 
-    if (diffTime > 100) {
+    /*if (diffTime > 100) {
         lastTime = curTime;//记录上一次摇动的时间
         x = acceleration.x;//获取加速度X方向
         y = acceleration.y;//获取加速度Y方向
@@ -89,10 +93,10 @@ function rock(event) {
                 yes1.pause();
                 yes2.play();
 
-                $('#result-win').fadeIn();
+                alert(1);
             }
         }
-    }
+    }*/
 
 }
 

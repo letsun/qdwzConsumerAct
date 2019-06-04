@@ -470,7 +470,7 @@ $(function() {
 
 			window.location.href = href;
 		});
-	}
+	};
 
 
 	/**

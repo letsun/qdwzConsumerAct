@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/quguanggao/css/reset.css" />
+    <link rel="stylesheet" href="/quguanggao/css/animate.min.css" />
+    <link rel="stylesheet" href="/quguanggao/css/index.css" />
+    <!-- 样式 end -->
+    <title></title>
+</head>
+<body>
+
+<div id="app">
+
+    <div id="container">
+        <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+    </div>
+
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/quguanggao/scripts/api.js"></script>
+<script src="/quguanggao/scripts/Func.js"></script>
+<script src="/quguanggao/scripts/index_act.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+
+</body>
+</html>

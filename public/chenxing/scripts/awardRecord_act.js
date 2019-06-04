@@ -62,7 +62,7 @@ var kxRes1, kxRes2, kxRes3, kxRes4;
                 html += '<div class="btn">已领取</div>';
             } else if (data[i].prizeType === 3) {
                 html += '<a href="javascript:void(0);">';
-                html += '<div class="title">' + data[i].prizeName + '</div>';
+                html += '<div class="title">' + data[i].prizeAmount + '积分</div>';
                 html += '<div class="btn">已领取</div>';
             } else if (data[i].prizeType === 4) {
                 html += '<a href="' + data[i].openOriginUrl + '">';

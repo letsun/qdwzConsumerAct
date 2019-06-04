@@ -20,3 +20,11 @@ $(function () {
         $('.award-item').eq(index).find('.award-item-bg').show();
     });
 });
+
+var yes1 = new Audio();
+
+if (yes1) {
+    yes1.src = "/yifei/audio/xuanzhuan.mp3";
+    console.log(yes1);
+    yes1.play();
+}
