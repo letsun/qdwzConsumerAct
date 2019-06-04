@@ -1,9 +1,9 @@
 var yes1 = new Audio();
-var yes2 = new Audio();
+/*var yes2 = new Audio();*/
 var yes3 = new Audio();
 
 yes1.src = "/yifei/audio/xuanzhuan.mp3";
-yes2.src = "/yifei/audio/baozha.mp3";
+/*yes2.src = "/yifei/audio/baozha.mp3";*/
 yes3.src = "/yifei/audio/chenggong.mp3";
 wx.config({
     debug:false,
@@ -17,8 +17,8 @@ wx.config({
 wx.ready(function(){
     yes1.play();
 	yes1.pause();
-	yes2.play();
-	yes2.pause();
+/*	yes2.play();
+	yes2.pause();*/
     yes3.play();
 	yes3.pause();
 });
@@ -45,8 +45,6 @@ $(function () {
 
 	$('.back-item').on('transitionend', function() {		
 		$(".baoza img:first-child").show();
-			yes2.play();
-			
 		$(".baoza img:nth-child(2)").show();
 		setTimeout(function() {
 			yes3.play();

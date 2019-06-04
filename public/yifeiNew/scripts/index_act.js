@@ -5,11 +5,11 @@ var lotteryData = {};
 var awardValue;
 var isClick = true;
 var yes1 = new Audio();
-var yes2 = new Audio();
+/*var yes2 = new Audio();*/
 var yes3 = new Audio();
 
 yes1.src = "/yifeiNew/audio/xuanzhuan.mp3";
-yes2.src = "/yifeiNew/audio/baozha.mp3";
+/*yes2.src = "/yifeiNew/audio/baozha.mp3";*/
 yes3.src = "/yifeiNew/audio/chenggong.mp3";
 wx.config({
     debug:false,
@@ -23,8 +23,8 @@ wx.config({
 wx.ready(function(){
     yes1.play();
 	yes1.pause();
-	yes2.play();
-	yes2.pause();
+	/*yes2.play();
+	yes2.pause();*/
     yes3.play();
 	yes3.pause();
 });
@@ -125,7 +125,7 @@ $(function() {
 	$('#container').on('transitionend', '.back-item', function() {
 		isClick = true;
 		$(".baoza img:first-child").show();
-			yes2.play();
+			/*yes2.play();*/
 			
 		$(".baoza img:nth-child(2)").show();
 		setTimeout(function() {
