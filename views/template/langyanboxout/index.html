@@ -9,11 +9,12 @@
 <body>
 	<div class="app">
 		<div class="container">
+			<img class="con-bg" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/2_1.jpg" alt="">
 			<div class="scroll-wrapper">
 				<div class="wrapper">
 					<!--<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/2_1.jpg" />-->
 
-					<a class="item" href="http://www.szhatman.com/"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/2_2.png" /></a>
+					<a class="item" href="http://www.langyantianxia.com"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/2_2.png" /></a>
 
 					<!--<p class="bottom-txt">深圳市哈特曼科技有限公司</p>-->
 				</div>
@@ -27,5 +28,10 @@
 	<script src="/common/scripts/Func.js"></script>
 	<script src="/langyanboxout/js/api.js"></script>
 	<script src="/langyanboxout/js/lib/jweixin-1.0.0.js"></script>
+	<script>
+		$('.app').on('touchmove',function (e) {
+			e.preventDefault();
+        })
+	</script>
 </body>
 </html>
