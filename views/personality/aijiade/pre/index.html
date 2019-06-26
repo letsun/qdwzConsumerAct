@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=640, user-scalable=no">		
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/aijiade/css/indexa.css"/>
+		
+	</head>
+	<body>
+		
+			<!--加载页-->
+
+		<div class="loading">
+			<div class="loadCon">
+				<img src="/aijiade/images/loading.png" />
+				<div id="percent">1%</div>
+			</div>
+		</div>	
+			
+			
+		<div class="container" >
+			
+			<div class="header">
+				<img  src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/5_1.png" >
+			</div>
+			
+			<div class="con">				
+				<img id="reviceBtn"  src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/5_2.png" >				
+			</div>
+			
+			<div class="Text">
+				您收到一个红包！
+			</div>
+			
+
+			
+			<!-- 打开红包中奖 -->
+			<div class="hb" id="hb">
+				<div class="head">
+					<img  src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/5_1.png" >
+				</div>
+				
+				<!-- 中奖 -->
+				<div class="content">
+					<h2>恭喜您获得</h2>
+					<div class="txt"><h1>8.88</h1><span>元</span></div>
+					<div class="xj">
+						现金红包
+					</div>
+					
+					<div class="gzh">
+						(红包会通过公众号发送,请注意查收)
+					</div>
+				</div>
+				
+				<!-- 未中奖 -->
+				<div class="content1">
+					<h2>很遗憾您未中奖</h2>
+					<div class="img">
+						<img   src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/7_1.png" >
+					</div>
+				</div>				
+
+
+				<!-- 改码已被扫 -->
+				<div class="content2">
+					<h2>改码已被扫</h2>
+					<div class="img">
+						<img  src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/8_1.png" >
+					</div>
+				</div>	
+								
+								
+				<div class="gs">						
+					贵州爱嘉德环保材料科技有限公司
+				</div>
+				<div class="footer">
+					<img  src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/6_1.png" >
+				</div>
+				
+			</div>
+			
+		</div>
+	</body>
+
+
+	<!-- 公共js start -->
+	<%-include("../../../include/commonJs") %>
+	<%-include("../../../include/hideMenu") %>
+
+	<script src="/aijiade/js/lib/jquery-2.2.2.min.js"></script>
+	<script src="/aijiade/js/lib/jweixin-1.0.0.js"></script>
+	<script src="/aijiade/js/index_pre.js"></script>
+
+	<script>
+		$(function() {
+			// 页面禁止滑动
+			$('.container').on("touchmove", function(e) {
+				e.preventDefault();
+			});
+			/**加载进度*/
+			common.loading($("#percent"), function() {
+				
+				$('.loading').hide();
+				$('.container').fadeIn();
+			});
+
+		})
+	</script>	
+</html>
