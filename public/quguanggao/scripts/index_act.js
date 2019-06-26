@@ -8,23 +8,28 @@ var adVApi = {
 $(function () {
     // 开始活动
     Func.findActivityByEncode(function(res) {
+        var productName = res.data.productName;
         if (res.code === 200 || res.code === 201 || res.code === 206) {
             Func.lottery(api.lottery,function (reg) {
                 if (reg.code != 500) {
                     // 活动页面广告
-                    getAdvByAdvPositionName('直接跳转到广告页面',function (red) {
+                    getAdvByAdvPositionName(productName,function (red) {
                         var href = red.data[0].linkUrl;
                         browseRecord(function () {
-                            window.location.href = href;
+                            // window.location.href = href;
                         });
                     });
                 }
             });
         } else {
-            common.alert({
-                mask: true,
-                content: res.msg,
-            })
+            /*$('.tip-text').html(res.msg);
+            $('#tips-win').show();*/
+            getAdvByAdvPositionName('二次进入广告位',function (red) {
+                var href = red.data[0].linkUrl;
+                browseRecord(function () {
+                    // window.location.href = href;
+                });
+            });
         }
     });
 });
@@ -61,6 +66,9 @@ function getAdvByAdvPositionName(positionName, callback) {
                 if(res.data != "") {
                     callback(res);
                 }
+            } else {
+                $('.tip-text').html('请检查模板');
+                $('#tips-win').show();
             }
         }
     });

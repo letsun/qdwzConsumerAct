@@ -72,7 +72,7 @@ function userCash(num,lotteryId) {
         },
         headers: getHeader(),
         success: function(res) {
-            rebackInfoToXmzFunc();
+            rebackInfoToXmzFunc(1);
             if (res.code === 200) {
             } else {
                 common.alert({
@@ -82,7 +82,7 @@ function userCash(num,lotteryId) {
             }
         },
         error:function (res) {
-            rebackInfoToXmzFunc();
+            rebackInfoToXmzFunc(0);
             common.alert({
                 mask:true,
                 content:res.msg
@@ -93,9 +93,9 @@ function userCash(num,lotteryId) {
 }
 
 
-function rebackInfoToXmzFunc() {
+function rebackInfoToXmzFunc(type) {
     $.ajax({
-        url: api.rebackInfoToXmz,
+        url: api.rebackInfoToXmz + '?type=' + type,
         type: 'GET',
         dataType: 'json',
         headers: getHeader(),

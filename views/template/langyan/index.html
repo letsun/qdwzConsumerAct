@@ -9,17 +9,18 @@
 <body>
 	<div class="app">
 		<div class="container">
+			<!--<img class="con-bg" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/1_4.jpg" alt="">-->
 			<div class="scroll-wrapper">
 				<div class="wrapper">
-					<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/1_1.png" />
+					<!--<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/1_1.png" />-->
 
 					<ul class="btn-list">
 						<li class="item"><a href="javascript:void(0)" id="showErweima"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/1_3.png" /></a></li>
 
-						<li class="item"><a href="http://www.szhatman.com/"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/1_2.png" /></a></li>
+						<li class="item"><a href="http://www.langyantianxia.com"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/1_2.png" /></a></li>
 					</ul>
 
-					<p class="bottom-txt">深圳市哈特曼科技有限公司</p>
+					<!--<p class="bottom-txt">深圳市哈特曼科技有限公司</p>-->
 				</div>
 			</div>
 		</div>
@@ -44,6 +45,10 @@
 	<script src="/langyan/js/api.js"></script>
 	<script src="/langyan/js/lib/jweixin-1.0.0.js"></script>
 	<script>
+        $('.app').on('touchmove',function (e) {
+            e.preventDefault();
+        })
+
 		$(function() {
 			$(document).on('click', '#closeBtn', function() {
 				$('#erweimaWrapper').fadeOut();
