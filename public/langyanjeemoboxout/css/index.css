@@ -117,9 +117,11 @@ body {
   height: 100%;
 }
 .app .container {
+  position: relative;
   width: 100%;
   height: 100%;
-  /*background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanNew/1_3.jpg") no-repeat;
+  background: #fff;
+  /*background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/2_1.jpg") no-repeat;
 		background-size: 100% 100%;*/
 }
 .app .container .con-bg {
@@ -131,6 +133,10 @@ body {
   -webkit-transform: translateY(-50%);
 }
 .app .container .scroll-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
 }
@@ -138,30 +144,26 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  /*background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyan/images/1/2_1.jpg") no-repeat;*/
 }
 .app .container .scroll-wrapper .wrapper .logo {
   position: absolute;
-  top: 8%;
-  left: 9%;
-  width: 82%;
+  top: 12%;
+  left: 25%;
+  width: 50%;
 }
-.app .container .scroll-wrapper .wrapper .btn-list {
+.app .container .scroll-wrapper .wrapper .item {
   position: absolute;
-  left: 50%;
-  bottom: 190px;
-  transform: translateX(-50%);
-  width: 520px;
-}
-.app .container .scroll-wrapper .wrapper .btn-list li {
+  top: 55%;
+  right: 10%;
+  width: 95px;
   display: block;
-  margin: 0 auto;
+  animation: ani1 1s linear both infinite alternate;
+  -webkit-animation: ani1 1s linear both infinite alternate;
 }
-.app .container .scroll-wrapper .wrapper .btn-list li a {
+.app .container .scroll-wrapper .wrapper .item img {
+  width: 100%;
   display: block;
-}
-.app .container .scroll-wrapper .wrapper .btn-list li a img {
-  display: block;
-  margin: 0 auto;
 }
 .app .container .scroll-wrapper .wrapper .bottom-txt {
   position: absolute;
@@ -220,4 +222,12 @@ body {
   line-height: 40px;
   font-size: 23px;
   color: #333;
+}
+@-webkit-keyframes ani1 {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
