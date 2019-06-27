@@ -5,6 +5,5 @@ $(function() {
 	$('#reviceBtn').on('click',function () {
 		$('.content').show();
 		$('#hb').fadeIn();
-	})
+	});
 })
-
