@@ -28,7 +28,8 @@ $(function () {
                     if (res.data.redPack) {
 
                         if (res.data.redPack.prizeAmount && res.data.lotteryId) {
-                            userCash(res.data.redPack.prizeAmount,res.data.lotteryId);
+							rebackInfoToXmzFunc(1);
+                            // userCash(res.data.redPack.prizeAmount,res.data.lotteryId);
                         } else {
                             common.alert({
                                 mask:true,
