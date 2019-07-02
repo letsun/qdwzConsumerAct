@@ -138,6 +138,31 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  /*.btn-list {
+					position: absolute;
+					left: 50%;
+					bottom: 190px;
+
+					transform: translateX(-50%);
+
+					width: 520px;
+
+					li {
+						display: block;
+
+						margin: 0 auto;
+
+						a {
+							display: block;
+
+							img {
+								display: block;
+
+								margin: 0 auto;
+							}
+						}
+					}
+				}*/
 }
 .app .container .scroll-wrapper .wrapper .logo {
   position: absolute;
@@ -148,20 +173,17 @@ body {
 .app .container .scroll-wrapper .wrapper .btn-list {
   position: absolute;
   left: 50%;
-  bottom: 190px;
+  bottom: 125px;
   transform: translateX(-50%);
   width: 520px;
 }
 .app .container .scroll-wrapper .wrapper .btn-list li {
-  display: block;
-  margin: 0 auto;
+  width: 130px;
+  float: left;
+  margin-left: 90px;
 }
 .app .container .scroll-wrapper .wrapper .btn-list li a {
   display: block;
-}
-.app .container .scroll-wrapper .wrapper .btn-list li a img {
-  display: block;
-  margin: 0 auto;
 }
 .app .container .scroll-wrapper .wrapper .bottom-txt {
   position: absolute;
