@@ -13,7 +13,7 @@ $(function() {
 				Func.isSubscribe(function(res1) {
 					$('#loadingWrapper').hide();
 					if (res1.code === 200) {
-						if (!true) { //res1.data.subscribe
+						if (!res1.data.subscribe) { //res1.data.subscribe
 							$('#tip').fadeIn();
 						} else {
 							$('.content').hide();

@@ -365,10 +365,10 @@ body {
 }
 #app .container .content .lottery-btn {
   position: absolute;
-  left: 25%;
-  top: 73%;
+  left: 28%;
+  bottom: 12%;
   z-index: 1;
-  width: 45%;
+  width: 44%;
   -webkit-animation: scale 0.8s linear alternate infinite;
 }
 #app .container .content-1 {
@@ -386,12 +386,13 @@ body {
   z-index: 1;
 }
 #app .container .content-1 .wave-hand {
-  width: 80%;
-  height: 500px;
+  width: 467px;
+  height: 492px;
   position: relative;
   top: 180px;
-  left: 12%;
+  left: 50%;
   background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/2_2.png') no-repeat;
+  -webkit-transform: translateX(-50%);
 }
 #app .container .content-1 .wave-hand .hand-left {
   position: absolute;
@@ -415,9 +416,19 @@ body {
   font-size: 28px;
   font-weight: bold;
   color: #e13122;
+  text-align: center;
 }
 #app .container .tip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
   display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+#app .container .tip .tip-con {
   width: 90%;
   height: 550px;
   background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/3_3.png') no-repeat;
@@ -430,18 +441,18 @@ body {
   margin: auto;
   z-index: 999;
 }
-#app .container .tip .erweima {
+#app .container .tip .tip-con .erweima {
   position: relative;
   top: 150px;
   left: 160px;
 }
-#app .container .tip .tip-content {
+#app .container .tip .tip-con .tip-content {
   position: relative;
   top: 140px;
   text-align: center;
   font-size: 24px;
 }
-#app .container .tip .know {
+#app .container .tip .tip-con .know {
   position: relative;
   top: 160px;
   left: 160px;
