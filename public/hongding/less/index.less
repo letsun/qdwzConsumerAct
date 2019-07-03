@@ -1,0 +1,372 @@
+@import 'clearFix';
+@import 'newAnimate';
+
+.ellipsisNormal {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ellipsis(@line) {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @line;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+		
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+	    .content {
+		    position: relative;
+
+		    width: 100%;
+		    height: 100%;
+			
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/1_4.png') no-repeat;
+			background-size: 100% 100%;
+
+		    .logo {
+			    position: absolute;
+			    left: 3%;
+			    top: 2%;
+			    z-index: 1;
+		    }
+
+		    .title {
+			    position: absolute;
+			    left: 8%;
+			    top: 46%;
+			    z-index: 1;
+
+			    width: 84%;
+		    }
+
+		    .lottery-btn {
+			    position: absolute;
+			    left: 25%;
+			    top: 73%;
+			    z-index: 1;
+
+			    width: 45%;
+
+			    -webkit-animation: scale 0.8s linear alternate infinite;
+		    }
+	    }
+		
+		.content-1{
+			display: none;
+			position: relative;
+			
+			width: 100%;
+			height: 100%;
+			
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/2_3.png') no-repeat;
+			background-size: 100% 100%;
+			.logo {
+			    position: absolute;
+			    left: 3%;
+			    top: 2%;
+			    z-index: 1;
+			}
+			
+			.wave-hand{
+				width: 80%;
+				height: 500px;
+				position: relative;
+				top: 180px;
+				left: 12%;
+				
+				background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/2_2.png') no-repeat;
+				
+				.hand-left{
+					position: absolute;
+					top: 95px;
+					left: -90px;
+				}
+				
+				.hand-center{
+					position: absolute;
+					top: 95px;
+					left: -90px;
+					z-index: 99;
+				}
+				
+				.hand-right{
+					position: absolute;
+					top: 95px;
+					left: -90px;
+				}
+				
+				.wave-content{
+					position: relative;
+					top: 540px;
+					font-size: 28px;
+					font-weight: bold;
+					color: #e13122;
+				}
+			}
+		}
+		
+		.tip{
+			display: none;
+			width: 90%;
+			height: 550px;
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/3_3.png') no-repeat;
+			background-size: 100% 100%;
+			
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			z-index: 999;
+			
+			.erweima{
+				position: relative;
+				top: 150px;
+				left: 160px;
+			}
+			.tip-content{
+				position: relative;
+				top: 140px;
+				text-align: center;
+				font-size: 24px;
+			}
+			.know{
+				position: relative;
+				top: 160px;
+				left: 160px;
+			}
+		}
+
+	    .lottery-win {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 99;
+
+		    display: none;
+
+		    width: 100%;
+		    height: 100%;
+
+		    background: rgba(0,0,0,.7);
+
+		    .lottery-con {
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+
+			    width: 550px;
+			    height: 689px;
+			    padding-top: 68px;
+			    margin: auto;
+
+			    background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/4_1.png') no-repeat;
+			    background-size: 100% 100%;
+
+			    box-sizing: border-box;
+				
+				.winPrize{
+					display: none;
+				}
+				
+				.noPrize{
+					display: none;
+					text-align: center;
+					
+					.lottery-title1{
+						width: 100%;
+						
+						font-size: 46px;
+						font-weight: bold;
+						color: #a96711;
+						line-height: 92px;
+						text-align: center;
+					}
+				}
+				
+				.scanCode{
+					display: none;
+					text-align: center;
+					
+					.lottery-title{
+						
+						color: #f82a2a;
+						
+					}
+				}
+
+			    .lottery-title {
+				    width: 100%;
+
+				    font-size: 46px;
+					font-weight: bold;
+				    color: #a96711;
+				    line-height: 92px;
+				    text-align: center;
+			    }
+
+			    .lottery-dec {
+				    display: none;
+			    }
+
+			    .lottery-dec1 {
+				    margin-top: 30px;
+
+				    .num {
+					    font-size: 28px;
+					    line-height: 50px;
+					    text-align: center;
+					    color: #fa5855;
+					    font-weight: bold;
+
+					    span {
+						    display: inline-block;
+
+						    font-size: 50px;
+					    }
+						
+						.coin{
+							font-size: 28px;
+							color: #a96711;
+						}
+				    }
+
+				    .lottery-text {
+					    width: 80%;
+					    margin: 14px auto 0 auto;
+
+					    font-size: 24px;
+						font-weight: bold;
+					    line-height: 40px;
+					    text-align: center;
+					    color: #fa5855;
+
+					    cursor: pointer;
+				    }
+			    }
+
+			    .lottery-dec2 {
+				    margin-top: 30px;
+
+				    .cry-img {
+					    display: block;
+
+					    margin: 0 auto;
+				    }
+			    }
+
+			    .code-wra {
+				    position: absolute;
+				    left: 0;
+				    bottom: 62px;
+				    z-index: 1;
+
+				    width: 100%;
+
+				    .code {
+					    display: block;
+
+					    width: 268px;
+					    height: 253px;
+					    margin: 0 auto;
+				    }
+
+				    .code-text {
+					    font-size: 18px;
+					    text-align: center;
+					    color: #989a99;
+				    }
+			    }
+
+			    .close-lottery {
+				    position: absolute;
+				    top: -93px;
+				    right: 32px;
+				    z-index: 10;
+
+				    cursor: pointer;
+			    }
+		    }
+	    }
+    }
+	
+	
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}
+
+@-webkit-keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(0.7);
+	}
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/hongding/css/reset.css" />
+    <link rel="stylesheet" href="/hongding/css/animate.min.css" />
+    <link rel="stylesheet" href="/hongding/css/index.css" />
+    <!-- 样式 end -->
+    <title>宏鼎农业二维码红包活动</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/hongding/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+    <div class="container" id="container">
+        <div class="content">
+            <img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/1_1.png">
+            <img class="title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/1_3.png">
+            <img class="lottery-btn" id="lottery-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/1_2.png">
+        </div>
+		
+		<div class="content-1">
+		    <img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/2_1.png">
+		    
+			<div class="wave-hand">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/2_4.png" class="hand-center" />
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/2_5.png" class="hand-right" />
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/2_6.png" class="hand-left" />
+				<p class="wave-content">请摇一摇你的手机，惊喜等着你哟！</p>
+			</div>
+		    
+		</div>
+
+        <!--抽奖结果-->
+        <div class="lottery-win" id="lottery-win">
+            <div class="lottery-con">
+				<!-- 中奖 -->
+				<div class="winPrize">
+					<div class="lottery-title">恭喜您获得</div>
+					<div class="lottery-dec lottery-dec1" style="display: block;">
+					    <div class="num"><span class="amount"></span>元<br><span class="coin">现金红包</span></div>
+					    <div class="lottery-text">已通过微信公众号发放，请注意查收！</div>
+					</div>
+					<div class="lottery-dec lottery-dec2">
+					    <img class="cry-img" src="/hongding/images/1/1_9.png" alt="">
+					</div>
+				</div>
+				
+				<!-- 未中奖 -->
+				<div class="noPrize">
+					<div class="lottery-title1">很遗憾您未中奖</div>
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/5_1.png" />
+				</div>
+				
+				<!-- 该码已被扫 -->
+				<div class="scanCode">
+					<div class="lottery-title">该码已被扫</div>
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/5_1.png" />
+				</div>
+                
+                <!-- <div class="code-wra">
+                    <img class="code" src="/hongding/images/1/1_7.png" alt="">
+                    <div class="code-text">关注公众号了解更多活动内容</div>
+                </div> -->
+
+                <img class="close-lottery" id="close-lottery" src="/hongding/images/1/1_8.png" alt="">
+            </div>
+        </div>
+		
+		<!-- 提示关注公众号 -->
+		<div class="tip" id="tip">
+			<img class="erweima" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/3_2.png" >
+			<div class="tip-content">请先关注公众号，再返回领大奖哦！</div>
+			<img class="know" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/3_1.png" >
+		</div>
+    </div>
+	
+	<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+	
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/hongding/scripts/jweixin-1.0.0.js"></script>
+<script src="/hongding/scripts/api.js"></script>
+<script src="/hongding/scripts/Func.js"></script>
+<script src="/hongding/scripts/index_act.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+
+</body>
+</html>
