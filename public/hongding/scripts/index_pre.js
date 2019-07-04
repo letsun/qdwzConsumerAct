@@ -1,53 +1,14 @@
 $(function() {
-	
-	//提示关注公众号我知道了关闭弹窗
-	$(".know").click(function(){
-		$("#tip").hide();
-	})
 
 	// 点击摇一摇
 	$('#lottery-btn').on('click', function() {
-		//摇一摇页面
-		Func.findActivityByEncode(function(res) {
-			if (res.code === 200 || res.code === 201) {
-				Func.isSubscribe(function(res1) {
-					$('#loadingWrapper').hide();
-					if (res1.code === 200) {
-						if (!true) { //res1.data.subscribe
-							$('#tip').fadeIn();
-						} else {
-							$('.content').hide();
-							$('.content-1').fadeIn(function(){
-								lottery();
-								/* window.addEventListener('devicemotion', rock); */
-							});
-						}
-					} else {
-						isClick = true;
-						$('#loadingWrapper').hide();
-						common.alert({
-							content: res1.msg,
-							mask: true
-						});
-					}
-				});
-		
-			} else if (res.code === 203) { //该码已被扫
-				$('.scanCode').show();
-				$('#lottery-win').fadeIn();
-			} else {
-				common.alert({  //弹出错误信息
-					mask:true,
-					content:res.msg
-				})
-			}
-		});
+        $('.content').hide();
+        $('.content-1').fadeIn(function(){
+            //摇一摇，已经包含中奖
+            window.addEventListener('devicemotion', rock);
+        });
 	});
 
-	// 点击关闭中奖结果弹窗
-	$('#close-lottery').on('click', function() {
-		$('#lottery-win').fadeOut();
-	})
 
 	//摇一摇
 	var shakeNum = 0;
@@ -85,21 +46,6 @@ $(function() {
 	    yes1.pause();
 	    yes2.play();
 	    yes2.pause();
-	});
-	
-	Func.findActivityByEncode(function (res) {
-	    $('#loadingWrapper').hide();
-	    if (res.code === 200 || res.code === 201) {
-	       
-	    } else if (res.code === 203) { //该码已被扫
-			$('.scanCode').show();
-	        $('#lottery-win').fadeIn();
-	    } else {
-	        common.alert({  //弹出错误信息
-	            mask:true,
-	            content:res.msg
-	        })
-	    }
 	});
 	
 	
@@ -143,55 +89,8 @@ $(function() {
 	
 	// 摇一摇结果
 	function lottery() {
-	    $('#loadingWrapper').show();
-	    
-	}
-	
-	
-	function lottery () {
-		Func.lottery(api.lottery, function(reg) {
-			$('#loadingWrapper').hide();
-			if (reg.code == 200) {
-				$('.num').find('.amount').html(reg.data.redPack.prizeAmount);
-				$('.winPrize').show();
-				$('#lottery-win').fadeIn(function () {
-					userCash(reg.data.redPack.prizeAmount,reg.data.lotteryId);
-				});
-				
-			} else if (reg.code == 201) {
-				$('.noPrize').show();
-				$('#lottery-win').fadeIn();
-			} else {
-				common.alert({
-				    mask:true,
-				    content:reg.msg
-				})
-			}
-		})
-	}
-	
-	// 自动提现
-	function userCash(num,lotteryId) {
-	    $.ajax({
-	        url: api.userCash,
-	        type: 'GET',
-	        dataType: 'json',
-	        data:{
-	            lotteryId: lotteryId,
-	            amount: num,
-	            cashType: 0,
-	        },
-	        headers: getHeader(),
-	        success: function(res) {
-	
-	        },
-	        error:function (res) {
-	            common.alert({
-	                mask:true,
-	                content:res.msg,
-	            })
-	        }
-	    });
+        $('.winPrize').show();
+        $('#lottery-win').fadeIn();
 	}
 
 });

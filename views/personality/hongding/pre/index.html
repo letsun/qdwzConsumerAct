@@ -47,11 +47,8 @@
 				<div class="winPrize">
 					<div class="lottery-title">恭喜您获得</div>
 					<div class="lottery-dec lottery-dec1" style="display: block;">
-					    <div class="num"><span class="amount"></span>元<br><span class="coin">现金红包</span></div>
+					    <div class="num"><span class="amount">8.88</span>元<br><span class="coin">现金红包</span></div>
 					    <div class="lottery-text">已通过微信公众号发放，请注意查收！</div>
-					</div>
-					<div class="lottery-dec lottery-dec2">
-					    <img class="cry-img" src="/hongding/images/1/1_9.png" alt="">
 					</div>
 				</div>
 				
@@ -71,21 +68,19 @@
                     <img class="code" src="/hongding/images/1/1_7.png" alt="">
                     <div class="code-text">关注公众号了解更多活动内容</div>
                 </div> -->
-
-                <img class="close-lottery" id="close-lottery" src="/hongding/images/1/1_8.png" alt="">
             </div>
         </div>
 		
 		<!-- 提示关注公众号 -->
+
 		<div class="tip" id="tip">
-			<img class="erweima" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/3_2.png" >
-			<div class="tip-content">请先关注公众号，再返回领大奖哦！</div>
-			<img class="know" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/3_1.png" >
+			<div class="tip-con">
+				<img class="erweima" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/3_2.png" >
+				<div class="tip-content">请先关注公众号，再返回领大奖哦！</div>
+				<img class="know" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/hongding/3_1.png" >
+			</div>
 		</div>
     </div>
-	
-	<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
-	
 </div>
 
 <!-- 公共js start -->
@@ -93,15 +88,9 @@
 <%-include("../../../include/hideMenu") %>
 <!-- 公共js end -->
 
-<!-- 公共js start -->
-<script src="/common/scripts/Func.js"></script>
-<!-- 公共js end -->
-
 <!-- 页面js start -->
 <script src="/hongding/scripts/jweixin-1.0.0.js"></script>
-<script src="/hongding/scripts/api.js"></script>
-<script src="/hongding/scripts/Func.js"></script>
-<script src="/hongding/scripts/index_act.js"></script>
+<script src="/hongding/scripts/index_pre.js"></script>
 
 <script>
     $(function() {
