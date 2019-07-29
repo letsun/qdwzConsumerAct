@@ -204,6 +204,7 @@ function companyLotteryRecord() {
         data:{
             prizeType: 0,
             prizeAmount: 1,
+            limit:5
         },
         headers: getHeader(),
         success: function(res) {
