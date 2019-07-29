@@ -200,7 +200,7 @@ body {
   z-index: 99;
   display: flex;
   width: 100%;
-  padding: 50px;
+  padding: 70px;
   background: #359d96;
   box-sizing: border-box;
 }
@@ -222,6 +222,14 @@ body {
 #container .nav-list .active {
   color: #fff;
   background: #008073;
+}
+#container .nav-list .gw {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
 }
 @-webkit-keyframes scale {
   0% {

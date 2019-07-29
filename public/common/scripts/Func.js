@@ -592,5 +592,29 @@ $(function() {
                 callback(res);
             }
         });
-    }
+	}
+	
+	/**
+	 * 获取企业中奖记录
+	 * @param  object 		data 		提交的数据
+	 * @param  function 	callback 	获取成功后的回调
+	 * @return null
+	 */
+	Func.companyLotteryRecord = function(data, callback) {
+
+		if (data.page === 1) {
+			$('#loadingWrapper').show();
+		}
+
+		$.ajax({
+			url: api.companyLotteryRecord,
+			type: 'GET',
+			data: data,
+			headers: getHeader(),
+			dataType: 'json',
+			success: function(res) {
+				callback(res);
+			}
+		});
+	}	
 });
