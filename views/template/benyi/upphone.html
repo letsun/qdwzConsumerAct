@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/benyi/css/upphone.css" />
+    <link rel="stylesheet" type="text/css" href="/benyi/scripts/plug/swiper-3.3.1.min.css" />
+</head>
+
+<body>
+    <!--  -->
+    <div class="container">
+        <div class="header"></div>
+        <div class="con">
+            <div class="con-text">您的手机号：<span>19875897899</span></div>
+            <div class="con-img"><img src="/benyi/images/12_1.png" alt=""></div>
+
+        </div>
+
+
+        <div class="btn">
+            更换手机号
+        </div>
+    </div>
+
+    <div class="containera">
+        <div class="header"></div>
+        <div class="con">
+            <div class="con-img"><img src="/benyi/images/12_1.png" alt=""></div>
+            <div class="inp">
+                <div class="inp-item">
+                    <label><img src="/benyi/images/12_3.png" alt=""></label> <input type="text" placeholder="请输入新手机号">
+                </div>
+                <div class="inp-item">
+                    <label><img src="/benyi/images/12_2.png" alt=""></label> <input type="text" placeholder="请输入验证码">
+                    <div class="inp-item-btn">
+                        获取验证码
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="btn">
+            确定
+        </div>
+    </div>
+
+</body>
+
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/benyi/scripts/api.js"></script>
+<script src="/benyi/scripts/Func.js"></script>
+<script src="/benyi/scripts/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/benyi/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+<script>
+    $('#btn').on('click', function () {
+        $('#containera').hide();
+        $('#container').show();
+    })
+
+</script>
+
+</html>

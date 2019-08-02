@@ -1,8 +1,8 @@
-var dev = 'http://192.168.1.8:8085/qdwz';
+var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = production;
+var ip = dev;
 
 
 var api = {
@@ -15,6 +15,7 @@ var api = {
 	userCashRecord: ip + '/consumerUserCash/userCashRecord', 					// 提现记录查询接口
 	couponCodeDetail: ip + '/lotteryConsumer/couponCodeDetail', 				// 中奖纪录代金券明细
 	lotteryRecord: ip + '/lotteryConsumer/lotteryRecord', 						// 中奖记录列表查询
+	companyLotteryRecord: ip + '/lotteryConsumer/companyLotteryRecord',			//企业中奖纪录
 	getAdvByAdvPositionName: ip + '/platAdv/getAdvByAdvPositionName', 			// 
 	browseRecord: ip + '/platBrowseRecord/browseRecord',
 	scoreLottery: ip + '/lotteryConsumer/scoreLottery', 						// 用户消耗积分参与抽奖

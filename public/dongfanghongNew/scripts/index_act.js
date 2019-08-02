@@ -92,7 +92,9 @@ $(function() {
                     $('.result-title').html('很遗憾');
                     $('.result-dec3').find('.result-img').attr('src',src + '1_14.png');
                     $('.result-dec3').show();
-                    $('.result-win').fadeIn();
+                    $('.result-win').fadeIn(function(){
+                        companyLotteryRecord();
+                    });
                 } else {
                     isClick = true;
                     $('#loadingWrapper').hide();
@@ -117,9 +119,13 @@ $(function() {
                 if (type == 0) {
                     userCash(prizeAmount,lotteryId);
                 }
-                $('#result-win').fadeIn();
+                $('#result-win').fadeIn(function(){
+                    companyLotteryRecord();
+                });
             } else {
-                $('#result-win').fadeIn();
+                $('#result-win').fadeIn(function(){
+                    companyLotteryRecord();
+                });
             }
             isClick = true;
         },1000)
@@ -151,7 +157,9 @@ $(function() {
             $('.result-title').html('很遗憾');
             $('.result-dec3').find('.result-img').attr('src',src + '1_14.png');
             $('.result-dec3').show();
-            $('.result-win').fadeIn();
+            $('.result-win').fadeIn(function(){
+                companyLotteryRecord();
+            });
         } else {
             common.alert({
                 mask:true,
@@ -183,5 +191,55 @@ function userCash(num,lotteryId) {
                 content:res.msg
             })
         }
+    });
+}
+
+
+// 企业中奖用户
+function companyLotteryRecord() {
+    $.ajax({
+        url: api.companyLotteryRecord,
+        type: 'GET',
+        dataType: 'json',
+        data:{
+            prizeType: 0,
+            prizeAmount: 1,
+            limit:5
+        },
+        headers: getHeader(),
+        success: function(res) {
+            $('#loadingWrapper').hide();
+            var lotteryRecordLists = res.data.lotteryRecordList;
+
+            var html ='';
+            for (const lotteryRecordList of lotteryRecordLists) {
+
+                html += `<div class="swiper-slide">`;
+                html += `<div class="item-text">`;
+                html += `<div>恭喜${lotteryRecordList.nickname}</div>`;
+                html += `<div>抽中${lotteryRecordList.prizeAmount}元红包</div>`;
+                html += `</div>`;
+                html += `</div>`;
+            }
+
+            $('.swiper-wrapper').html(html);
+            swipers();
+        },
+        error:function (res) {
+            common.alert({
+                mask:true,
+                content:res.msgc 
+            })
+        }
+    });
+};
+
+function swipers(){
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        loop: true,				//是否无缝轮播
+        autoplay: 2000,		//轮播时间
+        direction: 'vertical',//改变轮播图方向,
+        simulateTouch: false,//禁止滑动
     });
 }

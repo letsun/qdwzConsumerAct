@@ -9,14 +9,7 @@
 		
 	</head>
 	<body>
-			<!--加载页-->
 
-		<div class="loading">
-			<div class="loadCon">
-				<img src="/aijiade/images/loading.png" />
-				<div id="percent">1%</div>
-			</div>
-		</div>	
 			
 			
 		<div class="container" >
@@ -25,8 +18,8 @@
 				<img  src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/5_1.png" >
 			</div>
 			
-			<div class="con">				
-				<img  src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/5_2.png" >				
+			<div class="con" >				
+				<img id="reviceBtn"  src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/5_2.png" >				
 			</div>
 			
 			<div class="Text">
@@ -44,7 +37,10 @@
 				<!-- 中奖 -->
 				<div class="content">
 					<h2>恭喜您获得</h2>
-					<div class="txt"><h1></h1><span>元</span></div>
+					<div class="txt">
+						<span class="num"></span>元
+						
+					</div>
 					<div class="xj">
 						现金红包
 					</div>
@@ -55,8 +51,7 @@
 				</div>
 				
 				<!-- 未中奖 -->
-				<div class="
-				">
+				<div class="content1">
 					<h2>很遗憾您未中奖</h2>
 					<div class="img">
 						<img   src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/7_1.png" >
@@ -72,10 +67,20 @@
 					</div>
 				</div>	
 								
-								
-				<div class="gs ">						
+				<!-- 点击进入个人中心 -->			
+				<div class="gs">						
 					贵州爱嘉德环保材料科技有限公司
 				</div>
+				
+				<!-- 点击进入个人中心 -->
+			
+				<a class="grzx" href="/personality/aijiade/act/awardRecord">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/6_3.png" />
+				</a>
+					
+					
+				<!-- /personality/aijiade/act/awardRecord -->
+				
 				<div class="footer">
 					<img  src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aijiade/6_1.png" >
 				</div>
@@ -93,7 +98,7 @@
 <!-- 公共js end -->
 
 <!-- 公共js start -->
-<script src="/aijiade/js/index_api.js"></script>
+<script src="/aijiade/js/api.js"></script>
 <script src="/common/scripts/Func.js"></script>
 <script src="/aijiade/js/index_act.js"></script>
 <!-- 公共js end -->

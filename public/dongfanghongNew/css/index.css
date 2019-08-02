@@ -608,7 +608,7 @@ body {
 .container .result-win .result-content {
   position: absolute;
   left: 0;
-  top: 16%;
+  top: 2%;
   width: 100%;
   height: 645px;
   background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_13.png') no-repeat;
@@ -699,6 +699,41 @@ body {
   background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_10.png') no-repeat;
   background-size: 100% 100%;
   -webkit-transform: translateX(-50%);
+}
+.container .result-win .result-footer {
+  position: absolute;
+  background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_19.png) no-repeat;
+  left: 14%;
+  right: 14%;
+  bottom: -210px;
+  color: #f5402d;
+  padding-top: 20px;
+  font-size: 20px;
+  height: 140px;
+  background-size: 100% 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.container .result-win .result-footer .swiper-container {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+.container .result-win .result-footer .swiper-slide {
+  height: 40px;
+  font-size: 18px;
+}
+.container .result-win .result-footer .item-text {
+  display: flex;
+}
+.container .result-win .result-footer .item-text div {
+  padding-right: 40px;
+}
+.container .result-win .result-footer .item-text div:first-child {
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .container .activity-rule {
   position: absolute;

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<title>海外正品溯源</title>
+	<link rel="stylesheet" type="text/css" href="/yimeifengshang/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="/yimeifengshang/scripts/plug/swiper-3.3.1.min.css" />
+</head>
+
+<body>
+
+	<!--加载页-->
+	<div class="loading">
+		<div class="loadCon">
+			<img src="/yimeifengshang/images/loading.png">
+			<div id="percent">1%</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="header">
+			详情
+		</div>
+
+		<!-- 商品展示 -->
+		<div class="prtshow">
+			<div class="prtshow-title"><span>商品展示</span> Product Show</div>
+			<div class="prtshow-name" id="productName"></div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+
+					<div class="swiper-slide">
+						<img src="/yimeifengshang/images/1_1.png">
+					</div>
+				</div>
+
+				<!-- <div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div> -->
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+
+		<!-- 商品参数 -->
+		<div class="prtdsc">
+			<div class="prtdsc-item">
+				<div class="prtdsc-item-left">
+					商品参数
+				</div>
+				<div class="prtdsc-item-right">
+					Product Desciption
+				</div>
+
+
+			</div>
+
+			<div class="prtdsc-item" id='txm'>
+				<div class="prtdsc-item-left">
+					商品条码：
+				</div>
+				<div class="prtdsc-item-right">
+					<img id="barCode" src="/yimeifengshang/images/2_1.png">
+				</div>
+			</div>
+			<div class="prtdsc-item">
+				<div class="prtdsc-item-left">
+					温馨提示：
+				</div>
+				<div class="prtdsc-item-right">
+					以上商品尺寸为手工测量，可能存在1-3cm的误差，具体请以实物为准。
+				</div>
+			</div>
+		</div>
+
+		<!-- 品牌故事 -->
+		<div class="brand">
+			<div class="brand-title"><span>品牌故事</span> Brand Story</div>
+			<div class="brand-logo">
+				<img id="logo" src="/yimeifengshang/images/3_1.png" alt="">
+			</div>
+
+			<div class="brand-txt">
+				<p id='productBrand' alt=""></p>
+				<div class="brand-txt-con" id="brandDesc">
+					<p>那是梦呀</p>
+				</div>
+
+			</div>
+		</div>
+		<!-- 采购信息 -->
+		<div class="info">
+			<div class="info-title"><span>采购信息</span> Procurement Information</div>
+			<div class="info-nav"><img src="/yimeifengshang/images/4_1.png" alt=""> <span>采购地址</span> Purchase
+				Address</div>
+			<div class="info-txt" id='purchaseName'></div>
+
+			<div class="info-img">
+				<img id="purchaseImgUrl" src="/yimeifengshang/images/4_2.png" alt="">
+			</div>
+		</div>
+	</div>
+
+	<div class="containera">
+		<div class="containera-con">
+			<img src="/yimeifengshang/images/4_5.png">
+			该码未关联商品
+		</div>
+	</div>
+</body>
+
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/yimeifengshang/scripts/api.js"></script>
+<script src="/yimeifengshang/scripts/Func.js"></script>
+<script src="/yimeifengshang/scripts/lib/jweixin-1.0.0.js"></script>
+<script src="/yimeifengshang/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+<script src="/yimeifengshang/scripts/lib/JsBarcode.all.js"></script>
+<!-- <script src='https://cdn.bootcss.com/jsbarcode/3.8.0/JsBarcode.all.min.js'></script> -->
+
+<script>
+
+
+
+	/**加载进度*/
+	$(function () {
+		common.loading($("#percent"), function () {
+			$('.loading').hide();
+			// debugger;
+			$('#container').fadeIn();
+		});
+
+		var html = '';
+		$.ajax({
+			url: api.findEncodeFunction,
+			type: 'GET',
+			dataType: 'json',
+			headers: getHeader(),
+			success: function (res) {
+				if (res.code == 200) {
+					//json数组
+
+					var isRefGoods = res.data.productRecord.isRefGoods;  //条形码是否关联商品 1已关联
+					var jsonPropArr = '';
+					if (isRefGoods == 1) {
+						jsonPropArr = JSON.parse(res.data.productRecord.productInfoJson);
+						$('.containera').hide();
+						$('.container').css('opacity', 1);
+					} else {
+						$('.containera').show();
+					}
+
+					// //循环图片
+					var changeImgUrl = res.data.productRecord.productImgUrl; //
+					var productName = res.data.productRecord.productName;	//banner图名字
+
+					var productBrandImgUrl = res.data.productRecord.productBrandImgUrl //logo
+					var productBrand = res.data.productRecord.productBrand //品牌故事标题
+					var brandDesc = res.data.productRecord.brandDesc //品牌故事文字
+					var purchaseName = res.data.productRecord.purchaseName // 采购信息名字
+					var purchaseImgUrl = res.data.productRecord.purchaseImgUrl //采购信息图片
+
+					var productCode = res.data.productRecord.productCode //商品条码
+
+					$("#barCode").JsBarcode(productCode);//生成条形码
+
+					$('#logo').attr('src', productBrandImgUrl)
+					$('#brandDesc').html(brandDesc)
+					$('#productBrand').text(productBrand)
+					$('#purchaseName').text(purchaseName)
+
+					$('#purchaseImgUrl').attr('src', purchaseImgUrl);
+
+
+					var html2 = '';
+
+					for (var i = 0; i < changeImgUrl.length; i++) {
+
+						html2 += '<div class="swiper-slide">';
+						html2 += '<img src="' + changeImgUrl[i] + '">';
+						html2 += '</div>';
+					}
+
+					$('.swiper-wrapper').html(html2);
+
+					$('#productName').text(productName)
+					var swiper = new Swiper('.swiper-container', {
+						loop: true,
+						autoplay: 2500,
+						disableOnInteraction: false,
+						pagination: '.swiper-pagination',
+					});
+
+
+
+					//循环字体					
+					for (key in jsonPropArr) {
+						html += '<div class="prtdsc-item">';
+						html += '<div class="prtdsc-item-left">' + key + '：</div>';
+
+						html += '<div class="prtdsc-item-right">' + jsonPropArr[key] + '</div>';
+						html += '</div>';
+					}
+
+					$("#txm").before(html);
+
+				} else {
+					common.alert({
+						mask: true,
+						content: res.msg
+					})
+				}
+			},
+			error: function (res) {
+				common.alert({
+					mask: true,
+					content: res.msg
+				})
+			}
+		});
+
+		//点击图片放大
+		$('#purchaseImgUrl').on('click', function () {
+			var src = $(this).attr('src');
+			wx.previewImage({
+				current: src, // 当前显示图片的http链接
+				urls: [src] // 需要预览的图片http链接列表
+			});
+		})
+	})
+
+
+
+
+
+
+</script>
+
+</html>

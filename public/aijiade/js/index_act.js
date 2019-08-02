@@ -24,9 +24,10 @@ $(function () {
 				Func.lottery(api.lottery,function (red) {
 				    $('#loadingWrapper').hide();
 				    if (red.code === 200) {
-						$('.content').find('h1').html(red.data.redPack.prizeAmount);
+						$('.content').find('.num').html(red.data.redPack.prizeAmount);
 				        $('.content').show();
 				        $('#hb').fadeIn();
+						$('.content').show();
 						userCash(red.data.redPack.prizeAmount,red.data.lotteryId);
 				    } else if (red.code === 201) {
 				       $('.content1').show();

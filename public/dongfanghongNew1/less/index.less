@@ -1,0 +1,557 @@
+
+@import "reset";
+@import "clearFix";
+@import "newAnimate";
+@red: #dd3f40;
+
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	position: relative;
+
+	width: 100%;
+	height: 100%;
+
+	background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_6.jpg') no-repeat;
+	background-size: 100% 100%;
+
+	overflow: hidden;
+
+	.content {
+		position: relative;
+
+		width: 100%;
+		height: 100%;
+
+		.bg {
+			display: block;
+
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.dzp-wrapper {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 10;
+
+		width: 100%;
+		height: 100%;
+
+		display: block;
+
+		.logo {
+			position: absolute;
+			left: 3%;
+			top: 1%;
+			z-index: 1;
+		}
+
+		.title {
+			position: absolute;
+			left: 13%;
+			top: 12%;
+			z-index: 1;
+
+			width: 74%;
+		}
+
+		.rule-btn {
+			position: absolute;
+			right: 0;
+			top: 4%;
+			z-index: 10;
+		}
+
+		.dzp-container {
+			position: absolute;
+			left: 50%;
+			top: 44%;
+
+			transform: translateX(-50%);
+
+			width: 515px;
+			height: 515px;
+
+			.dzp-con {
+				width: 100%;
+				height: 100%;
+
+				// transform: rotate(-30deg);
+
+				.award-list {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+
+					transform: translate(-50%, -50%);
+
+					width: 450px;
+					height: 450px;
+
+					border-radius: 50%;
+
+					color: #fff;
+
+					overflow: hidden;
+
+					.award-item {
+						position: absolute;
+						top: 0;
+						left: 50%;
+
+						width: 180px;
+						height: 230px;
+						padding: 0 30px;
+
+						background-color: rgba(0, 0, 0, 0);
+
+						transform-origin: bottom center;
+
+						box-sizing: border-box;
+
+						.con {
+							position: relative;
+							top: 10%;
+
+							margin: 0 auto;
+
+							width: 100%;
+							line-height: 30px;
+
+							text-align: center;
+
+							font-size: 24px;
+
+							text-shadow: 0px 2px 1px #000;
+
+							.ellipsis(3);
+
+						}
+
+						// &:nth-child(1) {
+
+						//     transform: translateX(-50%) rotate(-30deg);
+						// }
+
+						// &:nth-child(2) {
+
+						//     transform: translateX(-50%) rotate(30deg);
+						// }
+
+						// &:nth-child(3) {
+
+						//     transform: translateX(-50%) rotate(90deg);
+						// }
+
+						// &:nth-child(4) {
+
+						//     transform: translateX(-50%) rotate(150deg);
+						// }
+
+						// &:nth-child(5) {
+
+						//     transform: translateX(-50%) rotate(210deg);
+						// }
+
+						// &:nth-child(6) {
+
+						//     transform: translateX(-50%) rotate(270deg);
+						// }
+
+
+					}
+				}
+			}
+
+			.dzp-btn {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+
+				z-index: 2;
+
+				transform: translate(-50%, -50%);
+
+				cursor: pointer;
+			}
+		}
+	}
+
+	.result-win {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 99;
+
+		display: none;
+
+		width: 100%;
+		height: 100%;
+
+		background: rgba(0,0,0,.7);
+
+		.result-content {
+			position: absolute;
+			left: 0;
+			top: 2%;
+
+			width: 100%;
+			height: 645px;
+
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_13.png') no-repeat;
+			background-size: 100% 100%;
+
+			// -webkit-transform: translateY(-50%);
+
+			-webkit-animation: up 0.8s ease;
+
+			.result-bg {
+				display: block;
+
+				width: 100%;
+			}
+
+			.result-con {
+				position: absolute;
+				left: 0;
+				top: 0;
+
+				width: 100%;
+				height: 100%;
+
+				.result-title {
+					position: absolute;
+					left: 0;
+					top: 15%;
+
+					width: 100%;
+
+					color: #bd4419;
+					font-size: 40px;
+					line-height: 44px;
+					text-align: center;
+					font-weight: bold;
+				}
+
+				.result-dec-wra {
+
+					.result-dec {
+						display: none;
+
+						.result-img {
+							display: block;
+
+							margin: 0 auto;
+						}
+					}
+
+					.result-dec1 {
+						padding-top: 280px;
+
+						.result-num {
+							margin-top: 40px;
+
+							font-size: 22px;
+							text-align: center;
+							color: #f7d75c;
+							line-height: 50px;
+
+							.amount {
+								font-size: 50px;
+								font-weight: bold;
+							}
+						}
+
+						.result-tips {
+							margin-top: 10px;
+
+							color: #f7d75c;
+							font-size: 28px;
+							line-height: 40px;
+							text-align: center;
+						}
+					}
+
+					.result-dec2 {
+						padding-top: 280px;
+
+						.result-sec-wra {
+							display: block;
+
+							margin: 50px auto 0 auto;
+
+							.result-sec {
+								display: block;
+
+								width: 239px;
+								margin: 0 auto;
+							}
+						}
+					}
+
+					.result-dec3 {
+						padding-top: 280px;
+
+						.result-sec {
+							display: block;
+
+							margin: 40px auto 0 auto;
+						}
+					}
+
+					.result-dec4 {
+						padding-top: 280px;
+
+						.result-num {
+							margin-top: 40px;
+
+							font-size: 22px;
+							text-align: center;
+							color: #f7d75c;
+							line-height: 50px;
+
+							.point {
+								font-size: 50px;
+								font-weight: bold;
+							}
+						}
+					}					
+				}
+
+				.go-winning {
+					position: absolute;
+					left: 50%;
+					top: 82%;
+
+					display: block;
+
+					width: 397px;
+					height: 67px;
+
+					font-size: 34px;
+					text-align: center;
+					line-height: 67px;
+					color: #a81213;
+					font-weight: bold;
+
+					background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_10.png') no-repeat;
+					background-size: 100% 100%;
+
+					-webkit-transform: translateX(-50%);
+				}
+			}
+		}
+
+		.result-footer {
+			position: absolute;
+			background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_19.png) no-repeat;
+			left: 14%;
+			right: 14%;
+
+			bottom: -210px;
+			color: #f5402d;
+			padding-top: 20px;
+			font-size: 20px;
+			height: 140px;
+			background-size: 100% 100%;
+			padding-left: 40px;
+			padding-right: 40px;
+				.swiper-container {
+				  width: 100%;
+				  height: 120px;
+				  overflow: hidden;
+				}
+				.swiper-wrapper{
+					
+				}
+				.swiper-slide {
+					height: 40px;				  
+				  	font-size: 18px;
+				}
+
+			.item-text{
+				display: flex;	
+
+				div{
+					padding-right: 40px;
+				}	
+				
+				div:first-child{
+					width: 140px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}				
+			}
+
+		}
+	}
+
+	/*活动须知*/
+	.activity-rule {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 99;
+
+		display: none;
+
+		width: 100%;
+		height: 100%;
+
+		background: rgba(0,0,0,.7);
+
+		.activity-rule-con {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: 1;
+
+			width: 462px;
+			height: 501px;
+
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_16.png') no-repeat;
+			background-size: 100% 100%;
+
+			-webkit-transform: translate(-50%,-50%);
+
+			.activity-rule-btn {
+				position: absolute;
+				left: 50%;
+				bottom: 50px;
+
+				display: block;
+
+				width: 397px;
+				height: 67px;
+
+				font-size: 34px;
+				text-align: center;
+				line-height: 67px;
+				color: #a81213;
+				font-weight: bold;
+
+				background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_10.png') no-repeat;
+				background-size: 100% 100%;
+
+				-webkit-transform: translateX(-50%);
+			}
+		}
+	}
+
+	/* 关注公众号 */
+
+	.gzh {
+		position: absolute;
+		left: 0; 
+		top: 0;
+		z-index: 99;
+
+		display: none;
+
+		width: 100%;
+		height: 100%;
+
+		background: rgba(0,0,0,.7);	
+		
+		.gzh-con {
+			position: absolute;
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_21.png') no-repeat;
+			background-size: 100% 100%;
+			height: 500px;
+			width: 460px;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			text-align: center;
+			img {margin-top: 110px;
+				height: 260px;
+				width: 260px;
+			}
+			p {
+				font-size: 22px;
+			}
+		}
+
+		.gzh-btn{
+			position: absolute;
+			bottom: 100px;
+			left: 0;
+			right: 0;
+			text-align: center;
+			top: 75%;
+		}
+	}
+}
+
+.advertisement {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 999;
+
+	display: block;
+
+	width: 100%;
+	height: 120px;
+
+	img {
+		display: block;
+
+		width: 100%;
+		height: 120px;
+	}
+}
+
+.loading {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background-color: #fff;
+
+	.loadCon {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+
+		width: 150px;
+		height: 150px;
+		margin-top: -75px;
+		margin-left: -75px;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			display: block;
+
+			width: 100%;
+
+			-webkit-animation: load 4s linear infinite;
+		}
+		#percent {
+			font-size: 24px;
+			line-height: 150px;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: 150px;
+			height: 150px;
+
+			text-align: center;
+		}
+	}
+}
