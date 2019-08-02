@@ -356,29 +356,41 @@ body {
   background-image: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/notbean/images/1/1_2.jpg');
 }
 #app .container .page1 .img1 {
-  top: 29px;
+  top: 16px;
   left: 5%;
 }
 #app .container .page1 .img2 {
-  top: 49%;
+  top: 46%;
   left: 0;
   transform: translateY(-50%);
 }
 #app .container .page1 .img3 {
-  top: 47%;
+  top: 44%;
   left: 0;
   transform: translateY(-50%);
 }
 #app .container .page1 .img4 {
-  bottom: 3%;
+  bottom: 6%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 #app .container .page1 .img5 {
-  bottom: -4%;
+  bottom: 7%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  width: 40%;
+  transform: translateX(-50%);
   cursor: pointer;
+}
+#app .container .page1 .person-center {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 40%;
+  transform: translateX(-50%);
+}
+#app .container .page1 .person-center img {
+  display: block;
+  width: 100%;
 }
 #app .container .page1 .result-wrapper {
   position: absolute;
@@ -692,4 +704,11 @@ body {
   width: 150px;
   height: 150px;
   text-align: center;
+}
+.close-result {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  z-index: 99;
+  width: 60px;
 }

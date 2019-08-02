@@ -36,6 +36,11 @@ $(function() {
         });
     });
 
+    // 点击关闭中奖结果弹窗
+    $('#app').on('click','.close-result',function () {
+        $('#resultWrapper').fadeOut();
+    });
+
     // 点击获取验证码
     doc.on('click', '#code-btn', function() {
         var phone = $('#phone').val();

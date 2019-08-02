@@ -10,16 +10,12 @@ $(function () {
     Func.findActivityByEncode(function(res) {
         var productName = res.data.productName;
         if (res.code === 200 || res.code === 201 || res.code === 206) {
-            Func.lottery(api.lottery,function (reg) {
-                if (reg.code != 500) {
-                    // 活动页面广告
-                    getAdvByAdvPositionName(productName,function (red) {
-                        var href = red.data[0].linkUrl;
-                        browseRecord(function () {
-                            // window.location.href = href;
-                        });
-                    });
-                }
+            // 活动页面广告
+            getAdvByAdvPositionName(productName,function (red) {
+                var href = red.data[0].linkUrl;
+                browseRecord(function () {
+                    window.location.href = href;
+                });
             });
         } else {
             /*$('.tip-text').html(res.msg);
@@ -27,7 +23,7 @@ $(function () {
             getAdvByAdvPositionName('二次进入广告位',function (red) {
                 var href = red.data[0].linkUrl;
                 browseRecord(function () {
-                    // window.location.href = href;
+                    window.location.href = href;
                 });
             });
         }

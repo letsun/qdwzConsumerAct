@@ -31,6 +31,11 @@ $(function() {
         });
     });
 
+    // 点击关闭中奖结果弹窗
+    $('#app').on('click','.close-result',function () {
+        $('#resultWrapper').fadeOut();
+    });
+
 
 });
 
