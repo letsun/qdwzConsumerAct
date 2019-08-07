@@ -20,41 +20,33 @@
                     <p>待领取</p>
                 </a>
                 <a class="header-con-item">
-                    <img src="/benyi/images/2_7.png" alt="">
-                    <p>待发货</p>
+                    <img src="/benyi/images/2_10.png" alt="">
+                    <p>已领取</p>
                 </a>
-                <a class="header-con-item">
-                    <img src="/benyi/images/2_8.png" alt="">
+                <!-- <a class="header-con-item">
+                    <img src="/benyi/images/2_11.png" alt="">
                     <p>待收货</p>
-                </a>
-            </div>
-
-        </div>
-        <div id="content">
-            <div class="content">
-                <div class="content-item">
-                    <div class="content-item-left">芙蓉王(蓝)一包</div>
-                    <div class="content-item-middel">2019.07.06 14:00</div>
-                    <div class="content-item-right"><a>待领取</a></div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="content-item">
-                    <div class="content-item-left">芙蓉王(蓝)二包</div>
-                    <div class="content-item-middel">2019.07.06 14:00</div>
-                    <div class="content-item-right"><a>待领取</a></div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="content-item">
-                    <div class="content-item-left">芙蓉王(蓝)三包</div>
-                    <div class="content-item-middel">2019.07.06 14:00</div>
-                    <div class="content-item-right"><a>待领取</a></div>
-                </div>
+                </a> -->
             </div>
 
         </div>
 
+        <div class="content" id="scrollW">
+
+            <div class="wrapper">
+                <div class="list" id="list">
+                    <!-- <div class="content-item">
+                        <div class="content-item-left">芙蓉王(蓝)一包</div>
+                        <div class="content-item-middel">2019.07.06 14:00</div>
+                        <div class="content-item-right"><a>待领取</a></div>
+                    </div> -->
+                </div>
+
+                
+                <div class="loadText" id="loading">上滑加载更多</div>
+            </div>
+
+        </div>
 
         <div class="tfooter"></div>
 
@@ -89,17 +81,37 @@
 <script src="/benyi/scripts/Func.js"></script>
 <script src="/benyi/scripts/lib/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="/benyi/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+
+
+<script src="/benyi/scripts/lib/bscroll.js"></script>
+<script src="/benyi/scripts/liping.js"></script>
 <script>
-    $('.header-con a').on('click', function () {
-        var index = $(this).index();
-        $(this).siblings().removeClass('selected');
-        $(this).addClass('selected');
-
-        $('#content .content').hide();
-        $('#content .content').eq(index).show();
 
 
-    })
+
+    var scroll = new BScroll('#scrollW', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+            threshold: 0
+        }
+    });
+
+    var doc = $(document);
+
+    $(function () {
+        main.init();
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function () {
+            window.history.back();
+        });
+    });
 </script>
 
 </html>

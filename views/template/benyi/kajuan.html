@@ -14,107 +14,50 @@
     <div class="container">
         <div class="header">
             <div class="header-con">
-                <a class="header-con-item">
-                    <img src="/benyi/images/9_10.png" alt="">
-                    <p>待领取</p>
-                </a>
-                <a class="header-con-item">
+                <a class="header-con-item selected">
                     <img src="/benyi/images/9_7.png" alt="">
-                    <p>待发货</p>
+                    <p>未使用</p>
+                </a>
+
+                <a class="header-con-item">
+                    <img src="/benyi/images/9_8.png" alt="">
+                    <p>已使用</p>
+                </a>
+                <a class="header-con-item">
+                    <img src="/benyi/images/9_9.png" alt="">
+                    <p>已过期</p>
                 </a>
             </div>
         </div>
 
-        <div class="content">
-            <div class="content-item">
-                <div class="content-item-left">
-                    ¥<span>40</span>
-                    <p>人人乐超市</p>
-                    <p>满200可用</p>
-                </div>
+        <div class="content" id="scrollW">
+            <div class="wrapper">
+                <div class="list" id="list">
+                    <!-- <div class="content-item">
+                        <div class="content-item-left">
+                            ¥<span>40</span>
+                            <p>人人乐超市</p>
+                            <p>满200可用</p>
+                        </div>
 
-                <div class="content-item-right">
-                    <p>有效期至</p>
-                    <p>2018-10-17</p>
-                    <span>编号:24394dj152f</span>
+                        <div class="content-item-right">
+                            <p>有效期至</p>
+                            <p>2018-10-17</p>
+                            <span>编号:24394dj152f</span>
+                        </div>
+                    </div> -->
                 </div>
-            </div>
-            <div class="content-item">
-                <div class="content-item-left">
-                    <span>6.8</span>折
-                    <p>黄焖鸡米饭</p>
-                    <p>仅限新品</p>
-                </div>
-
-                <div class="content-item-right">
-                    <p>有效期至</p>
-                    <p>2018-10-17</p>
-                    <span>编号:24394dj152f</span>
-                </div>
-            </div>
-            <div class="content-item">
-                <div class="content-item-left">
-                    ¥<span>40</span>
-                    <p>黄焖鸡米饭</p>
-                    <p>一份</p>
-                </div>
-
-                <div class="content-item-right">
-                    <p>有效期至</p>
-                    <p>2018-10-17</p>
-                    <span>编号:24394dj152f</span>
-                </div>
-            </div>
-            <div class="content-item">
-                <div class="content-item-left">
-                    ¥<span>40</span>
-                    <p>人人乐超市</p>
-                    <p>满200可用</p>
-                </div>
-
-                <div class="content-item-right">
-                    <p>有效期至</p>
-                    <p>2018-10-17</p>
-                    <span>编号:24394dj152f</span>
-                </div>
+                <div class="loadText" id="loading">上滑加载更多</div>
             </div>
         </div>
 
 
-        <div class="contenta">
-            <div class="content-item">
-                <div class="content-item-left">
-                    ¥<span>40</span>
-                    <p>人人乐超市</p>
-                    <p>满200可用</p>
-                </div>
-
-                <div class="content-item-right">
-                    <p>有效期至</p>
-                    <p>2018-10-17</p>
-                    <span>编号:24394dj152f</span>
-                </div>
-            </div>
-            <div class="content-item">
-                <div class="content-item-left">
-                    <span>6.8</span>折
-                    <p>黄焖鸡米饭</p>
-                    <p>仅限新品</p>
-                </div>
-
-                <div class="content-item-right">
-                    <p>有效期至</p>
-                    <p>2018-10-17</p>
-                    <span>编号:24394dj152f</span>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- 无卡卷 -->
     <div class="containera">
         <div class="con">
-            <img src="/benyi/images/9_11.png" alt="">
+            <img src="/benyi/images/9_13.png" alt="">
             <div class="con-txt">您暂时没有卡卷哦!</div>
         </div>
     </div>
@@ -129,9 +72,34 @@
 <script src="/benyi/scripts/Func.js"></script>
 <script src="/benyi/scripts/lib/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="/benyi/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+
+<script src="/benyi/scripts/lib/bscroll.js"></script>
+<script src="/benyi/scripts/kajuan.js"></script>
+
 <script>
+    var scroll = new BScroll('#scrollW', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+            threshold: 0
+        }
+    });
 
+    var doc = $(document);
 
+    $(function () {
+        main.init();
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function () {
+            window.history.back();
+        });
+    });
 </script>
 
 </html>
