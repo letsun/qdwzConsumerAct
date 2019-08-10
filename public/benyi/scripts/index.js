@@ -6,6 +6,8 @@ var lotteryRecordId; //扫码中奖id
 
 var valiCount; //防伪次数
 
+var advId;//广告id
+
 $(function () {
 
     // 添加参与记录
@@ -95,6 +97,8 @@ $(function () {
                 }
 
 
+
+
             })
 
             $('#loadingWrapper').hide();
@@ -137,8 +141,26 @@ $(function () {
                 $('.jx1').html(prizeAmount + prizeName)
             }
 
+            if (prizeType == 4) {
+                var advOrigin =res.data.advOrigin.imgUrl; // 权益卷图片
 
-            status = res.data.status
+                console.log(advOrigin)
+
+                var voucherLink = res.data.advOrigin.voucherLink //权益卷地址
+                console.log(voucherLink)
+                $('.lj-bottom-left').remove()
+
+                $('.jiangxiang').html('<img src="'+ advOrigin +'" alt="">')
+
+                $('.wlq').on('click',function(){
+                    window.location.href=voucherLink
+                })
+            }
+
+
+
+
+
             if (status == 0) {
                 $('.wlq').show();
                 $('.ylq').hide()
@@ -156,6 +178,8 @@ $(function () {
         }
     })
 
+
+    //一键领取
 
     $('.wlq').on('click', function () {
 
@@ -199,6 +223,8 @@ $(function () {
 
 
     })
+
+
 
 
 
@@ -249,6 +275,9 @@ $(function () {
                 var nickname = res.data.nickname  //微信昵称
                 var headimgurl = res.data.headimgurl  //微信头像
 
+
+                var queryUserInfo;
+                window.localStorage.setItem('queryUserInfo', JSON.stringify(res.data))
 
 
                 var progress = Math.ceil(100 * balanceScore / totalScoreNum);
@@ -327,6 +356,12 @@ $(function () {
 
                     })
                 }
+
+                $('#loadingWrapper').hide();
+            } else {
+
+                $('#loadingWrapper').hide();
+
             }
 
 
@@ -475,6 +510,97 @@ $(function () {
         })
     })
 
+
+	/**
+	 * 本意首页广告列表查询
+	 * 
+	 */
+
+    Func.getAdvByAdvPageName({
+        pageName: "本意广告页"
+    }, function (res) {
+        if (res.code == 200) {
+            var hdzq = res.data.hdzq;
+            var mxdp = res.data.mxdp;
+            var yxzq = res.data.yxzq;
+
+            var html = '';
+            var html1 = '';
+
+            var html2 = '';
+            var html3 = '';
+            var html4 = '';
+            for (var i in mxdp) {
+                html += '<img data-advId="' + mxdp[i].advId + '" data-href="' + mxdp[i].linkUrl + '" src="' + mxdp[i].picUrl + '" alt=""></<img>';
+            }
+            $('#mxdp').html(html)
+
+
+
+
+            for (var i in yxzq) {
+                html1 += '<img data-advId="' + yxzq[i].advId + '" data-href="' + yxzq[i].linkUrl + '" src="' + yxzq[i].picUrl + '" alt="">';
+            }
+
+            $('#yxzq ').html(html1)
+
+
+            for (var i in hdzq) {
+
+                if (hdzq[i].orderby == 1) {
+                    html2 += '<img data-advId="' + hdzq[i].advId + '"  data-href="' + hdzq[i].linkUrl + '" src="' + hdzq[i].picUrl + '" alt="">';
+
+                } else if (hdzq[i].orderby == 2) {
+                    html3 += '<img data-advId="' + hdzq[i].advId + '"  data-href="' + hdzq[i].linkUrl + '" src="' + hdzq[i].picUrl + '" alt="">';
+                } else {
+                    html4 += '<img data-advId="' + hdzq[i].advId + '" data-href="' + hdzq[i].linkUrl + '" src="' + hdzq[i].picUrl + '" alt="">';
+                }
+            }
+
+            $('#hdzq1').html(html2)
+            $('#hdzq2').html(html3)
+            $('#hdzq3').html(html4)
+
+
+
+
+            $('#loadingWrapper').hide();
+            //浏览记录
+            Func.browseRecord({
+                pageName: "本意广告页"
+            }, function () {
+                if (res.code == 200) {
+                    $('#loadingWrapper').hide();
+                } else {
+                    $('#loadingWrapper').hide();
+                }
+            })
+        } else {
+            $('#loadingWrapper').hide();
+        }
+    })
+
+
+	/**
+	 * 点击本意广告记录
+	 * 
+	 */
+
+    $('.itemclick').on('click', function () {
+        advId = $(this).find('img').attr('data-advId')
+        var datahref = $(this).find('img').attr('data-href')
+        console.log(advId, datahref)
+        Func.clickRecord({
+            advId: advId
+        }, function (res) {
+            if (res.code == 200) {
+                window.location.href = datahref;
+                $('#loadingWrapper').hide();
+            } else {
+                $('#loadingWrapper').hide();
+            }
+        })
+    })
 
 
 

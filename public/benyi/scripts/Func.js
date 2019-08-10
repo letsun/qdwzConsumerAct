@@ -596,10 +596,11 @@ $(function () {
 
 
 	/**
-	 * 打开页面页面签到
+	 * 打开页面显示页面签到信息
 	 * @return null
 	 */
 	Func.queryUserInfo = function (callback) {
+		$('#loadingWrapper').show();
 		$.ajax({
 			url: api.queryUserInfo,
 			type: 'GET',
@@ -716,6 +717,102 @@ $(function () {
 		$.ajax({
 			url: api.receiveLottery,
 			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+
+	/**
+	 * 本意首页广告列表查询
+	 * @return null
+	 */
+	Func.getAdvByAdvPageName = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.getAdvByAdvPageName,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+	/**
+	 * 本意广告浏览记录
+	 * @return null
+	 */
+	Func.browseRecord = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.browseRecord,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+
+	/**
+	 * 本意点击广告记录
+	 * @return null
+	 */
+	Func.clickRecord = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.clickRecord,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+	/**
+	 * 获取验证码
+	 * @return null
+	 */
+	Func.getVerCode = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.getVerCode,
+			type: 'POST',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+	/**
+	 * 获取验证码
+	 * @return null
+	 */
+	Func.bindingUserInfoMobile = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.bindingUserInfoMobile,
+			type: 'POST',
 			headers: getHeader(),
 			dataType: 'json',
 			data: data,

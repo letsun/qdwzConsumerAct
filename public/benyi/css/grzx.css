@@ -163,6 +163,11 @@ body {
   margin-top: 30px;
   margin-left: 200px;
 }
+.container .header .header-left img {
+  max-width: 160px;
+  max-height: 160px;
+  border-radius: 50%;
+}
 .container .header .header-right {
   padding-top: 100px;
   padding-left: 20px;

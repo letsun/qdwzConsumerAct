@@ -120,8 +120,7 @@ var status =0; //0未使用 1已使用 2已过期
                         if (res.code == 200) {
                             $('.lqlp').fadeIn().delay(500).fadeOut(function () {
                                 _this.parents('.content-item').remove();
-                                // scroll.refresh();
-                                // _this.siblings().removeClass('content-item');
+
                             });
     
                             $('#loadingWrapper').hide();
@@ -143,10 +142,6 @@ var status =0; //0未使用 1已使用 2已过期
 
     })
 })(jQuery);
-
-
-
-
 
 
 // 初始化数据
