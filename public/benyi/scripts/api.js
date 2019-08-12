@@ -4,6 +4,11 @@ var production = 'https://api.lxcyhd.com/qdwz';
 
 var ip = dev;
 
+
+var dev1 = 'http://192.168.1.20:8095';   //广告测试
+var production1 ='https://advp-api.lxcyhd.com'   //广告生产
+var ip1 = dev1;
+
 var api = {
 	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
 	lottery: ip + '/lotteryConsumer/lottery', 									// 用户参与抽奖
@@ -48,9 +53,9 @@ var api = {
 
 
 
-	getAdvByAdvPageName:'http://192.168.1.20:8095/adv/platAdv/benyi/getAdvByAdvPageName',   					//本意首页广告列表查询
-	browseRecord:'http://192.168.1.20:8095/adv/platRecord/benyi/browseRecord',									//本意广告浏览记录
-	clickRecord:'http://192.168.1.20:8095/adv/platRecord/benyi/clickRecord',									//本意广告点击
+	getAdvByAdvPageName:ip1+ '/adv/platAdv/benyi/getAdvByAdvPageName',   					//本意首页广告列表查询
+	browseRecord:ip1+ '/adv/platRecord/benyi/browseRecord',									//本意广告浏览记录
+	clickRecord:ip1+ '/adv/platRecord/benyi/clickRecord',									//本意广告点击
 	
 
 };

@@ -142,7 +142,7 @@ $(function () {
             }
 
             if (prizeType == 4) {
-                var advOrigin =res.data.advOrigin.imgUrl; // 权益卷图片
+                var advOrigin = res.data.advOrigin.imgUrl; // 权益卷图片
 
                 console.log(advOrigin)
 
@@ -150,10 +150,10 @@ $(function () {
                 console.log(voucherLink)
                 $('.lj-bottom-left').remove()
 
-                $('.jiangxiang').html('<img src="'+ advOrigin +'" alt="">')
+                $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
 
-                $('.wlq').on('click',function(){
-                    window.location.href=voucherLink
+                $('.wlq').on('click', function () {
+                    window.location.href = voucherLink
                 })
             }
 
@@ -531,10 +531,17 @@ $(function () {
             var html3 = '';
             var html4 = '';
             for (var i in mxdp) {
+                html += '<div class="swiper-slide itemclick">';
                 html += '<img data-advId="' + mxdp[i].advId + '" data-href="' + mxdp[i].linkUrl + '" src="' + mxdp[i].picUrl + '" alt=""></<img>';
+                html += '</div>';
             }
-            $('#mxdp').html(html)
-
+            $('#mxdp .swiper-wrapper').html(html)
+            var swiper = new Swiper('.swiper-container', {
+                loop: true,
+                autoplay: 2500,
+                disableOnInteraction: false,
+                pagination: '.swiper-pagination',
+            });
 
 
 
@@ -586,7 +593,9 @@ $(function () {
 	 * 
 	 */
 
-    $('.itemclick').on('click', function () {
+
+    var doc = $(document);
+    doc.on('click', '.itemclick', function () {
         advId = $(this).find('img').attr('data-advId')
         var datahref = $(this).find('img').attr('data-href')
         console.log(advId, datahref)
