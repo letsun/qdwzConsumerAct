@@ -10,166 +10,183 @@ var advId;//广告id
 
 $(function () {
 
-    // 添加参与记录
-    Func.createJoinActInfo(function (res) {
+
+    //判断是否公众号进入 0公众号 1扫码
+
+    Func.entranceCheck(function (res) {
         if (res.code == 200) {
-            $('.banner').css('padding-top', '160px')
-            //扫码进入页面   
-            Func.lottery(function (res) {
-                var type = res.data.type //中奖类型
-                if (type == 0) {
-                    var prizeAmount = res.data.redPack.prizeAmount //红包金额
-                    var prizeName = res.data.redPack.prizeName  //红包
-                    status = res.data.redPack
+            var entranceType = res.data.entranceType
 
-                    if (status == 0) {
-                        $('.wlq').show();
-                        $('.ylq').hide()
+            if (entranceType == 0) {
+                $('.header').hide()
+                $('.banner').css('padding-top', '30px')
+            } else {
+                $('.headera').hide()
+
+                // 添加参与记录
+                Func.createJoinActInfo(function (res) {
+                    if (res.code == 200) {
+                        $('.banner').css('padding-top', '160px')
+                        //扫码进入页面   
+                        Func.lottery(function (res) {
+                            var type = res.data.type //中奖类型
+                            if (type == 0) {
+                                var prizeAmount = res.data.redPack.prizeAmount //红包金额
+                                var prizeName = res.data.redPack.prizeName  //红包
+                                status = res.data.redPack
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+
+                                $('.jx1').html(prizeAmount + '元' + prizeName)
+                            }
+                            if (type == 1) {
+                                var couponName = res.data.couponGrants[0].couponName //优惠券名称
+                                var couponCode = res.data.couponGrants[0].couponCode //优惠券码
+                                var beginTime = res.data.couponGrants[0].beginTime //有效时间
+
+                                status = res.data.couponGrants[0].status
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+
+                                $('.jx1').html(couponName)
+                                // $('.text2').html("兑换码"+couponCode)
+                                // $('.text3').html("有效期至"+beginTime)
+                            }
+
+                            if (type == 2) {
+                                var prizeName = res.data.materialObj.prizeName   //实物名称
+                                status = res.data.materialObj.status
+
+                                $('.jx1').html(prizeName)
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+                            }
+
+                            if (type == 3) {
+                                var point = res.data.point.point //积分数
+                                var prizeName = res.data.point.prizeName  ///奖励名称  
+                                status = res.data.point.status
+
+                                $('.jx1').html(point + prizeName)
+
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+                            }
+
+
+
+
+                        })
+
+                        $('#loadingWrapper').hide();
+                    } else {
+                        $('#loadingWrapper').hide();
                     }
 
-                    if (status == 1) {
-                        $('.ylq').show()
+                    if (res.code == 201) {
+                        $('.lj-bottom').hide()
 
-                        $('.wlq').hide();
+                        $('.lj-top').css('border', 'none')
+                        $('.banner').css('padding-top', '50px')
                     }
 
-                    $('.jx1').html(prizeAmount + '元' + prizeName)
-                }
-                if (type == 1) {
-                    var couponName = res.data.couponGrants[0].couponName //优惠券名称
-                    var couponCode = res.data.couponGrants[0].couponCode //优惠券码
-                    var beginTime = res.data.couponGrants[0].beginTime //有效时间
+                    if (res.code == 202) {
+                        $('.banner').css('padding-top', '160px')
+                        var prizeType = res.data.prizeType
+                        lotteryRecordId = res.data.lotteryRecordId
 
-                    status = res.data.couponGrants[0].status
+                        if (prizeType == 0) {
+                            var prizeAmount = res.data.prizeAmount//红包金额
 
-                    if (status == 0) {
-                        $('.wlq').show();
-                        $('.ylq').hide()
+                            var prizeName = res.data.prizeName  //红包
+
+                            $('.jx1').html(prizeAmount + '元' + prizeName)
+                        }
+
+                        if (prizeType == 1) {
+                            var prizeName = res.data.prizeName;
+                            $('.jx1').html(prizeName)
+
+                        }
+
+                        if (prizeType == 2) {
+                            var prizeName = res.data.prizeName;
+                            $('.jx1').html(prizeName)
+                        }
+
+                        if (prizeType == 3) {
+                            var prizeName = res.data.prizeName;
+                            var prizeAmount = res.data.prizeAmount;
+                            $('.jx1').html(prizeAmount + prizeName)
+                        }
+
+                        if (prizeType == 4) {
+                            var advOrigin = res.data.advOrigin.imgUrl; // 权益卷图片
+
+
+                            var voucherLink = res.data.advOrigin.voucherLink //权益卷地址
+                            console.log(voucherLink)
+                            $('.lj-bottom-left').remove()
+
+                            $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
+
+                            $('.wlq').on('click', function () {
+                                window.location.href = voucherLink
+                            })
+                        }
+
+                        if (status == 0) {
+                            $('.wlq').show();
+                            $('.ylq').hide()
+                        }
+
+                        if (status == 1) {
+                            $('.ylq').show()
+
+                            $('.wlq').hide();
+                        }
+
+                        $('#loadingWrapper').hide();
+                    } else {
+                        $('#loadingWrapper').hide();
                     }
-
-                    if (status == 1) {
-                        $('.ylq').show()
-
-                        $('.wlq').hide();
-                    }
-
-                    $('.jx1').html(couponName)
-                    // $('.text2').html("兑换码"+couponCode)
-                    // $('.text3').html("有效期至"+beginTime)
-                }
-
-                if (type == 2) {
-                    var prizeName = res.data.materialObj.prizeName   //实物名称
-                    status = res.data.materialObj.status
-
-                    $('.jx1').html(prizeName)
-
-                    if (status == 0) {
-                        $('.wlq').show();
-                        $('.ylq').hide()
-                    }
-
-                    if (status == 1) {
-                        $('.ylq').show()
-
-                        $('.wlq').hide();
-                    }
-                }
-
-                if (type == 3) {
-                    var point = res.data.point.point //积分数
-                    var prizeName = res.data.point.prizeName  ///奖励名称  
-                    status = res.data.point.status
-
-                    $('.jx1').html(point + prizeName)
-
-
-                    if (status == 0) {
-                        $('.wlq').show();
-                        $('.ylq').hide()
-                    }
-
-                    if (status == 1) {
-                        $('.ylq').show()
-
-                        $('.wlq').hide();
-                    }
-                }
-
-
-
-
-            })
-
-            $('#loadingWrapper').hide();
-        } else {
-            $('#loadingWrapper').hide();
-        }
-
-        if (res.code == 201) {
-            $('.lj-bottom').hide()
-            $('.banner').css('padding-top', '50px')
-        }
-
-        if (res.code == 202) {
-            $('.banner').css('padding-top', '160px')
-            var prizeType = res.data.prizeType
-            lotteryRecordId = res.data.lotteryRecordId
-
-            if (prizeType == 0) {
-                var prizeAmount = res.data.prizeAmount//红包金额
-
-                var prizeName = res.data.prizeName  //红包
-
-                $('.jx1').html(prizeAmount + '元' + prizeName)
-            }
-
-            if (prizeType == 1) {
-                var prizeName = res.data.prizeName;
-                $('.jx1').html(prizeName)
-
-            }
-
-            if (prizeType == 2) {
-                var prizeName = res.data.prizeName;
-                $('.jx1').html(prizeName)
-            }
-
-            if (prizeType == 3) {
-                var prizeName = res.data.prizeName;
-                var prizeAmount = res.data.prizeAmount;
-                $('.jx1').html(prizeAmount + prizeName)
-            }
-
-            if (prizeType == 4) {
-                var advOrigin = res.data.advOrigin.imgUrl; // 权益卷图片
-
-                console.log(advOrigin)
-
-                var voucherLink = res.data.advOrigin.voucherLink //权益卷地址
-                console.log(voucherLink)
-                $('.lj-bottom-left').remove()
-
-                $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
-
-                $('.wlq').on('click', function () {
-                    window.location.href = voucherLink
                 })
-            }
-
-
-
-
-
-            if (status == 0) {
-                $('.wlq').show();
-                $('.ylq').hide()
-            }
-
-            if (status == 1) {
-                $('.ylq').show()
-
-                $('.wlq').hide();
             }
 
             $('#loadingWrapper').hide();
@@ -177,6 +194,9 @@ $(function () {
             $('#loadingWrapper').hide();
         }
     })
+
+
+
 
 
     //一键领取
@@ -247,11 +267,6 @@ $(function () {
             $('.message').text(productName)
             $('.message').after(message)
 
-
-
-
-
-
             $('#loadingWrapper').hide();
         } else {
 
@@ -299,7 +314,7 @@ $(function () {
                 $('.signNum').text(signNum)
 
                 $('.headimgurl').attr("src", headimgurl)
-                $('#nickname').html(nickname)
+                $('.nickname').html(nickname)
 
                 if (continuitySignInNum == 1) {
                     $('.qd-ts-y1').show()
@@ -522,10 +537,10 @@ $(function () {
         if (res.code == 200) {
             var hdzq = res.data.hdzq;
             var mxdp = res.data.mxdp;
-            var yxzq = res.data.yxzq;
+
 
             var html = '';
-            var html1 = '';
+
 
             var html2 = '';
             var html3 = '';
@@ -539,17 +554,13 @@ $(function () {
             var swiper = new Swiper('.swiper-container', {
                 loop: true,
                 autoplay: 2500,
-                disableOnInteraction: false,
+                autoplayDisableOnInteraction: false,
                 pagination: '.swiper-pagination',
             });
 
 
 
-            for (var i in yxzq) {
-                html1 += '<img data-advId="' + yxzq[i].advId + '" data-href="' + yxzq[i].linkUrl + '" src="' + yxzq[i].picUrl + '" alt="">';
-            }
 
-            $('#yxzq ').html(html1)
 
 
             for (var i in hdzq) {

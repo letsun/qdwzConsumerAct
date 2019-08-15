@@ -821,5 +821,24 @@ $(function () {
 			}
 		});
 	}
+
+
+	/**
+	 * 判断入口 1为扫码 0位公众号
+	 * @return null
+	 */
+	Func.entranceCheck = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.entranceCheck,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+
+	}
 	
 })

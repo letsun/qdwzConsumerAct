@@ -25,17 +25,19 @@
 		<div class="header">
 			详情
 		</div>
-
+		<div class="prtshow-title"><span>商品展示</span> Product Show</div>
+		<div class="prtshow-name" id="productName"></div>
 		<!-- 商品展示 -->
 		<div class="prtshow">
-			<div class="prtshow-title"><span>商品展示</span> Product Show</div>
-			<div class="prtshow-name" id="productName"></div>
+
+
+
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
 
-					<div class="swiper-slide">
+					<!-- <div class="swiper-slide">
 						<img src="/yimeifengshang/images/1_1.png">
-					</div>
+					</div> -->
 				</div>
 
 				<!-- <div class="swiper-button-next"></div>
@@ -85,7 +87,7 @@
 			<div class="brand-txt">
 				<p id='productBrand' alt=""></p>
 				<div class="brand-txt-con" id="brandDesc">
-					<p>那是梦呀</p>
+					<!-- <p>那是梦呀</p> -->
 				</div>
 
 			</div>
@@ -192,7 +194,7 @@
 					var swiper = new Swiper('.swiper-container', {
 						loop: true,
 						autoplay: 2500,
-						disableOnInteraction: false,
+						autoplayDisableOnInteraction : false,
 						pagination: '.swiper-pagination',
 					});
 
@@ -217,10 +219,11 @@
 				}
 			},
 			error: function (res) {
+				//document.location.reload(); //重新加载当前页面
 				common.alert({
 					mask: true,
 					content: res.msg
-				})
+				})				
 			}
 		});
 

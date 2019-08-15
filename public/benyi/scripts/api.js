@@ -44,18 +44,13 @@ var api = {
 	scoreExchangeAct:ip+'/benyi/signIn/scoreExchangeAct' ,                      //积分兑换参与活动次数接口
 
 	joinAct:ip+'/benyi/consumer/joinAct',    								// 参与活动抽奖接口
-
-
 	receiveLottery:ip+'/benyi/signIn/receiveLottery',                        //二维码奖励领取接口
-
-
 	bindingUserInfoMobile:ip+'/consumerUserInfo/bindingUserInfoMobile',                        //绑定手机号
-
-
-
 	getAdvByAdvPageName:ip1+ '/adv/platAdv/benyi/getAdvByAdvPageName',   					//本意首页广告列表查询
 	browseRecord:ip1+ '/adv/platRecord/benyi/browseRecord',									//本意广告浏览记录
 	clickRecord:ip1+ '/adv/platRecord/benyi/clickRecord',									//本意广告点击
+
+	entranceCheck:ip+ '/benyi/entranceCheck',									//判断页面入口
 	
 
 };
