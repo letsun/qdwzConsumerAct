@@ -27,7 +27,7 @@ $(function () {
                 Func.createJoinActInfo(function (res) {
                     if (res.code == 200) {
                         $('.banner').css('padding-top', '160px')
-                        //扫码进入页面   
+                        //扫码进入页面抽奖   
                         Func.lottery(function (res) {
                             var type = res.data.type //中奖类型
                             if (type == 0) {
@@ -110,6 +110,32 @@ $(function () {
                             }
 
 
+                            if (type == 4) {
+                                var advOrigin = res.data.advOrigin.imgUrl; // 权益卷图片
+    
+    
+                                var voucherLink = res.data.advOrigin.voucherLink //权益卷地址
+    
+                                $('.lj-bottom-left').remove()
+    
+                                $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
+    
+                                $('.wlq').on('click', function () {
+                                    window.location.href = voucherLink
+                                })
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+                            }
+
 
 
                         })
@@ -161,7 +187,7 @@ $(function () {
 
 
                             var voucherLink = res.data.advOrigin.voucherLink //权益卷地址
-                            console.log(voucherLink)
+
                             $('.lj-bottom-left').remove()
 
                             $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
