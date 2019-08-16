@@ -227,48 +227,48 @@ $(function () {
 
     //一键领取
 
-    $('.wlq').on('click', function () {
+    // $('.wlq').on('click', function () {
 
-        //是否关注公众号
-        Func.isSubscribe(function (res) {
-            if (res.code === 200) {
-                if (res.data.subscribe) { //res1.data.subscribe 未关注
-                    $('.gzhtc').show()
+    //     //是否关注公众号
+    //     Func.isSubscribe(function (res) {
+    //         if (res.code === 200) {
+    //             if (res.data.subscribe) { //res1.data.subscribe 未关注
+    //                 $('.gzhtc').show()
 
-                } else {
-                    //扫码领奖
-                    Func.receiveLottery({
-                        lotteryRecordId: lotteryRecordId
-                    }, function (res) {
-                        if (res.code == 200) {
-                            var balanceScore = res.data.balanceScore; //剩余积分
-                            var canJoinActNum = res.data.canJoinActNum //剩余次数
+    //             } else {
+    //                 //扫码领奖
+    //                 Func.receiveLottery({
+    //                     lotteryRecordId: lotteryRecordId
+    //                 }, function (res) {
+    //                     if (res.code == 200) {
+    //                         var balanceScore = res.data.balanceScore; //剩余积分
+    //                         var canJoinActNum = res.data.canJoinActNum //剩余次数
 
-                            $('.balanceScore').text(balanceScore)
-                            $('.canJoinActNum').text(canJoinActNum)
+    //                         $('.balanceScore').text(balanceScore)
+    //                         $('.canJoinActNum').text(canJoinActNum)
 
-                            $(".wlq").hide()
-                            $(".ylq").show()
+    //                         $(".wlq").hide()
+    //                         $(".ylq").show()
 
-                            $('#loadingWrapper').hide();
-                        } else {
-                            $('#loadingWrapper').hide();
-                        }
-                    })
-                }
-            } else {
+    //                         $('#loadingWrapper').hide();
+    //                     } else {
+    //                         $('#loadingWrapper').hide();
+    //                     }
+    //                 })
+    //             }
+    //         } else {
 
-                $('#loadingWrapper').hide();
-                common.alert({
-                    content: res1.msg,
-                    mask: true
-                });
-            }
-        })
+    //             $('#loadingWrapper').hide();
+    //             common.alert({
+    //                 content: res1.msg,
+    //                 mask: true
+    //             });
+    //         }
+    //     })
 
 
 
-    })
+    // })
 
 
 

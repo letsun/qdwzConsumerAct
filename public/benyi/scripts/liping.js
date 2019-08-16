@@ -110,7 +110,7 @@ var status =0; //0未使用 1已使用 2已过期
         //是否关注公众号
         Func.isSubscribe(function (res) {
             if (res.code === 200) {
-                if (res.data.subscribe) { //res1.data.subscribe 未关注
+                if (!res.data.subscribe) { //res1.data.subscribe 未关注
                     $('.gzhtc').show()
                 } else {
                     //扫码领奖
