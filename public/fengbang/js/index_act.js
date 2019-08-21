@@ -39,6 +39,7 @@ $(function () {
 		} else if (res.code == 202) {
 
 			lotteryRecordId = res.data.lotteryRecordId;
+			$('.hb-con1').find('.num').html(res.data.prizeAmount);
 			$('.hb-con').hide();
 			$('.hb-con1').show();
 			$('#hb').fadeIn();
@@ -56,7 +57,6 @@ $(function () {
 
 	// 点击开启红包
 	$('#hbbtn').on('click', function () {
-
 		Func.isSubscribe(function (res) {
 			if (res.code == 200) {
 				if (!res.data.subscribe) { //!res1.data.subscribe 未关注
@@ -151,8 +151,14 @@ $(function () {
 	//获取验证码
 	$('.cont-inp-btn').on('click', function () {
 		var mobile = $('#phone').val()
-		console.log(phone)
 		var self = $(this);
+		if(mobile==''){
+			common.alert({
+				mask:true,
+				content:'手机号不能为空'
+			})
+		}
+		
 		Func.getVerCode({
 			mobile: mobile
 		}, function (res) {
@@ -176,6 +182,20 @@ $(function () {
 		$('#loadingWrapper').hide();
 		var mobile = $('#phone').val()
 		var verCode = $('#verCode').val()
+
+		if(mobile==''){
+			common.alert({
+				mask:true,
+				content:'手机号不能为空'
+			})
+		}
+		if(verCode==''){
+			common.alert({
+				mask:true,
+				content:'验证码不能为空'
+			})
+		}
+
 		Func.bindingUserInfoMobile({
 			mobile:mobile,
 			verCode:verCode

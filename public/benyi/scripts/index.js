@@ -395,7 +395,7 @@ $(function () {
 
         //是否关注公众号
         Func.isSubscribe(function (res) {
-            if (res.code === 200) {
+            if (!res.code === 200) {
                 if (res.data.subscribe) { //res1.data.subscribe 未关注
                     $('.gzhtc').show()
 
