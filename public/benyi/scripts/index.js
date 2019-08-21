@@ -6,282 +6,22 @@ var lotteryRecordId; //扫码中奖id
 
 var valiCount; //防伪次数
 
+var security;//是否防伪
+
 var advId;//广告id
 
 $(function () {
-
-
-    //判断是否公众号进入 0公众号 1扫码
-
-    Func.entranceCheck(function (res) {
-        if (res.code == 200) {
-            var entranceType = res.data.entranceType
-
-            if (entranceType == 0) {
-                $('.header').hide()
-                $('.banner').css('padding-top', '30px')
-            } else {
-                $('.headera').hide()
-
-                // 添加参与记录
-                Func.createJoinActInfo(function (res) {
-                    if (res.code == 200) {
-                        $('.banner').css('padding-top', '160px')
-                        //扫码进入页面抽奖   
-                        Func.lottery(function (res) {
-                            var type = res.data.type //中奖类型
-                            if (type == 0) {
-                                var prizeAmount = res.data.redPack.prizeAmount //红包金额
-                                var prizeName = res.data.redPack.prizeName  //红包
-                                status = res.data.redPack
-
-                                if (status == 0) {
-                                    $('.wlq').show();
-                                    $('.ylq').hide()
-                                }
-
-                                if (status == 1) {
-                                    $('.ylq').show()
-
-                                    $('.wlq').hide();
-                                }
-
-                                $('.jx1').html(prizeAmount + '元' + prizeName)
-                            }
-                            if (type == 1) {
-                                var couponName = res.data.couponGrants[0].couponName //优惠券名称
-                                var couponCode = res.data.couponGrants[0].couponCode //优惠券码
-                                var beginTime = res.data.couponGrants[0].beginTime //有效时间
-
-                                status = res.data.couponGrants[0].status
-
-                                if (status == 0) {
-                                    $('.wlq').show();
-                                    $('.ylq').hide()
-                                }
-
-                                if (status == 1) {
-                                    $('.ylq').show()
-
-                                    $('.wlq').hide();
-                                }
-
-                                $('.jx1').html(couponName)
-                                // $('.text2').html("兑换码"+couponCode)
-                                // $('.text3').html("有效期至"+beginTime)
-                            }
-
-                            if (type == 2) {
-                                var prizeName = res.data.materialObj.prizeName   //实物名称
-                                status = res.data.materialObj.status
-
-                                $('.jx1').html(prizeName)
-
-                                if (status == 0) {
-                                    $('.wlq').show();
-                                    $('.ylq').hide()
-                                }
-
-                                if (status == 1) {
-                                    $('.ylq').show()
-
-                                    $('.wlq').hide();
-                                }
-                            }
-
-                            if (type == 3) {
-                                var point = res.data.point.point //积分数
-                                var prizeName = res.data.point.prizeName  ///奖励名称  
-                                status = res.data.point.status
-
-                                $('.jx1').html(point + prizeName)
-
-
-                                if (status == 0) {
-                                    $('.wlq').show();
-                                    $('.ylq').hide()
-                                }
-
-                                if (status == 1) {
-                                    $('.ylq').show()
-
-                                    $('.wlq').hide();
-                                }
-                            }
-
-
-                            if (type == 4) {
-                                var advOrigin = res.data.advOrigin.imgUrl; // 权益卷图片
-    
-    
-                                var voucherLink = res.data.advOrigin.voucherLink //权益卷地址
-    
-                                $('.lj-bottom-left').remove()
-    
-                                $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
-    
-                                $('.wlq').on('click', function () {
-                                    window.location.href = voucherLink
-                                })
-
-                                if (status == 0) {
-                                    $('.wlq').show();
-                                    $('.ylq').hide()
-                                }
-
-                                if (status == 1) {
-                                    $('.ylq').show()
-
-                                    $('.wlq').hide();
-                                }
-                            }
-
-
-
-                        })
-
-                        $('#loadingWrapper').hide();
-                    } else {
-                        $('#loadingWrapper').hide();
-                    }
-
-                    if (res.code == 201) {
-                        $('.lj-bottom').hide()
-
-                        $('.lj-top').css('border', 'none')
-                        $('.banner').css('padding-top', '50px')
-                    }
-
-                    if (res.code == 202) {
-                        $('.banner').css('padding-top', '160px')
-                        var prizeType = res.data.prizeType
-                        lotteryRecordId = res.data.lotteryRecordId
-
-                        if (prizeType == 0) {
-                            var prizeAmount = res.data.prizeAmount//红包金额
-
-                            var prizeName = res.data.prizeName  //红包
-
-                            $('.jx1').html(prizeAmount + '元' + prizeName)
-                        }
-
-                        if (prizeType == 1) {
-                            var prizeName = res.data.prizeName;
-                            $('.jx1').html(prizeName)
-
-                        }
-
-                        if (prizeType == 2) {
-                            var prizeName = res.data.prizeName;
-                            $('.jx1').html(prizeName)
-                        }
-
-                        if (prizeType == 3) {
-                            var prizeName = res.data.prizeName;
-                            var prizeAmount = res.data.prizeAmount;
-                            $('.jx1').html(prizeAmount + prizeName)
-                        }
-
-                        if (prizeType == 4) {
-                            var advOrigin = res.data.advOrigin.imgUrl; // 权益卷图片
-
-
-                            var voucherLink = res.data.advOrigin.voucherLink //权益卷地址
-
-                            $('.lj-bottom-left').remove()
-
-                            $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
-
-                            $('.wlq').on('click', function () {
-                                window.location.href = voucherLink
-                            })
-                        }
-
-                        if (status == 0) {
-                            $('.wlq').show();
-                            $('.ylq').hide()
-                        }
-
-                        if (status == 1) {
-                            $('.ylq').show()
-
-                            $('.wlq').hide();
-                        }
-
-                        $('#loadingWrapper').hide();
-                    } else {
-                        $('#loadingWrapper').hide();
-                    }
-                })
-            }
-
-            $('#loadingWrapper').hide();
-        } else {
-            $('#loadingWrapper').hide();
-        }
-    })
-
-
-
-
-
-    //一键领取
-
-    // $('.wlq').on('click', function () {
-
-    //     //是否关注公众号
-    //     Func.isSubscribe(function (res) {
-    //         if (res.code === 200) {
-    //             if (res.data.subscribe) { //res1.data.subscribe 未关注
-    //                 $('.gzhtc').show()
-
-    //             } else {
-    //                 //扫码领奖
-    //                 Func.receiveLottery({
-    //                     lotteryRecordId: lotteryRecordId
-    //                 }, function (res) {
-    //                     if (res.code == 200) {
-    //                         var balanceScore = res.data.balanceScore; //剩余积分
-    //                         var canJoinActNum = res.data.canJoinActNum //剩余次数
-
-    //                         $('.balanceScore').text(balanceScore)
-    //                         $('.canJoinActNum').text(canJoinActNum)
-
-    //                         $(".wlq").hide()
-    //                         $(".ylq").show()
-
-    //                         $('#loadingWrapper').hide();
-    //                     } else {
-    //                         $('#loadingWrapper').hide();
-    //                     }
-    //                 })
-    //             }
-    //         } else {
-
-    //             $('#loadingWrapper').hide();
-    //             common.alert({
-    //                 content: res1.msg,
-    //                 mask: true
-    //             });
-    //         }
-    //     })
-
-
-
-    // })
-
-
-
-
-
 
     //防伪查询
     Func.findEncodeFunction(function (res) {
         if (res.code === 200 || res.code === 201) {
 
-            var message = res.data.securityCheckRecord.message; //
 
-            valiCount = res.data.securityCheckRecord.valiCount;
+            security = res.data.security  //1为防伪显示，0为不显示
+
+            var message = res.data.securityCheckRecord.message; //防伪信息
+
+            valiCount = res.data.securityCheckRecord.valiCount; //防伪次数
 
             var productId = res.data.productId;   //商品id
             var productImagesUrl = res.data.productImagesUrl; //图片路径
@@ -290,9 +30,17 @@ $(function () {
             if (productImagesUrl != '') {
                 $('#productImagesUrl').attr('src', productImagesUrl)
             }
+
             $('.message').text(productName)
             $('.message').after(message)
 
+
+            if (security == 0) {
+                // debugger
+                $('.lj-top').hide()
+                $('.header').css('height', '230px')
+                $('.banner').css('padding-top', '40px')
+            }
             $('#loadingWrapper').hide();
         } else {
 
@@ -410,6 +158,288 @@ $(function () {
         })
 
     });
+
+
+
+    //判断是否公众号进入 0公众号 1扫码
+
+    Func.entranceCheck(function (res) {
+        if (res.code == 200) {
+            var entranceType = res.data.entranceType
+
+            if (entranceType == 0) {
+                $('.header').hide()
+                $('.banner').css('padding-top', '30px')
+            } else {
+                $('.headera').hide()
+
+                // 添加参与记录
+
+                Func.createJoinActInfo(function (res) {
+
+                    if (res.code == 200) {
+
+                        $('.banner').css('padding-top', '160px')
+                        //扫码进入页面抽奖   
+                        Func.lottery(function (res) {
+                            var type = res.data.type //中奖类型
+                            if (type == 0) {
+                                var prizeAmount = res.data.redPack.prizeAmount //红包金额
+                                var prizeName = res.data.redPack.prizeName  //红包
+                                status = res.data.redPack
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+
+                                $('.jx1').html(prizeAmount + '元' + prizeName)
+                            }
+                            if (type == 1) {
+                                var couponName = res.data.couponGrants[0].couponName //优惠券名称
+                                var couponCode = res.data.couponGrants[0].couponCode //优惠券码
+                                var beginTime = res.data.couponGrants[0].beginTime //有效时间
+
+                                status = res.data.couponGrants[0].status
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+
+                                $('.jx1').html(couponName)
+                                // $('.text2').html("兑换码"+couponCode)
+                                // $('.text3').html("有效期至"+beginTime)
+                            }
+
+                            if (type == 2) {
+                                var prizeName = res.data.materialObj.prizeName   //实物名称
+                                status = res.data.materialObj.status
+
+                                $('.jx1').html(prizeName)
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+                            }
+
+                            if (type == 3) {
+                                var point = res.data.point.point //积分数
+                                var prizeName = res.data.point.prizeName  ///奖励名称  
+                                status = res.data.point.status
+
+                                $('.jx1').html(point + prizeName)
+
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+                            }
+
+
+                            if (type == 4) {
+                                var advOrigin = res.data.advOrigin.imgUrl; // 权益卷图片
+
+
+                                var voucherLink = res.data.advOrigin.voucherLink //权益卷地址
+
+                                $('.lj-bottom-left').remove()
+
+                                $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
+
+                                $('.wlq').on('click', function () {
+                                    window.location.href = voucherLink
+                                })
+
+                                if (status == 0) {
+                                    $('.wlq').show();
+                                    $('.ylq').hide()
+                                }
+
+                                if (status == 1) {
+                                    $('.ylq').show()
+
+                                    $('.wlq').hide();
+                                }
+                            }
+
+                        })
+
+                        $('#loadingWrapper').hide();
+                    } else {
+                        $('#loadingWrapper').hide();
+                    }
+
+                    if (res.code == 201) {
+
+                        if (security == 1) {
+                            $('.lj-bottom').hide()
+
+                            $('.lj-top').css('border', 'none')
+                            $('.banner').css('padding-top', '50px')
+                        } else {
+                            $('.lj').hide()
+                            common.alert({
+                                content: '该码已被扫',
+                                mask: true
+                            });
+                        }
+                    }
+                    // debugger
+                    if (res.code == 202) {
+                        // $('.banner').css('padding-top', '160px')
+                        var prizeType = res.data.prizeType
+                        lotteryRecordId = res.data.lotteryRecordId
+
+                        if (prizeType == 0) {
+                            $('.banner').css('padding-top', '160px')
+                            var prizeAmount = res.data.prizeAmount//红包金额
+
+                            var prizeName = res.data.prizeName  //红包
+
+                            $('.jx1').html(prizeAmount + '元' + prizeName)
+                        }
+
+                        if (prizeType == 1) {
+                            $('.banner').css('padding-top', '160px')
+                            var prizeName = res.data.prizeName;
+                            $('.jx1').html(prizeName)
+
+                        }
+
+                        if (prizeType == 2) {
+                            $('.banner').css('padding-top', '160px')
+                            var prizeName = res.data.prizeName;
+                            $('.jx1').html(prizeName)
+                        }
+
+                        if (prizeType == 3) {
+                            $('.banner').css('padding-top', '160px')
+                            var prizeName = res.data.prizeName;
+                            var prizeAmount = res.data.prizeAmount;
+                            $('.jx1').html(prizeAmount + prizeName)
+                        }
+
+                        if (prizeType == 4) {
+                            var advOrigin = res.data.advOrigin.imgUrl; // 权益卷图片
+
+
+                            var voucherLink = res.data.advOrigin.voucherLink //权益卷地址
+
+                            $('.lj-bottom-left').remove()
+
+                            $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
+
+                            $('.wlq').on('click', function () {
+                                window.location.href = voucherLink
+                            })
+                        }
+
+                        if (status == 0) {
+                            $('.wlq').show();
+                            $('.ylq').hide()
+                        }
+
+                        if (status == 1) {
+                            $('.ylq').show()
+
+                            $('.wlq').hide();
+                        }
+
+                        $('#loadingWrapper').hide();
+                    } else {
+                        $('#loadingWrapper').hide();
+                    }
+                })
+            }
+
+            $('#loadingWrapper').hide();
+        } else {
+            $('#loadingWrapper').hide();
+        }
+    })
+
+
+
+
+
+    //一键领取
+
+    $('.wlq').on('click', function () {
+
+        //是否关注公众号
+        Func.isSubscribe(function (res) {
+            if (res.code === 200) {
+                if (res.data.subscribe) { //res1.data.subscribe 未关注
+                    $('.gzhtc').show()
+
+                } else {
+                    //扫码领奖
+                    Func.receiveLottery({
+                        lotteryRecordId: lotteryRecordId
+                    }, function (res) {
+                        if (res.code == 200) {
+                            var balanceScore = res.data.balanceScore; //剩余积分
+                            var canJoinActNum = res.data.canJoinActNum //剩余次数
+
+                            $('.balanceScore').text(balanceScore)
+                            $('.canJoinActNum').text(canJoinActNum)
+
+                            $(".wlq").hide()
+                            $(".ylq").show()
+
+                            $('#loadingWrapper').hide();
+                        } else {
+                            $('#loadingWrapper').hide();
+                        }
+                    })
+                }
+            } else {
+
+                $('#loadingWrapper').hide();
+                common.alert({
+                    content: res1.msg,
+                    mask: true
+                });
+            }
+        })
+
+
+
+    })
+
+
+
+
+
+
+
 
 
 
