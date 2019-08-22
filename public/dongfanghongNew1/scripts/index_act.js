@@ -99,8 +99,8 @@ $(function() {
                         var totalRotate = rotate * 4 + perRotate * rand - 22.5;
 
                         $('.js-dzpCon').css({
-                            'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
-                            'transform': 'rotate(' + (-totalRotate) + 'deg)'
+                            '-webkit-transition': '-webkit-transform 4s cubic-bezier(.68,.06,.39,.97)',
+                            '-webkit-transform': 'rotate(' + (-totalRotate) + 'deg)',
                         });
 
                         if(reg.code == 200) {
@@ -168,7 +168,7 @@ $(function() {
     });
 
     // 大转盘动画结束
-    $('.js-dzpCon').on('transitionend', function() {
+    $('.js-dzpCon').on('webkitTransitionEnd', function() {
         setTimeout(function () {
             if (isLottery) {
                 if (type == 0) {
@@ -205,7 +205,7 @@ $(function() {
 
                 itemRotate = perRotate * i - (perRotate) / 2;
 
-                _html += '<li class="award-item" style="transform: translateX(-50%) rotate(' + itemRotate + 'deg)">';
+                _html += '<li class="award-item" style="-webkit-transform: translateX(-50%) rotate(' + itemRotate + 'deg)">';
 
                 _html += '<div class="con">' + dzpAwardItem[i].prizeName + '</div>';
                 _html += '</li>';
