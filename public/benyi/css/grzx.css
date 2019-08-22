@@ -145,7 +145,6 @@ body {
 .container {
   position: relative;
   width: 100%;
-  height: 100%;
   background: #f3f3f3;
   overflow: hidden;
 }
@@ -163,6 +162,11 @@ body {
   text-align: right;
   margin-top: 30px;
   margin-left: 200px;
+}
+.container .header .header-left img {
+  max-width: 160px;
+  max-height: 160px;
+  border-radius: 50%;
 }
 .container .header .header-right {
   padding-top: 100px;
@@ -263,8 +267,8 @@ body {
   height: 24px;
   width: 14px;
 }
-.container .footer {
-  position: absolute;
+.footer {
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
@@ -273,20 +277,20 @@ body {
   background: #fff;
   border-top: #999 1px solid;
 }
-.container .footer .item-tab {
+.footer .item-tab {
   width: 50%;
   text-align: center;
   font-weight: bolder;
 }
-.container .footer .item-tab img {
+.footer .item-tab img {
   margin: auto;
 }
-.container .footer .item-tab:first-child {
+.footer .item-tab:first-child {
   color: #666;
 }
-.container .footer .item-tab:last-child {
+.footer .item-tab:last-child {
   color: #ef4852;
 }
-.container .tfooter {
+.tfooter {
   height: 110px;
 }

@@ -2,7 +2,12 @@ var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = production;
+var ip = dev;
+
+
+var dev1 = 'http://192.168.1.20:8095';   //广告测试
+var production1 ='https://advp-api.lxcyhd.com'   //广告生产
+var ip1 = dev1;
 
 var api = {
 	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
@@ -32,5 +37,20 @@ var api = {
     guestApplyWithdrawRecord: ip + '/consumerUserCash/guestApplyWithdrawRecord',								// 客户提现申请列表查询接口（格瑞蓝达）
     getShopUrl: ip + '/shopUrl/getShopUrl',								// 获取商城url
     createJoinActInfo: ip + '/consumerActivity/createJoinActInfo',								// 添加参与记录
-    findProduct: ip + '/product/findProduct'								// 根据二维码查询商品信息
+	findProduct: ip + '/product/findProduct',								// 根据二维码查询商品信息
+	queryUserInfo:ip +'/benyi/signIn/queryUserInfo',                     //打开页面显示数据
+	signIn: ip + '/benyi/signIn/index' ,									//本意签到
+	receiveScore:ip+'/benyi/signIn/receiveScore' ,                           //点击领取积分
+	scoreExchangeAct:ip+'/benyi/signIn/scoreExchangeAct' ,                      //积分兑换参与活动次数接口
+
+	joinAct:ip+'/benyi/consumer/joinAct',    								// 参与活动抽奖接口
+	receiveLottery:ip+'/benyi/signIn/receiveLottery',                        //二维码奖励领取接口
+	bindingUserInfoMobile:ip+'/consumerUserInfo/bindingUserInfoMobile',                        //绑定手机号
+	getAdvByAdvPageName:ip1+ '/adv/platAdv/benyi/getAdvByAdvPageName',   					//本意首页广告列表查询
+	browseRecord:ip1+ '/adv/platRecord/benyi/browseRecord',									//本意广告浏览记录
+	clickRecord:ip1+ '/adv/platRecord/benyi/clickRecord',									//本意广告点击
+
+	entranceCheck:ip+ '/benyi/entranceCheck',									//判断页面入口
+	
+
 };

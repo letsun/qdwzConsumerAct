@@ -154,31 +154,31 @@ body {
   line-height: 75px;
   text-align: center;
 }
-.container .prtshow {
-  position: relative;
-  border-bottom: 1px #eee solid;
-  margin-bottom: 10px;
-}
-.container .prtshow .prtshow-title {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  color: #bbb;
+.container .prtshow-title {
+  padding-top: 30px;
+  padding-left: 30px;
   z-index: 99;
 }
-.container .prtshow .prtshow-title span {
+.container .prtshow-title span {
   font-weight: bold;
   font-size: 26px;
   color: #333;
   margin-right: 30px;
 }
-.container .prtshow .prtshow-name {
-  position: absolute;
-  top: 70px;
-  left: 30px;
+.container .prtshow-name {
   z-index: 99;
+  padding-left: 30px;
+}
+.container .prtshow {
+  position: relative;
+  border-bottom: 1px #eee solid;
+  margin-bottom: 10px;
 }
 .container .prtshow .swiper-container {
+  height: 400px;
+}
+.container .prtshow .swiper-container img {
+  width: 750px;
   height: 400px;
 }
 .container .prtdsc {

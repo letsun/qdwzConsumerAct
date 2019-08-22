@@ -2,47 +2,65 @@
 <html>
 
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=750, user-scalable=no">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="/benyi/css/jinbi.css" />
-	<link rel="stylesheet" type="text/css" href="/benyi/scripts/plug/swiper-3.3.1.min.css" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/benyi/css/jinbi.css" />
+    <link rel="stylesheet" type="text/css" href="/benyi/scripts/plug/swiper-3.3.1.min.css" />
 </head>
 
 <body>
-	<div class="container">
+    <div class="container">
         <div class="header"></div>
 
-        <div class="content">
-            <div class="content-item">
-                <div class="content-item-left">20个</div>
-                <div class="content-item-middel">2019.07.06 14:00</div>
-                <div class="content-item-right"><a>待领取</a></div>
-            </div>
+        <div class="content" id="scrollW">
+            <div class="wrapper">
+                <div class="list" id="list">
 
+                </div>
+                <div class="loadText" id="loading">上滑加载更多</div>
+            </div>
         </div>
 
         <div class="tfooter"></div>
 
         <!-- 领取鼓励金 -->
-		<div class="lqlp">
-			<div class="lqlp-con">	
+        <div class="lqlp">
+            <div class="lqlp-con">
                 <div class="lqlp-con-header">
                     领取成功
                 </div>
                 <div class="lqlp-con-bottom">
                     领取金币成功
-                </div>                
-			</div>
-		</div>        
+                </div>
+            </div>
+        </div>
     </div>
-    
+
     <div class="containera">
         <div class="con">
-            <img src="/benyi/images/10_1.png" alt="">
+            <img src="/benyi/images/8_1.png" alt="">
             <div class="con-txt">您暂时没有金币哦!</div>
-            
+
+        </div>
+    </div>
+
+
+
+    <!-- 是否关注公众号-->
+    <div class="gzhtc">
+        <div class="gzhtc-con">
+
+            <div class="gzhtc-con-img"><img src="/benyi/images/1_36.png" alt=""></div>
+            <div class="gzhtc-con-text">
+
+                <p>检测到您尚未关注公众号</p>
+                <p>请长按识别关注公众号后再扫码获取红包</p>
+            </div>
+        </div>
+        <div class="gzhtc-gb">
+            <img src="/benyi/images/5_1.png" alt="">
         </div>
     </div>
 </body>
@@ -55,10 +73,38 @@
 <script src="/benyi/scripts/api.js"></script>
 <script src="/benyi/scripts/Func.js"></script>
 <script src="/benyi/scripts/lib/jweixin-1.0.0.js"></script>
+
 <script type="text/javascript" src="/benyi/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+
+<script src="/benyi/scripts/lib/bscroll.js"></script>
+
+<script src="/benyi/scripts/jinbi.js"></script>
+
 <script>
 
+    var scroll = new BScroll('#scrollW', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+            threshold: 0
+        }
+    });
 
+    var doc = $(document);
+
+    $(function () {
+        main.init();
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function () {
+            window.history.back();
+        });
+    });
 </script>
 
 </html>

@@ -194,7 +194,7 @@ body {
   position: relative;
   width: 100%;
   background: #f3f3f3;
-  display: block;
+  display: none;
 }
 .containera .header {
   background: url('../images/6_3.png') no-repeat;
@@ -246,7 +246,8 @@ body {
   font-size: 30px;
 }
 .containera .con .inp .inp-item .inp-item-btn {
-  background: url('../images/3_3.png') no-repeat;
+  border-radius: 10px;
+  background: #ff7350;
   background-size: 100% 100%;
   height: 70px;
   width: 200px;

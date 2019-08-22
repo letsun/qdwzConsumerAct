@@ -1,13 +1,13 @@
 var Func = {};
 
-$(function() {
+$(function () {
 
 	/**
 	 * 查找二维码情况
 	 * @param  function callback 查找后的回调
 	 * @return null
 	 */
-	Func.findEncodeFunction = function(callback) {
+	Func.findEncodeFunction = function (callback) {
 
 		$('#loadingWrapper').show();
 
@@ -16,7 +16,7 @@ $(function() {
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -29,14 +29,14 @@ $(function() {
 	 * @param { } [varname] [description]
 	 * @return null
 	 */
-	Func.toLottery = function(url,callback) {
+	Func.toLottery = function (url, callback) {
 		$.ajax({
 			url: url,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
-                $('#loadingWrapper').hide();
+			success: function (res) {
+				$('#loadingWrapper').hide();
 				var html = '';
 				var data = res.data;
 
@@ -45,7 +45,7 @@ $(function() {
 				if (res.code === 200) {
 
 					if (res.data.prizeType === 0) {
-						Global.requestTempByAjax('/nantian/temp/dan.ejs', res.data, function(template) {
+						Global.requestTempByAjax('/nantian/temp/dan.ejs', res.data, function (template) {
 
 							$('#resultContent').html(template);
 							callback(res);
@@ -66,12 +66,12 @@ $(function() {
 		});
 	}
 
-	Func.fail = function(res, callback) {
-		
+	Func.fail = function (res, callback) {
+
 		$('#resultContainer').css({
 			'background': 'url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_2/images/5/1_17.png") no-repeat'
 		});
-		Global.requestTempByAjax('/nantian/temp/error.ejs', res, function(template) {
+		Global.requestTempByAjax('/nantian/temp/error.ejs', res, function (template) {
 
 			$('#resultContent').html(template);
 
@@ -86,14 +86,13 @@ $(function() {
 	 * @param  	function 	callback 	查找后的回调
 	 * @return 	null
 	 */
-	Func.isSubscribe = function(callback) {
-
+	Func.isSubscribe = function (callback) {
 		$.ajax({
 			url: api.isSubscribe,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 
 			}
@@ -105,7 +104,7 @@ $(function() {
 	 * @param  function callback 查找后的回调
 	 * @return null
 	 */
-	Func.findActivityByEncode = function(callback) {
+	Func.findActivityByEncode = function (callback) {
 
 		$('#loadingWrapper').show();
 
@@ -114,7 +113,7 @@ $(function() {
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -125,14 +124,14 @@ $(function() {
 	 * @param  function callback 获取成功后的回调
 	 * @return null
 	 */
-	Func.getPersonCenter = function(callback) {
+	Func.getPersonCenter = function (callback) {
 		$('#loadingWrapper').show();
 		$.ajax({
 			url: api.personCenter,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -144,7 +143,7 @@ $(function() {
 	 * @param  function 	callback 	提交成功后的回调
 	 * @return null
 	 */
-	Func.userCash = function(data, callback) {
+	Func.userCash = function (data, callback) {
 		$('#loadingWrapper').show();
 
 		$.ajax({
@@ -153,7 +152,7 @@ $(function() {
 			data: data,
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -165,7 +164,7 @@ $(function() {
 	 * @param  function 	callback 	获取成功后的回调
 	 * @return null
 	 */
-	Func.userCashRecord = function(data, callback) {
+	Func.userCashRecord = function (data, callback) {
 
 		if (data.page === 1) {
 			$('#loadingWrapper').show();
@@ -178,7 +177,7 @@ $(function() {
 			data: data,
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -190,7 +189,7 @@ $(function() {
 	 * @param  function 	callback 	获取成功后的回调
 	 * @return null
 	 */
-	Func.findScoreDetail = function(data, callback) {
+	Func.findScoreDetail = function (data, callback) {
 
 		if (data.page === 1) {
 			$('#loadingWrapper').show();
@@ -203,7 +202,7 @@ $(function() {
 			data: data,
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -215,7 +214,7 @@ $(function() {
 	 * @param  function 	callback 	获取成功后的回调
 	 * @return null
 	 */
-	Func.lotteryRecord = function(data, callback) {
+	Func.lotteryRecord = function (data, callback) {
 
 		if (data.page === 1) {
 			$('#loadingWrapper').show();
@@ -227,7 +226,7 @@ $(function() {
 			data: data,
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -239,7 +238,7 @@ $(function() {
 	 * @param  function 	callback 	获取成功后的回调
 	 * @return null
 	 */
-	Func.findCoupon = function(data, callback) {
+	Func.findCoupon = function (data, callback) {
 
 		if (data.page === 1) {
 			$('#loadingWrapper').show();
@@ -251,7 +250,7 @@ $(function() {
 			data: data,
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -263,7 +262,7 @@ $(function() {
 	 * @param  	function 	callback 			获取成功后的回调
 	 * @return 	null
 	 */
-	Func.couponCodeDetail = function(lotteryRecordId, callback) {
+	Func.couponCodeDetail = function (lotteryRecordId, callback) {
 
 		$('#loadingWrapper').show();
 
@@ -275,7 +274,7 @@ $(function() {
 			},
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -287,7 +286,7 @@ $(function() {
 	 * @param  	function 	callback 			获取成功后的回调
 	 * @return 	null
 	 */
-	Func.couponDetail = function(couponId, callback) {
+	Func.couponDetail = function (couponId, callback) {
 
 		$('#loadingWrapper').show();
 
@@ -299,7 +298,7 @@ $(function() {
 			},
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -311,7 +310,7 @@ $(function() {
 	 * @param  	function 	callback 			获取成功后的回调
 	 * @return 	null
 	 */
-	Func.getAdvByAdvPositionName = function(ele, positionName, callback) {
+	Func.getAdvByAdvPositionName = function (ele, positionName, callback) {
 
 		// debugger;
 		$.ajax({
@@ -322,12 +321,12 @@ $(function() {
 			},
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				if (res.code === 200) {
 					// var random = Math.floor(Math.random() * res.data.length);
 					// var data = res.data[random];
 
-					if(res.data != "") {
+					if (res.data != "") {
 						Global.requestTempByAjax('/commonAct_1/temp/swiper.ejs', res.data, function (template) {
 							// $(ele).append('<img class="ad" src="' + data.picUrl + '" data-advId="' + data.advId + '" data-href="' + data.linkUrl + '" />');
 
@@ -340,7 +339,7 @@ $(function() {
 							}
 							// debugger;
 							if (swiperSlide.length === 0) {
-								$(ele).prev().css({bottom: 0});
+								$(ele).prev().css({ bottom: 0 });
 								$(ele).hide();
 							}
 
@@ -388,12 +387,12 @@ $(function() {
 							// Func.browseRecord(data.advId, 0);
 						});
 					} else {
-						$("#awardInforWrapper").css({bottom: 0});
-						$("#advertisement").css({background: "transparent"});
+						$("#awardInforWrapper").css({ bottom: 0 });
+						$("#advertisement").css({ background: "transparent" });
 					}
 
 				} else {
-					$(ele).prev().css({bottom: 0});
+					$(ele).prev().css({ bottom: 0 });
 					$(ele).hide();
 					// common.alert({
 					// 	content: res.msg,
@@ -403,7 +402,7 @@ $(function() {
 			}
 		});
 
-		$(document).on('click', ele + ' img', function() {
+		$(document).on('click', ele + ' img', function () {
 			var href = $(this).attr('data-href');
 			var advId = $(this).attr('data-advId');
 
@@ -420,7 +419,7 @@ $(function() {
 	 * @param  	function 	callback 			获取成功后的回调
 	 * @return 	null
 	 */
-	Func.browseRecord = function(advId, operationType) {
+	Func.browseRecord = function (advId, operationType) {
 
 		$.ajax({
 			url: api.browseRecord,
@@ -431,20 +430,20 @@ $(function() {
 			},
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 
 			}
 		});
 	};
 
 
-	Func.showSeletMe = function(con) {
+	Func.showSeletMe = function (con) {
 		var item = $(con).find('div');
 
 		var timer = null;
 		var index = 0;
 
-		timer = setInterval(function() {
+		timer = setInterval(function () {
 
 			if (index === 3) {
 				index = 0;
@@ -458,10 +457,10 @@ $(function() {
 		}, 800);
 	};
 
-	Func.loadingImage = function(src, callback) {
+	Func.loadingImage = function (src, callback) {
 		var image = new Image();
 
-		image.onload = function() {
+		image.onload = function () {
 			callback(image.width, image.height);
 		}
 
@@ -472,15 +471,15 @@ $(function() {
 	 * 消费者自主核销
 	 * @return null
 	 */
-	Func.cancelCoupon = function(data, callback) {
-		
+	Func.cancelCoupon = function (data, callback) {
+
 		$.ajax({
 			url: api.cancelCoupon,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
 			data: data,
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -491,13 +490,13 @@ $(function() {
 	 * @param  function 	callback 	提交成功后的回调
 	 * @return null
 	 */
-	Func.getConsume = function(callback) {
+	Func.getConsume = function (callback) {
 		$.ajax({
 			url: api.getConsume,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -508,13 +507,13 @@ $(function() {
 	 * @param  function 	callback 	提交成功后的回调
 	 * @return null
 	 */
-	Func.findCouponNum = function(callback) {
+	Func.findCouponNum = function (callback) {
 		$.ajax({
 			url: api.findCouponNum,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -525,26 +524,26 @@ $(function() {
 	 * @param  function 	callback 	提交成功后的回调
 	 * @return null
 	 */
-	Func.lotteryRecordNum = function(callback) {
+	Func.lotteryRecordNum = function (callback) {
 		$.ajax({
 			url: api.lotteryRecordNum,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
 	}
 
-	Func.companyLotteryRecord = function(data, callback) {
+	Func.companyLotteryRecord = function (data, callback) {
 		$.ajax({
 			url: api.companyLotteryRecord,
 			type: 'GET',
 			headers: getHeader(),
 			data: data,
 			dataType: 'json',
-			success: function(res) {
+			success: function (res) {
 				callback(res);
 			}
 		});
@@ -554,16 +553,16 @@ $(function() {
 	 * 中奖记录滚动
 	 * @return null
 	 */
-	Func.awardScroll = function() {
-		
+	Func.awardScroll = function () {
+
 
 		$('#awardInforScrollContent').append($('#awardInforScrollContent').html());
 
 		var awardInforScrollContentWidth = $('#awardInforScrollContent').width();
 		var left = 0;
-		
+
 		// debugger;
-		var timer = setInterval(function() {
+		var timer = setInterval(function () {
 
 			left--;
 
@@ -576,4 +575,270 @@ $(function() {
 			});
 		}, 10);
 	}
+
+
+	/**
+	 * 点击签到
+	 * @return null
+	 */
+	Func.signIn = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.signIn,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+	/**
+	 * 打开页面显示页面签到信息
+	 * @return null
+	 */
+	Func.queryUserInfo = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.queryUserInfo,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+
+		/**
+	 * 点击领取积分
+	 * @return null
+	 */
+	Func.receiveScore = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.receiveScore,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+	/**
+	 * 积分兑换参与活动次数接口
+	 * @return null
+	 */
+	Func.scoreExchangeAct = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.scoreExchangeAct,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+
+	}
+
+
+	/**
+	 * 参与活动抽奖接口
+	 * @return null
+	 */
+	Func.joinAct = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.joinAct,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+
+	}
+
+	/**
+	 * 扫码添加参与记录
+	 * @return null
+	 */
+	Func.createJoinActInfo = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.createJoinActInfo,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+
+	}
+
+
+	/**
+	 * 扫码参与活动抽奖接口
+	 * @return null
+	 */
+	Func.lottery = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.lottery,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+
+	}
+
+
+	/**
+	 * 二维码领取奖励
+	 * @return null
+	 */
+	Func.receiveLottery = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.receiveLottery,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+
+	/**
+	 * 本意首页广告列表查询
+	 * @return null
+	 */
+	Func.getAdvByAdvPageName = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.getAdvByAdvPageName,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+	/**
+	 * 本意广告浏览记录
+	 * @return null
+	 */
+	Func.browseRecord = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.browseRecord,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+
+	/**
+	 * 本意点击广告记录
+	 * @return null
+	 */
+	Func.clickRecord = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.clickRecord,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+	/**
+	 * 获取验证码
+	 * @return null
+	 */
+	Func.getVerCode = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.getVerCode,
+			type: 'POST',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+	/**
+	 * 获取验证码
+	 * @return null
+	 */
+	Func.bindingUserInfoMobile = function (data, callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.bindingUserInfoMobile,
+			type: 'POST',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+	/**
+	 * 判断入口 1为扫码 0位公众号
+	 * @return null
+	 */
+	Func.entranceCheck = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.entranceCheck,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+
+	}
+	
 })

@@ -145,6 +145,7 @@ body {
 .container {
   position: relative;
   width: 100%;
+  height: 100%;
   background: #f3f3f3;
   display: block;
 }
@@ -166,29 +167,41 @@ body {
 }
 .container .header .header-con .header-con-item {
   display: block;
-  width: 33.3%;
+  width: 50%;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 40px;
-  color: #ef4852;
+  color: #666;
 }
 .container .header .header-con .header-con-item img {
   margin: auto;
 }
+.container .header .selected {
+  color: #ef4852!important;
+}
+.container .content:first-child {
+  display: block;
+}
 .container .content {
+  position: absolute;
+  top: 200px;
+  bottom: 40px;
+  left: 0px;
+  right: 0px;
+  overflow: hidden;
   box-shadow: #ccc 0px 4px 10px 1px;
-  display: flex;
   border-radius: 15px;
   margin: 130px 30px 30px 30px;
   padding: 30px;
   background: #fff;
   font-size: 24px;
-  display: none;
 }
 .container .content .content-item {
   width: 100%;
   display: flex;
   color: #666;
+  line-height: 100px;
+  border-bottom: 1px #ddd solid;
 }
 .container .content .content-item .content-item-left {
   width: 40%;
@@ -199,9 +212,12 @@ body {
 .container .content .content-item .content-item-right {
   width: 15%;
 }
-.container .content .content-item .content-item-right a {
+.container .content .content-item .content-item-right .weilinqu {
   text-decoration: underline;
   color: #ef4852;
+}
+.container .content .content-item:last-child {
+  border: none;
 }
 .container .tfooter {
   height: 10px;
@@ -242,6 +258,11 @@ body {
   right: 0;
   bottom: 35px;
   text-align: center;
+}
+.container .loadText {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .containera {
   position: relative;

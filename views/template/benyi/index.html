@@ -21,44 +21,71 @@
 		</div> -->
 
 
-	<div class="container">
+	<div class="container" id="container">
 		<div class="header">
+			<div class="header-left"><img class="headimgurl" alt=""></div>
+			<div class="header-right nickname" ></div>
 
-			<div class="header-left"><img src="/benyi/images/1_10.png" alt=""></div>
-			<div class="header-middel">
-				<h2>丹姿水密码乳液</h2>
-				<p>风险预警：该产品扫码次数异常</p>
-				<p>若此产品为首次开封扫码,请在“查看详情”中反馈</p>
-			</div>
-			<div class="header-right">
-				<a href=""><img src="/benyi/images/1_5.png" alt=""></a>
-			</div>
 
 			<!-- 领奖 -->
 			<div class="lj">
 				<div class="lj-top">
-					<div class="lj-top-left"><img src="/benyi/images/1_7.png" alt=""></div>
-					<div class="lj-top-right">我是夏天的西瓜</div>
+
+					<div class="lj-top-left"><img id='productImagesUrl' alt=""></div>
+					<div class="lj-top-middel">
+						<h2 class="message"></h2>
+						<!-- <p>风险预警：该产品扫码次数异常</p>
+				<p>若此产品为首次开封扫码,请在“查看详情”中反馈</p> -->
+					</div>
+					<!-- <div class="lj-top-right">
+				<a href=""><img src="/benyi/images/1_5.png" alt=""></a>
+			</div> -->
+
+
 				</div>
 
 				<div class="lj-bottom">
-					<div class="lj-bottom-left">
-						<span>1.00</span>元
-					</div>
-					<div class="lj-bottom-middel">
 
-						<span>20.00</span>元
+					<div class="jiangxiang">
+
+						<div class="lj-bottom-left">
+							<div class="jx1"></div>
+						</div>
+						<!-- <div class="lj-bottom-middel">
+
+							<span>20.00</span>元
+						</div> -->
 					</div>
+
 					<div class="lj-bottom-right">
-						<img src="/benyi/images/1_6.png" alt="">
-						<p>请在24小时内领取</p>
+						<!-- <img src="/benyi/images/1_6.png" alt=""> -->
+
+						<div class="wlq">一键领取</div>
+						<div class="ylq">已领取</div>
+						<!-- <p>请在24小时内领取</p> -->
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="banner">
-			<img src="/benyi/images/1_11.png" alt="">
+
+		<div class="headera">
+
+			<div class="header-left"><img class="headimgurl" alt=""></div>
+			<div class="header-right nickname">
+				
+			</div>
+		</div>
+
+		<div class="banner " id="mxdp">
+
+			<div class="swiper-container">
+				<div class="swiper-wrapper"></div>
+
+
+				<div class="swiper-pagination"></div>
+			</div>
+
 		</div>
 
 		<!-- 互动推广 -->
@@ -69,17 +96,16 @@
 			</div>
 
 			<!-- 领取新人红包 -->
-			<div class="hdtg-middel">
-				<a><img class="hdtg-middel-img" src="/benyi/images/1_13.png" alt=""></a>
+			<div class="hdtg-middel itemclick" id='hdzq1'>
+				<img src="/benyi/images/1_14.png" alt="">
 			</div>
 
 			<div class="hdtg-bottom">
-				<div class="left">
-					<a><img class="left-img" src="/benyi/images/1_15.png" alt=""></a>
+				<div class="left itemclick" id='hdzq2'>
+					<img src="/benyi/images/1_16.png" alt=""></a>
 				</div>
-				<div class="right">
-
-					<div class="right-text">今日剩余<span>1</span>次机会</div>
+				<div class="right itemclick" id='hdzq3'>
+					<img src="/benyi/images/1_17.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -87,11 +113,13 @@
 		<!-- 签到 -->
 		<div class="qd">
 			<div class="qd-header">
-				今日已有：<span>195454</span> 位会员签到
+				今日已有：<span class="signNum">195454</span> 位会员签到
 			</div>
-			<div class="qd-img" >
-				<a id='qiandao'>已签到</a>
-				<img class="qd-img-img" src="/benyi/images/1_31.png" alt="">
+			<div class="qd-img ">
+				<div class="qiandaon">签到</div>
+				<div class="qiandaoy">已签到</div>
+				<p class="qd-img-text joinAct">剩余<span class="canJoinActNum">3</span>次抽奖</p>
+				<img class="qd-img-img joinAct" src="/benyi/images/1_31.png" alt="">
 			</div>
 
 
@@ -99,11 +127,14 @@
 				<div class="qd-xyz-left">幸运值</div>
 				<div class="qd-xyz-middel">
 					<!-- 进度条 -->
-					<div></div>
-					<img class="qd-img-img" src="/benyi/images/1_24.png" alt="">
+					<div class="qd-xyz-middel-jdt"></div>
 
+
+
+					<img class="qd-img-imga" src="/benyi/images/1_24.png" alt="">
 				</div>
-				<div class="qd-xyz-right">5/300</div>
+				<div class="qd-xyz-right"><span class="balanceScore">5</span>/<span class="totalScoreNum">300</span>
+				</div>
 			</div>
 
 			<div class="qd-tex">
@@ -113,42 +144,60 @@
 			</div>
 
 			<div class="qd-ts">
-				<img class="qd-ts-y" src="/benyi/images/1_27.png" alt="">
+				<img class="qd-ts-y1" src="/benyi/images/1_27.png" alt="">
+				<img class="qd-ts-y2" src="/benyi/images/1_27.png" alt="">
+				<img class="qd-ts-y3" src="/benyi/images/1_27.png" alt="">
+				<img class="qd-ts-y4" src="/benyi/images/1_27.png" alt="">
+				<img class="qd-ts-y5" src="/benyi/images/1_27.png" alt="">
+
 				<img class="qd-ts-bx1" src="/benyi/images/1_28.png" alt="">
 				<img class="qd-ts-bx2" src="/benyi/images/1_28.png" alt="">
 			</div>
 
 
 			<div class="qd-bottom">
-				已连续签到<span>1</span>天
+				已连续签到<span class="continuitySignInNum">1</span>天
 			</div>
 		</div>
 
 
-		<!-- 游戏专区 -->
-
-		<div class="yxzq">
-			<div class="yxzq-header">
-				<img class="yxzq-header-img" src="/benyi/images/1_20.png" alt="">
-				<div class="yxzq-header-text">游戏专区</div>
+		<!-- 会员专享  -->
+		<div class="hyzx">
+			<div class="hyzx-header">
+				<img class="hyzx-header-img" src="/benyi/images/1_37.png" alt="">
+				<div class="hyzx-header-text">会员专享</div>
 			</div>
 
-			<div class="yxzq-con">
+			<div class="hyzx-con">
+				<a href="http://www.cjszhd.com/mall/005.htm?gzid=" class="hyzx-con-item">
+					<img class="hyzx-header-img" src="/benyi/images/1_39.jpg" alt="">
+					<p>轻便透气低帮运动鞋</p>
 
-				<a><img class="yxzq-con-img" src="/benyi/images/1_19.png" alt=""></a>
+					<span>￥139</span> 				
+					<!-- <del>￥10.00</del> -->
+				</a>
+
+				<a href="http://www.cjszhd.com/mall/966XZ02.htm?gzid=" class="hyzx-con-item">
+					<img class="hyzx-header-img" src="/benyi/images/1_40.jpg" alt="">
+					<p>休闲鞋百搭防臭飞织运动鞋</p>
+
+					<span>￥139</span> 				
+					<!-- <del>￥10.00</del> -->
+				</a>
 			</div>
 		</div>
+
 
 
 		<!-- 关注公众号 -->
 		<div class="gzh">
-			<img class="yxzq-con-img" src="/benyi/images/1_18.png" alt="">
+			<img class="yxzq-con-img" src="/benyi/images/1_36.png" alt="">
 			<p>关注本意公众号更多惊喜</p>
 		</div>
 
 		<div class="footer">
 			<a href="/template/benyi/index" class="item-tab">
-				<img  src="/benyi/images/1_1.png" alt="">
+				<img src="/benyi/images/1_1.png" alt="">
 				<p>首页</p>
 			</a>
 			<a href="/template/benyi/grzx" class="item-tab">
@@ -163,8 +212,8 @@
 
 		<div class="qdtc">
 			<div class="qdtc-con">
-				<div class="qdtc-con-txt">获得<span>+6</span>幸运值</div>
-				<a class="qdtc-con-btn" >领取</a>
+				<div class="qdtc-con-txt">获得<span class="scoreNum">+6</span>幸运值</div>
+				<a class="qdtc-con-btn">领取</a>
 			</div>
 		</div>
 
@@ -172,13 +221,55 @@
 		<div class="hdsm">
 			<div class="hdsm-con">
 				<img src="/benyi/images/5_2.png" alt="">
-				
+
 			</div>
 
 			<div class="hdsm-qx">
 				<img src="/benyi/images/5_1.png" alt="">
 			</div>
 		</div>
+
+
+		<!-- 领取鼓励金 -->
+		<div class="lqlp">
+			<div class="lqlp-con">
+				<div class="lqlp-con-header">
+					恭喜获得
+				</div>
+
+				<div class="lqlp-con-middel">
+					<img src="/benyi/images/6_5.png" alt="">
+
+				</div>
+				<div class="lqlp-con-bottom ">
+					<p class="text1"></p>
+					<p class="text2"></p>
+					<p class="text3"></p>
+				</div>
+			</div>
+
+			<div class="lqlp-gb">
+				<img src="/benyi/images/5_1.png" alt="">
+			</div>
+		</div>
+
+		<!-- 是否关注公众号-->
+		<div class="gzhtc">
+			<div class="gzhtc-con">
+
+				<div class="gzhtc-con-img"><img src="/benyi/images/1_36.png" alt=""></div>
+				<div class="gzhtc-con-text">
+
+					<p>检测到您尚未关注公众号</p>
+					<p>请长按识别关注公众号后再扫码获取红包</p>
+				</div>
+			</div>
+			<div class="gzhtc-gb">
+				<img src="/benyi/images/5_1.png" alt="">
+			</div>
+		</div>
+
+		<%-include("../../include/loading", {loadingTip: '正在加载中'}) %>
 	</div>
 </body>
 
@@ -191,27 +282,7 @@
 <script src="/benyi/scripts/Func.js"></script>
 <script src="/benyi/scripts/lib/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="/benyi/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
-<script>
+<script src="/benyi/scripts/index.js"></script>
 
-	/* 活动说明弹窗 */
-	// 打开活动说明
-	$('#hdsm').on('click',function(){
-		$('.hdsm').fadeIn()
-	})
-	//关闭活动说明
-	$('.hdsm-qx').on('click',function(){
-		$('.hdsm').fadeOut()
-	})
-
-	/* 签到弹窗 */
-	$('#qiandao').on('click',function(){
-		$('.qdtc').fadeIn()
-	})	
-
-	$('.qdtc-con-btn').on('click',function(){
-		$('.qdtc').fadeOut()
-	})
-
-</script>
 
 </html>
