@@ -2,7 +2,7 @@ var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = test;
+var ip = dev;
 
 
 var dev1 = 'http://192.168.1.20:8095';   //广告测试

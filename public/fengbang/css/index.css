@@ -237,6 +237,9 @@ body {
   color: #ec302f;
   font-size: 18px;
 }
+.container .footer .footer-text2 img {
+  margin: auto;
+}
 .container .hb {
   position: absolute;
   top: 0;

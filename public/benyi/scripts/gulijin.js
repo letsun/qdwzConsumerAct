@@ -130,10 +130,10 @@ $('#list').on('click', '.weilinqu', function () {
         } else {
 
             $('#loadingWrapper').hide();
-            // common.alert({
-            //     content: res.msg,
-            //     mask: true
-            // });
+            common.alert({
+                content: res.msg,
+                mask: true
+            });
         }
     })
 
