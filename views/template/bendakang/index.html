@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<link rel="stylesheet" href="/bendakang/css/style.css" />
+	<title>奔达康电线电缆</title>
+</head>
+<body>
+	<div class="app">
+		<!--加载页-->
+		<div class="loading">
+			<div class="loadCon">
+				<img src="/bendakang/images/loading.png" />
+				<div id="percent">1%</div>
+			</div>
+		</div>
+
+		<div class="container" id="container">
+
+			<div class="content">
+				
+				<!--顶部图片-->
+				<div class="header-img"></div>
+
+				<!--产品信息-->
+				<div class="infor">
+					<div class="infor-title">
+						<div class="title-border"></div>
+						<div class="title-val">产品信息</div>
+					</div>
+
+					<div class="infor-list" id="companyInfor"></div>
+				</div>
+
+
+				<!--溯源信息-->
+				<div class="infor">
+					<div class="infor-title">
+						<div class="title-border"></div>
+						<div class="title-val">溯源信息</div>
+					</div>
+
+					<div class="infor-list">
+						<div class="infor-item">
+							<div class="infor-key infor-key-other">制&nbsp;造&nbsp;&nbsp;商：</div>
+							<div class="infor-val" id="accountsType"></div>
+						</div>
+						<div class="infor-item">
+							<div class="infor-key infor-key-other">出厂时间：</div>
+							<div class="infor-val" id="createDate"></div>
+						</div>
+						<div class="infor-item">
+							<div class="infor-key infor-key-other">销售区域：</div>
+							<div class="infor-val" id="receiveArea"></div>
+						</div>
+						<div class="infor-item">
+							<div class="infor-key infor-key-other">经&nbsp;销&nbsp;&nbsp;商：</div>
+							<div class="infor-val" id="receiveName"></div>
+						</div>
+						<div class="infor-item">
+							<div class="infor-key infor-key-other">收货地址：</div>
+							<div class="infor-val" id="receiveAddress"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<!--防伪信息-->
+				<div class="infor">
+					<div class="infor-title">
+						<div class="title-border"></div>
+						<div class="title-val">防伪信息</div>
+					</div>
+
+					<div class="infor-list">
+						<div class="infor-item">
+							<div class="infor-key scan-key">该码已被扫<span class="scan-num"></span>次</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="tip">立信创源提供技术支持</div>
+		</div>
+	</div>
+
+	<%-include('../../include/commonJs') %>
+	<%-include("../../include/hideMenu") %>
+	<!-- 公共js start -->
+	<script src="/common/scripts/Func.js"></script>
+	<script src="/bendakang/scripts/api.js"></script>
+	<script src="/bendakang/scripts/lib/jweixin-1.0.0.js"></script>
+	<script>
+
+        $(function() {
+            /*// 页面禁止滑动
+            $('#container').on("touchmove", function (e) {
+                e.preventDefault();
+            });*/
+
+            /**加载进度*/
+            common.loading($("#percent"), function(){
+                $('.loading').hide();
+                $('#container').fadeIn(function () {
+                    securityFunc();
+                });
+            });
+
+        });
+
+        findScanNum();
+
+        // 防伪查询
+        function securityFunc() {
+            $.ajax({
+                url: api.findRealEncodeFunction,
+                type: 'GET',
+                headers: getHeader(),
+                success: function(res) {
+                    if (res.code === 200) {
+                        var data = res.data;
+                        var img = '<img src="' + data.productRecord.changeImgUrl[0] + '">';
+                        $('.header-img').html(img);
+                        if (data.originRecord.length > 0) {
+                            $('#accountsType').html(data.originRecord[0].accountsType);
+                            $('#createDate').html(data.originRecord[0].createDate);
+                            $('#receiveArea').html(data.originRecord[0].receiveArea);
+                            $('#receiveName').html(data.originRecord[0].receiveName);
+                            $('#receiveAddress').html(data.originRecord[0].receiveAddress);
+						}
+
+                        var html = '';
+                        for (var i in data.productRecord.productJson) {
+                            html += '<div class="infor-item">';
+                            html += '<div class="infor-key"> ' + i + '：</div>';
+                            html += '<div class="infor-val"> '+ data.productRecord.productJson[i] + '</div>';
+                            html += '</div>';
+						}
+
+						$('#companyInfor').html(html);
+
+                    } else {
+                        common.alert({
+                            mask:true,
+                            content:res.msg
+                        })
+                    }
+                },
+                error:function (res) {
+                    common.alert({
+                        mask:true,
+                        content:res.msg
+                    })
+                }
+
+            });
+        }
+
+        // 扫码次数查询
+        function findScanNum () {
+            $.ajax({
+                url: api.findScanNum,
+                headers: getHeader(),
+                success: function(res) {
+                    if (res.code === 200) {
+						$('.scan-num').html(res.data.scanNum);
+                    } else {
+                        common.alert({
+                            mask:true,
+                            content:res.msg
+                        })
+					}
+                },
+                error:function (res) {
+                    common.alert({
+                        mask:true,
+                        content:res.msg
+                    })
+                }
+            });
+        }
+	</script>
+</body>
+</html>
