@@ -1,3 +1,4 @@
+
 var Func = {};
 
 $(function () {
@@ -8,7 +9,6 @@ $(function () {
 	 * @return null
 	 */
 	Func.findEncodeFunction = function (callback) {
-
 		$('#loadingWrapper').show();
 
 		$.ajax({
@@ -608,7 +608,10 @@ $(function () {
 			dataType: 'json',
 			success: function (res) {
 				callback(res);
-			}
+			},
+			// error:function (res) {
+			// 	alert('111:' + res.msg + res.code);
+			// }
 		});
 	}
 

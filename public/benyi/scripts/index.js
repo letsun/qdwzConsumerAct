@@ -48,11 +48,10 @@ $(function () {
 
         }
 
-
         // 打开页面显示数据
         Func.queryUserInfo(function (res) {
-
             if (res.code == 200) {
+                $('#loadingWrapper').hide();
                 var continuitySignInNum = res.data.continuitySignInNum; //连续签到天数
                 var todayIsSign = res.data.todayIsSign  //1已签到 0未签到
                 var canJoinActNum = res.data.canJoinActNum //抽奖次数 0不可抽奖
@@ -63,7 +62,7 @@ $(function () {
 
                 var nickname = res.data.nickname  //微信昵称
                 var headimgurl = res.data.headimgurl  //微信头像
-
+                // alert(headimgurl);
 
                 var queryUserInfo;
                 window.localStorage.setItem('queryUserInfo', JSON.stringify(res.data))
@@ -129,9 +128,9 @@ $(function () {
 
 
                 //积分兑换参与活动次数
-                if (balanceScore >= totalScoreNum && valiCount == 1) {
 
-
+                //if (balanceScore >= totalScoreNum && valiCount == 1) {
+                if (balanceScore >= totalScoreNum) {
                     Func.scoreExchangeAct(function (res) {
                         if (res.code == 200) {
                             var canJoinActNum = res.data.canJoinActNum //剩余次数
@@ -146,14 +145,13 @@ $(function () {
                     })
                 }
 
-                $('#loadingWrapper').hide();
-            } else {
 
+
+            } else {
+                // alert('2222:' + res.msg + res.code)
                 $('#loadingWrapper').hide();
 
             }
-
-
 
         })
 
@@ -395,8 +393,8 @@ $(function () {
 
         //是否关注公众号
         Func.isSubscribe(function (res) {
-            if (!res.code === 200) {
-                if (res.data.subscribe) { //res1.data.subscribe 未关注
+            if (res.code === 200) {
+                if (!res.data.subscribe) { //res1.data.subscribe 未关注
                     $('.gzhtc').show()
 
                 } else {
@@ -424,7 +422,7 @@ $(function () {
 
                 $('#loadingWrapper').hide();
                 common.alert({
-                    content: res1.msg,
+                    content: res.msg,
                     mask: true
                 });
             }
@@ -433,15 +431,6 @@ $(function () {
 
 
     })
-
-
-
-
-
-
-
-
-
 
 
 
@@ -462,28 +451,35 @@ $(function () {
                 $('.scoreNum').text(scoreNum)
 
                 if (continuitySignInNum == 1) {
-                    $('.qd-ts-y1').show()
+                    $('.qd-ts-y').hide()
+                    $('.qd-ts-y1').show()                   
                 }
                 if (continuitySignInNum == 2) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2').show()
                 }
 
                 if (continuitySignInNum == 3) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3').show()
                 }
 
                 if (continuitySignInNum == 4) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3').show()
                 }
 
 
                 if (continuitySignInNum == 5) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4').show()
                 }
                 if (continuitySignInNum == 6) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4,.qd-ts-y5').show()
                 }
                 if (continuitySignInNum == 7) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4,.qd-ts-y5').show()
                 }
                 $('.qdtc').fadeIn()
@@ -575,6 +571,10 @@ $(function () {
 
                 $('#loadingWrapper').hide();
             } else {
+                common.alert({
+                    mask:true,
+                    content: res.msg,       
+                })
                 $('#loadingWrapper').hide();
             }
 

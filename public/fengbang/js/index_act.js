@@ -57,15 +57,15 @@ $(function () {
 
 	// 点击开启红包
 	$('#hbbtn').on('click', function () {
+		$('#loadingWrapper').show();
 		Func.isSubscribe(function (res) {
 			if (res.code == 200) {
 				if (!res.data.subscribe) { //!res1.data.subscribe 未关注
+					$('#loadingWrapper').hide();
 					$('.gzh').show()
 				} else {
 					Func.findActivityByEncode(function (res) {
-						$('#loadingWrapper').hide();
 						if (res.code == 200 || res.code == 201) {
-							$('#loadingWrapper').show();
 							Func.lottery(function (red) {
 								$('#loadingWrapper').hide();
 								if (red.code == 200) {
@@ -89,10 +89,12 @@ $(function () {
 							});
 
 						} else if (res.code == 203) {
+							$('#loadingWrapper').hide();
 							$('.hb-con').hide();
 							$('.hb-con3').show();
 							$('#hb').fadeIn();
 						} else {
+							$('#loadingWrapper').hide();
 							common.alert({
 								mask: true,
 								content: res.msg
@@ -100,13 +102,10 @@ $(function () {
 						}
 					});
 				}
-				$('#loadingWrapper').hide();
 			} else {
 				$('#loadingWrapper').hide();
 			}
 		})
-
-
 	})
 
 
@@ -127,14 +126,14 @@ $(function () {
 					Func.receiveLottery({
 						lotteryRecordId: lotteryRecordId
 					}, function (red) {
-						if(red.code==200){
+						if (red.code == 200) {
 							$('.hb-con1').hide()
 							$('.hb-con5').show()
 							$('#loadingWrapper').hide();
-						}else{
+						} else {
 							$('#loadingWrapper').hide();
 						}
-						
+
 					})
 				} else {
 					$('.hb-con4').show()
@@ -148,17 +147,31 @@ $(function () {
 	})
 
 
+
+	
 	//获取验证码
 	$('.cont-inp-btn').on('click', function () {
+		var pattern = /^1[34578]\d{9}$/;
 		var mobile = $('#phone').val()
 		var self = $(this);
-		if(mobile==''){
+		if (mobile == ''||mobile==null) {
 			common.alert({
-				mask:true,
-				content:'手机号不能为空'
+				mask: true,
+				content: '手机号不能为空'
 			})
+			return false;
 		}
 		
+		if(!pattern.test(mobile)) {
+			common.alert({
+				mask: true,
+				content: '手机号格式不正确'
+			})
+			return false;
+		}
+
+
+
 		Func.getVerCode({
 			mobile: mobile
 		}, function (res) {
@@ -178,44 +191,55 @@ $(function () {
 	})
 
 	//绑定手机号码
-	$('#btnphone').on('click',function(){
+	$('#btnphone').on('click', function () {
 		$('#loadingWrapper').hide();
 		var mobile = $('#phone').val()
 		var verCode = $('#verCode').val()
-
-		if(mobile==''){
+		var pattern = /^1[34578]\d{9}$/;
+		if (mobile == ''|| mobile==null) {
 			common.alert({
-				mask:true,
-				content:'手机号不能为空'
+				mask: true,
+				content: '手机号不能为空'
 			})
+			return false
 		}
-		if(verCode==''){
+		if (verCode == ''|| verCode==null) {
 			common.alert({
-				mask:true,
-				content:'验证码不能为空'
+				mask: true,
+				content: '验证码不能为空'
 			})
+
+			return false
+		}
+
+		if (!pattern.test(mobile)) {
+			common.alert({
+				mask: true,
+				content: '手机号格式不正确'
+			})
+			return false;
 		}
 
 		Func.bindingUserInfoMobile({
-			mobile:mobile,
-			verCode:verCode
-		},function(res){
-			if(res.code==200){
+			mobile: mobile,
+			verCode: verCode
+		}, function (res) {
+			if (res.code == 200) {
 				Func.receiveLottery({
 					lotteryRecordId: lotteryRecordId
 				}, function (res) {
-					if(res.code==200){
+					if (res.code == 200) {
 						$('.hb-con').hide();
 						$('.hb-con5').show()
 						$('#loadingWrapper').hide();
-					}else{
+					} else {
 						$('#loadingWrapper').hide();
 					}
-					
+
 				})
-			}else{
+			} else {
 				common.alert({
-					content:res.msg,
+					content: res.msg,
 					mask: true
 				});
 				$('#loadingWrapper').hide();
