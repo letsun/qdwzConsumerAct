@@ -367,7 +367,7 @@ $(function () {
                             $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
 
                             $('.wlq').on('click', function () {
-                                window.location.href = voucherLink
+                                window.location.href = voucherLink;
                             })
                         }
 
@@ -727,7 +727,7 @@ $(function () {
 	 */
 
 
-    var doc = $(document);
+    var doc = $('#container');
     doc.on('click', '.itemclick', function () {
         advId = $(this).find('img').attr('data-advId')
         var datahref = $(this).find('img').attr('data-href')
