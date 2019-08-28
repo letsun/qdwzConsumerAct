@@ -131,7 +131,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  bottom: 80px;
+  bottom: 0;
   z-index: 1;
   width: 100%;
   overflow-y: scroll;
@@ -200,11 +200,8 @@ body {
   color: #999;
 }
 .container .tip {
-  position: absolute;
-  left: 0;
-  bottom: 20px;
-  z-index: 10;
   width: 100%;
+  padding: 30px 0;
   text-align: center;
   font-size: 28px;
   color: #000;

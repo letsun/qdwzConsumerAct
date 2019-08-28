@@ -1,4 +1,4 @@
-// var ip2 = 'http://192.168.1.20:8095/adv';
+/*var ip2 = 'http://192.168.1.20:8095/adv';*/
 var ip2 = 'https://advp-api.lxcyhd.com/adv';
 var adVApi = {
     advertisement: ip2 + '/platAdv/getAdvByAdvPositionName1', 					// 获取广告图
@@ -13,17 +13,19 @@ $(function () {
             // 活动页面广告
             getAdvByAdvPositionName(productName,function (red) {
                 var href = red.data[0].linkUrl;
-                browseRecord(function () {
-                    window.location.href = href;
+                browseRecord(0,red.data[0].advId,function () {
+                    browseRecord(1,red.data[0].advId,function () {
+                        window.location.href = href;
+                    });
                 });
             });
         } else {
-            /*$('.tip-text').html(res.msg);
-            $('#tips-win').show();*/
             getAdvByAdvPositionName('二次进入广告位',function (red) {
                 var href = red.data[0].linkUrl;
-                browseRecord(function () {
-                    window.location.href = href;
+                browseRecord(0,red.data[0].advId,function () {
+                    browseRecord(1,red.data[0].advId,function () {
+                        window.location.href = href;
+                    });
                 });
             });
         }
@@ -31,14 +33,33 @@ $(function () {
 });
 
 
-function browseRecord(callback) {
+function pageRecord(callback) {
     $.ajax({
         url: adVApi.pageRecord,
         type: 'GET',
         data: {
             city: '',
             district: '',
-            province: ''
+            province: '',
+        },
+        headers: getHeader(),
+        dataType: 'json',
+        success: function(res) {
+            callback();
+        }
+    });
+}
+
+function browseRecord(type,advId,callback) {
+    $.ajax({
+        url: adVApi.browseRecord,
+        type: 'GET',
+        data: {
+            operationType: type,
+            city: '',
+            district: '',
+            province: '',
+            advId: advId,
         },
         headers: getHeader(),
         dataType: 'json',

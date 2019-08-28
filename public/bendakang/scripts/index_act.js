@@ -69,7 +69,7 @@ $(function() {
                     $('#loadingWrapper').hide();
                 } else if (res.code === 203) {
                     $('#loadingWrapper').hide();
-                    $('.result-title').html('很遗憾');
+                    $('.result-title').html('重要提示');
                     $('.dec').hide();
                     $('.dec5').show();
                     findScanNum(function (req) {
@@ -137,7 +137,7 @@ function createJoinActInfo(callback) {
                 callback(res);
             } else if (res.code === 201 || res.code === 202) {
                 $('#loadingWrapper').hide();
-                $('.result-title').html('很遗憾');
+                $('.result-title').html('重要提示');
                 $('.dec').hide();
                 $('.dec5').show();
                 findScanNum(function (req) {
@@ -145,7 +145,7 @@ function createJoinActInfo(callback) {
                     $('.result-win').fadeIn();
                 });
             } else {
-                $('.result-title').html('很遗憾');
+                $('.result-title').html('重要提示');
                 $('.dec').hide();
                 $('.dec5').show().find('.dec-text').html('活动未开启');
                 $('.result-win').fadeIn();
@@ -153,7 +153,7 @@ function createJoinActInfo(callback) {
         },
         error:function (res) {
             $('#loadingWrapper').hide();
-            $('.result-title').html('很遗憾');
+            $('.result-title').html('重要提示');
             $('.dec').hide();
             $('.dec5').show().find('.dec-text').html('活动未开启');
             $('.result-win').fadeIn();
@@ -175,14 +175,14 @@ function securityFunc(callback) {
                 if (data.originRecord.length > 0) {
                    callback(res)
                 } else {
-                    $('.result-title').html('很遗憾');
+                    $('.result-title').html('重要提示');
                     $('.dec').hide();
                     $('.dec5').show().find('.dec-text').html('活动未开启');
                     $('.result-win').fadeIn();
                 }
 
             } else {
-                $('.result-title').html('很遗憾');
+                $('.result-title').html('重要提示');
                 $('.dec').hide();
                 $('.dec5').show().find('.dec-text').html('活动未开启');
                 $('.result-win').fadeIn();
@@ -190,7 +190,7 @@ function securityFunc(callback) {
         },
         error:function (res) {
             $('#loadingWrapper').hide();
-            $('.result-title').html('很遗憾');
+            $('.result-title').html('重要提示');
             $('.dec').hide();
             $('.dec5').show().find('.dec-text').html('活动未开启');
             $('.result-win').fadeIn();
