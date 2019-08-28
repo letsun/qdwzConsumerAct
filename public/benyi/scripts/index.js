@@ -10,6 +10,9 @@ var security;//是否防伪
 
 var advId;//广告id
 
+
+var lotteryId; //奖品id
+
 $(function () {
 
     //防伪查询
@@ -48,11 +51,10 @@ $(function () {
 
         }
 
-
         // 打开页面显示数据
         Func.queryUserInfo(function (res) {
-
             if (res.code == 200) {
+                $('#loadingWrapper').hide();
                 var continuitySignInNum = res.data.continuitySignInNum; //连续签到天数
                 var todayIsSign = res.data.todayIsSign  //1已签到 0未签到
                 var canJoinActNum = res.data.canJoinActNum //抽奖次数 0不可抽奖
@@ -63,7 +65,7 @@ $(function () {
 
                 var nickname = res.data.nickname  //微信昵称
                 var headimgurl = res.data.headimgurl  //微信头像
-
+                // alert(headimgurl);
 
                 var queryUserInfo;
                 window.localStorage.setItem('queryUserInfo', JSON.stringify(res.data))
@@ -105,6 +107,9 @@ $(function () {
 
                 if (continuitySignInNum == 4) {
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3').show()
+
+                    $('.qd-ts-bx1').attr('src','/benyi/images/1_41.png')
+
                 }
 
 
@@ -119,6 +124,7 @@ $(function () {
 
                 if (continuitySignInNum == 7) {
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4,.qd-ts-y5').show()
+                    $('.qd-ts-bx2').attr('src','/benyi/images/1_41.png')
                 }
 
                 if (todayIsSign == 1) {
@@ -129,9 +135,9 @@ $(function () {
 
 
                 //积分兑换参与活动次数
-                if (balanceScore >= totalScoreNum && valiCount == 1) {
 
-
+                //if (balanceScore >= totalScoreNum && valiCount == 1) {
+                if (balanceScore >= totalScoreNum) {
                     Func.scoreExchangeAct(function (res) {
                         if (res.code == 200) {
                             var canJoinActNum = res.data.canJoinActNum //剩余次数
@@ -146,14 +152,13 @@ $(function () {
                     })
                 }
 
-                $('#loadingWrapper').hide();
-            } else {
 
+
+            } else {
+                // alert('2222:' + res.msg + res.code)
                 $('#loadingWrapper').hide();
 
             }
-
-
 
         })
 
@@ -179,11 +184,13 @@ $(function () {
 
                     if (res.code == 200) {
 
-                        $('.banner').css('padding-top', '160px')
+                        
                         //扫码进入页面抽奖   
                         Func.lottery(function (res) {
+                            
                             var type = res.data.type //中奖类型
                             if (type == 0) {
+                                $('.banner').css('padding-top', '160px')
                                 var prizeAmount = res.data.redPack.prizeAmount //红包金额
                                 var prizeName = res.data.redPack.prizeName  //红包
                                 status = res.data.redPack
@@ -202,6 +209,7 @@ $(function () {
                                 $('.jx1').html(prizeAmount + '元' + prizeName)
                             }
                             if (type == 1) {
+                                $('.banner').css('padding-top', '160px')
                                 var couponName = res.data.couponGrants[0].couponName //优惠券名称
                                 var couponCode = res.data.couponGrants[0].couponCode //优惠券码
                                 var beginTime = res.data.couponGrants[0].beginTime //有效时间
@@ -225,6 +233,7 @@ $(function () {
                             }
 
                             if (type == 2) {
+                                $('.banner').css('padding-top', '160px')
                                 var prizeName = res.data.materialObj.prizeName   //实物名称
                                 status = res.data.materialObj.status
 
@@ -243,6 +252,7 @@ $(function () {
                             }
 
                             if (type == 3) {
+                                $('.banner').css('padding-top', '160px')
                                 var point = res.data.point.point //积分数
                                 var prizeName = res.data.point.prizeName  ///奖励名称  
                                 status = res.data.point.status
@@ -357,7 +367,7 @@ $(function () {
                             $('.jiangxiang').html('<img src="' + advOrigin + '" alt="">')
 
                             $('.wlq').on('click', function () {
-                                window.location.href = voucherLink
+                                window.location.href = voucherLink;
                             })
                         }
 
@@ -395,8 +405,8 @@ $(function () {
 
         //是否关注公众号
         Func.isSubscribe(function (res) {
-            if (!res.code === 200) {
-                if (res.data.subscribe) { //res1.data.subscribe 未关注
+            if (res.code === 200) {
+                if (!res.data.subscribe) { //res1.data.subscribe 未关注
                     $('.gzhtc').show()
 
                 } else {
@@ -424,7 +434,7 @@ $(function () {
 
                 $('#loadingWrapper').hide();
                 common.alert({
-                    content: res1.msg,
+                    content: res.msg,
                     mask: true
                 });
             }
@@ -433,15 +443,6 @@ $(function () {
 
 
     })
-
-
-
-
-
-
-
-
-
 
 
 
@@ -461,29 +462,41 @@ $(function () {
                 $('.continuitySignInNum').text(continuitySignInNum)
                 $('.scoreNum').text(scoreNum)
 
+                $('.qd-ts-bx1').attr('src','/benyi/images/1_28.png')
+                $('.qd-ts-bx2').attr('src','/benyi/images/1_28.png')
                 if (continuitySignInNum == 1) {
-                    $('.qd-ts-y1').show()
+                    
+                    $('.qd-ts-y').hide()
+                    $('.qd-ts-y1').show()                   
                 }
                 if (continuitySignInNum == 2) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2').show()
                 }
 
                 if (continuitySignInNum == 3) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3').show()
                 }
 
                 if (continuitySignInNum == 4) {
+                    $('.qd-ts-y').hide()
+                    $('.qd-ts-bx1').attr('src','/benyi/images/1_41.png')
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3').show()
                 }
 
 
                 if (continuitySignInNum == 5) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4').show()
                 }
                 if (continuitySignInNum == 6) {
+                    $('.qd-ts-y').hide()
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4,.qd-ts-y5').show()
                 }
                 if (continuitySignInNum == 7) {
+                    $('.qd-ts-y').hide()
+                    $('.qd-ts-bx2').attr('src','/benyi/images/1_41.png')
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4,.qd-ts-y5').show()
                 }
                 $('.qdtc').fadeIn()
@@ -524,62 +537,115 @@ $(function () {
         })
     })
 
+    
+
 
 
     //点击参与活动抽奖接口
 
     $('.joinAct').on('click', function () {
 
+        var  canJoinActNum= $('.canJoinActNum').text()
 
-        Func.joinAct(function (res) {
-            if (res.code == 200) {
-                $('.lqlp').fadeIn()
-
-                var type = res.data.type //中奖类型
-                var balanceScore = res.data.balanceScore  //用户积分余额
-                var canJoinActNum = res.data.canJoinActNum //剩余次数
-                var prizeName = res.data.prizeName  ///奖励名称
-
-
-
-                $('.canJoinActNum').text(canJoinActNum)
-                $('.balanceScore').text(balanceScore)
-
-                if (type == 0) {
-                    var prizeAmount = res.data.redPack.prizeAmount //红包金额
-                    var prizeName = res.data.redPack.prizeName  //红包
-
-                    $('.text1').html(prizeAmount + '元' + prizeName)
+        if (canJoinActNum>0){
+            Func.joinAct(function (res) {
+                if (res.code == 200) {
+                    $('.lqlp').fadeIn()
+    
+                    var type = res.data.type //中奖类型
+                    var balanceScore = res.data.balanceScore  //用户积分余额
+                    var canJoinActNum = res.data.canJoinActNum //剩余次数
+                    var prizeName = res.data.prizeName  ///奖励名称
+                    
+                    lotteryId = res.data.lotteryId //奖品id
+    
+                    $('.canJoinActNum').text(canJoinActNum)
+                    $('.balanceScore').text(balanceScore)
+    
+                    if (type == 0) {
+                        var prizeAmount = res.data.redPack.prizeAmount //红包金额
+                        var prizeName = res.data.redPack.prizeName  //红包
+    
+                        $('.text1').html(prizeAmount + '元' + prizeName)
+                    }
+                    if (type == 1) {
+                        var couponName = res.data.couponGrants[0].couponName //优惠券名称
+                        var couponCode = res.data.couponGrants[0].couponCode //优惠券码
+                        var beginTime = res.data.couponGrants[0].beginTime //有效时间
+    
+                        $('.text1').html(couponName)
+                        $('.text2').html("兑换码" + couponCode)
+                        $('.text3').html("有效期至" + beginTime)
+                    }
+    
+                    if (type == 2) {
+                        var prizeName = res.data.materialObj.prizeName   //实物名称
+                        $('.text1').html(prizeName)
+                    }
+    
+                    if (type == 3) {
+                        var point = res.data.point.point //积分数
+                        var prizeName = res.data.point.prizeName  ///奖励名称                    
+                        $('.text1').html(point + prizeName)
+    
+                    }
+    
+                    $('#loadingWrapper').hide();
+                } else {
+                    common.alert({
+                        mask:true,
+                        content: res.msg,       
+                    })
+                    $('#loadingWrapper').hide();
                 }
-                if (type == 1) {
-                    var couponName = res.data.couponGrants[0].couponName //优惠券名称
-                    var couponCode = res.data.couponGrants[0].couponCode //优惠券码
-                    var beginTime = res.data.couponGrants[0].beginTime //有效时间
+    
+            }) 
+        }else{
+            common.alert({
+                mask:true,
+                content: '该用户剩余抽奖次数为0',       
+            })
+        }
 
-                    $('.text1').html(couponName)
-                    $('.text2').html("兑换码" + couponCode)
-                    $('.text3').html("有效期至" + beginTime)
+    })
+
+
+    //点击领取奖励
+
+    $('.lqlp-con-btn').on('click',function(){
+
+        Func.isSubscribe(function (res) {
+            if (res.code === 200) {
+                if (!res.data.subscribe) { //res1.data.subscribe 未关注
+                    $('.lqlp').hide()
+                    $('.gzhtc').show()
+                } else {
+                    //扫码领奖
+                    Func.receiveLottery({
+                        lotteryRecordId: lotteryId,
+                    }, function (res) {
+                        if (res.code == 200) {
+                            $('.lqlp').hide()
+
+                            $('.lqlpcg').fadeIn().delay(500).fadeOut()
+                            $('#loadingWrapper').hide();
+                        } else {
+                            $('#loadingWrapper').hide();
+                        }
+                    })
                 }
-
-                if (type == 2) {
-                    var prizeName = res.data.materialObj.prizeName   //实物名称
-                    $('.text1').html(prizeName)
-                }
-
-                if (type == 3) {
-                    var point = res.data.point.point //积分数
-                    var prizeName = res.data.point.prizeName  ///奖励名称                    
-                    $('.text1').html(point + prizeName)
-
-                }
-
-                $('#loadingWrapper').hide();
             } else {
+    
                 $('#loadingWrapper').hide();
+                common.alert({
+                    content: res.msg,
+                    mask: true
+                });
             }
-
         })
     })
+
+    
 
 
 	/**
@@ -661,7 +727,7 @@ $(function () {
 	 */
 
 
-    var doc = $(document);
+    var doc = $('#container');
     doc.on('click', '.itemclick', function () {
         advId = $(this).find('img').attr('data-advId')
         var datahref = $(this).find('img').attr('data-href')

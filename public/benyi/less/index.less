@@ -720,6 +720,7 @@ body {
   .gzh {
     text-align: center;
     padding-top: 60px;
+    
 
     img {
       margin: auto;
@@ -774,6 +775,7 @@ body {
     left: 0;
     bottom: 0;
     display: none;
+    z-index: 99;
 
     .qdtc-con {
       position: absolute;
@@ -824,6 +826,7 @@ body {
     left: 0;
     bottom: 0;
     display: none;
+    z-index: 99;
 
     .hdsm-con {
       position: absolute;
@@ -853,6 +856,7 @@ body {
     left: 0;
     bottom: 0;
     display: none;
+    z-index: 99;
 
     .lqlp-con {
       position: absolute;
@@ -893,16 +897,76 @@ body {
 
       }
 
+      
+    .lqlp-con-btn {
+      display: block;
+      background: url('../images/4_2.png') no-repeat;
+      font-size: 30px;
+      font-weight: bolder;
+      height: 70px;
+      width: 400px;
+
+      line-height: 70px;
+      margin: 0 auto;
+      text-align: center;
+      color: #eee;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
+
+    }
+
 
     .lqlp-gb {
       position: absolute;
-      top: 70%;
+      top: 74%;
       left: 50%;
       transform: translate(-50%,-50%);
     }
   }
 
+
+  .lqlpcg {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+
+    .lqlpcg-con {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: url('../images/6_1.png');
+      background-size: 100% 100%;
+      height: 370px;
+      width: 455px;
+
+      .lqlpcg-con-header {
+        color: #eee;
+        position: absolute;
+        top: 35px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      .lqlpcg-con-bottom{
+        color: #333;
+        font-size: 28px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 35px;
+        text-align: center;
+      }
+
+    }
+  }
 
   .gzhtc{
     position: fixed;
@@ -912,6 +976,7 @@ body {
     left: 0;
     bottom: 0;
     display: none;
+    z-index: 99;
 
     .gzhtc-con {
       position: absolute;
