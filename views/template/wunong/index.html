@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/wunong/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="/wunong/css/swiper-3.3.1.min.css" />
+</head>
+
+<body>
+
+	<!--加载页-->
+	<!-- 		<div class="loading">
+			<div class="loadCon">
+				<img src="/ieBao/images/loading.png">
+				<div id="percent">1%</div>
+			</div>
+		</div> -->
+
+
+	<div class="container">
+		<!-- banner -->
+		<div class="banner">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="/wunong/images/1_1.png">
+					</div>
+					<div class="swiper-slide">
+						<img src="/wunong/images/1_2.png">
+					</div>
+					<div class="swiper-slide">
+						<img src="/wunong/images/1_3.png">
+					</div>
+					<div class="swiper-slide">
+						<img src="/wunong/images/1_4.png">
+					</div>
+				</div>
+
+				<!-- 					<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div> -->
+				<div class="swiper-pagination"></div>
+			</div>
+
+			<img class="banner-img" src="/wunong/images/1_5.png">
+		</div>
+
+		<!-- 产品介绍 -->
+		<div class="introduction">
+			<div class="introduction-title"><span class="introduction-title-text">产品介绍</span><span
+					class="introduction-title-span"></span></div>
+			<div class="introduction-con">洋县黑米</div>
+			<img class="introduction-img" src="/wunong/images/1_6.png">
+
+		</div>
+
+		<!-- 产品视频 -->
+		<div class="produtvideo">
+			<div class="produtvideo-title"><span class="produtvideo-title-text">产品视频</span><span
+					class="produtvideo-title-span"></span></div>
+
+			<div class="produtvideo-video">
+				<video width="600" height="300" autoplay="autoplay" controls="controls">
+					<source src="" type="">
+				</video>
+			</div>
+
+			<img class="produtvideo-img" src="/wunong/images/1_6.png">
+		</div>
+
+		<!-- 营养成分 -->
+		<div class="nutrition">
+			<div class="nutrition-title"><span class="nutrition-title-text">营养成分</span><span
+					class="nutrition-title-span"></span></div>
+			<div class="nutrition-con">
+				<div class="nutrition-con-item">
+
+
+					<div class="item-text">项目</div>
+					<div class="item-text">每100克(g)</div>
+					<div class="item-text">NRV%</div>
+
+				</div>
+
+			</div>
+			<img class="nutrition-img" src="/wunong/images/1_6.png">
+		</div>
+
+		<!-- 产品详情 -->
+		<div class="detail">
+			<div class="detail-title"><span class="detail-title-text">产品详情</span><span class="detail-title-span"></span>
+			</div>
+			<div class="detail-con">
+				<div class="detail-con-item">
+					<div class="detail-con-item-left">生产许可证</div>
+					<div class="detail-con-item-right">爱的方法对方答复</div>
+				</div>
+
+			</div>
+			<img class="detail-img" src="/wunong/images/1_6.png">
+		</div>
+
+
+		<!-- 食用方法 -->
+		<div class="edible">
+			<div class="edible-title"><span class="edible-title-text">食用方法</span><span class="edible-title-span"></span>
+			</div>
+			<div class="edible-con">
+
+				<div class="edible-con-item">
+						<img class="edible-con-item-img"  src="/wunong/images/1_1.png">
+						<h1>黑米米饭</h1>
+						<div class="edible-con-item-text">1将黑米洗净</div>
+						<div class="edible-con-item-text">2米与水</div>
+						<div class="edible-con-item-text">3按下煮</div>
+				</div>
+			</div>
+			<img class="edible-img" src="/wunong/images/1_6.png">
+		</div>
+	</div>
+</body>
+
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/wunong/scripts/api.js"></script>
+<script src="/wunong/scripts/Func.js"></script>
+<script src="/wunong/scripts/lib/jweixin-1.0.0.js"></script>
+<script src="/wunong/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+
+<script>
+	// 		$(function() {
+	// 			/**加载进度*/
+	// 			debugger
+	// 			common.loading($("#percent"), function() {
+	// 				$('.loading').hide();
+	// 				$('.container').fadeIn();
+	// 			});
+	// 
+	// 		})
+
+
+	// var html = '';
+	// $.ajax({
+	// 	url: api.findEncodeFunction,
+	// 	type: 'GET',
+	// 	dataType: 'json',
+	// 	headers: getHeader(),
+	// 	success: function(res) {
+	// 		if (res.code == 200) {
+	// 			data = res.data.productRecord;
+	// 			var jsonPropArr = data.productJson;
+
+	// 			//循环图片
+	// 			var changeImgUrl = data.changeImgUrl;
+	// 			var html2 = '';
+
+	// 			for (var i = 0; i < changeImgUrl.length; i++) {
+	// 				html2 += '<div class="swiper-slide">';
+	// 				html2 += '<img src="' + changeImgUrl[i] + '">';
+	// 				html2 += '</div>';
+	// 			}
+
+	// 			$('.swiper-wrapper').html(html2);
+	var swiper = new Swiper('.swiper-container', {
+		loop: true,
+		// autoplay: 2500,
+		// disableOnInteraction: false,
+		autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播
+		pagination: '.swiper-pagination',
+	});
+
+
+		// 			//循环字体					
+		// 			for (key in jsonPropArr) {
+		// 				html += '<div class="content-item">';
+		// 				html += '<div class="infor-key">' + key + '：</div>';
+
+		// 				html += '<div class="infor-val" id="place">' + jsonPropArr[key] + '</div>';
+		// 				html += '</div>';
+		// 			}
+		// 			$('.content').append(html);
+
+
+		// 		} else {
+		// 			common.alert({
+		// 				mask: true,
+		// 				content: res.msg
+		// 			})
+		// 		}
+		// 	},
+		// 	error: function(res) {
+		// 		common.alert({
+		// 			mask: true,
+		// 			content: res.msg
+		// 		})
+		// 	}
+		// });
+</script>
+
+</html>

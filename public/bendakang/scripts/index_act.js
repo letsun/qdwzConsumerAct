@@ -24,6 +24,8 @@ $(function() {
                             userCash(prizeAmount,lotteryId);
                         } else if (reg.code == 201) {
                             $('.result-title').html('很遗憾未中奖!');
+                            $('.name').html(reg.msg)
+                            $('.result-confirm img ').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_8.png');
                             $('.dec').hide();
                             $('.dec4').show();
                         }
@@ -65,11 +67,16 @@ $(function() {
     securityFunc(function (red) {
         createJoinActInfo(function (rep) {
             Func.findActivityByEncode(function (res) {
+                
                 if (res.code === 200 || res.code === 201) {
+    
                     $('#loadingWrapper').hide();
                 } else if (res.code === 203) {
                     $('#loadingWrapper').hide();
                     $('.result-title').html('重要提示');
+                    
+                    
+                    $('.result-confirm img ').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_8.png');
                     $('.dec').hide();
                     $('.dec5').show();
                     findScanNum(function (req) {
@@ -139,6 +146,7 @@ function createJoinActInfo(callback) {
                 $('#loadingWrapper').hide();
                 $('.result-title').html('重要提示');
                 $('.dec').hide();
+                $('.result-confirm img ').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_8.png');
                 $('.dec5').show();
                 findScanNum(function (req) {
                     $('.scan-num').html(req.data.scanNum);
@@ -147,6 +155,7 @@ function createJoinActInfo(callback) {
             } else {
                 $('.result-title').html('重要提示');
                 $('.dec').hide();
+                $('.result-confirm img ').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_8.png');
                 $('.dec5').show().find('.dec-text').html('活动未开启');
                 $('.result-win').fadeIn();
             }
@@ -155,6 +164,7 @@ function createJoinActInfo(callback) {
             $('#loadingWrapper').hide();
             $('.result-title').html('重要提示');
             $('.dec').hide();
+            $('.result-confirm img ').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_8.png');
             $('.dec5').show().find('.dec-text').html('活动未开启');
             $('.result-win').fadeIn();
         }
