@@ -153,6 +153,7 @@ var timer = [];
      * @desc 显示页面加载百分比
      * @param ele {Object} 显示百分比的元素
      */
+
     common.loading = function (ele) {
         var loadpicarray;
         var picloaded = 0;

@@ -13,39 +13,35 @@
 <body>
 
 	<!--加载页-->
-	<!-- 		<div class="loading">
-			<div class="loadCon">
-				<img src="/ieBao/images/loading.png">
-				<div id="percent">1%</div>
-			</div>
-		</div> -->
+	<div class="loading">
+		<div class="loadCon">
+			<img src="/wunong/images/loading.png">
+			<div id="percent">1%</div>
+		</div>
+	</div>
 
 
 	<div class="container">
+
+
 		<!-- banner -->
 		<div class="banner">
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<img src="/wunong/images/1_1.png">
+
+			<div class="bannera">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+
 					</div>
-					<div class="swiper-slide">
-						<img src="/wunong/images/1_2.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="/wunong/images/1_3.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="/wunong/images/1_4.png">
-					</div>
+
+					<!-- 					<div class="swiper-button-next"></div>
+										<div class="swiper-button-prev"></div> -->
+					<div class="swiper-pagination"></div>
 				</div>
 
-				<!-- 					<div class="swiper-button-next"></div>
-							<div class="swiper-button-prev"></div> -->
-				<div class="swiper-pagination"></div>
 			</div>
 
-			<img class="banner-img" src="/wunong/images/1_5.png">
+
+			<!-- <img class="banner-img" src="/wunong/images/1_5.png"> -->
 		</div>
 
 		<!-- 产品介绍 -->
@@ -63,10 +59,17 @@
 					class="produtvideo-title-span"></span></div>
 
 			<div class="produtvideo-video">
-				<video width="600" height="300" autoplay="autoplay" controls="controls">
-					<source src="" type="">
+				<!-- <video width="600" height="300" controls="controls" controls="controls" x5-playsinline=""
+					playsinline="true" webkit-playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5"
+					x5-video-player-fullscreen="" x5-video-orientation="portraint"> -->
+				<video width="600" height="300" controls="controls" x5-playsinline="true">
 				</video>
+				<img class="produtvideo-video-img" src="/wunong/images/1_10.png">
 			</div>
+
+
+
+
 
 			<img class="produtvideo-img" src="/wunong/images/1_6.png">
 		</div>
@@ -77,14 +80,10 @@
 					class="nutrition-title-span"></span></div>
 			<div class="nutrition-con">
 				<div class="nutrition-con-item">
-
-
 					<div class="item-text">项目</div>
 					<div class="item-text">每100克(g)</div>
 					<div class="item-text">NRV%</div>
-
 				</div>
-
 			</div>
 			<img class="nutrition-img" src="/wunong/images/1_6.png">
 		</div>
@@ -111,16 +110,24 @@
 			<div class="edible-con">
 
 				<div class="edible-con-item">
-						<img class="edible-con-item-img"  src="/wunong/images/1_1.png">
-						<h1>黑米米饭</h1>
-						<div class="edible-con-item-text">1将黑米洗净</div>
-						<div class="edible-con-item-text">2米与水</div>
-						<div class="edible-con-item-text">3按下煮</div>
+					<img class="edible-con-item-img" src="/wunong/images/1_1.png">
+					<h1>黑米米饭</h1>
+					<div class="edible-con-item-text">1将黑米洗净</div>
+					<div class="edible-con-item-text">2米与水</div>
+					<div class="edible-con-item-text">3按下煮</div>
 				</div>
 			</div>
 			<img class="edible-img" src="/wunong/images/1_6.png">
 		</div>
+
+		<%-include("../../include/loading", {loadingTip: '正在加载中'}) %>
 	</div>
+
+	<!-- 点击进入商城 -->
+	<a href="http://life.wnw108.com/customer#/shopHome" class="onhref">
+
+		<img src="/wunong/images/1_8.png">
+	</a>
 </body>
 
 <!-- 公共js start -->
@@ -130,77 +137,118 @@
 
 <script src="/wunong/scripts/api.js"></script>
 <script src="/wunong/scripts/Func.js"></script>
+<!-- <script src="/wunong/scripts/lib/common.js"></script> -->
 <script src="/wunong/scripts/lib/jweixin-1.0.0.js"></script>
 <script src="/wunong/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
 
 <script>
-	// 		$(function() {
-	// 			/**加载进度*/
-	// 			debugger
-	// 			common.loading($("#percent"), function() {
-	// 				$('.loading').hide();
-	// 				$('.container').fadeIn();
-	// 			});
-	// 
-	// 		})
+	$(function () {
+		/**加载进度*/
+
+		common.loading($("#percent"), function () {
+
+			$.ajax({
+				url: api.findEncodeFunction,
+				type: 'GET',
+				dataType: 'json',
+				headers: getHeader(),
+				success: function (res) {
+
+					if (res.code == 200) {
+						$('#loadingWrapper').hide();
+
+						var productName = res.data.productName; //标题
+						$('title').html(productName)
+
+						//循环图片
+						var productImagesUrl = res.data.productImagesUrl;
+						var html = '';
+
+						for (var i = 0; i < productImagesUrl.length; i++) {
+							html += '<div class="swiper-slide">';
+							html += '<img src="' + productImagesUrl[i] + '">';
+							html += '</div>';
+						}
+
+						$('.swiper-wrapper').html(html);
+						var swiper = new Swiper('.swiper-container', {
+							loop: true,
+							autoplay: 2500,
+							autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播
+							pagination: '.swiper-pagination',
+						});
+
+						var productDesc = res.data.productDesc //产品介绍
+
+						$('.introduction-con').html(productDesc)
+
+						var productNutritional = res.data.productNutritional; //营养成分
+						var html1 = '';
+						for (var i in productNutritional) {
+							html1 += ' <div class="nutrition-con-item">';
+							html1 += '<div class="item-text">' + productNutritional[i].projectName + '</div>';
+							html1 += '<div class="item-text">' + productNutritional[i].unit + '</div>';
+							html1 += '<div class="item-text">' + productNutritional[i].proportion + '</div>';
+							html1 += '</div>';
+						}
+
+						$('.nutrition-con').html(html1)
 
 
-	// var html = '';
-	// $.ajax({
-	// 	url: api.findEncodeFunction,
-	// 	type: 'GET',
-	// 	dataType: 'json',
-	// 	headers: getHeader(),
-	// 	success: function(res) {
-	// 		if (res.code == 200) {
-	// 			data = res.data.productRecord;
-	// 			var jsonPropArr = data.productJson;
+						var videoUrl = res.data.videoUrl;  //产品视频
+						$("video").attr('src', videoUrl)
 
-	// 			//循环图片
-	// 			var changeImgUrl = data.changeImgUrl;
-	// 			var html2 = '';
+						var productJson = res.data.productRecord.productJson //产品详情
 
-	// 			for (var i = 0; i < changeImgUrl.length; i++) {
-	// 				html2 += '<div class="swiper-slide">';
-	// 				html2 += '<img src="' + changeImgUrl[i] + '">';
-	// 				html2 += '</div>';
-	// 			}
+						var html2 = '';
+						for (var i in productJson) {
+							html2 += '<div class="detail-con-item">';
+							html2 += '<div class="detail-con-item-left">' + i + '</div>';
+							html2 += '<div class="detail-con-item-right">' + productJson[i] + '</div>';
+							html2 += '</div>';
+						}
 
-	// 			$('.swiper-wrapper').html(html2);
-	var swiper = new Swiper('.swiper-container', {
-		loop: true,
-		// autoplay: 2500,
-		// disableOnInteraction: false,
-		autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播
-		pagination: '.swiper-pagination',
-	});
+						$('.detail-con').html(html2)
 
 
-		// 			//循环字体					
-		// 			for (key in jsonPropArr) {
-		// 				html += '<div class="content-item">';
-		// 				html += '<div class="infor-key">' + key + '：</div>';
-
-		// 				html += '<div class="infor-val" id="place">' + jsonPropArr[key] + '</div>';
-		// 				html += '</div>';
-		// 			}
-		// 			$('.content').append(html);
+						var productDesc = res.data.productRecord.productDesc //食用方法
+						$('.edible-con').html(productDesc)
 
 
-		// 		} else {
-		// 			common.alert({
-		// 				mask: true,
-		// 				content: res.msg
-		// 			})
-		// 		}
-		// 	},
-		// 	error: function(res) {
-		// 		common.alert({
-		// 			mask: true,
-		// 			content: res.msg
-		// 		})
-		// 	}
-		// });
+
+					} else {
+						common.alert({
+							mask: true,
+							content: res.msg
+						})
+					}
+				},
+				error: function (res) {
+					$('#loadingWrapper').hide();
+					common.alert({
+						mask: true,
+						content: res.msg
+					})
+				}
+			});
+			$('.loading').hide();
+			$('.container').fadeIn();
+		});
+	})
+
+
+
+	// $('#loadingWrapper').show();
+
+
+
+	$('.produtvideo-video-img').on('click', function () {
+		$('.produtvideo-video-img').hide();
+		$('video').get(0).play();
+
+		// $('.onhref').hide()
+
+	})
 </script>
 
 </html>

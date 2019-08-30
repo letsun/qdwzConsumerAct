@@ -149,17 +149,42 @@ body {
   background: #f9f9f9;
 }
 .container .banner {
-  height: 368px;
+  height: 375px;
+  width: 100%;
   position: relative;
+}
+.container .banner .bannera {
+  height: 375px;
+  border-bottom: #ff8800 solid 7px;
+  border-radius: 0 0 50% 50%;
+  width: 140%;
+  overflow: hidden!important;
+  position: absolute;
+  left: -20%;
+}
+.container .banner .swiper-container {
+  border-radius: 0 0 50% 50%;
+  overflow: hidden!important;
+}
+.container .banner .swiper-slide {
+  left: 14.4%;
 }
 .container .banner .swiper-slide img {
   display: block;
-  height: 368px;
+  height: 375px;
+  width: 750px;
 }
 .container .banner .banner-img {
   position: absolute;
   bottom: 0;
   z-index: 2;
+}
+.container .banner .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+.container .banner .swiper-pagination-bullet-active {
+  background: #ff8800;
 }
 .container .introduction {
   margin: 30px 30px 0 30px;
@@ -187,6 +212,9 @@ body {
   left: 30px;
   top: 35px;
   z-index: 0;
+}
+.container .introduction .introduction-con {
+  font-size: 15px;
 }
 .container .introduction .introduction-img {
   position: absolute;
@@ -225,6 +253,16 @@ body {
 .container .produtvideo .produtvideo-video {
   padding-left: 30px;
   padding-right: 30px;
+  position: relative;
+}
+.container .produtvideo .produtvideo-video video {
+  z-index: 10 !important;
+}
+.container .produtvideo .produtvideo-video .produtvideo-video-img {
+  position: absolute;
+  top: 0px;
+  left: 30px;
+  right: 0;
 }
 .container .produtvideo .produtvideo-img {
   position: absolute;
@@ -262,9 +300,10 @@ body {
 }
 .container .nutrition .nutrition-con {
   padding: 0px 30px 0px 30px;
+  font-size: 26px;
 }
 .container .nutrition .nutrition-con .nutrition-con-item {
-  padding: 0px 30px 0px 30px;
+  padding: 10px 30px 10px 30px;
   display: flex;
   border-bottom: 1px #eee solid;
 }
@@ -317,6 +356,7 @@ body {
   z-index: 0;
 }
 .container .detail .detail-con {
+  font-size: 26px;
   padding-left: 80px;
 }
 .container .detail .detail-con .detail-con-item {
@@ -363,9 +403,6 @@ body {
   top: 35px;
   z-index: 0;
 }
-.container .edible .edible-con {
-  margin: 0px 30px 0px 30px;
-}
 .container .edible .edible-con .edible-con-item {
   border: 1px #666 solid;
   border-radius: 10px;
@@ -392,4 +429,10 @@ body {
   left: 0;
   right: 0;
   text-align: center;
+}
+.onhref {
+  position: fixed;
+  right: 15px;
+  bottom: 100px;
+  z-index: 20;
 }
