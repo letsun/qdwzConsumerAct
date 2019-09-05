@@ -108,7 +108,7 @@ $(function () {
                 if (continuitySignInNum == 4) {
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3').show()
 
-                    $('.qd-ts-bx1').attr('src','/benyi/images/1_41.png')
+                    $('.qd-ts-bx1').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_41.png')
 
                 }
 
@@ -124,7 +124,7 @@ $(function () {
 
                 if (continuitySignInNum == 7) {
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4,.qd-ts-y5').show()
-                    $('.qd-ts-bx2').attr('src','/benyi/images/1_41.png')
+                    $('.qd-ts-bx2').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_41.png')
                 }
 
                 if (todayIsSign == 1) {
@@ -462,8 +462,8 @@ $(function () {
                 $('.continuitySignInNum').text(continuitySignInNum)
                 $('.scoreNum').text(scoreNum)
 
-                $('.qd-ts-bx1').attr('src','/benyi/images/1_28.png')
-                $('.qd-ts-bx2').attr('src','/benyi/images/1_28.png')
+                $('.qd-ts-bx1').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_28.png')
+                $('.qd-ts-bx2').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_28.png')
                 if (continuitySignInNum == 1) {
                     
                     $('.qd-ts-y').hide()
@@ -481,7 +481,7 @@ $(function () {
 
                 if (continuitySignInNum == 4) {
                     $('.qd-ts-y').hide()
-                    $('.qd-ts-bx1').attr('src','/benyi/images/1_41.png')
+                    $('.qd-ts-bx1').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_41.png')
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3').show()
                 }
 
@@ -496,7 +496,7 @@ $(function () {
                 }
                 if (continuitySignInNum == 7) {
                     $('.qd-ts-y').hide()
-                    $('.qd-ts-bx2').attr('src','/benyi/images/1_41.png')
+                    $('.qd-ts-bx2').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_41.png')
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4,.qd-ts-y5').show()
                 }
                 $('.qdtc').fadeIn()
@@ -772,4 +772,6 @@ $(function () {
         $('.gzhtc').fadeOut()
     })
 
+
+    $(".loading").hide();
 })

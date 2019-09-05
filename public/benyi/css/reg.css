@@ -146,7 +146,7 @@ body {
   position: relative;
   width: 100%;
   background: #f3f3f3;
-  background: url('../images/3_5.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/3_5.png');
   background-size: 100% 100%;
   height: 100%;
 }
@@ -197,7 +197,7 @@ body {
   margin-bottom: 50px;
 }
 .container .con .con-from .con-from-item .con-from-item-yzm {
-  background: url('../images/3_3.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/3_3.png');
   background-size: 100% 100%;
   position: absolute;
   right: 0;
@@ -211,7 +211,7 @@ body {
 }
 .container .con .con-btn {
   display: block;
-  background: url('../images/3_2.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/3_2.png');
   background-size: 100% 100%;
   height: 90px;
   width: 600px;

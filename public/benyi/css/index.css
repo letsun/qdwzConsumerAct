@@ -148,7 +148,7 @@ body {
   background: #f3f3f3;
 }
 .container .header {
-  background: url('../images/1_9.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_9.png');
   background-size: 100% 100%;
   height: 290px;
   display: flex;
@@ -358,7 +358,7 @@ body {
   margin-right: 30px;
   border-radius: 15px;
   background: #fff;
-  background: url('../images/1_30.png') no-repeat;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_30.png') no-repeat;
   background-size: 100% 99%;
 }
 .container .qd .qd-header {
@@ -371,7 +371,7 @@ body {
   color: #eee;
 }
 .container .qd .qd-img {
-  background: url('../images/1_22.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_22.png');
   background-size: 100% 100%;
   width: 435px;
   margin: auto;
@@ -461,7 +461,7 @@ body {
   color: #ff4f2e;
 }
 .container .qd .qd-ts {
-  background: url('../images/1_33.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_33.png');
   background-size: 100% 100%;
   height: 58px;
   width: 630px;
@@ -616,7 +616,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url('../images/4_1.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/4_1.png');
   background-size: 100% 100%;
   height: 525px;
   width: 550px;
@@ -633,7 +633,7 @@ body {
 }
 .container .qdtc .qdtc-con .qdtc-con-btn {
   display: block;
-  background: url('../images/4_2.png') no-repeat;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/4_2.png') no-repeat;
   font-size: 30px;
   font-weight: bolder;
   height: 70px;
@@ -692,7 +692,7 @@ body {
   color: #eee;
   text-align: center;
   font-size: 30px;
-  background: url('../images/6_4.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/6_4.png');
   background-size: 100% 100%;
   height: 137px;
   width: 455px;
@@ -713,7 +713,7 @@ body {
 }
 .container .lqlp .lqlp-con .lqlp-con-btn {
   display: block;
-  background: url('../images/4_2.png') no-repeat;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/4_2.png') no-repeat;
   font-size: 30px;
   font-weight: bolder;
   height: 70px;
@@ -745,7 +745,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url('../images/6_1.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/6_1.png');
   background-size: 100% 100%;
   height: 370px;
   width: 455px;
@@ -787,7 +787,7 @@ body {
   height: 520px;
   border-radius: 23px;
   background: #fff;
-  background: url('../images/1_35.png');
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_35.png');
   background-size: 100% 100%;
 }
 .container .gzhtc .gzhtc-con .gzhtc-con-img {

@@ -57,21 +57,21 @@ $('.header-con a').on('click', function () {
     if (index == 0) {
         status = 0   
         
-        $('.header-con-item:nth-child(1) img').attr('src','/benyi/images/9_7.png')
-        $('.header-con-item:nth-child(2) img').attr('src','/benyi/images/9_8.png')
-        $('.header-con-item:nth-child(3) img').attr('src','/benyi/images/9_9.png')
+        $('.header-con-item:nth-child(1) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_7.png')
+        $('.header-con-item:nth-child(2) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_8.png')
+        $('.header-con-item:nth-child(3) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_9.png')
     } else if (index == 1) {
         status = 1;   
 
-        $('.header-con-item:nth-child(1) img').attr('src','/benyi/images/9_10.png')
-        $('.header-con-item:nth-child(2) img').attr('src','/benyi/images/9_11.png')
-        $('.header-con-item:nth-child(3) img').attr('src','/benyi/images/9_9.png')
+        $('.header-con-item:nth-child(1) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_10.png')
+        $('.header-con-item:nth-child(2) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_11.png')
+        $('.header-con-item:nth-child(3) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_9.png')
     } else {
         status = 2;
 
-        $('.header-con-item:nth-child(1) img').attr('src','/benyi/images/9_10.png')
-        $('.header-con-item:nth-child(2) img').attr('src','/benyi/images/9_8.png')
-        $('.header-con-item:nth-child(3) img').attr('src','/benyi/images/9_12.png')
+        $('.header-con-item:nth-child(1) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_10.png')
+        $('.header-con-item:nth-child(2) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_8.png')
+        $('.header-con-item:nth-child(3) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_12.png')
     }
 
     Func.findCoupon({
@@ -152,7 +152,7 @@ function render(data) {
         if (status==0){
             if (data[i].couponType == 0) {
 
-                html += '<div class="content-item" style="background:url(/benyi/images/9_3.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_3.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '¥<span>' + data[i].price + '</span>';
@@ -160,7 +160,7 @@ function render(data) {
     
                 html += '</div>';
             } else if (data[i].couponType == 1) {
-                html += '<div class="content-item" style="background:url(/benyi/images/9_6.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_6.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '<span>' + data[i].discount + '</span>折';
@@ -168,7 +168,7 @@ function render(data) {
     
                 html += '</div>';
             } else if (data[i].couponType == 2) {
-                html += '<div class="content-item" style="background:url(/benyi/images/9_5.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_5.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '¥<span>' + data[i].price + '</span>';
@@ -176,7 +176,7 @@ function render(data) {
     
                 html += '</div>';
             } else {
-                html += '<div class="content-item" style="background:url(/benyi/images/9_4.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_4.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '¥<span>' + data[i].reducePrice + '</span>';
@@ -189,7 +189,7 @@ function render(data) {
             
             if (data[i].couponType == 0) {
 
-                html += '<div class="content-item" style="background:url(/benyi/images/9_19.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_19.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '¥<span>' + data[i].price + '</span>';
@@ -197,7 +197,7 @@ function render(data) {
     
                 html += '</div>';
             } else if (data[i].couponType == 1) {
-                html += '<div class="content-item" style="background:url(/benyi/images/9_20.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_20.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '<span>' + data[i].discount + '</span>折';
@@ -205,7 +205,7 @@ function render(data) {
     
                 html += '</div>';
             } else if (data[i].couponType == 2) {
-                html += '<div class="content-item" style="background:url(/benyi/images/9_21.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_21.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '¥<span>' + data[i].price + '</span>';
@@ -213,7 +213,7 @@ function render(data) {
     
                 html += '</div>';
             } else {
-                html += '<div class="content-item" style="background:url(/benyi/images/9_22.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_22.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '¥<span>' + data[i].reducePrice + '</span>';
@@ -224,7 +224,7 @@ function render(data) {
         }else{
             if (data[i].couponType == 0) {
 
-                html += '<div class="content-item" style="background:url(/benyi/images/9_15.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_15.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '¥<span>' + data[i].price + '</span>';
@@ -232,7 +232,7 @@ function render(data) {
     
                 html += '</div>';
             } else if (data[i].couponType == 1) {
-                html += '<div class="content-item" style="background:url(/benyi/images/9_16.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_16.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '<span>' + data[i].discount + '</span>折';
@@ -240,7 +240,7 @@ function render(data) {
     
                 html += '</div>';
             } else if (data[i].couponType == 2) {
-                html += '<div class="content-item" style="background:url(/benyi/images/9_17.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_17.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '¥<span>' + data[i].price + '</span>';
@@ -248,7 +248,7 @@ function render(data) {
     
                 html += '</div>';
             } else {
-                html += '<div class="content-item" style="background:url(/benyi/images/9_18.png) no-repeat">';
+                html += '<div class="content-item" style="background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_18.png) no-repeat">';
     
                 html += '<div class="content-item-left">';
                 html += '¥<span>' + data[i].reducePrice + '</span>';
