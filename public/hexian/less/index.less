@@ -1,0 +1,464 @@
+@import 'clearFix';
+@import 'newAnimate';
+
+.ellipsisNormal {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ellipsis(@line) {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @line;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+		
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+		.content{
+			position: relative;
+			
+			width: 100%;
+			height: 100%;
+			
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_8.jpg') no-repeat;
+			background-size: 100% 100%;
+			.logo {
+			    position: absolute;
+			    left: 3%;
+			    top: 2%;
+			}
+			
+			.rule{
+				position: absolute;
+				top: 50px;
+				right: 0;
+				z-index: 99;
+			}
+			
+			.coin-img{
+				position: absolute;
+				top: 70px;
+				left: 0;
+			}
+			
+			.red-packet-txt{
+				position: absolute;
+				top: 150px;
+				left: 40px;
+			}
+			
+			.red-packet{
+				position: absolute;
+				top: 315px;
+				left: 70px;
+			}
+
+			.demolition {
+				position: absolute;
+				top: 380px;
+				left: 185px;
+
+				-webkit-animation: scale 1.3s linear alternate infinite;
+			}
+
+			.child{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+			.tech-support{
+				width: 100%;
+				position: absolute;
+				bottom: 20px;
+				left: 0;
+
+				img {
+					display: block;
+
+					margin: 0 auto;
+				}
+			}
+		}
+		
+		.cover{
+			display: none;
+			width: 100%;
+			height: 100%;
+			font-size: 24px;
+			line-height: 32px;
+			
+			background-color: rgba(0,0,0,0.7);
+			position: absolute;
+			top: 0;
+			left: 0;
+	
+			.rule-bgImg{
+				width: 95%;
+				position: absolute;
+				top: 100px;
+				left: 15px;
+			}
+			
+			.rule-txt{
+				width: 500px;
+				position: absolute;
+				top: 365px;
+				left: 70px;
+				
+				p{
+					margin-top: 10px;
+				}
+				p:after{
+					display: block;
+					content: "";
+					clear: both;
+				}
+				.serial-number{
+					float: left;
+					width: 40px;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					color: #fff;
+					background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_16.png') no-repeat;
+					background-size: cover;
+				}
+				
+				.rule-title{
+					float: left;
+					font-weight: bold;
+					color: #333;
+					margin-left: 10px;
+					margin-right: 10px;
+				}
+				
+				.rule-content{
+					float: left;
+					width: 330px;
+				}
+			}
+			
+			.close{
+				position: absolute;
+				bottom: 30px;
+				left: 300px;
+			}
+		}
+		
+
+	    .tip {
+			display: none;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 99;
+
+		    width: 100%;
+		    height: 100%;
+
+		    background: rgba(0,0,0,.7);
+
+		    .tip-con {
+			    width: 75%;
+			    height: 550px;
+			    background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_15.png') no-repeat;
+			    background-size: 100% 100%;
+
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
+			    margin: auto;
+			    z-index: 999;
+
+			    .erweima{
+					width: 240px;
+					height: 240px;
+					
+				    position: relative;
+				    top: 150px;
+				    left: 120px;
+			    }
+			    .tip-content{
+				    position: relative;
+				    top: 140px;
+				    text-align: center;
+				    font-size: 24px;
+				    color: #d70204;
+			    }
+
+			    .close-1 {
+				    position: relative;
+				    bottom: -280px;
+				    left: 210px;
+			    }
+		    }
+	    }
+
+
+	    .lottery-win {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 99;
+
+		    display: none;
+
+		    width: 100%;
+		    height: 100%;
+
+		    background: rgba(0,0,0,.7);
+
+		    .lottery-con {
+			    position: absolute;
+				left: 0;
+				top: 100px;
+				right: 0;
+				bottom: 0;
+				width: 550px;
+				height: 500px;
+				padding-top: 68px;
+				margin: auto;
+				
+				.winPrize {
+					display: none;
+					text-align: center;
+					
+					.winPrize-bg {
+						position: absolute;
+						top: 0;
+						left: -40px;
+					}
+				}
+				
+				.noPrize {
+					display: none;
+					text-align: center;
+					
+					.no-prize-bg{
+						position: absolute;
+						top: 0;
+						left: -40px;
+					}
+					
+					.lottery-title1{
+						width: 100%;
+						
+						font-size: 46px;
+						font-weight: bold;
+						color: #a96711;
+						line-height: 92px;
+						text-align: center;
+						position: relative;
+						bottom:  50px;
+					}
+					
+					.tear{
+						position: relative;
+						bottom: 35px;
+					}
+				}
+				
+				.scanCode {
+					display: none;
+					text-align: center;
+					
+					.scanCode-bg {
+						position: absolute;
+						top: 0;
+						left: -40px;
+					}
+
+					.lottery-title {
+
+						color: #f82a2a;
+					}
+
+					.tear {
+						position: relative;
+						bottom: -50px;
+					}
+
+					.scanCode-title {
+						position: relative;
+						z-index: 10;
+
+						display: block;
+
+						margin: -10px auto 0 auto;
+					}
+				}
+
+			    .lottery-title {
+				    width: 100%;
+
+				    font-size: 46px;
+				    font-weight: bold;
+				    color: #a96711;
+				    line-height: 92px;
+				    text-align: center;
+				    position: relative;
+				    bottom:  50px;
+			    }
+
+			    .lottery-dec1 {
+					position: relative;
+				    bottom: 30px;
+
+				    .num {
+					    font-size: 28px;
+					    line-height: 50px;
+					    text-align: center;
+					    color: #fa5855;
+					    font-weight: bold;
+
+					    span {
+						    display: inline-block;
+
+						    font-size: 50px;
+					    }
+						
+						.coin{
+							font-size: 28px;
+							color: #a96711;
+						}
+				    }
+			    }
+				
+				.lottery-text {
+				    width: 80%;
+				
+				    font-size: 24px;
+				    line-height: 40px;
+				    text-align: center;
+				    color: #fff;
+				
+				    cursor: pointer;
+					position: absolute;
+					bottom: 70px;
+					left: 60px;
+				}
+
+			    .lottery-dec2 {
+				    margin-top: 30px;
+
+				    .cry-img {
+					    display: block;
+
+					    margin: 0 auto;
+				    }
+			    }
+
+			    .code-wra {
+				    position: absolute;
+				    left: 0;
+				    bottom: 62px;
+				    z-index: 1;
+
+				    width: 100%;
+
+				    .code {
+					    display: block;
+
+					    width: 268px;
+					    height: 253px;
+					    margin: 0 auto;
+				    }
+
+				    .code-text {
+					    font-size: 18px;
+					    text-align: center;
+					    color: #989a99;
+				    }
+			    }
+		    }
+
+		    .close-lottery {
+			    position: absolute;
+			    left: 44%;
+			    bottom: -82px;
+			    z-index: 1;
+
+			    width: 12%;
+		    }
+	    }
+    }
+	
+	
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}
+
+@-webkit-keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(0.7);
+	}
+}
