@@ -725,6 +725,21 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.container .lqlp .lqlp-con .lqlp-con-btna {
+  display: none;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/4_2.png') no-repeat;
+  font-size: 30px;
+  font-weight: bolder;
+  height: 70px;
+  width: 400px;
+  line-height: 70px;
+  margin: 0 auto;
+  text-align: center;
+  color: #eee;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+}
 .container .lqlp .lqlp-gb {
   position: absolute;
   top: 74%;

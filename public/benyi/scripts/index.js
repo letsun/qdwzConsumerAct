@@ -586,8 +586,18 @@ $(function () {
                     if (type == 3) {
                         var point = res.data.point.point //积分数
                         var prizeName = res.data.point.prizeName  ///奖励名称                    
-                        $('.text1').html(point + prizeName)
-    
+                        $('.text1').html(point + prizeName)  
+                    }
+
+
+                    if(type == 4) {
+                        var imgUrl = res.data.advOrigin.imgUrl;
+                        var voucherLink = res.data.advOrigin.voucherLink;
+                        $('.lqlp-con-middel img').attr('src',imgUrl)
+
+                        $('.lqlp-con-btn').hide()
+                        $('.lqlp-con-btna').show()
+                        $('.lqlp-con-btna').attr('href',voucherLink)
                     }
     
                     $('#loadingWrapper').hide();
@@ -610,7 +620,7 @@ $(function () {
     })
 
 
-    //点击领取奖励
+    //点击签到红包领取奖励
 
     $('.lqlp-con-btn').on('click',function(){
 
@@ -773,5 +783,12 @@ $(function () {
     })
 
 
-    $(".loading").hide();
+
+
 })
+
+window.onload=function(){
+        
+    //关闭加载页
+    $(".loading").hide();	
+}
