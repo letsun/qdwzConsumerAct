@@ -843,5 +843,25 @@ $(function () {
 		});
 
 	}
+
+
+
+	/**
+	 * 商品列表查询接口
+	 * @return null
+	 */
+	Func.findGoods = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.findGoods,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+
+	}
 	
 })

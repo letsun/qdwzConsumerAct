@@ -52,5 +52,5 @@ var api = {
 
 	entranceCheck:ip+ '/benyi/entranceCheck',									//判断页面入口
 	
-
+	findGoods:ip+ '/goods/findGoods',									//商品列表查询接口
 };
