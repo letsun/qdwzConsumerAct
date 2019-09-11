@@ -255,9 +255,9 @@ body {
   background-color: #fff;
   border-radius: 5px;
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   position: absolute;
-  top: 80px;
+  top: 10px;
   left: 5%;
 }
 .cover .product-detail .product-info {
@@ -281,11 +281,16 @@ body {
   float: left;
   width: 65%;
 }
+.cover .product-detail .ingredients-wrap:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
 .cover .product-detail .allergy {
   color: #ba1010;
 }
 .cover .close {
   position: absolute;
   left: 45%;
-  bottom: -100px;
+  bottom: -75px;
 }
