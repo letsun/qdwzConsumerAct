@@ -62,22 +62,22 @@ var status =0; //0未使用 1已使用 2已过期
         if(index==0){
 
             status = 0;
-            $('.header-con-item:first-child img').attr('src','/benyi/images/2_6.png')
-            $('.header-con-item:nth-child(2) img').attr('src','/benyi/images/2_10.png')
-            // $('.header-con-item:nth-child(3) img').attr('src','/benyi/images/2_11.png')
+            $('.header-con-item:first-child img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_6.png')
+            $('.header-con-item:nth-child(2) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_10.png')
+            // $('.header-con-item:nth-child(3) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_11.png')
         }
 
         if(index==1){
             status = 1;
-            $('.header-con-item:first-child img').attr('src','/benyi/images/2_9.png')
-            $('.header-con-item:nth-child(2) img').attr('src','/benyi/images/2_7.png')
-            // $('.header-con-item:nth-child(3) img').attr('src','/benyi/images/2_11.png')
+            $('.header-con-item:first-child img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_9.png')
+            $('.header-con-item:nth-child(2) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_7.png')
+            // $('.header-con-item:nth-child(3) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_11.png')
         }
 
         // if(index==2){
-        //     $('.header-con-item:first-child img').attr('src','/benyi/images/2_9.png')
-        //     $('.header-con-item:nth-child(2) img').attr('src','/benyi/images/2_10.png')
-        //     $('.header-con-item:nth-child(3) img').attr('src','/benyi/images/2_8.png')
+        //     $('.header-con-item:first-child img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_9.png')
+        //     $('.header-con-item:nth-child(2) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_10.png')
+        //     $('.header-con-item:nth-child(3) img').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_8.png')
         // }
 
 

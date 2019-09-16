@@ -1,0 +1,1056 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  color: #333;
+  background: #fff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+}
+input[type='text'],
+input[type='password'],
+input[type='submit'],
+textarea,
+button,
+select {
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  position: relative;
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  display: table;
+  content: ' ';
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* 新增一些iPhone下不兼容的动画库 */
+/*
+ * 1.从左向右出动画
+*/
+@-webkit-keyframes left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes left {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes left {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 2.从右向左出动画
+*/
+@-webkit-keyframes right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes right {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes right {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 3.从上向下出动画
+*/
+@-webkit-keyframes down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes down {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-o-keyframes down {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+/*
+ * 4.从下往上出动画
+*/
+@-webkit-keyframes up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes up {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-o-keyframes up {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+/*
+ * 5.上下浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown1 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-moz-keyframes upDown1 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-o-keyframes upDown1 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(10px);
+  }
+}
+/*
+ * 6.上下浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown2 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-moz-keyframes upDown2 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-o-keyframes upDown2 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(20px);
+  }
+}
+/*
+ * 7.上下浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown3 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-moz-keyframes upDown3 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-o-keyframes upDown3 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(30px);
+  }
+}
+/*
+ * 8.左右浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight1 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes leftRight1 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-o-keyframes leftRight1 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(10px);
+  }
+}
+/*
+ * 9.左右浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight2 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-moz-keyframes leftRight2 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-o-keyframes leftRight2 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(20px);
+  }
+}
+/*
+ * 10.左右浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight3 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-moz-keyframes leftRight3 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-o-keyframes leftRight3 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(30px);
+  }
+}
+@-webkit-keyframes shakeAni {
+  0% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(4deg);
+  }
+}
+@-webkit-keyframes divergence_1 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_2 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_3 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_4 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_5 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_6 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_7 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_8 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_9 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_10 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes divergence_11 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #fff;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  overflow:hidden;
+}
+.scroll-wra {
+  width: 100%;
+  height: 100%;
+}
+.scroll-wra .wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.scroll-wra .wrapper .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.scroll-wra .wrapper .page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.scroll-wra .wrapper .page img {
+  position: absolute;
+  z-index: 3;
+}
+.scroll-wra .wrapper .page .img1,
+.scroll-wra .wrapper .page .img21,
+.scroll-wra .wrapper .page .img41 {
+  left: 73%;
+  top: 3%;
+  -webkit-animation: divergence_1 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img2,
+.scroll-wra .wrapper .page .img22,
+.scroll-wra .wrapper .page .img42 {
+  left: 22%;
+  top: 4%;
+  -webkit-animation: divergence_2 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img3,
+.scroll-wra .wrapper .page .img23,
+.scroll-wra .wrapper .page .img43 {
+  left: 86%;
+  top: 19%;
+  -webkit-animation: divergence_3 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img4,
+.scroll-wra .wrapper .page .img24,
+.scroll-wra .wrapper .page .img44 {
+  left: 3%;
+  top: 11%;
+  -webkit-animation: divergence_4 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img5,
+.scroll-wra .wrapper .page .img25,
+.scroll-wra .wrapper .page .img45 {
+  /*left: 2%;
+				top: 22%;*/
+  left: 9%;
+  top: 225px;
+  -webkit-animation: divergence_5 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img6,
+.scroll-wra .wrapper .page .img26,
+.scroll-wra .wrapper .page .img46 {
+  right: 0;
+  top: 31%;
+  -webkit-animation: divergence_6 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img7,
+.scroll-wra .wrapper .page .img27,
+.scroll-wra .wrapper .page .img47 {
+  left: 58%;
+  top: 4%;
+  -webkit-animation: divergence_7 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img8,
+.scroll-wra .wrapper .page .img28,
+.scroll-wra .wrapper .page .img48 {
+  left: 75%;
+  top: 39%;
+  -webkit-animation: divergence_8 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img9,
+.scroll-wra .wrapper .page .img29,
+.scroll-wra .wrapper .page .img49 {
+  left: 34%;
+  top: 2%;
+  -webkit-animation: divergence_9 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img10,
+.scroll-wra .wrapper .page .img30,
+.scroll-wra .wrapper .page .img50 {
+  left: 14%;
+  top: 30%;
+  -webkit-animation: divergence_10 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img11,
+.scroll-wra .wrapper .page .img31,
+.scroll-wra .wrapper .page .img51 {
+  left: 1%;
+  top: 36%;
+  -webkit-animation: divergence_11 9s ease forwards;
+  transform: translateY(-600px);
+}
+.scroll-wra .wrapper .page .img21,
+.scroll-wra .wrapper .page .img22,
+.scroll-wra .wrapper .page .img23,
+.scroll-wra .wrapper .page .img24,
+.scroll-wra .wrapper .page .img25,
+.scroll-wra .wrapper .page .img26,
+.scroll-wra .wrapper .page .img27,
+.scroll-wra .wrapper .page .img28,
+.scroll-wra .wrapper .page .img29,
+.scroll-wra .wrapper .page .img30,
+.scroll-wra .wrapper .page .img31 {
+  -webkit-animation-delay: 1s;
+}
+.scroll-wra .wrapper .page .img41,
+.scroll-wra .wrapper .page .img42,
+.scroll-wra .wrapper .page .img43,
+.scroll-wra .wrapper .page .img44,
+.scroll-wra .wrapper .page .img45,
+.scroll-wra .wrapper .page .img46,
+.scroll-wra .wrapper .page .img47,
+.scroll-wra .wrapper .page .img48,
+.scroll-wra .wrapper .page .img49,
+.scroll-wra .wrapper .page .img50,
+.scroll-wra .wrapper .page .img51 {
+  -webkit-animation-delay: 2s;
+}
+.scroll-wra .wrapper .page .active {
+  -webkit-animation: upDown1 1s linear alternate infinite!important;
+}
+.scroll-wra .wrapper .page .img11 {
+  left: 3%;
+  top: 40%;
+}
+.scroll-wra .wrapper .page .img12 {
+  left: 2%;
+  top: 2%;
+}
+.scroll-wra .wrapper .page .img13 {
+  left: 35%;
+  top: 82%;
+  width: 30%;
+  cursor: pointer;
+}
+.scroll-wra .wrapper .page .img14 {
+  right: 0;
+  top: 3%;
+  z-index: 5;
+  cursor: pointer;
+}
+.scroll-wra .wrapper .page .img15 {
+  left: 5%;
+  top: 12%;
+  width: 90%;
+}
+.scroll-wra .wrapper .page .img16 {
+  left: 23%;
+  top: 8%;
+  width: 54%;
+}
+/*活动规则*/
+.rules-win {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,.7);
+}
+.rules-win .rules-bg {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  z-index: 10;
+  width: 90%;
+  -webkit-transform: translateY(-50%);
+}
+.rules-win .rules-btn {
+    position: absolute;
+    left: 35%;
+    bottom: 2%;
+    z-index: 99;
+    width: 30%;
+}
+/*摇一摇提示弹窗*/
+.shake-win {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.5);
+}
+.shake-win .shake_1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+.shake-win .shake_2 {
+  position: absolute;
+  left: 20%;
+  top: 192px;
+  z-index: 1;
+  width: 60%;
+}
+.shake-win .shake_3,
+.shake-win .shake_4,
+.shake-win .shake_5 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  animation: shakeAni 2s linear infinite;
+  -webkit-animation: shakeAni 2s linear infinite;
+}
+.shake-win .shake_3 {
+  z-index: 15;
+}
+/*温馨提示弹窗*/
+.warm-win {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.5);
+}
+.warm-win .warm-con {
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  z-index: 10;
+  width: 70%;
+  -webkit-transform: translateY(-50%);
+}
+.warm-win .qrcode {
+  display: block;
+  width: 100%;
+}
+.warm-win .close-warm {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  z-index: 15;
+  width: 13%;
+  cursor: pointer;
+}
+
+/*未激活弹窗*/
+.inactivated-win {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.5);
+}
+.inactivated-win .inact_1 {
+  position: absolute;
+  left: 45%;
+  top: 212px;
+  z-index: 10;
+  width: 10%;
+  cursor: pointer;
+}
+.inactivated-win .inact_2,
+.inactivated-win .inact_3 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 8;
+  width: 100%;
+  height: 100%;
+}
+/*中奖弹窗*/
+.winning-win {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.5);
+}
+.winning-win .winning-con {
+  position: absolute;
+  left: 5%;
+  top: 30%;
+  z-index: 10;
+  width: 90%;
+  animation: down 0.8s ease;
+  -webkit-animation: down 0.8s ease;
+}
+.winning-win .winning-con .winning_bg {
+  display: block;
+  width: 100%;
+}
+.winning-win .winning-con .winning_1 {
+  position: absolute;
+  left: 40%;
+  top: 15%;
+  z-index: 12;
+  display: block;
+  width: 20%;
+  cursor: pointer;
+  -webkit-animation: scale 0.8s linear alternate infinite;
+}
+.winning-win .winning-con .win-text {
+  position: absolute;
+  left: 15%;
+  top: 38%;
+  z-index: 12;
+  width: 70%;
+  color: #f9ed5b;
+  font-size: 35px;
+  line-height: 51px;
+  text-align: center;
+  font-weight: bold;
+}
+.winning-win .winning-con .amount {
+    position: absolute;
+    left: 15%;
+    top: 60%;
+    z-index: 12;
+    width: 100%;
+    color: #f9ed5b;
+    font-size: 35px;
+    line-height: 60px;
+    text-align: center;
+    width: 70%;
+}
+.winning-win .winning-con .amount .amount-num {
+  font-size: 60px;
+  font-weight: bold;
+}
+.winning-win .winning-con .nwon-img {
+  position: absolute;
+  left: 28%;
+  top: 60%;
+  z-index: 12;
+  width: 44%;
+  display: none;
+}
+.winning-win .winning-con .coupon-wra {
+  position: absolute;
+  left: 15%;
+  top: 60%;
+  z-index: 12;
+  display: none;
+  width: 70%;
+}
+.winning-win .winning-con .coupon-wra img {
+  display: block;
+  margin: 0 auto;
+}
+.winning-win .winning-con .coupon-wra .coupon-bg {
+  width: 84%;
+  cursor: pointer;
+}
+.winning-win .winning-con .coupon-wra .coupon-btn {
+  display:block;
+  margin: 20px auto 0 auto;
+  cursor: pointer;
+}
+.winning-win .winning-con .coupon-wra .coupon-btn img {
+  display:block;
+  margin:0 auto;
+  cursor: pointer;
+}
+.winning-win .winning-con .amount-tip {
+    position: absolute;
+    left: 18%;
+    top: 77%;
+    z-index: 12;
+    height: 30px;
+    width: 64%;
+    font-size: 22px;
+    line-height: 42px;
+  color: #fff;
+  text-align: center;
+  display:none;
+}
+/*该码已被扫*/
+.received-win {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.5);
+}
+.received-win .bg {
+  position: absolute;
+  left: 15%;
+  top: 33%;
+  z-index: 10;
+  width: 70%;
+  animation: down 0.8s ease;
+  -webkit-animation: down 0.8s ease;
+}
+.received-win .close-received {
+  position: absolute;
+  left: 45%;
+  top: 21%;
+  z-index: 10;
+  width: 10%;
+  cursor: pointer;
+}
+@-webkit-keyframes divergence_1 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_2 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_3 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_4 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_5 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_6 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_7 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_8 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_9 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_10 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+@-webkit-keyframes divergence_11 {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}

@@ -1,3 +1,4 @@
+// import { close } from "fs";
 
 var scoreDetailId; //签到明细id
 var status; //领奖状态 
@@ -108,7 +109,7 @@ $(function () {
                 if (continuitySignInNum == 4) {
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3').show()
 
-                    $('.qd-ts-bx1').attr('src','/benyi/images/1_41.png')
+                    $('.qd-ts-bx1').attr('src', 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_41.png')
 
                 }
 
@@ -124,7 +125,7 @@ $(function () {
 
                 if (continuitySignInNum == 7) {
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4,.qd-ts-y5').show()
-                    $('.qd-ts-bx2').attr('src','/benyi/images/1_41.png')
+                    $('.qd-ts-bx2').attr('src', 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_41.png')
                 }
 
                 if (todayIsSign == 1) {
@@ -162,6 +163,31 @@ $(function () {
 
         })
 
+
+        //商品列表查询接口
+
+        Func.findGoods(function (res) {
+            if (res.code == 200) {
+                var goodsList = res.data.goodsList;
+
+                var html = '';
+
+                for (var i in goodsList) {
+                    html += '<a href="'+goodsList[i].shareUrl+'" class="hyzx-con-item"> ';
+                    html += '<img class="hyzx-header-img" src="'+goodsList[i].imagesUrl+'" alt="">';
+                    html += '<p>'+goodsList[i].goodsName+'</p>';
+
+                    html += '<span>￥'+goodsList[i].goodsVipPrice+'</span>';
+
+                    html += '</a>';
+                }
+                $('#goodsList').html(html);
+                
+                $('#loadingWrapper').hide();
+            }else {
+                $('#loadingWrapper').hide();
+            }
+        })
     });
 
 
@@ -184,10 +210,10 @@ $(function () {
 
                     if (res.code == 200) {
 
-                        
+
                         //扫码进入页面抽奖   
                         Func.lottery(function (res) {
-                            
+
                             var type = res.data.type //中奖类型
                             if (type == 0) {
                                 $('.banner').css('padding-top', '160px')
@@ -462,12 +488,12 @@ $(function () {
                 $('.continuitySignInNum').text(continuitySignInNum)
                 $('.scoreNum').text(scoreNum)
 
-                $('.qd-ts-bx1').attr('src','/benyi/images/1_28.png')
-                $('.qd-ts-bx2').attr('src','/benyi/images/1_28.png')
+                $('.qd-ts-bx1').attr('src', 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_28.png')
+                $('.qd-ts-bx2').attr('src', 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_28.png')
                 if (continuitySignInNum == 1) {
-                    
+
                     $('.qd-ts-y').hide()
-                    $('.qd-ts-y1').show()                   
+                    $('.qd-ts-y1').show()
                 }
                 if (continuitySignInNum == 2) {
                     $('.qd-ts-y').hide()
@@ -481,7 +507,7 @@ $(function () {
 
                 if (continuitySignInNum == 4) {
                     $('.qd-ts-y').hide()
-                    $('.qd-ts-bx1').attr('src','/benyi/images/1_41.png')
+                    $('.qd-ts-bx1').attr('src', 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_41.png')
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3').show()
                 }
 
@@ -496,7 +522,7 @@ $(function () {
                 }
                 if (continuitySignInNum == 7) {
                     $('.qd-ts-y').hide()
-                    $('.qd-ts-bx2').attr('src','/benyi/images/1_41.png')
+                    $('.qd-ts-bx2').attr('src', 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_41.png')
                     $('.qd-ts-y1 ,.qd-ts-y2 , .qd-ts-y3 ,.qd-ts-y4,.qd-ts-y5').show()
                 }
                 $('.qdtc').fadeIn()
@@ -537,7 +563,7 @@ $(function () {
         })
     })
 
-    
+
 
 
 
@@ -545,74 +571,84 @@ $(function () {
 
     $('.joinAct').on('click', function () {
 
-        var  canJoinActNum= $('.canJoinActNum').text()
+        var canJoinActNum = $('.canJoinActNum').text()
 
-        if (canJoinActNum>0){
+        if (canJoinActNum > 0) {
             Func.joinAct(function (res) {
                 if (res.code == 200) {
                     $('.lqlp').fadeIn()
-    
+
                     var type = res.data.type //中奖类型
                     var balanceScore = res.data.balanceScore  //用户积分余额
                     var canJoinActNum = res.data.canJoinActNum //剩余次数
                     var prizeName = res.data.prizeName  ///奖励名称
-                    
+
                     lotteryId = res.data.lotteryId //奖品id
-    
+
                     $('.canJoinActNum').text(canJoinActNum)
                     $('.balanceScore').text(balanceScore)
-    
+
                     if (type == 0) {
                         var prizeAmount = res.data.redPack.prizeAmount //红包金额
                         var prizeName = res.data.redPack.prizeName  //红包
-    
+
                         $('.text1').html(prizeAmount + '元' + prizeName)
                     }
                     if (type == 1) {
                         var couponName = res.data.couponGrants[0].couponName //优惠券名称
                         var couponCode = res.data.couponGrants[0].couponCode //优惠券码
                         var beginTime = res.data.couponGrants[0].beginTime //有效时间
-    
+
                         $('.text1').html(couponName)
                         $('.text2').html("兑换码" + couponCode)
                         $('.text3').html("有效期至" + beginTime)
                     }
-    
+
                     if (type == 2) {
                         var prizeName = res.data.materialObj.prizeName   //实物名称
                         $('.text1').html(prizeName)
                     }
-    
+
                     if (type == 3) {
                         var point = res.data.point.point //积分数
                         var prizeName = res.data.point.prizeName  ///奖励名称                    
                         $('.text1').html(point + prizeName)
-    
                     }
-    
+
+
+                    if (type == 4) {
+                        var imgUrl = res.data.advOrigin.imgUrl;
+                        var voucherLink = res.data.advOrigin.voucherLink;
+                        $('.lqlp-con-middel img').attr('src', imgUrl)
+
+                        $('.lqlp-con-btn').hide()
+                        $('.lqlp-con-btna').show()
+                        $('.lqlp-con-btna').attr('href', voucherLink)
+                    }
+
                     $('#loadingWrapper').hide();
                 } else {
                     common.alert({
-                        mask:true,
-                        content: res.msg,       
+                        mask: true,
+                        content: res.msg,
                     })
                     $('#loadingWrapper').hide();
                 }
-    
-            }) 
-        }else{
+
+            })
+        } else {
             common.alert({
-                mask:true,
-                content: '该用户剩余抽奖次数为0',       
+                mask: true,
+                content: '该用户剩余抽奖次数为0',
             })
         }
 
     })
 
 
-    //点击领取奖励
+    //点击签到红包领取奖励
 
-    $('.lqlp-con-btn').on('click',function(){
+    $('.lqlp-con-btn').on('click', function () {
 
         Func.isSubscribe(function (res) {
             if (res.code === 200) {
@@ -635,7 +671,7 @@ $(function () {
                     })
                 }
             } else {
-    
+
                 $('#loadingWrapper').hide();
                 common.alert({
                     content: res.msg,
@@ -645,7 +681,7 @@ $(function () {
         })
     })
 
-    
+
 
 
 	/**
@@ -772,4 +808,13 @@ $(function () {
         $('.gzhtc').fadeOut()
     })
 
+
+
+
 })
+
+window.onload = function () {
+
+    //关闭加载页
+    $(".loading").hide();
+}
