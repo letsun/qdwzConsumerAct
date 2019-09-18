@@ -863,5 +863,25 @@ $(function () {
 		});
 
 	}
+
+
+
+	/**
+	 * 本意嗨玩全场列表查询接口
+	 * @return null
+	 */
+	Func.getAdvByAdvPositionName = function (callback) {
+		$('#loadingWrapper').show();
+		$.ajax({
+			url: api.getAdvByAdvPositionName,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+
+	}
 	
 })
