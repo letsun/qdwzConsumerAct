@@ -1,0 +1,686 @@
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+/* 新增一些iPhone下不兼容的动画库 */
+/*
+ * 1.从左向右出动画
+*/
+@-webkit-keyframes left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes left {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes left {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 2.从右向左出动画
+*/
+@-webkit-keyframes right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes right {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes right {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(640px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 3.从上向下出动画
+*/
+@-webkit-keyframes down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes down {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes down {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 4.从下往上出动画
+*/
+@-webkit-keyframes up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes up {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes up {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 5.上下浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown1 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-moz-keyframes upDown1 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-o-keyframes upDown1 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(10px);
+  }
+}
+/*
+ * 6.上下浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown2 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-moz-keyframes upDown2 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-o-keyframes upDown2 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(20px);
+  }
+}
+/*
+ * 7.上下浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown3 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-moz-keyframes upDown3 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-o-keyframes upDown3 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(30px);
+  }
+}
+/*
+ * 8.左右浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight1 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes leftRight1 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-o-keyframes leftRight1 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(10px);
+  }
+}
+/*
+ * 9.左右浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight2 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-moz-keyframes leftRight2 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-o-keyframes leftRight2 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(20px);
+  }
+}
+/*
+ * 10.左右浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight3 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-moz-keyframes leftRight3 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-o-keyframes leftRight3 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(30px);
+  }
+}
+@-webkit-keyframes shakeAni {
+  0% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(4deg);
+  }
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+#app .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#app .container .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_7.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+#app .container .content .logo {
+  position: absolute;
+  left: 3%;
+  top: 2%;
+}
+#app .container .content .red-packet-txt {
+  position: absolute;
+  top: 60px;
+  left: 70px;
+}
+#app .container .content .red-packet {
+  position: absolute;
+  top: 398px;
+  left: 70px;
+}
+#app .container .content .tips-title {
+  width: 190px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 35px;
+  color: #fdd88a;
+  position: absolute;
+  top: 450px;
+  left: 230px;
+}
+#app .container .content .tips-title span {
+  display: block;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+}
+#app .container .content .demolition {
+  position: absolute;
+  top: 645px;
+  left: 245px;
+  -webkit-animation: scale 1.3s linear alternate infinite;
+}
+#app .container .content .child {
+  position: absolute;
+  top: 815px;
+  left: 195px;
+}
+#app .container .content .tech-support {
+  position: absolute;
+  bottom: 17px;
+  left: 177px;
+}
+#app .container .cover {
+  display: none;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  line-height: 32px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#app .container .cover .rule-bgImg {
+  width: 95%;
+  position: absolute;
+  top: 100px;
+  left: 15px;
+}
+#app .container .cover .rule-txt {
+  width: 500px;
+  position: absolute;
+  top: 365px;
+  left: 70px;
+}
+#app .container .cover .rule-txt p {
+  margin-top: 10px;
+}
+#app .container .cover .rule-txt p:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+#app .container .cover .rule-txt .serial-number {
+  float: left;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_16.png') no-repeat;
+  background-size: cover;
+}
+#app .container .cover .rule-txt .rule-title {
+  float: left;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#app .container .cover .rule-txt .rule-content {
+  float: left;
+  width: 330px;
+}
+#app .container .cover .close {
+  position: absolute;
+  bottom: 30px;
+  left: 300px;
+}
+#app .container .tip {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+#app .container .tip .tip-con {
+  width: 75%;
+  height: 550px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_15.png') no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999;
+}
+#app .container .tip .tip-con .erweima {
+  width: 240px;
+  height: 240px;
+  position: relative;
+  top: 150px;
+  left: 120px;
+}
+#app .container .tip .tip-con .tip-content {
+  position: relative;
+  top: 140px;
+  text-align: center;
+  font-size: 24px;
+  color: #d70204;
+}
+#app .container .tip .tip-con .close-1 {
+  position: relative;
+  bottom: -280px;
+  left: 210px;
+}
+#app .container .lottery-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+#app .container .lottery-win .lottery-con {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  width: 550px;
+  height: 500px;
+  padding-top: 68px;
+  margin: auto;
+}
+#app .container .lottery-win .lottery-con .winPrize {
+  text-align: center;
+}
+#app .container .lottery-win .lottery-con .winPrize .winPrize-bg {
+  position: absolute;
+  top: 0;
+  left: -40px;
+}
+#app .container .lottery-win .lottery-con .noPrize {
+  display: none;
+  text-align: center;
+}
+#app .container .lottery-win .lottery-con .noPrize .no-prize-bg {
+  position: absolute;
+  top: 0;
+  left: -40px;
+}
+#app .container .lottery-win .lottery-con .noPrize .lottery-title1 {
+  width: 100%;
+  font-size: 35px;
+  font-weight: bold;
+  color: #efa431;
+  line-height: 92px;
+  text-align: center;
+  position: relative;
+  bottom: 50px;
+}
+#app .container .lottery-win .lottery-con .noPrize .tear {
+  position: relative;
+  bottom: 35px;
+}
+#app .container .lottery-win .lottery-con .scanCode {
+  display: none;
+  text-align: center;
+}
+#app .container .lottery-win .lottery-con .scanCode .scanCode-bg {
+  position: absolute;
+  top: 0;
+  left: -40px;
+}
+#app .container .lottery-win .lottery-con .scanCode .lottery-title {
+  color: #f82a2a;
+}
+#app .container .lottery-win .lottery-con .scanCode .tear {
+  position: relative;
+  bottom: -50px;
+}
+#app .container .lottery-win .lottery-con .scanCode .scanCode-title {
+  position: relative;
+  z-index: 10;
+  display: block;
+  margin: -10px auto 0 auto;
+}
+#app .container .lottery-win .lottery-con .lottery-title {
+  width: 100%;
+  font-size: 46px;
+  font-weight: bold;
+  color: #eda52f;
+  line-height: 92px;
+  text-align: center;
+  position: relative;
+  bottom: 50px;
+}
+#app .container .lottery-win .lottery-con .lottery-dec1 {
+  position: relative;
+  bottom: 30px;
+}
+#app .container .lottery-win .lottery-con .lottery-dec1 .num {
+  font-size: 28px;
+  text-align: center;
+  color: #e51523;
+  font-weight: bold;
+}
+#app .container .lottery-win .lottery-con .lottery-dec1 .num span {
+  display: inline-block;
+  font-size: 95px;
+}
+#app .container .lottery-win .lottery-con .lottery-dec1 .num .coin {
+  font-size: 28px;
+  color: #a96711;
+}
+#app .container .lottery-win .lottery-con .lottery-text {
+  width: 80%;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  bottom: 70px;
+  left: 60px;
+}
+#app .container .lottery-win .lottery-con .lottery-dec2 {
+  margin-top: 30px;
+}
+#app .container .lottery-win .lottery-con .lottery-dec2 .cry-img {
+  display: block;
+  margin: 0 auto;
+}
+#app .container .lottery-win .lottery-con .code-wra {
+  position: absolute;
+  left: 0;
+  bottom: 62px;
+  z-index: 1;
+  width: 100%;
+}
+#app .container .lottery-win .lottery-con .code-wra .code {
+  display: block;
+  width: 268px;
+  height: 253px;
+  margin: 0 auto;
+}
+#app .container .lottery-win .lottery-con .code-wra .code-text {
+  font-size: 18px;
+  text-align: center;
+  color: #989a99;
+}
+#app .container .lottery-win .close-lottery {
+  position: absolute;
+  left: 44%;
+  bottom: -82px;
+  z-index: 1;
+  width: 12%;
+}
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.loading .loadCon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.loading .loadCon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  font-size: 24px;
+  line-height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+  }
+}
