@@ -5,175 +5,117 @@ var lotteryData = {};
 var awardValue;
 var src = 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_19.png';
 
-$(function() {
-	// 弹出活动规则
-	$(".rule").click(function() {
-		$(".cover").show();
-	})
+$(function () {
 
-	//关闭活动规则
-	$(".close").click(function() {
-		$(".cover").hide();
-	})
+    Func.findActivityByEncode(function (res) {
+        $('#loadingWrapper').hide();
+        if (res.code === 200 || res.code === 201) {
 
-	//关闭提示关注公众号弹窗
-	$(".close-1").click(function() {
-		$(".tip").hide();
-	})
+        } else if (res.code == 202) {
 
-	// 点击抽奖
-	$('.demolition').on('click', function() {
-        $('#loadingWrapper').show();
-        Func.isSubscribe(function(res1) {
-            if (res1.code === 200) {
-                if (!res1.data.subscribe) {
-                    $('#loadingWrapper').hide();
-                    $('#tip').show();
-                } else {
-                    Func.lottery(api.lottery, function(reg) {
-                        $('#loadingWrapper').hide();
-                        if (reg.code == 200) {
-                            prizeAmount = reg.data.redPack.prizeAmount;
-                            if (reg.data.lotteryId > 0) {
-                                lotteryId = reg.data.lotteryId;
-                            }
-                            $('.lottery-dec').find('.amount').html(reg.data.redPack.prizeAmount);
-                            $('.winPrize').show();
-                            userCash(prizeAmount,lotteryId);
-                            $('#lottery-win').fadeIn();
-                        } else if (reg.code == 201) {
-                            $('.noPrize').show();
-                            $('#lottery-win').fadeIn();
-                        } else {
-                            common.alert({
-                                content: reg.msg,
-                                mask: true
-                            });
-                        }
-                    })
-                }
-            } else {
-                $('#loadingWrapper').hide();
-                common.alert({
-                    content: res1.msg,
-                    mask: true
-                });
-            }
-        });
-	});
+            $('.amount').html(reg.data.regPack.prizeAmount);
+            $('.lottery-win').show();
+            $('.winPrize').show()
+        } else if (res.code === 203) {
+            $('#loadingWrapper').hide();
 
-	// 自动提现
-	function userCash(num, lotteryId) {
-		$.ajax({
-			url: api.userCash,
-			type: 'GET',
-			dataType: 'json',
-			data: {
-				lotteryId: lotteryId,
-				amount: num,
-				cashType: 0,
-			},
-			headers: getHeader(),
-			success: function(res) {
+            $('.lottery-win').show();
 
-			},
-			error: function(res) {
-
-			}
-
-		});
-	}
+            $('.scanCode').show()
+        } else {
+            common.alert({
+                mask: true,
+                content: res.msg
+            })
+        }
+    });
 
 
-	// 关闭页面
-	$('.close-lottery').on('click',function () {
-        WeixinJSBridge.call('closeWindow');
-    })
 
-});
+    //点击拆
+    $('.demolition').on('click', function () {
 
-securityFunc(function (red) {
-    createJoinActInfo(function (rep) {
         Func.findActivityByEncode(function (res) {
-            if (res.code === 200 || res.code === 201) {
+            if (res.code == 200 || res.code == 201) {
+                Func.lottery(function (reg) {
+
+                    if (reg.code == 200) {
+                        $('#loadingWrapper').hide();
+                        var prizeAmount = reg.data.redPack.prizeAmount;
+                        $('.amount').html(reg.data.redPack.prizeAmount);
+                        $('.lottery-win').show();
+                        $('.winPrize').show()
+
+                        if (reg.data.lotteryId > 0) {
+                            lotteryId = reg.data.lotteryId;
+                        }
+
+                        userCash(prizeAmount, lotteryId);
+                    } else if (reg.code == 201) {
+                        $('#loadingWrapper').hide();
+                        $('.lottery-win').show();
+                        $('.noPrize').show()
+                    } else {
+                        $('#loadingWrapper').hide();
+                        common.alert({
+                            mask: true,
+                            content: reg.msg
+                        })
+                    }
+                });
+
+            } else if (res.code == 203) {
                 $('#loadingWrapper').hide();
-            } else if (res.code === 203) {
-                $('#loadingWrapper').hide();
-                $(".scanCode").show();
-                $('#lottery-win').fadeIn();
+
+                $('.lottery-win').show();
+
+                $('.scanCode').show()
             } else {
                 $('#loadingWrapper').hide();
                 common.alert({
-                    mask:true,
-                    content: res.msg,
+                    mask: true,
+                    content: res.msg
                 })
             }
         });
+
+    });
+
+
+    // // 自动提现
+    function userCash(num, lotteryId) {
+        $.ajax({
+            url: api.userCash,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                lotteryId: lotteryId,
+                amount: num,
+                cashType: 0,
+            },
+            headers: getHeader(),
+            success: function (res) {
+
+            },
+            error: function (res) {
+
+            }
+
+        });
+    }
+
+    //点击我知道了
+    $('.lottery-zd').on('click', function () {
+
+        $('.close').hide()
+        $('.lottery-win').fadeOut()
     })
-})
+
+    // 关闭页面
+    // $('.lottery-zd').on('click',function () {
+    //     WeixinJSBridge.call('closeWindow');
+    // })
+
+});
 
 
-/*创建参与记录*/
-function createJoinActInfo(callback) {
-    $.ajax({
-        url: api.createJoinActInfo,
-        type: 'GET',
-        headers: getHeader(),
-        success: function(res) {
-            if (res.code === 200) {
-                callback(res);
-            } else if (res.code === 201 || res.code === 202) {
-                $('#loadingWrapper').hide();
-                $(".scanCode").show();
-                $('#lottery-win').fadeIn();
-            } else {
-                $('.scanCode-title').attr('src',src);
-                $('#loadingWrapper').hide();
-                $(".scanCode").show();
-                $('#lottery-win').fadeIn();
-            }
-        },
-        error:function (res) {
-            $('.scanCode-title').attr('src',src);
-            $('#loadingWrapper').hide();
-            $(".scanCode").show();
-            $('#lottery-win').fadeIn();
-        }
-    });
-}
-
-
-/*真溯源*/
-function securityFunc(callback) {
-    $('#loadingWrapper').show();
-    $.ajax({
-        url: api.findRealTracing,
-        type: 'GET',
-        headers: getHeader(),
-        success: function(res) {
-            if (res.code === 200) {
-                var data = res.data;
-                if (data.originRecord.length > 0) {
-                    callback(res)
-                } else {
-                    $('.scanCode-title').attr('src',src);
-                    $('#loadingWrapper').hide();
-                    $(".scanCode").show();
-                    $('#lottery-win').fadeIn();
-                }
-
-            } else {
-                $('.scanCode-title').attr('src',src);
-                $('#loadingWrapper').hide();
-                $(".scanCode").show();
-                $('#lottery-win').fadeIn();
-            }
-        },
-        error:function (res) {
-            $('.scanCode-title').attr('src',src);
-            $('#loadingWrapper').hide();
-            $(".scanCode").show();
-            $('#lottery-win').fadeIn();
-        }
-    });
-}
