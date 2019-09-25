@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/benyi1/css/kajuan.css" />
+    <link rel="stylesheet" type="text/css" href="/benyi1/scripts/plug/swiper-3.3.1.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-con">
+                <a class="header-con-item selected">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_7.png" alt="">
+                    <p>未使用</p>
+                </a>
+
+                <a class="header-con-item">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_8.png" alt="">
+                    <p>已使用</p>
+                </a>
+                <a class="header-con-item">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_9.png" alt="">
+                    <p>已过期</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="content" id="scrollW">
+            <div class="wrapper">
+                <div class="list" id="list">
+                    <!-- <div class="content-item">
+                        <div class="content-item-left">
+                            ¥<span>40</span>
+                            <p>人人乐超市</p>
+                            <p>满200可用</p>
+                        </div>
+
+                        <div class="content-item-right">
+                            <p>有效期至</p>
+                            <p>2018-10-17</p>
+                            <span>编号:24394dj152f</span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="loadText" id="loading">上滑加载更多</div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- 无卡卷 -->
+    <div class="containera">
+        <div class="con">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/9_13.png" alt="">
+            <div class="con-txt">您暂时没有卡卷哦!</div>
+        </div>
+    </div>
+</body>
+
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/benyi1/scripts/api.js"></script>
+<script src="/benyi1/scripts/Func.js"></script>
+<script src="/benyi1/scripts/lib/jweixin-1.0.0.js"></script>
+<script src="/benyi1/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+
+<script src="/benyi1/scripts/lib/bscroll.js"></script>
+<script src="/benyi1/scripts/kajuan.js"></script>
+
+<script>
+    var scroll = new BScroll('#scrollW', {
+        scrollbar: {
+            fade: true
+        },
+        click: true,
+        pullUpLoad: {
+            threshold: 0
+        }
+    });
+
+    var doc = $(document);
+
+    $(function () {
+        main.init();
+
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        doc.on('click', '.back', function () {
+            window.history.back();
+        });
+    });
+</script>
+
+</html>

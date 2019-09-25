@@ -1,0 +1,325 @@
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+  display: block;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+select {
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+  cursor: pointer;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+}
+body {
+  background: #f3f3f3;
+}
+
+.loading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 9999;
+
+    .loadCon {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        margin-left: -75px;
+        margin-top: -75px;
+        img {
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+ 
+        }
+        #percent {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 150px;
+            font-size: 24px;
+        }
+		
+    }
+
+
+
+}
+.container {
+	position: relative;
+  width: 100%;
+  height: 100%;
+  background: #f3f3f3;
+  display: block;
+
+  .header {
+    background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/6_3.png') no-repeat;
+    background-size: 100% 100%;
+    height: 200px;
+    position: relative;
+
+    .header-con {
+      box-shadow: #ccc 0px 4px 10px 1px;
+      display: flex;
+      border-radius: 15px;
+      position: absolute;
+      left: 30px;
+      right: 30px;
+      top: 150px;
+      background: #fff;
+      
+      .header-con-item {
+        display: block;
+        width: 50%;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 40px;
+        
+        color: #666;
+
+        img {
+          margin: auto;
+        }
+
+      }
+    }
+    .selected{
+      color: #ef4852!important;
+    }
+
+  }
+
+
+  .content:first-child{
+    display: block;
+  }
+  .content {
+
+    position: absolute;
+    top: 200px;
+    bottom: 40px;
+    left: 0px;
+    right: 0px;
+    // padding: 0px 48px 0px 48px; 
+    overflow: hidden;
+    
+    box-shadow: #ccc 0px 4px 10px 1px;
+    border-radius: 15px;
+    margin: 130px 30px 30px 30px;
+    padding: 30px;
+    background: #fff;
+    font-size: 24px;
+
+
+    .content-item {
+      width: 100%;
+      display: flex;
+      color: #666;
+      line-height: 100px;
+      border-bottom: 1px #ddd solid;
+
+      .content-item-left {
+        width: 40%
+      }
+
+      .content-item-middel {
+        width: 45%;
+      }
+
+      .content-item-right {
+        width: 15%;
+        
+        .weilinqu{
+          text-decoration: underline;
+          color: #ef4852;
+        }
+      }
+
+    }
+
+    .content-item:last-child {
+      border: none;
+    }
+  }
+
+  .tfooter{
+    height: 10px;
+  }
+
+
+  .lqlp {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+
+    .lqlp-con {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/6_1.png');
+      background-size: 100% 100%;
+      height: 370px;
+      width: 455px;
+
+      .lqlp-con-header {
+        color: #eee;
+        position: absolute;
+        top: 35px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      .lqlp-con-bottom{
+        color: #333;
+        font-size: 28px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 35px;
+        text-align: center;
+      }
+
+    }
+  }
+
+
+  .loadText {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+
+.containera {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: none;
+
+  .con {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+
+    .con-txt{
+      text-align: center;
+      font-size: 30px;
+      color: #666;
+      padding-top: 50px;
+    }
+  }
+}

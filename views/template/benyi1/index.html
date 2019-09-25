@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/benyi1/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="/benyi1/scripts/plug/swiper-3.3.1.min.css" />
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?b3cb12dffe3fff25260ca6e32bfeebfe";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+
+<body>
+
+	<!--加载页-->
+		<div class="loading">
+			<div class="loadCon">
+				<img src="/benyi/images/loading.png">
+				<div id="percent">1%</div>
+			</div>
+		</div>
+
+
+	<div class="container" id="container">
+		<div class="header">
+			<div class="header-left"><img class="headimgurl" alt=""></div>
+			<div class="header-right nickname"></div>
+
+
+			<!-- 领奖 -->
+			<div class="lj">
+				<div class="lj-top">
+
+					<div class="lj-top-left"><img id='productImagesUrl' alt=""></div>
+					<div class="lj-top-middel">
+						<h2 class="message"></h2>
+						<!-- <p>风险预警：该产品扫码次数异常</p>
+				<p>若此产品为首次开封扫码,请在“查看详情”中反馈</p> -->
+					</div>
+					<!-- <div class="lj-top-right">
+				<a href=""><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_5.png" alt=""></a>
+			</div> -->
+
+
+				</div>
+
+				<div class="lj-bottom">
+
+					<div class="jiangxiang">
+
+						<div class="lj-bottom-left">
+							<div class="jx1"></div>
+						</div>
+						<!-- <div class="lj-bottom-middel">
+
+							<span>20.00</span>元
+						</div> -->
+					</div>
+
+					<div class="lj-bottom-right">
+						<!-- <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_6.png" alt=""> -->
+
+						<div class="wlq">一键领取</div>
+						<div class="ylq">已领取</div>
+						<!-- <p>请在24小时内领取</p> -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="headera">
+
+			<div class="header-left"><img class="headimgurl" alt=""></div>
+			<div class="header-right nickname">
+
+			</div>
+		</div>
+
+		<div class="banner " id="mxdp">
+
+			<div class="swiper-container">
+				<div class="swiper-wrapper"></div>
+
+
+				<div class="swiper-pagination"></div>
+			</div>
+
+		</div>
+
+		<!-- 互动推广 -->
+		<div class="hdtg">
+			<div class="hdtg-header">
+				<img class="hdtg-header-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_12.png" alt="">
+				<div class="hdtg-header-text">互动推广</div>
+			</div>
+
+			<!-- 领取新人红包 -->
+			<div class="hdtg-middel itemclick" id='hdzq1'>
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_14.png" alt="">
+			</div>
+
+			<div class="hdtg-bottom">
+				<div class="left itemclicka" id='hdzq2'>
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_16.png" alt=""></a>
+				</div>
+				<div class="right itemclick" id='hdzq3'>
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_17.png" alt="">
+				</div>
+			</div>
+		</div>
+
+		<!-- 签到 -->
+		<div class="qd">
+			<div class="qd-header">
+				今日已有：<span class="signNum"></span> 位会员签到
+			</div>
+			<div class="qd-img ">
+				<div class="qiandaon">签到</div>
+				<div class="qiandaoy">已签到</div>
+				<p class="qd-img-text joinAct">剩余<span class="canJoinActNum"></span>次抽奖</p>
+				<img class="qd-img-img joinAct" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_31.png" alt="">
+			</div>
+
+
+			<div class="qd-xyz">
+				<div class="qd-xyz-left">幸运值</div>
+				<div class="qd-xyz-middel">
+					<!-- 进度条 -->
+					<div class="qd-xyz-middel-jdt"></div>
+					<img class="qd-img-imga" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_24.png" alt="">
+				</div>
+				<!-- 积分积分余额 -->
+				<div class="qd-xyz-right"><span class="balanceScore"></span>/<span class="totalScoreNum"></span>
+				</div>
+			</div>
+
+			<div class="qd-tex">
+				<img class="qd-tex-img1" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_34.png" alt="">
+				<img class="qd-tex-img2" id='hdsm' src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_26.png" alt="">
+				每连续签到7天即可参与大转盘抽奖(最高<span>88元</span>鼓励金等你来拿)
+			</div>
+
+			<div class="qd-ts">
+				<img class="qd-ts-y1 qd-ts-y" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_27.png" alt="">
+				<img class="qd-ts-y2 qd-ts-y" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_27.png" alt="">
+				<img class="qd-ts-y3 qd-ts-y" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_27.png" alt="">
+				<img class="qd-ts-y4 qd-ts-y" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_27.png" alt="">
+				<img class="qd-ts-y5 qd-ts-y" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_27.png" alt="">
+
+				<img class="qd-ts-bx1" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_28.png">
+				<img class="qd-ts-bx2" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_28.png">
+			</div>
+
+
+			<div class="qd-bottom">
+				已连续签到<span class="continuitySignInNum"></span>天
+			</div>
+		</div>
+
+
+		<!-- 会员专享  -->
+		<div class="hyzx">
+			<div class="hyzx-header">
+				<img class="hyzx-header-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_37.png" alt="">
+				<div class="hyzx-header-text">会员专享</div>
+			</div>
+
+			<div class="hyzx-con" id='goodsList'>
+				<a href="http://www.ipingke.cn/mall/966XZ02.htm?gzid=" class="hyzx-con-item">
+					<img class="hyzx-header-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_39.jpg" alt="">
+					<p>轻便透气低帮运动鞋</p>
+
+					<span>￥139</span>
+					<!-- <del>￥10.00</del> -->
+				</a>
+
+				<a href="http://www.ipingke.cn/mall/005.htm?gzid=" class="hyzx-con-item">
+					<img class="hyzx-header-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_40.jpg" alt="">
+					<p>休闲鞋百搭防臭飞织运动鞋</p>
+
+					<span>￥139</span>
+					<!-- <del>￥10.00</del> -->
+				</a>
+			</div>
+		</div>
+
+
+
+		<!-- 关注公众号 -->
+		<div class="gzh">
+			<img class="yxzq-con-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_36.png" alt="">
+			<p>关注本意公众号更多惊喜</p>
+		</div>
+
+
+		<!-- 底部 -->
+		<!-- <div class="footer">
+			<a href="/template/benyi/index" class="item-tab">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_1.png" alt="">
+				<p>首页</p>
+			</a>
+			<a href="/template/benyi/grzx" class="item-tab">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_3.png" alt="">
+				<p>个人中心</p>
+			</a>
+		</div> -->
+		<div class="tfooter"></div>
+
+
+		<!-- 签到弹窗 -->
+
+		<div class="qdtc">
+			<div class="qdtc-con">
+				<div class="qdtc-con-txt">获得<span class="scoreNum"></span>幸运值</div>
+				<a class="qdtc-con-btn">领取</a>
+			</div>
+		</div>
+
+		<!-- 活动说明弹窗 -->
+		<div class="hdsm">
+			<div class="hdsm-con">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/5_2.png" alt="">
+
+			</div>
+
+			<div class="hdsm-qx">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/5_1.png" alt="">
+			</div>
+		</div>
+
+
+		<!-- 领取鼓励金 -->
+		<div class="lqlp">
+			<div class="lqlp-con">
+				<div class="lqlp-con-header">
+					恭喜获得
+				</div>
+
+				<div class="lqlp-con-middel">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/6_5.png" alt="">
+
+				</div>
+				<div class="lqlp-con-bottom ">
+					<p class="text1"></p>
+					<p class="text2"></p>
+					<p class="text3"></p>
+
+				</div>
+
+				<a class="lqlp-con-btn">领取</a>
+
+				<a class="lqlp-con-btna">领取</a>
+			</div>
+
+			<div class="lqlp-gb">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/5_1.png" alt="">
+			</div>
+		</div>
+
+
+		<!-- 领取鼓励金 -->
+		<div class="lqlpcg">
+			<div class="lqlpcg-con">
+				<div class="lqlpcg-con-header">
+					领取成功
+				</div>
+				<div class="lqlpcg-con-bottom">
+					领取成功
+				</div>
+			</div>
+		</div>
+
+		<!-- 是否关注公众号-->
+		<div class="gzhtc">
+			<div class="gzhtc-con">
+
+				<div class="gzhtc-con-img"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_36.png" alt=""></div>
+				<div class="gzhtc-con-text">
+
+					<p>检测到您尚未关注公众号</p>
+					<p>请长按识别关注公众号后再扫码获取红包</p>
+				</div>
+			</div>
+			<div class="gzhtc-gb">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/5_1.png" alt="">
+			</div>
+		</div>
+
+		<%-include("../../include/loading", {loadingTip: '正在加载中'}) %>
+	</div>
+</body>
+
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/benyi1/scripts/api.js"></script>
+<script src="/benyi1/scripts/Func.js"></script>
+<script src="/benyi1/scripts/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/benyi1/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+<script src="/benyi1/scripts/index.js"></script>
+
+
+<script>
+		/**加载进度*/
+		common.loading($("#percent"));
+		// $(function(){
+		// 	$(".loading").hide();
+		// })
+</script>
+
+</html>

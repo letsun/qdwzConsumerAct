@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/benyi1/css/grzx.css" />
+    <link rel="stylesheet" type="text/css" href="/benyi1/scripts/plug/swiper-3.3.1.min.css" />
+</head>
+
+<body>
+
+    <!--加载页-->
+    <!-- 		<div class="loading">
+			<div class="loadCon">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/loading.png">
+				<div id="percent">1%</div>
+			</div>
+		</div> -->
+
+
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <img id="headimgurl"  alt="">
+            </div>
+
+            <div class="header-right" id="nickname"> </div>
+
+            <!-- 我的礼品点击 -->
+            <div class="header-nav">
+
+                <div class="nav-hader">
+                    <a href="/template/benyi/liping">
+                        <div class="left"> <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_1.png" alt=""></div>
+                        <div class="middel"> 我的礼品</div>
+                        <div class="right">查看全部 </div>
+                        <div class="nav-header-img"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_2.png" alt=""></div>
+                    </a>
+                </div>
+
+                <div class="nav-bottom">
+                    <div class="nav-bottom-item">
+                        <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_9.png" alt="">
+                        <span>待领取</span>
+                    </div>
+                    <div class="nav-bottom-item">
+
+                        <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_10.png" alt="">
+                        <span>待发货</span>
+                    </div>
+                    <div class="nav-bottom-item">
+                        <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_11.png" alt="">
+                        <span>待收货</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 广告 -->
+        <div class="banner">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_13.png" alt="">
+        </div>
+
+        <div class="con">
+            <a href="/template/benyi/gulijin" class="con-item">
+                <div class="cont-item-left"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_14.png" alt=""></div>
+                <div class="cont-item-middel">我的鼓励金</div>
+                <div class="cont-item-right">查看全部 </div>
+                <div class="cont-item-img"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_2.png" alt=""></div>
+            </a>
+            <a href="/template/benyi/kajuan" class="con-item">
+                <div class="cont-item-left"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_15.png" alt=""></div>
+                <div class="cont-item-middel">我的卡卷</div>
+                <div class="cont-item-right">查看全部 </div>
+                <div class="cont-item-img"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_2.png" alt=""></div>
+            </a>
+            <a href="/template/benyi/jinbi" class="con-item">
+                <div class="cont-item-left"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_16.png" alt=""></div>
+                <div class="cont-item-middel">我的积分</div>
+                <div class="cont-item-right">查看全部</div>
+                <div class="cont-item-img"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_2.png" alt=""></div>
+            </a>
+            <a class="con-item">
+            <!-- <a href="/template/benyi/address" class="con-item"> -->
+                <div class="cont-item-left"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_17.png" alt=""></div>
+                <div class="cont-item-middel">我的地址</div>
+                <div class="cont-item-right"></div>
+                <div class="cont-item-img"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_2.png" alt=""></div>
+            </a>
+            <a href="/template/benyi/upphone" class="con-item">
+                <div class="cont-item-left"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_18.png" alt=""></div>
+                <div class="cont-item-middel" id='mobiletext'>修改手机号</div>
+                <div class="cont-item-right" id='mobile'></div>
+                <div class="cont-item-img"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_2.png" alt=""></div>
+            </a>
+            <a href="/template/benyi/jifen" class="con-item">
+                <div class="cont-item-left"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_19.png" alt=""></div>
+                <div class="cont-item-middel">积分规则</div>
+                <div class="cont-item-right"></div>
+                <div class="cont-item-img"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/2_2.png" alt=""></div>
+            </a>
+        </div>
+        
+
+        
+    </div>
+
+    <div class="tfooter"></div>
+    <div class="footer">
+        <a href="/template/benyi/index" class="item-tab">
+            <img class="yxzq-con-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_4.png" alt="">
+            <p>首页</p>
+        </a>
+        <a href="/template/benyi/grzx" class="item-tab">
+            <img class="yxzq-con-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/1_2.png" alt="">
+            <p>个人中心</p>
+        </a>
+    </div>
+</body>
+
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/benyi1/scripts/api.js"></script>
+<script src="/benyi1/scripts/Func.js"></script>
+<script src="/benyi1/scripts/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/benyi1/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+<script src="/benyi1/scripts/grzx.js"></script>
+<script>
+
+
+</script>
+
+</html>

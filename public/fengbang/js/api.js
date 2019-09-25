@@ -27,7 +27,7 @@ var api = {
 	cancelCoupon: ip + '/lotteryConsumer/cancelCoupon',							// 消费者自主核销接口
 
 	checkUserMobile: ip + '/consumerUser/checkUserMobile',						// 是否绑定手机号
-	getVerCode: ip + '/smscode/getVerCode',										// 获取验证码
+	getVerCode: ip + '/smscode/fb/getVerCode',										// 获取验证码
 	bindingUserInfoMobile: ip + '/consumerUserInfo/bindingUserInfoMobile',   	// 绑定手机号
 	receiveLottery:ip + '/consumerActivity/receiveLottery',             		//消费者领取中奖纪录
 	
