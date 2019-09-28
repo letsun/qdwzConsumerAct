@@ -38,31 +38,35 @@ $(function () {
 		yes1.play();
         index = $(this).index();
         $('.award-item').addClass('active');
-		$('.award-item').find('.positive-item').hide();
+        $('.award-item').find('.positive-item').hide();
+        
+        
     });
 
-    // 监听动画结束
+    $('#back-item').on('animationend', function() {	
+        $(".baoza img:first-child").show();
+        $(".baoza img:nth-child(2)").show();
+        setTimeout(function() {
+            // yes3.play();
+            $(".baoza").hide();		
+            $(".baoza img").attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_8.png');
+            $('.layer').show();	
+            $('.award-item').find('.layer-item').show();
+            $('.award-item').eq(index).find('.layer-item').hide();
+            $('.award-item').eq(index).css('z-index','2');
+            $('.award-item').find('.award-item-bga').show();
+            $('.award-item').eq(index).find('.award-item-bg').fadeIn();
+            $('.back-item').hide();
+            $('.award-item').find('.award-dec1').show();
+            $('.positive-item').fadeIn();
+            $('.openPub-btn').show();
+        },100);
 
-	$('.back-item').on('transitionend', function() {		
-		$(".baoza img:first-child").show();
-		$(".baoza img:nth-child(2)").show();
-		setTimeout(function() {
-			yes3.play();
-			$(".baoza").hide();		
-			$(".baoza img").attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_8.png');
-			$('.layer').show();	
-			$('.award-item').find('.layer-item').show();
-			$('.award-item').eq(index).find('.layer-item').hide();
-			$('.award-item').eq(index).css('z-index','2');
-			$('.award-item').find('.award-item-bga').show();
-			$('.award-item').eq(index).find('.award-item-bg').fadeIn();
-			$('.back-item').hide();
-			$('.award-item').find('.award-dec1').show();
-			$('.positive-item').fadeIn();
-			$('.openPub-btn').show();
-		},1500);
+        });
 
-	});
+
+
+    
 
 
 	// 打开公众号
@@ -79,6 +83,15 @@ $(function () {
 	$('#attent-btna').on('click',function () {
 	    $('#attent-wina').fadeOut();
 	});
+
+
+	var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        loop: true,				//是否无缝轮播
+        autoplay: 2000,		//轮播时间
+        direction: 'vertical',//改变轮播图方向,
+        simulateTouch: false,//禁止滑动
+    });
 });
 
 // var yes1 = new Audio();
