@@ -302,3 +302,8 @@ body {
 .containera .containera-con img {
   margin-bottom: 30px;
 }
+.containerc {
+  z-index: 999;
+  display: none;
+  width: 100%;
+}

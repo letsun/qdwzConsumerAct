@@ -829,8 +829,12 @@ $(function() {
 			headers: getHeader(),
 			dataType: 'json',
 			success: function(res) {
-				callback(res);
+				// callback(res);
 			}
 		});
 	}
+
+
+
+
 })

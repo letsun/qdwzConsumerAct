@@ -646,14 +646,22 @@ body {
 .result-footer .item-text {
   display: flex;
 }
-.result-footer .item-text div {
-  padding-right: 40px;
-}
 .result-footer .item-text div:first-child {
   width: 140px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.result-footer .item-text div {
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+}
+.result-footer .item-text div:last-child {
+  width: 190px;
+  padding-right: 0px;
 }
 @-webkit-keyframes scale {
   0% {

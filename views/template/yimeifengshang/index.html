@@ -111,6 +111,11 @@
 			该码未关联商品
 		</div>
 	</div>
+
+
+	<div class="containerc">
+		<img src="/yimeifengshang/images/4_6.jpg">
+	</div>
 </body>
 
 <!-- 公共js start -->
@@ -128,15 +133,32 @@
 <script>
 
 
-
 	/**加载进度*/
-	$(function () {
-		common.loading($("#percent"), function () {
-			$('.loading').hide();
-			// debugger;
-			$('#container').fadeIn();
-		});
 
+	common.loading($("#percent"));
+	/**加载进度*/
+
+
+
+
+	window.onload = function () {
+		// common.loading($("#percent"), function () {
+		// 	$('#container').fadeIn();
+		// });
+
+		ax()
+		$(".loading").hide();
+		//点击图片放大
+		$('#purchaseImgUrl').on('click', function () {
+			var src = $(this).attr('src');
+			wx.previewImage({
+				current: src, // 当前显示图片的http链接
+				urls: [src] // 需要预览的图片http链接列表
+			});
+		})
+	}
+
+	function ax() {
 		var html = '';
 		$.ajax({
 			url: api.findEncodeFunction,
@@ -147,12 +169,26 @@
 				if (res.code == 200) {
 					//json数组
 
+					var barcode = res.data.productRecord.barcode;
+
+					if (barcode == "684718836847188368471883") {
+
+					
+						$('.containera').hide();
+						$('.container').css('opacity', 1);
+						$('.container').hide();
+						$('.containerc').show();
+						return false;
+					}
+
+
 					var isRefGoods = res.data.productRecord.isRefGoods;  //条形码是否关联商品 1已关联
 					var jsonPropArr = '';
 					if (isRefGoods == 1) {
 						jsonPropArr = JSON.parse(res.data.productRecord.productInfoJson);
 						$('.containera').hide();
 						$('.container').css('opacity', 1);
+						// $('.container').hide();
 					} else {
 						$('.containera').show();
 					}
@@ -194,7 +230,7 @@
 					var swiper = new Swiper('.swiper-container', {
 						loop: true,
 						autoplay: 2500,
-						autoplayDisableOnInteraction : false,
+						autoplayDisableOnInteraction: false,
 						pagination: '.swiper-pagination',
 					});
 
@@ -223,19 +259,11 @@
 				common.alert({
 					mask: true,
 					content: res.msg
-				})				
+				})
 			}
 		});
 
-		//点击图片放大
-		$('#purchaseImgUrl').on('click', function () {
-			var src = $(this).attr('src');
-			wx.previewImage({
-				current: src, // 当前显示图片的http链接
-				urls: [src] // 需要预览的图片http链接列表
-			});
-		})
-	})
+	}
 
 
 

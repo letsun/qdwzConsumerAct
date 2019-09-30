@@ -1,281 +1,289 @@
 @import "common/reset";
 
 
-html,body {
-	width: 100%;
-	height: 100%;
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
-	background: #fff;
+    background: #fff;
 }
 
 #app {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 #container {
-	position: relative;
+    position: relative;
 
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 
-	background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_9.jpg) no-repeat;
-	background-size: 100% 100%;
+    background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_9.jpg) no-repeat;
+    background-size: 100% 100%;
 
-	.content {
-		position: relative;
-		z-index: 1;
+    .content {
+        position: relative;
+        z-index: 1;
 
-		width: 100%;
-		height: 100%;
-		
-		overflow: hidden;
-		
+        width: 100%;
+        height: 100%;
 
-		.logo {
-			position: absolute;
-			left: 3%;
-			top: 2%;
-			z-index: 1;
-		}
+        overflow: hidden;
 
-		.title {
-			position: absolute;
-			left: 11%;
-			top: 12%;
-			z-index: 1;
-			width: 80%;
-		}
 
-		.con-bg {
-			position: absolute;
-			left: 2%;
-			bottom: 7%;
-			z-index: 1;
+        .logo {
+            position: absolute;
+            left: 3%;
+            top: 2%;
+            z-index: 1;
+        }
 
-			width: 96%;
-		}
+        .title {
+            position: absolute;
+            left: 11%;
+            top: 12%;
+            z-index: 1;
+            width: 80%;
+        }
 
-		.award-list {
-			position: absolute;
-			left: 20px;
-			top: 34%;
-			z-index: 2;
+        .con-bg {
+            position: absolute;
+            left: 2%;
+            bottom: 7%;
+            z-index: 1;
 
-			width: 600px;
-			height: 500px;
-			
-			.award-item {
-				position: absolute;
-				left: 0;
-				top: 0;
-				z-index: 1;
+            width: 96%;
+        }
 
-				width: 170px;
-				height: 218px;
+        .award-list {
+            position: absolute;
+            left: 20px;
+            top: 34%;
+            z-index: 2;
 
-				&:first-child {
-					top: 0;
-					left: 10px;
-				}
+            width: 600px;
+            height: 500px;
 
-				&:nth-of-type(2) {
-					top: 0;
-					left: 215px;
-				}
+            .award-item {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
 
-				&:nth-of-type(3) {
-					top: 0;
-					left: 420px;
-				}
+                width: 170px;
+                height: 218px;
 
-				&:nth-of-type(4) {
-					top: 250px;
-					left: 116px;
-				}
+                &:first-child {
+                    top: 0;
+                    left: 10px;
+                }
 
-				&:nth-of-type(5) {
-					top: 250px;
-					left: 324px;
-				}
+                &:nth-of-type(2) {
+                    top: 0;
+                    left: 215px;
+                }
 
-			}
+                &:nth-of-type(3) {
+                    top: 0;
+                    left: 420px;
+                }
 
-			.positive-item {
-				position: absolute;
-				left: 0;
-				top: 0;
-				z-index: 1;
+                &:nth-of-type(4) {
+                    top: 250px;
+                    left: 116px;
+                }
 
-				display: none;
-				
-				height: 100%;
-				width: 100%;
+                &:nth-of-type(5) {
+                    top: 250px;
+                    left: 324px;
+                }
 
-				background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_6.png') no-repeat;
-				background-size: 100% 100%;
-				
-				.award-title {
-					width: 100%;
-					height: 20px;
-					padding-top: 5px;
-				
-					font-size: 20px;
-					text-align: center;
-					line-height: 30px;
-					color: #e88100;
-				}
-				
-				.award-dec {
-					display: none;
-					
-					width: 152px;
-					
-					text-align: center;
-				
-					.amount {
-						text-align: center;
-						color: #e51141;
-						line-height: 40px;
-						font-size: 20px;
-				
-						.num {
-							font-size: 28px;
-							font-weight: bold;
-							z-index: 999
-						}
-					}
-				}
-				
-				.award-dec1 {
-					margin-top: 34px;
-					
-					.amount {
-						line-height: 210px;
-					}
-				}
-				
-				.award-dec2 {
-					margin-top: 120px;
-				
-					.award-dec-img {
-						display: block;
-				
-						margin: 5px auto 0 auto;
-					}
-					
-					.amount {
-						font-size: 24px;
-					}
-				}
-				
-			
-			}
+            }
 
-			// transform: rotateY(-5400deg);
-			// -webkit-transform: rotateY(-5400deg);
+            .positive-item {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
 
-			.back-item {
-				position: absolute;
-				left: 0;
-				top: 0;
-				z-index: 1;
-				width: 170px;
-				height: 218px;
-				// transition: 5s;
-				// -webkit-transition: 5s;
+                display: none;
 
-				transform: rotateY(-5400deg);
-				-webkit-transform: rotateY(-5400deg);
-				background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_4.png') no-repeat;
-				background-size: 100% 100%;
+                height: 100%;
+                width: 100%;
 
-				backface-visibility: hidden;
-				-webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
-				-moz-backface-visibility:hidden; 	/* Firefox */
-				-ms-backface-visibility:hidden; 	/* Internet Explorer */
-				transform-style: preserve-3d;
-				-webkit-transform-style: preserve-3d;
+                background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_6.png') no-repeat;
+                background-size: 100% 100%;
 
-				overflow: hidden;
+                .award-title {
+                    width: 100%;
+                    height: 20px;
+                    padding-top: 5px;
 
-			}
+                    font-size: 20px;
+                    text-align: center;
+                    line-height: 30px;
+                    color: #e88100;
+                }
 
-			.active {
-				// -webkit-animation: fanpai 5s forwards;
-				.back-item {
-					-webkit-animation: fanpai 5s forwards;
-				}
-			}
+                .award-dec {
+                    display: none;
 
-			.award-item-bg {
-				position: absolute;
-				left: -110px;
-				top: -100px;
-				z-index: 0;
-				display: none;
-				width: 384px;
-			}
-			.award-item-bga {
-				position: absolute;
-				left: 0px;
-				top: 0px;
-				z-index: 1;
-				display: none;
-			}
-			.layer-item {
-				position: absolute;
-				left: 0;
-				top: 0;
-				z-index: 10;
-				display: none;
-				width: 100%;
-				height: 218px;
-				
-				img {
-					display: block;
-					
-					width: 100%;
-					height: 100%;
-				}
-			}
-		}
-			
-		.baoza{
-			position: absolute;
-			left: 50%;
-			top: 63%;
-			z-index:6;	
-			width: 100%;
-			transform: translate(-50%,-50%);
-			-webkit-transform: translate(-50%,-50%);
-			
-			img:first-child{
-				width: 1600px;
-				display: none;
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				z-index:6;	
-				transform: translate(-50%,-50%);
-				-webkit-transform: translate(-50%,-50%);
-			}
-			img:nth-child(2){
-				width: 500px;
-				display: none;
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				z-index:6;	
-				transform: translate(-55%,-70%);
-				-webkit-transform: translate(-55%,-70%);
-			}
-		}
-		
-		
-		/*.tips {
+                    width: 152px;
+
+                    text-align: center;
+
+                    .amount {
+                        text-align: center;
+                        color: #e51141;
+                        line-height: 40px;
+                        font-size: 20px;
+
+                        .num {
+                            font-size: 28px;
+                            font-weight: bold;
+                            z-index: 999
+                        }
+                    }
+                }
+
+                .award-dec1 {
+                    margin-top: 34px;
+
+                    .amount {
+                        line-height: 210px;
+                    }
+                }
+
+                .award-dec2 {
+                    margin-top: 120px;
+
+                    .award-dec-img {
+                        display: block;
+
+                        margin: 5px auto 0 auto;
+                    }
+
+                    .amount {
+                        font-size: 24px;
+                    }
+                }
+
+
+            }
+
+            // transform: rotateY(-5400deg);
+            // -webkit-transform: rotateY(-5400deg);
+
+            .back-item {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+                width: 170px;
+                height: 218px;
+                // transition: 5s;
+                // -webkit-transition: 5s;
+
+                transform: rotateY(-5400deg);
+                -webkit-transform: rotateY(-5400deg);
+                background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_4.png') no-repeat;
+                background-size: 100% 100%;
+
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                /* Chrome 和 Safari */
+                -moz-backface-visibility: hidden;
+                /* Firefox */
+                -ms-backface-visibility: hidden;
+                /* Internet Explorer */
+                transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+
+                overflow: hidden;
+
+            }
+
+            .active {
+
+                // -webkit-animation: fanpai 5s forwards;
+                .back-item {
+                    -webkit-animation: fanpai 5s forwards;
+                }
+            }
+
+            .award-item-bg {
+                position: absolute;
+                left: -110px;
+                top: -100px;
+                z-index: 0;
+                display: none;
+                width: 384px;
+            }
+
+            .award-item-bga {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: 1;
+                display: none;
+            }
+
+            .layer-item {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 10;
+                display: none;
+                width: 100%;
+                height: 218px;
+
+                img {
+                    display: block;
+
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .baoza {
+            position: absolute;
+            left: 50%;
+            top: 63%;
+            z-index: 6;
+            width: 100%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+
+            img:first-child {
+                width: 1600px;
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 6;
+                transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+            }
+
+            img:nth-child(2) {
+                width: 500px;
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 6;
+                transform: translate(-55%, -70%);
+                -webkit-transform: translate(-55%, -70%);
+            }
+        }
+
+
+        /*.tips {
 			position: absolute;
 			left: 0;
 			bottom: 10px;
@@ -287,408 +295,420 @@ body {
 			color: #ffeb00;
 		}*/
 
-		.openPublic-btn {
-			position: absolute;
-			left: 50%;
-			bottom: 10px;
-			z-index: 999;
+        .openPublic-btn {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            z-index: 999;
 
-			display: none;
+            display: none;
 
-			-webkit-transform: translateX(-50%);
-		}
-	}
+            -webkit-transform: translateX(-50%);
+        }
+    }
 }
 
 .layer {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
 
-	display: none;
+    display: none;
 
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 
-	background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, .6);
 }
 
 
 /*关注二维码*/
 .attent-win {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 99;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
 
-	display: none;
+    display: none;
 
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 
-	background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, .6);
 
-	.attent-content {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		z-index: 1;
+    .attent-content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
 
-		width: 528px;
-		height: 559px;
-		padding-top: 70px;
+        width: 528px;
+        height: 559px;
+        padding-top: 70px;
 
-		background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
-		background-size: 100% 100%;
+        background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
+        background-size: 100% 100%;
 
-		box-sizing: border-box;
+        box-sizing: border-box;
 
-		-webkit-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%, -50%);
 
-		.attent-title {
-			position: absolute;
-			left: 0;
-			top: 24px;
-			z-index: 1;
+        .attent-title {
+            position: absolute;
+            left: 0;
+            top: 24px;
+            z-index: 1;
 
-			width: 100%;
+            width: 100%;
 
-			font-size: 40px;
-			text-align: center;
-			line-height: 50px;
-			color: #eca330;
-			font-weight: bold;
-		}
+            font-size: 40px;
+            text-align: center;
+            line-height: 50px;
+            color: #eca330;
+            font-weight: bold;
+        }
 
-		.attent-dec {
-			padding: 30px 0 12px 0;
+        .attent-dec {
+            padding: 30px 0 12px 0;
 
-			border-radius: 0 0 20px 20px;
-		}
+            border-radius: 0 0 20px 20px;
+        }
 
-		.attent-img {
-			display: block;
-			margin: 0 auto;
-		}
+        .attent-img {
+            display: block;
+            margin: 0 auto;
+        }
 
-		.attent-tips {
-			margin-top: 17px;
-			font-size: 22px;
-			color: #ec284c;
-			line-height: 34px;
-			text-align: center;
-		}
+        .attent-tips {
+            margin-top: 17px;
+            font-size: 22px;
+            color: #ec284c;
+            line-height: 34px;
+            text-align: center;
+        }
 
-		.attent-btn {
-			position: absolute;
-			left: 50%;
-			bottom: -18%;
-			z-index: 1;
+        .attent-btn {
+            position: absolute;
+            left: 50%;
+            bottom: -18%;
+            z-index: 1;
 
-			-webkit-transform: translateX(-50%);
-		}
-	}
+            -webkit-transform: translateX(-50%);
+        }
+    }
 }
 
 
 /*打开公众号*/
 .openPub-win {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 99;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
 
-	display: none;
+    display: none;
 
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 
-	background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, .6);
 
-	.openPub-content {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		z-index: 1;
+    .openPub-content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
 
-		width: 528px;
-		height: 559px;
-		padding-top: 70px;
+        width: 528px;
+        height: 559px;
+        padding-top: 70px;
 
-		background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
-		background-size: 100% 100%;
+        background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
+        background-size: 100% 100%;
 
-		box-sizing: border-box;
+        box-sizing: border-box;
 
-		-webkit-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%, -50%);
 
-		.openPub-title {
-			position: absolute;
-			left: 0;
-			top: 24px;
-			z-index: 1;
+        .openPub-title {
+            position: absolute;
+            left: 0;
+            top: 24px;
+            z-index: 1;
 
-			width: 100%;
+            width: 100%;
 
-			font-size: 40px;
-			text-align: center;
-			line-height: 50px;
-			color: #eca330;
-			font-weight: bold;
-		}
+            font-size: 40px;
+            text-align: center;
+            line-height: 50px;
+            color: #eca330;
+            font-weight: bold;
+        }
 
-		.openPub-dec {
-			padding: 30px 0 12px 0;
+        .openPub-dec {
+            padding: 30px 0 12px 0;
 
-			border-radius: 0 0 20px 20px;
-		}
+            border-radius: 0 0 20px 20px;
+        }
 
-		.openPub-img {
-			display: block;
-			margin: 0 auto;
-		}
+        .openPub-img {
+            display: block;
+            margin: 0 auto;
+        }
 
-		.openPub-tips {
-			margin-top: 17px;
-			font-size: 22px;
-			color: #ec284c;
-			line-height: 34px;
-			text-align: center;
-		}
+        .openPub-tips {
+            margin-top: 17px;
+            font-size: 22px;
+            color: #ec284c;
+            line-height: 34px;
+            text-align: center;
+        }
 
-		.openPub-btn {
-			position: absolute;
-			left: 50%;
-			bottom: -18%;
-			z-index: 1;
+        .openPub-btn {
+            position: absolute;
+            left: 50%;
+            bottom: -18%;
+            z-index: 1;
 
-			-webkit-transform: translateX(-50%);
-		}
-	}
+            -webkit-transform: translateX(-50%);
+        }
+    }
 }
 
 
 /*被扫二维码*/
 .attent-wina {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 99;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
 
-	display: none;
+    display: none;
 
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 
-	background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, .6);
 
-	.attent-contenta {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		z-index: 1;
+    .attent-contenta {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
 
-		width: 528px;
-		height: 559px;
-		padding-top: 70px;
+        width: 528px;
+        height: 559px;
+        padding-top: 70px;
 
-		background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
-		background-size: 100% 100%;
+        background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
+        background-size: 100% 100%;
 
-		box-sizing: border-box;
+        box-sizing: border-box;
 
-		-webkit-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%, -50%);
 
-		.attent-titlea {
-			position: absolute;
-			left: 0;
-			top: 24px;
-			z-index: 1;
+        .attent-titlea {
+            position: absolute;
+            left: 0;
+            top: 24px;
+            z-index: 1;
 
-			width: 100%;
+            width: 100%;
 
-			font-size: 40px;
-			text-align: center;
-			line-height: 50px;
-			color: #eca330;
-			font-weight: bold;
-		}
+            font-size: 40px;
+            text-align: center;
+            line-height: 50px;
+            color: #eca330;
+            font-weight: bold;
+        }
 
-		.attent-deca {
-			padding: 30px 0 12px 0;
+        .attent-deca {
+            padding: 30px 0 12px 0;
 
-			border-radius: 0 0 20px 20px;
-		}
+            border-radius: 0 0 20px 20px;
+        }
 
-		.attent-imga {
-			display: block;
-			margin: 0 auto;
-			padding-top: 40px;
-		}
+        .attent-imga {
+            display: block;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
 
-		.attent-tipsa {
-			margin-top: 17px;
-			font-size: 40px;
-			font-weight: bold;
-			color: #ec284c;
-			line-height: 160px;
-			text-align: center;
-		}
+        .attent-tipsa {
+            margin-top: 17px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #ec284c;
+            line-height: 160px;
+            text-align: center;
+        }
 
-		.attent-btna {
-			position: absolute;
-			left: 50%;
-			bottom: -18%;
-			z-index: 1;
+        .attent-btna {
+            position: absolute;
+            left: 50%;
+            bottom: -18%;
+            z-index: 1;
 
-			-webkit-transform: translateX(-50%);
-		}
-	}
+            -webkit-transform: translateX(-50%);
+        }
+    }
 }
 
 .loading {
-	position: fixed;
-	z-index: 9999;
-	top: 0;
-	left: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
 
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 
-	background-color: #fff;
+    background-color: #fff;
 
-	.loadCon {
-		position: absolute;
-		top: 40%;
-		left: 50%;
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
 
-		width: 150px;
-		height: 150px;
-		margin-top: -75px;
-		margin-left: -75px;
-		img {
-			position: absolute;
-			top: 0;
-			left: 0;
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
 
-			display: block;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
 
-			width: 100%;
+            display: block;
 
-			-webkit-animation: load 4s linear infinite;
-		}
-		#percent {
-			font-size: 24px;
-			line-height: 150px;
+            width: 100%;
 
-			position: absolute;
-			top: 0;
-			left: 0;
+            -webkit-animation: load 4s linear infinite;
+        }
 
-			width: 150px;
-			height: 150px;
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
 
-			text-align: center;
-		}
-	}
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
 }
 
 
 .text-img {
-	position: absolute;
-	top: 12%;
-	left: 0;
-	right: 0;
-	text-align: center;
-	z-index: 99;
-	display: none;
+    position: absolute;
+    top: 12%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 99;
+    display: none;
 }
 
 
 
 .result-footer {
-	position: absolute;
-	background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_17.png) no-repeat;
-	left: 4%;
-	right: 4%;
+    position: absolute;
+    background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_17.png) no-repeat;
+    left: 4%;
+    right: 4%;
 
-	bottom: 2%;
-	color: #f5402d;
-	padding-top: 20px;
-	font-size: 20px;
-	height: 140px;
-	background-size: 100% 100%;
-	padding-left: 40px;
-	padding-right: 40px;
-		.swiper-container {
-		  width: 100%;
-		  height: 120px;
-		  overflow: hidden;
-		}
-		.swiper-wrapper{
-			
-		}
-		.swiper-slide {
-			height: 40px;				  
-			  font-size: 18px;
-		}
+    bottom: 2%;
+    color: #f5402d;
+    padding-top: 20px;
+    font-size: 20px;
+    height: 140px;
+    background-size: 100% 100%;
+    padding-left: 40px;
+    padding-right: 40px;
 
-	.item-text{
-		display: flex;	
+    .swiper-container {
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+    }
 
-		div{
-			padding-right: 40px;
-		}	
-		
-		div:first-child{
+    .swiper-wrapper {}
+
+    .swiper-slide {
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .item-text {
+        display: flex;
+
+		div:first-child {
 			width: 140px;
 			white-space: nowrap;
-			overflow: hidden;
+            overflow: hidden;
 			text-overflow: ellipsis;
-		}				
-	}
+		}
+
+        div {
+            width: 140px;
+            white-space: nowrap;
+            overflow: hidden;
+			text-overflow: ellipsis;
+			padding-right: 20px;
+        }
+
+        div:last-child {
+			width: 190px;
+			padding-right: 0px;
+        }
+    }
 
 }
 
 @-webkit-keyframes scale {
-	0% {
-		-webkit-transform: scale(1);
-	}
+    0% {
+        -webkit-transform: scale(1);
+    }
 
-	100% {
-		-webkit-transform: scale(0.7);
-	}
+    100% {
+        -webkit-transform: scale(0.7);
+    }
 }
 
 
 @-webkit-keyframes rotateA {
-	0% {
-		-webkit-transform: rotateY(0deg);
-	}
+    0% {
+        -webkit-transform: rotateY(0deg);
+    }
 
-	100% {
-		-webkit-transform: rotateY(180deg);
-	}
+    100% {
+        -webkit-transform: rotateY(180deg);
+    }
 }
 
 @-webkit-keyframes rotateB {
-	0% {
-		-webkit-transform: rotateY(180deg);
-	}
+    0% {
+        -webkit-transform: rotateY(180deg);
+    }
 
-	100% {
-		-webkit-transform: rotateY(0deg);
-	}
+    100% {
+        -webkit-transform: rotateY(0deg);
+    }
 }
 
 
 @-webkit-keyframes fanpai {
-	0% {
-		-webkit-transform: rotateY(-5400deg);
-	}
+    0% {
+        -webkit-transform: rotateY(-5400deg);
+    }
 
-	100% {
-		-webkit-transform: rotateY(0deg);
-	}
+    100% {
+        -webkit-transform: rotateY(0deg);
+    }
 }

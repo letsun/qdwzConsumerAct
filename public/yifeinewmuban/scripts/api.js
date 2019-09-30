@@ -2,7 +2,7 @@ var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = test;
+var ip = production;
 
 var api = {
 	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
@@ -25,7 +25,7 @@ var api = {
 	getConsume: ip + '/consume/getConsume', 									// 获取用户信息
 	findCouponNum: ip + '/coupon/findCouponNum', 								// 获取优惠券数量
 	lotteryRecordNum: ip + '/lotteryConsumer/lotteryRecordNum', 				// 中奖记录数量查询
-	findShareParams: ip + '/actFissionShare/findShareParams',					// 裂变红包自定义分享接口
+	findShareParams: ip + '/advShare/findShareParams',					// 裂变红包自定义分享接口
 	findRebate: ip + '/fissionAct/findRebate',									// 裂变返利记录查询接口
 	FissionlotteryRecord: ip + '/fissionAct/lotteryRecord',						// 裂变活动中奖记录列表查询
 	FissionlotteryRecordNum: ip + '/fissionAct/lotteryRecordNum',				// 裂变中奖记录数量查询
@@ -36,4 +36,7 @@ var api = {
 	fissionActLottery: ip + '/fissionAct/lottery',
 	fissionActLottery: ip + '/fissionAct/lottery',
 	addShareRecord: ip + '/consumerShareRecord/addShareRecord',		 			//新增分享纪录
-};
+
+
+
+}; 

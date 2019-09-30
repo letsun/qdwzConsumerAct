@@ -75,7 +75,7 @@ $(function() {
 			if (res.code === 200 || res.code === 201) {
 				Func.isSubscribe(function(res1) {
 					if (res1.code === 200) {
-						if (res1.data.subscribe) { //res1.data.subscribe
+						if (!res1.data.subscribe) { //res1.data.subscribe
 							isClick = true;
 							$('#loadingWrapper').hide();
 							$('#attent-win').fadeIn();
@@ -272,7 +272,8 @@ function companyLotteryRecord() {
                 html += `<div class="swiper-slide">`;
                 html += `<div class="item-text">`;
                 html += `<div>恭喜${lotteryRecordList.nickname}</div>`;
-                html += `<div>抽中${lotteryRecordList.prizeAmount}元红包</div>`;
+				html += `<div>抽中${lotteryRecordList.prizeAmount}元红包</div>`;
+				html += `<div>${lotteryRecordList.createDate}</div>`;
                 html += `</div>`;
                 html += `</div>`;
             }
