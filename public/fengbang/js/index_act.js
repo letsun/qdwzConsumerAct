@@ -151,7 +151,7 @@ $(function () {
 	
 	//获取验证码
 	$('.cont-inp-btn').on('click', function () {
-		var pattern = /^1[34578]\d{9}$/;
+		var pattern = /^1\d{10}$/;
 		var mobile = $('#phone').val()
 		var self = $(this);
 		if (mobile == ''||mobile==null) {
@@ -195,7 +195,7 @@ $(function () {
 		$('#loadingWrapper').hide();
 		var mobile = $('#phone').val()
 		var verCode = $('#verCode').val()
-		var pattern = /^1[34578]\d{9}$/;
+		var pattern = /^1\d{10}$/;
 		if (mobile == ''|| mobile==null) {
 			common.alert({
 				mask: true,

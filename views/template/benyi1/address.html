@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/benyi1/css/address.css" />
+    <link rel="stylesheet" type="text/css" href="/benyi1/scripts/plug/swiper-3.3.1.min.css" />
+</head>
+
+<body>
+
+    <!-- 新建地址 -->
+    <div class="container" id="container">
+        <div class="header">新建地址</div>
+
+        <div class="lxr">联系人</div>
+        <div class="inp">
+            <div class="inp-item">
+                <label>收件人：</label> <input type="text">
+            </div>
+            <div class="inp-item">
+                <label>手机号：</label> <input type="text">
+            </div>
+        </div>
+
+        <div class="shdz">收货地址</div>
+        <div class="select">
+            <div class="select-top">
+                <div class="select-top-item">
+                    <select>
+                        <option value="">省</option>
+                        <option value="">qing</option>
+                    </select>
+
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_6.png" alt="">
+
+                </div>/
+
+                <div class="select-top-item">
+                    <select>
+                        <option value="">市</option>
+                        <option value="">qing</option>
+                        <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_6.png" alt="">
+                    </select>
+
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_6.png" alt="">
+                </div>/
+
+                <div class="select-top-item">
+                    <select class="select-item">
+                        <option value="">区(县)</option>
+                        <option value="">qing</option>
+                        <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_6.png" alt="">
+                    </select>
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_6.png" alt="">
+                </div>
+
+            </div>
+            <div class="select-bottom">
+                <label>详细：</label> <input type="text">
+
+            </div>
+        </div>
+
+
+        <div class="txt">
+            尊敬的用户：
+            <p>我们将严格保护你的个人信息安全，我们收集和使用您的收货地址相关
+                信息，仅用于完成您的个人订单交易，不作为其他的用途
+            </p>
+        </div>
+
+        <div class="btn">
+            确认地址
+        </div>
+    </div>
+
+
+    <!-- 地址为空 -->
+    <div class="containera" id='containera'>
+        <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_7.png" alt="" class="cona-img">
+        <div class="tishi">您暂时未添加地址哦!</div>
+        <div class="btn" id='btn'>
+            +新建地址
+        </div>
+        <div class="txt">
+            尊敬的用户：
+            <p>我们将严格保护你的个人信息安全，我们收集和使用您的收货地址相关
+                信息，仅用于完成您的个人订单交易，不作为其他的用途
+            </p>
+        </div>
+    </div>
+
+
+    <!-- 编辑地址 -->
+    <div class="containerb">
+        <div class="header">新建地址</div>
+        <div class="inp">
+            <div class="inp-item">
+                <div class="inp-item-left">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_2.png">
+                </div>
+                <div class="inp-item-right">
+                    <span>小明</span> <span>13245925542</span>
+                    <p>广东省深圳市宝安区西乡街道F518时尚创意园F6栋301</p>
+                </div>
+            </div>
+            <div class="inp-item">
+                <div class="inp-item-left">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_2.png">
+                </div>
+                <div class="inp-item-right">
+                    <span>小明</span> <span>13245925542</span>
+                    <p>广东省深圳市宝安区西乡街道F518时尚创意园F6栋301</p>
+                </div>
+            </div>
+
+            <div class="inp-item">
+                <div class="inp-item-left">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_2.png">
+                </div>
+                <div class="inp-item-right">
+                    <div class="bianji" ><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_5.png">编辑</div>
+                    <div class="shanchu"><img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/benyi/11_4.png">删除</div>
+                </div>
+            </div>           
+
+        </div>
+
+        <div class="txt">
+            尊敬的用户：
+            <p>我们将严格保护你的个人信息安全，我们收集和使用您的收货地址相关
+                信息，仅用于完成您的个人订单交易，不作为其他的用途
+            </p>
+        </div>
+
+        <div class="btn">
+            +新建地址
+        </div>
+    </div>
+
+</body>
+
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/benyi1/scripts/api.js"></script>
+<script src="/benyi1/scripts/Func.js"></script>
+<script src="/benyi1/scripts/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/benyi1/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+<script>
+    $('#btn').on('click', function () {
+        $('#containera').hide();
+        $('#container').show();
+    })
+
+</script>
+
+</html>

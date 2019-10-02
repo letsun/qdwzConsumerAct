@@ -30,7 +30,7 @@ $(function() {
 	 * @return null
 	 */
 	Func.lottery = function(url, callback) {
-
+		$('#loadingWrapper').show();
 		if (isLottery) {
 			return;
 		}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/shuiyangle/css/index.css" />
+
+</head>
+
+<body>
+
+	<!--加载页-->
+
+	<div class="loading">
+		<div class="loadCon">
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/fengbang/loading.png" />
+			<div id="percent">1%</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<!-- <img class="container-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/fengbang/1_6.png" alt="" srcset=""> -->
+
+		<img class="container-img1" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_1.png" >
+		<img class="container-img2" id="hbbtn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_2.png" >
+
+
+
+
+		<!-- 点击领取红包 -->
+
+		<div class="hb" id="hb">
+			<!-- 中奖 -->
+			<div class="hb-con1 hb-con-item">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_6.png">
+				<div class="hb-con-title">
+					恭喜您!
+				</div>
+				<div class="hb-con-num">
+					<span class="num">1.80</span>元
+				</div>
+
+				<div class="hb-con-tesx">
+					(红包将通过公众号发放给您，请注意查收)
+				</div>
+
+				<div class="hb-con-btn" id='lqhb'>
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_5.png">
+				</div>
+			</div>
+
+			<!-- 未中奖 -->
+			<div class="hb-con2 hb-con-item">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_6.png">
+				<div class="hb-con-title">
+					很遗憾
+				</div>
+				<div class="hb-con-num">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_9.png">
+				</div>
+
+				<div class="hb-con-tesx">
+					您未中奖!
+				</div>
+
+				<div class="hb-con-btn">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_5.png">
+				</div>
+			</div>
+
+
+			<!-- 改码已被扫 -->
+			<div class="hb-con3 hb-con-item">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_6.png">
+				<div class="hb-con-title">
+					提示
+				</div>
+				<div class="hb-con-num">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/fengbang/1_12.png">
+				</div>
+
+				<div class="hb-con-tesx">
+					该码已被扫!
+				</div>
+
+				<div class="hb-con-btn">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_5.png">
+				</div>
+			</div>
+
+
+
+
+
+		</div>
+
+
+		<!-- 点击了解活动 -->
+		<div class="huodong">
+			<div class="huodong-con">
+				<img class="huodong-con-img1" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_13.png">
+				
+				<div class="huodong-con-title">
+					活动细则
+				</div>			
+				<div class="huodong-con-text">
+
+
+				</div>
+				<img class="huodong-con-img2" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_12.png">
+			</div>
+		</div>
+
+		<!-- 提示关注公众号 -->
+		<div class="gzh">
+			<div class="gzh-con">
+				<img class="gzh-con-img1" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_13.png">
+				<img class="gzh-con-img2" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/fengbang/1_18.png">
+				<div class="gzh-con-text">
+					<p>检测到您尚未关注公众号</p>
+					<p>请长按识别关注公众号后再扫码获取红包</p>
+				</div>
+				<img class="gzh-con-img3" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shuiyangle/1_12.png">
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+
+<script src="/shuiyangle/js/lib/jquery-2.2.2.min.js"></script>
+<script src="/shuiyangle/js/lib/jweixin-1.0.0.js"></script>
+
+<script src="/shuiyangle/js/Func.js"></script>
+<script src="/shuiyangle/js/index_pre.js"></script>
+
+
+
+</html>

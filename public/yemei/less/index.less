@@ -1,0 +1,499 @@
+@import 'clearFix';
+@import 'newAnimate';
+
+.ellipsisNormal {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ellipsis(@line) {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @line;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+		
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+		.content{
+			position: relative;
+			
+			width: 100%;
+			height: 100%;
+			
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_7.jpg') no-repeat;
+			background-size: 100% 100%;
+			.logo {
+			    position: absolute;
+			    left: 3%;
+			    top: 2%;
+			}
+			
+			.red-packet-txt{
+				position: absolute;
+				top: 60px;
+				left: 70px;
+			}
+			
+			.red-packet{
+				position: absolute;
+				bottom: 50px;
+				left: 70px;
+			}
+			
+			.tips-title{
+				width: 190px;
+				line-height: 60px;
+				text-align: center;
+				font-size: 35px;
+				color: #fdd88a;
+				
+				position: absolute;
+				bottom: 400px;
+				left: 230px;   
+				 
+				 span{
+					 display: block;
+					 font-size: 40px;
+					 font-weight: bold;
+					 color: #fff;
+				 }
+			}
+
+			.demolition {
+				position: absolute;
+				bottom: 210px;
+				left: 245px;
+
+				-webkit-animation: scale 1.3s linear alternate infinite;
+			}
+
+			.child{
+				position: absolute;
+				bottom: 90px;
+				left: 195px;
+			}
+			.tech-support{
+				position: absolute;
+				bottom: 17px;
+				left: 177px;
+			}
+		}
+		
+		.cover{
+			display: none;
+			width: 100%;
+			height: 100%;
+			font-size: 24px;
+			line-height: 32px;
+			
+			background-color: rgba(0,0,0,0.7);
+			position: absolute;
+			top: 0;
+			left: 0;
+	
+			.rule-bgImg{
+				width: 95%;
+				position: absolute;
+				top: 100px;
+				left: 15px;
+			}
+			
+			.rule-txt{
+				width: 500px;
+				position: absolute;
+				top: 365px;
+				left: 70px;
+				
+				p{
+					margin-top: 10px;
+				}
+				p:after{
+					display: block;
+					content: "";
+					clear: both;
+				}
+				.serial-number{
+					float: left;
+					width: 40px;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					color: #fff;
+					background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_16.png') no-repeat;
+					background-size: cover;
+				}
+				
+				.rule-title{
+					float: left;
+					font-weight: bold;
+					color: #333;
+					margin-left: 10px;
+					margin-right: 10px;
+				}
+				
+				.rule-content{
+					float: left;
+					width: 330px;
+				}
+			}
+			
+			.close{
+				position: absolute;
+				bottom: 30px;
+				left: 300px;
+			}
+		}
+		
+
+	    .tip {
+			display: none;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 99;
+
+		    width: 100%;
+		    height: 100%;
+
+		    background: rgba(0,0,0,.7);
+
+		    .tip-con {
+			    width: 75%;
+			    height: 550px;
+			    background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_15.png') no-repeat;
+			    background-size: 100% 100%;
+
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
+			    margin: auto;
+			    z-index: 999;
+
+			    .erweima{
+					width: 240px;
+					height: 240px;
+					
+				    position: relative;
+				    top: 150px;
+				    left: 120px;
+			    }
+			    .tip-content{
+				    position: relative;
+				    top: 140px;
+				    text-align: center;
+				    font-size: 24px;
+				    color: #d70204;
+			    }
+
+			    .close-1 {
+				    position: relative;
+				    bottom: -280px;
+				    left: 210px;
+			    }
+		    }
+	    }
+
+
+	    .lottery-win {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 99;
+
+		    display: none;
+
+		    width: 100%;
+		    height: 100%;
+
+		    background: rgba(0,0,0,.7);
+
+		    .lottery-con {
+			    position: absolute;
+				left: 0;
+				top: 100px;
+				right: 0;
+				bottom: 0;
+				width: 550px;
+				height: 500px;
+				padding-top: 68px;
+				margin: auto;
+				
+				.winPrize {
+					display: none;
+					text-align: center;
+					
+					.winPrize-bg {
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						text-align: center;
+						margin: auto;
+					}
+				}
+				
+				.noPrize {
+					display: none;
+					text-align: center;
+					
+					.no-prize-bg{
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						margin: auto;
+						text-align: center;
+					}
+					
+					.lottery-title1{
+						width: 100%;
+						
+						font-size: 35px;
+						font-weight: bold;
+						color: #efa431;
+						line-height: 92px;
+						text-align: center;
+						position: relative;
+						bottom:  50px;
+					}
+					
+					.tear{
+						position: relative;
+
+					}
+
+					p{
+						font-size: 30px;
+						color: #e51523;
+
+						position: absolute;
+						left: 0;
+						right: 0;
+						text-align: center;
+						font-weight: bold;
+					}
+				}
+				
+				.scanCode {
+					display: none;
+					text-align: center;
+					
+					.scanCode-bg {
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						margin: auto;
+					}
+
+					.tear {
+						position: relative;
+						bottom: 20px;
+					}
+
+					.scanCode-title {
+						position: relative;
+						z-index: 10;
+
+						display: block;
+
+						margin: -10px auto 0 auto;
+					}
+
+					p{
+						position: absolute;
+						text-align: center;
+						left: 0;
+						right: 0;
+					}
+				}
+
+			    .lottery-title {
+				    width: 100%;
+
+				    font-size: 46px;
+				    font-weight: bold;
+				    color: #eda52f;
+				    line-height: 92px;
+				    text-align: center;
+				    position: relative;
+				    bottom:  50px;
+			    }
+
+			    .lottery-dec1 {
+					position: relative;
+				    bottom: 30px;
+
+				    .num {
+					    font-size: 28px;
+					    text-align: center;
+					    color: #e51523;
+					    font-weight: bold;
+
+					    span {
+						    display: inline-block;
+
+						    font-size: 95px;
+					    }
+						
+						.coin{
+							font-size: 28px;
+							color: #a96711;
+						}
+					}
+					
+					p {
+						color: #e51523;
+						padding-top: 30px;
+					}
+			    }
+				
+
+				
+				.lottery-text {
+
+				
+				    font-size: 22px;
+				    line-height: 40px;
+				    text-align: center;
+				    color: #e51523;
+				
+				    cursor: pointer;
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 270px;
+				}
+
+
+				.lottery-zd {
+					position: absolute;
+					top: 435px;
+					left: 0;
+					right: 0;	
+				}
+
+			    .lottery-dec2 {
+				    margin-top: 30px;
+
+				    .cry-img {
+					    display: block;
+
+					    margin: 0 auto;
+				    }
+			    }
+
+			    .code-wra {
+				    position: absolute;
+				    left: 0;
+				    bottom: 62px;
+				    z-index: 1;
+
+				    width: 100%;
+
+				    .code {
+					    display: block;
+
+					    width: 268px;
+					    height: 253px;
+					    margin: 0 auto;
+				    }
+
+				    .code-text {
+					    font-size: 18px;
+					    text-align: center;
+					    color: #989a99;
+				    }
+			    }
+		    }
+
+		    .close-lottery {
+			    position: absolute;
+			    left: 44%;
+			    bottom: -82px;
+			    z-index: 1;
+
+			    width: 12%;
+		    }
+	    }
+    }
+	
+	
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}
+
+@-webkit-keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(0.7);
+	}
+}

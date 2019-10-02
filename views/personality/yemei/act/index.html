@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/yemei/css/reset.css" />
+	<link rel="stylesheet" href="/yemei/css/animate.min.css" />
+	<link rel="stylesheet" href="/yemei/css/index.css" />
+	<!-- 样式 end -->
+	<title>椰妹酒业红包活动</title>
+</head>
+
+<body>
+
+	<div id="app">
+		<!--加载页-->
+
+		<div class="loading">
+			<div class="loadCon">
+				<img src="/yemei/images/loading.png" />
+				<div id="percent">1%</div>
+			</div>
+		</div>
+		<div class="container" id="container">
+
+			<div class="content">
+				<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_1.png">
+				<!-- <img class="rule" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_6.png">
+					<img class="coin-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pangaoshou/1_3.png"> -->
+				<img class="red-packet-txt"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_2.png">
+				<img class="red-packet"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_6.png">
+				<div class="tips-title">
+					您有一个<span>椰妹红包</span>待领取
+				</div>
+				<img class="demolition"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_3.png">
+				<img class="child" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_4.png">
+				<img class="tech-support"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_5.png">
+			</div>
+
+
+			<!--抽奖结果-->
+			<div class="lottery-win" id="lottery-win">
+				<div class="lottery-con">
+					<!-- 中奖 -->
+					<div class="winPrize close">
+						<img class="winPrize-bg"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_9.png" />
+						<div class="lottery-title">恭喜您获得</div>
+						<div class="lottery-dec lottery-dec1" style="display: block;">
+							<div class="num"><span class="amount">8.88</span>元</div>
+
+							<p>现金红包</p>
+						</div>
+						<div class="lottery-text">(红包将通过公众号发放给您,请注意查收)</div>
+
+						<div class="lottery-zd">
+							<img class="winPrize-bg"
+								src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_8.png" />
+						</div>
+					</div>
+
+					<!-- 未中奖 -->
+					<div class="noPrize close">
+						<img class="no-prize-bg"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_9.png" />
+						<div class="lottery-title1">很遗憾未中奖!</div>
+						<img class="tear"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_10.png" />
+						<p>感谢使用!</p>
+
+						<div class="lottery-zd">
+							<img class="winPrize-bg"
+								src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_8.png" />
+						</div>
+					</div>
+
+					<!-- 该码已被扫 -->
+					<div class="scanCode close">
+						<img class="scanCode-bg"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_9.png" />
+						<div class="lottery-title">重要提示</div>
+						<img class="tear"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_12.png" />
+						<p>该码红包已被领取</p>
+
+						<div class="lottery-zd">
+							<img class="winPrize-bg"
+								src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yemei/1_8.png" />
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+			<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+		</div>
+	</div>
+
+	<!-- 公共js start -->
+
+
+	<%-include("../../../include/commonJs") %>
+	<%-include("../../../include/hideMenu") %>
+	<script src="/yemei/scripts/Func.js"></script>
+	<script src="/yemei/scripts/api.js"></script>
+	<script src="/yemei/scripts/index_act.js"></script>
+
+	<script>
+		$(function () {
+			// 页面禁止滑动
+			$('#container').on("touchmove", function (e) {
+				e.preventDefault();
+			});
+
+			/**加载进度*/
+			common.loading($("#percent"), function () {
+				$('.loading').hide();
+				$('#container').fadeIn();
+			});
+
+		})
+	</script>
+
+</body>
+
+</html>

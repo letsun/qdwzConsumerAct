@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/benyi1/css/hwlist.css" />
+    <link rel="stylesheet" type="text/css" href="/benyi1/scripts/plug/swiper-3.3.1.min.css" />
+</head>
+
+<body>
+
+    <div class="container" id ="container">
+        <div class="content-item">
+
+            <img >
+        </div>
+
+
+    </div>
+</body>
+
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<script src="/benyi1/scripts/api.js"></script>
+<script src="/benyi1/scripts/Func.js"></script>
+<script src="/benyi1/scripts/lib/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/benyi1/scripts/plug/swiper-3.3.1.jquery.min.js"></script>
+
+
+<script>
+
+    $(function () {
+
+        /**
+         * 本意首页广告列表查询
+         * 
+         */
+
+        Func.getAdvByAdvPositionName({
+            positionName:'嗨玩全场1'
+        },function (res) {
+
+            if (res.code == 200) {
+                var html = '';
+
+                var hwlist = res.data.hwqc;
+                for (var i in hwlist) {
+                    html += '<div  data-advId="' + hwlist[i].advId + '" data-href="' + hwlist[i].linkUrl + '"  class="content-item itemclick">';
+                    html += '<img src=" ' + hwlist[i].picUrl + '" >';
+                    html += '</div>';
+                }
+
+
+                $('.container').html(html)
+
+
+                $('#loadingWrapper').hide();
+
+            } else {
+                $('#loadingWrapper').hide();
+            }
+
+        })
+
+        /**
+         * 点击本意广告记录
+         * 
+         */
+        var doc = $('#container');
+        doc.on('click', '.itemclick', function () {
+            var advId = $(this).attr('data-advId')
+            var datahref = $(this).attr('data-href')
+            console.log(advId, datahref)
+            Func.clickRecord({
+                advId: advId
+            }, function (res) {
+                if (res.code == 200) {
+                    window.location.href = datahref;
+                    $('#loadingWrapper').hide();
+                } else {
+                    $('#loadingWrapper').hide();
+                }
+            })
+        })
+
+    })
+
+</script>
+
+</html>

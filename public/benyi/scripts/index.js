@@ -181,7 +181,7 @@ $(function () {
 
                     html += '</a>';
                 }
-                $('#goodsList').html(html);
+                $('#goodsList').append(html);
                 
                 $('#loadingWrapper').hide();
             }else {
@@ -727,7 +727,7 @@ $(function () {
                     html2 += '<img data-advId="' + hdzq[i].advId + '"  data-href="' + hdzq[i].linkUrl + '" src="' + hdzq[i].picUrl + '" alt="">';
 
                 } else if (hdzq[i].orderby == 2) {
-                    html3 += '<img data-advId="' + hdzq[i].advId + '"  data-href="' + hdzq[i].linkUrl + '" src="' + hdzq[i].picUrl + '" alt="">';
+                    html3 += '<img  data-href="' + hdzq[i].linkUrl + '" src="' + hdzq[i].picUrl + '" alt="">';
                 } else {
                     html4 += '<img data-advId="' + hdzq[i].advId + '" data-href="' + hdzq[i].linkUrl + '" src="' + hdzq[i].picUrl + '" alt="">';
                 }
@@ -736,8 +736,6 @@ $(function () {
             $('#hdzq1').html(html2)
             $('#hdzq2').html(html3)
             $('#hdzq3').html(html4)
-
-
 
 
             $('#loadingWrapper').hide();
@@ -754,6 +752,13 @@ $(function () {
         } else {
             $('#loadingWrapper').hide();
         }
+    })
+
+
+    // 嗨玩全场点击跳转
+    $('.itemclicka').on('click',function(){
+        var datahref = $(this).find("img").attr('data-href')
+        window.location.href = datahref;
     })
 
 
