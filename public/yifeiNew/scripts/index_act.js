@@ -171,6 +171,17 @@ $(function() {
 		},1500);
 	});
 
+	// 点击回复消息弹出二维码
+	$('.text-img').on('click',function () {
+		$('#public-win').fadeIn();
+    });
+
+
+    // 关闭回复消息二维码
+    $('#close-public').on('click',function () {
+        $('#public-win').fadeOut();
+    });
+
 	// 开始活动
 	Func.findActivityByEncode(function(res) {
 		$('#loadingWrapper').hide();
