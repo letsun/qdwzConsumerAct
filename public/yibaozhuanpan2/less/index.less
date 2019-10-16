@@ -1,0 +1,543 @@
+
+@import "reset";
+@import "clearFix";
+@import "newAnimate";
+@red: #dd3f40;
+
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	position: relative;
+
+	width: 100%;
+	height: 100%;
+
+	background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yibaozhuanpan2/2_4.jpg') no-repeat;
+	background-size: 100% 100%;
+
+	overflow: hidden;
+
+	.content {
+		position: relative;
+
+		width: 100%;
+		height: 100%;
+
+		.bg {
+			position: absolute;
+			left: 0;
+			top: 18%;
+
+			display: block;
+
+			width: 100%;
+		}
+	}
+
+	.dzp-wrapper {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 10;
+
+		width: 100%;
+		height: 100%;
+
+		display: block;
+
+		.logo {
+			position: absolute;
+			left: 2%;
+			top: 1%;
+			z-index: 1;
+		}
+
+		.title {
+			position: absolute;
+			left: 15%;
+			top: 10%;
+			z-index: 1;
+
+			width: 70%;
+		}
+
+		.rule-btn {
+			position: absolute;
+			right: 0;
+			top: 4%;
+			z-index: 10;
+		}
+
+		.support-img {
+			position: absolute;
+			left: 50%;
+			bottom: 6%;
+			z-index: 0;
+
+			width: 92%;
+
+			-webkit-transform: translateX(-50%);
+		}
+
+
+		.dzp-container {
+			position: absolute;
+			left: 50%;
+			bottom: 7%;
+
+			transform: translateX(-50%);
+
+			width: 658px;
+			height: 658px;
+
+			.remaining-wra {
+				position: absolute;
+				left: 50%;
+				top: -74px;
+				z-index: 0;
+
+				display: none;
+
+				margin-left: -8px;
+
+				.remaining-bg {
+					display: block;
+
+					margin: 0 auto;
+				}
+
+				.remaining-text {
+					position: absolute;
+					left: 0;
+					top: 0;
+					z-index: 1;
+
+					width: 100%;
+
+					text-align: center;
+					color: #fff;
+					font-size: 22px;
+					line-height: 50px;
+				}
+			}
+
+			.dzp-con {
+				position: relative;
+				z-index: 1;
+
+				width: 100%;
+				height: 100%;
+
+				// transform: rotate(-30deg);
+
+				.dzp-img {
+					width: 658px;
+					height: 658px;
+				}
+
+				.award-list {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+
+					transform: translate(-50%, -50%);
+
+					width: 450px;
+					height: 450px;
+
+					border-radius: 50%;
+
+					color: #fff;
+
+					overflow: hidden;
+
+					.award-item {
+						position: absolute;
+						top: 0;
+						left: 50%;
+
+						width: 180px;
+						height: 230px;
+						padding: 0 30px;
+
+						background-color: rgba(0, 0, 0, 0);
+
+						transform-origin: bottom center;
+
+						box-sizing: border-box;
+
+						.con {
+							position: relative;
+							top: 10%;
+
+							margin: 0 auto;
+
+							width: 100%;
+							line-height: 30px;
+
+							text-align: center;
+
+							font-size: 24px;
+
+							text-shadow: 0px 2px 1px #000;
+
+							.ellipsis(3);
+
+						}
+					}
+				}
+			}
+
+			.dzp-btnBg {
+				position: absolute;
+				left: 50%;
+				top: 295px;
+				z-index: 2;
+
+				margin-left: -175/2px;
+				margin-top: -243/2px;
+
+				cursor: pointer;
+			}
+
+			.dzp-btn {
+				position: absolute;
+				left: 50%;
+				top: 295px;
+				z-index: 10;
+
+				margin-left: -175/2px;
+				margin-top: -243/2px;
+
+				cursor: pointer;
+
+				-webkit-animation: scale 1.2s linear alternate infinite;
+			}
+		}
+	}
+
+	.result-win {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 99;
+
+		display: none;
+
+		width: 100%;
+		height: 100%;
+
+		background: rgba(0,0,0,.7);
+
+		.result-content {
+			position: absolute;
+			left: (750-524)/2px;
+			top: 20%;
+			z-index: 10;
+
+			width: 524px;
+			height: 784px;
+
+			// -webkit-transform: translateY(-50%);
+
+			-webkit-animation: up 0.8s ease;
+
+			.result-bg {
+				position: absolute;
+				left: 1%;
+				top: -11%;
+				z-index: 1;
+
+				width: 98%;
+			}
+
+			.result-con {
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 10;
+
+				width: 100%;
+				height: 100%;
+
+				background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yibaozhuanpan2/2_6.png') no-repeat;
+				background-size: 100% 100%;
+
+				.result-title {
+					position: absolute;
+					left: 0;
+					top: 38%;
+
+					width: 100%;
+
+					color: #fff794;
+					font-size: 34px;
+					line-height: 44px;
+					text-align: center;
+					font-weight: bold;
+				}
+
+				.erweima-wra {
+					position: absolute;
+					left: 0;
+					bottom: 3%;
+					z-index: 1;
+
+					display: block;
+
+					width: 100%;
+
+					.erweima {
+						display: block;
+
+						width: 210px;
+						margin: 0 auto;
+					}
+
+					.erweima-text {
+						width: 100%;
+						margin-top: 13px;
+
+						font-size: 24px;
+						color: #fff695;
+						text-align: center;
+						line-height: 26px;
+					}
+				}
+
+				.result-dec-wra {
+
+					.result-dec {
+						display: none;
+
+						.result-img {
+							display: block;
+
+							margin: 0 auto;
+						}
+					}
+
+					.result-dec1 {
+						padding-top: 330px;
+
+						.result-num {
+							margin-top: 40px;
+
+							font-size: 22px;
+							text-align: center;
+							color: #fff;
+							line-height: 50px;
+
+							.amount {
+								font-size: 50px;
+								font-weight: bold;
+							}
+						}
+
+						.result-tips {
+							margin-top: 10px;
+
+							color: #fff794;
+							font-size: 24px;
+							line-height: 40px;
+							text-align: center;
+						}
+					}
+
+					.result-dec2 {
+						padding-top: 280px;
+
+						.result-sec-wra {
+							display: block;
+
+							margin: 50px auto 0 auto;
+
+							.result-sec {
+								display: block;
+
+								width: 239px;
+								margin: 0 auto;
+							}
+						}
+					}
+
+					.result-dec3 {
+						padding-top: 280px;
+
+						.result-sec {
+							display: block;
+
+							margin: 74px auto 0 auto;
+						}
+					}
+				}
+			}
+
+			.close-result {
+				position: absolute;
+				left: 50%;
+				bottom: -14%;
+				z-index: 111;
+
+				width: 75px;
+
+				-webkit-transform: translateX(-50%);
+			}
+		}
+
+		.result-footer {
+			position: absolute;
+			background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_19.png) no-repeat;
+			left: 14%;
+			right: 14%;
+
+			bottom: -210px;
+			color: #f5402d;
+			padding-top: 20px;
+			font-size: 20px;
+			height: 140px;
+			background-size: 100% 100%;
+			padding-left: 40px;
+			padding-right: 40px;
+				.swiper-container {
+				  width: 100%;
+				  height: 120px;
+				  overflow: hidden;
+				}
+				.swiper-wrapper{
+					
+				}
+				.swiper-slide {
+					height: 40px;				  
+				  	font-size: 18px;
+				}
+
+			.item-text{
+				display: flex;	
+
+				div{
+					padding-right: 40px;
+				}	
+				
+				div:first-child{
+					width: 140px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+
+
+
+		}
+	}
+
+	/*活动须知*/
+	.activity-rule {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 99;
+
+		display: none;
+
+		width: 100%;
+		height: 100%;
+
+		background: rgba(0,0,0,.7);
+
+		.activity-rule-con {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: 1;
+
+			width: 648px;
+			height: 646px;
+
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yibaozhuanpan2/3_2.png') no-repeat;
+			background-size: 100% 100%;
+
+			-webkit-transform: translate(-50%,-50%);
+
+			.close-rule {
+				position: absolute;
+				left: 50%;
+				bottom: -120px;
+
+				width: 75px;
+
+				-webkit-transform: translateX(-50%);
+			}
+		}
+	}
+}
+
+.advertisement {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 999;
+
+	display: block;
+
+	width: 100%;
+	height: 120px;
+
+	img {
+		display: block;
+
+		width: 100%;
+		height: 120px;
+	}
+}
+
+.loading {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background-color: #fff;
+
+	.loadCon {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+
+		width: 150px;
+		height: 150px;
+		margin-top: -75px;
+		margin-left: -75px;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			display: block;
+
+			width: 100%;
+
+			-webkit-animation: load 4s linear infinite;
+		}
+		#percent {
+			font-size: 24px;
+			line-height: 150px;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: 150px;
+			height: 150px;
+
+			text-align: center;
+		}
+	}
+}
