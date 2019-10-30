@@ -1,5 +1,6 @@
 var index = 0;
 var prizeAmount;
+var couponName;
 var lotteryId;
 var lotteryData = {};
 var awardValue;
@@ -75,30 +76,51 @@ $(function() {
 			if (res.code === 200 || res.code === 201) {
 				Func.isSubscribe(function(res1) {
 					if (res1.code === 200) {
-						if (!res1.data.subscribe) { //res1.data.subscribe
+						if (!res1.data.subscribe) { //!res1.data.subscribe
 							isClick = true;
 							$('#loadingWrapper').hide();
 							$('#attent-win').fadeIn();
 						} else {
 							Func.lottery(api.lottery, function(reg) {
 								lotteryData = reg;
+
 								$('#loadingWrapper').hide();
 								yes1.play();
 
 								$('.award-item').addClass('active');
 								if (lotteryData.code == 200) {
-									prizeAmount = lotteryData.data.redPack.prizeAmount;
-									if (lotteryData.data.lotteryId > 0) {
-										lotteryId = lotteryData.data.lotteryId;
+
+									
+									if(reg.data.type==0 ) {
+										prizeAmount = lotteryData.data.redPack.prizeAmount;
+										if (lotteryData.data.lotteryId > 0) {
+											lotteryId = lotteryData.data.lotteryId;
+										}
+	
+										$('.award-item').each(function(i, item) {
+											var value = $(item).find('.num').html();
+	
+											if (value == prizeAmount) {
+												$(item).find('.num').html(awardValue);
+											}
+										})
+									}
+									
+									if (reg.data.type==1) {
+										// debugger;
+										// console.log('1111')
+										couponName = lotteryData.data.couponGrants[0].couponName;
+
+
+										$('.award-item').each(function(i, item) {
+											var value = $(item).find('.num').html();
+	
+											if (value == couponName) {
+												$(item).find('.num').html(awardValue);
+											}
+										})
 									}
 
-									$('.award-item').each(function(i, item) {
-										var value = $(item).find('.num').html();
-
-										if (value == prizeAmount) {
-											$(item).find('.num').html(awardValue);
-										}
-									})
 								}
 								setTimeout(function() {
 									$('.award-item').addClass('lottActive');
@@ -144,16 +166,32 @@ $(function() {
 			$('.back-item').hide();
             // $('.openPublic-btn').show();
 			if (lotteryData.code == 200) {
-				prizeAmount = lotteryData.data.redPack.prizeAmount;
-				if (lotteryData.data.lotteryId > 0) {
-					lotteryId = lotteryData.data.lotteryId;
-					$('.award-item').eq(index).find('.num').html(prizeAmount);
+
+				if(lotteryData.data.type==0){
+					prizeAmount = lotteryData.data.redPack.prizeAmount;
+					if (lotteryData.data.lotteryId > 0) {
+						lotteryId = lotteryData.data.lotteryId;
+						$('.award-item').eq(index).find('.num').html(prizeAmount);
+						$('.award-item').eq(index).find('.award-title').html('恭喜您获得');
+						$('.award-item').find('.award-dec1').show();
+						// userCash(prizeAmount,lotteryId);
+	
+						$('.text-img').fadeIn()
+					}
+				}
+
+
+				if (lotteryData.data.type==1) {
+					// debugger;
+					// console.log('1111')
+					couponName = lotteryData.data.couponGrants[0].couponName;
+
+					$('.award-item').eq(index).find('.num').html(couponName);
 					$('.award-item').eq(index).find('.award-title').html('恭喜您获得');
 					$('.award-item').find('.award-dec1').show();
-					// userCash(prizeAmount,lotteryId);
 
-					$('.text-img').fadeIn()
 				}
+
 			
 			} else if (lotteryData.code == 201) {
 				$('.award-item').eq(index).find('.award-title').html('很遗憾');

@@ -66,105 +66,121 @@ $(function() {
     })
 
 
+
     // 大转盘
-    $('.js-dzpBtn').on('click', function() {
-        if (isClick) {
-            isClick = false;
-            $('#loadingWrapper').show();          
-            
-            Func.findActivityByEncode(function (res) {
-                
-                var data = res.data;
-                dzpAwardItem = data.prizes;
-                if (res.code === 200 || res.code === 201) {
-                    
-                    $('#loadingWrapper').show();
-                    Func.lottery(api.lottery,function (reg) {
-                        $('#loadingWrapper').hide();
-                        var rand = 0;
-                        for (var i = 0, len = dzpAwardItem.length; i < len; i++) {
-                            if (dzpAwardItem[i].prizeId === reg.data.prizeId) {
-                                rand = dzpAwardItem[i].prizeIndex;
-                                break;
-                            } else {
-                                if (reg.code == 201) {
-                                    if (dzpAwardItem[i].prizeName == '谢谢参与') {
-                                        rand = dzpAwardItem[i].prizeIndex;
-                                    }
-                                }
-                            }
-                        }
-
-
-                        var totalRotate = rotate * 4 + perRotate * rand - 22.5;
-
-                        $('.js-dzpCon').css({
-                            '-webkit-transition': '-webkit-transform 4s cubic-bezier(.68,.06,.39,.97)',
-                            '-webkit-transform': 'rotate(' + (-totalRotate) + 'deg)',
-                        });
-
-                        if(reg.code == 200) {
-                            
-                            isLottery = true;
-                            type = reg.data.type;
-                            if (reg.data.type == 0) {
-                                prizeAmount = reg.data.redPack.prizeAmount;
-                                lotteryId = reg.data.lotteryId;
-                                $('.result-title').html('现金红包');
-                                $('.amount').html(prizeAmount);
-                                $('.result-dec1').show();
-                            } else if (reg.data.type == 4) {
-                                var originId = reg.data.advOrigin.originId;
-                                var src = reg.data.advOrigin.imgUrl;
-                                var href = reg.data.advOrigin.openOriginUrl;
-                                $('.result-title').html(reg.data.advOrigin.originName);
-                                $('.result-sec-wra').find('.result-sec').attr('src',src);
-                                $('.result-sec-wra').attr('href',href);
-                                $('.result-dec2').show();
-                            }else if(reg.data.type ==3){
-                                
-                                $('.result-title').html('积分');
-
-                                $('.point').html(reg.data.point.point);
-                                $('.result-dec4').show();
-                            } 
-                        } else if (reg.code == 201) {
-                            isLottery = false;
-                            $('.result-title').html('很遗憾');
-                            $('.result-dec3').show();
-                        } else {
-                            isLottery = false;
-                            common.alert({
-                                mask: true,
-                                content: res.msg,
-                            })
-                        }
-                    });
-                } else if (res.code === 203) {
-                    $('#loadingWrapper').hide();
-                    isClick = true;
-                    var src = 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/';
-                    $('.result-title').html('很遗憾');
-                    $('.result-dec3').find('.result-img').attr('src',src + '1_14.png');
-                    $('.result-dec3').show();
-                    $('.result-win').fadeIn(function(){
-                        companyLotteryRecord()
-                    });
+    $('.js-dzpBtn').on('click', function () {
+        Func.isSubscribe(function (res1) {
+            if (res1.code === 200) {
+                if (!res1.data.subscribe) { //!res1.data.subscribe
+                    $('.gzh').show()
                 } else {
-                    isClick = true;
-                    $('#loadingWrapper').hide();
-                    common.alert({
-                        mask:true,
-                        content: res.msg,
-                    })
+                    if (isClick) {
+                        isClick = false;
+                        $('#loadingWrapper').show();
+            
+            
+                        Func.findActivityByEncode(function (res) {
+                            var data = res.data;
+                            dzpAwardItem = data.prizes;
+                            if (res.code === 200 || res.code === 201) {
+                                $('#loadingWrapper').show();
+                                Func.lottery(api.lottery, function (reg) {
+                                    $('#loadingWrapper').hide();
+                                    var rand = 0;
+                                    for (var i = 0, len = dzpAwardItem.length; i < len; i++) {
+                                        if (dzpAwardItem[i].prizeId === reg.data.prizeId) {
+                                            rand = dzpAwardItem[i].prizeIndex;
+                                            break;
+                                        } else {
+                                            if (reg.code == 201) {
+                                                if (dzpAwardItem[i].prizeName == '谢谢参与') {
+                                                    rand = dzpAwardItem[i].prizeIndex;
+                                                }
+                                            }
+                                        }
+                                    }
+            
+            
+                                    var totalRotate = rotate * 4 + perRotate * rand - 22.5;
+            
+                                    $('.js-dzpCon').css({
+                                        'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
+                                        'transform': 'rotate(' + (-totalRotate) + 'deg)'
+                                    });
+            
+                                    if (reg.code == 200) {
+                                        isLottery = true;
+                                        type = reg.data.type;
+                                        if (reg.data.type == 0) {
+                                            prizeAmount = reg.data.redPack.prizeAmount;
+                                            lotteryId = reg.data.lotteryId;
+                                            $('.result-title').html('现金红包');
+                                            $('.amount').html(prizeAmount);
+                                            $('.result-dec1').show();
+                                        } else if (reg.data.type == 4) {
+                                            var originId = reg.data.advOrigin.originId;
+                                            var src = reg.data.advOrigin.imgUrl;
+                                            var href = reg.data.advOrigin.openOriginUrl;
+                                            $('.result-title').html(reg.data.advOrigin.originName);
+                                            $('.result-sec-wra').find('.result-sec').attr('src', src);
+                                            $('.result-sec-wra').attr('href', href);
+                                            $('.result-dec2').show();
+                                        }
+                                    } else if (reg.code == 201) {
+                                        isLottery = false;
+                                        $('.result-title').html('很遗憾');
+                                        $('.result-dec3').show();
+                                    } else {
+                                        isLottery = false;
+                                        common.alert({
+                                            mask: true,
+                                            content: res.msg,
+                                        })
+                                    }
+                                });
+                            } else if (res.code === 203) {
+                                $('#loadingWrapper').hide();
+                                isClick = true;
+                                var src = 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/';
+                                $('.result-title').html('很遗憾');
+                                $('.result-dec3').find('.result-img').attr('src', src + '1_14.png');
+                                $('.result-dec3').show();
+                                $('.result-win').fadeIn(function () {
+                                    companyLotteryRecord();
+                                });
+                            } else {
+                                isClick = true;
+                                $('#loadingWrapper').hide();
+                                common.alert({
+                                    mask: true,
+                                    content: res.msg,
+                                })
+                            }
+                        });
+            
+            
+                    } else {
+                        common.alert({
+                            mask: true,
+                            content: '抽奖还未结束'
+                        })
+                    }
                 }
-            });
-        } else {
-            common.alert({
-                mask: true,
-                content: '抽奖还未结束'
-            })
-        }
+                $('#loadingWrapper').hide();
+
+      
+            } else {
+                isClick = true;
+                $('#loadingWrapper').hide();
+                common.alert({
+                    content: res1.msg,
+                    mask: true
+                });
+            }
+        })
+
+
+
     });
 
     // 大转盘动画结束
