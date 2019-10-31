@@ -2,7 +2,7 @@ var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = test;
+var ip = production;
 
 
 var api = {
@@ -20,7 +20,7 @@ var api = {
 	browseRecord: ip + '/platBrowseRecord/browseRecord',
 	scoreLottery: ip + '/lotteryConsumer/scoreLottery', 						// 用户消耗积分参与抽奖
 	findCoupon: ip + '/coupon/findCoupon', 										// 获取我的优惠券
-	couponDetail: ip + '/coupon/couponCodeDetail', 								// 获取优惠券明细
+	couponDetail: ip + '/coupon/couponCodeDetail', 				// 获取优惠券明细
 	findScoreDetail: ip + '/scoreDetail/findScoreDetail', 						// 获取积分明细记录
 	getConsume: ip + '/consume/getConsume', 									// 获取用户信息
 	findCouponNum: ip + '/coupon/findCouponNum', 								// 获取优惠券数量

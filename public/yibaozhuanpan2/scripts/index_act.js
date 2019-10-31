@@ -50,7 +50,8 @@ $(function() {
 
                         $('.js-dzpCon').css({
                             'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
-                            'transform': 'rotate(' + (-totalRotate) + 'deg)'
+                            'transform': 'rotate(' + (-totalRotate) + 'deg)',
+                            'transform-origin': 'center,center'
                         });
 
                         if(reg.code == 200) {

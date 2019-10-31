@@ -21,6 +21,9 @@
 
 <div class="container" id="container">
 
+	<!--音乐图标-->
+	<a class="rotateActive" href="javascript:void(0)" id="musicBtn"></a>
+
 	<div class="content">
 		<img class="bg" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yibaozhuanpan1/1_7.jpg" alt="">
 	</div>
@@ -42,7 +45,8 @@
 				<div class="remaining-text">剩余<span></span>次机会</div>
 			</div>
 
-			<div class="dzp-con js-dzpCon">
+			<div class="dzp-con js-dzpCon active">
+				<div class="dzp-con-border"></div>
 				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yibaozhuanpan1/1_5.png" class="abs dzp-img" />
 				<ul class="award-list" id="awardList"></ul>
 			</div>
@@ -97,6 +101,7 @@
 <%-include("../../../include/hideMenu") %>
 <script src="/common/scripts/Func.js"></script>
 <script src="/yibaozhuanpan1/scripts/api.js"></script>
+<script src="/yibaozhuanpan1/scripts/lib/jweixin-1.0.0.js"></script>
 <script src="/yibaozhuanpan1/scripts/index_act.js"></script>
 <!-- 公共js end -->
 
@@ -109,10 +114,61 @@
     /**加载进度*/
     common.loading($("#percent"));
 
+    var music = new Audio();
+    music.src = "/yibaozhuanpan1/audio/music.mp3";
+    music.loop = true;
+    music.autoplay = true;
+
     window.onload=function () {
         $('.loading').hide();
         $('#container').fadeIn();
     };
+
+    $(function () {
+        wx.config({
+            debug:false,
+            appId:'',
+            timestamp:1,
+            nonceStr:'',
+            signature:'',
+            jsApiList:[]
+        });
+
+        wx.ready(function(){
+            music.play();
+        });
+
+
+        /**
+         * 音乐播放事件
+         */
+        music.addEventListener('playing', function (e) {
+            $('#musicBtn').removeClass('pause');
+            $('#musicBtn').addClass('rotateActive');
+        });
+
+        /**
+         * @desc 音乐暂停事件
+         */
+        music.addEventListener('pause', function (e) {
+            $('#musicBtn').addClass('pause');
+            $('#musicBtn').removeClass('rotateActive');
+        });
+
+
+        /**
+         * @desc 点击音乐按钮，控制音乐暂停和播放
+         */
+        $("#musicBtn").on("click", function () {
+            if ($(this).hasClass("pause")) {
+                music.play();
+            }
+            else {
+                music.pause();
+
+            }
+        });
+    })
 </script>
 
 </body>

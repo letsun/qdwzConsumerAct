@@ -144,7 +144,7 @@ $(function () {
 			}
 		})
 
-	})
+	});
 
 
 
@@ -152,7 +152,7 @@ $(function () {
 	//获取验证码
 	$('.cont-inp-btn').on('click', function () {
 		var pattern = /^1\d{10}$/;
-		var mobile = $('#phone').val()
+		var mobile = $('#phone').val();
 		var self = $(this);
 		if (mobile == ''||mobile==null) {
 			common.alert({
@@ -166,7 +166,7 @@ $(function () {
 			common.alert({
 				mask: true,
 				content: '手机号格式不正确'
-			})
+			});
 			return false;
 		}
 
@@ -188,7 +188,7 @@ $(function () {
 			}
 
 		})
-	})
+	});
 
 	//绑定手机号码
 	$('#btnphone').on('click', function () {
@@ -200,14 +200,14 @@ $(function () {
 			common.alert({
 				mask: true,
 				content: '手机号不能为空'
-			})
+			});
 			return false
 		}
 		if (verCode == ''|| verCode==null) {
 			common.alert({
 				mask: true,
 				content: '验证码不能为空'
-			})
+			});
 
 			return false
 		}
@@ -216,7 +216,7 @@ $(function () {
 			common.alert({
 				mask: true,
 				content: '手机号格式不正确'
-			})
+			});
 			return false;
 		}
 
@@ -230,7 +230,7 @@ $(function () {
 				}, function (res) {
 					if (res.code == 200) {
 						$('.hb-con').hide();
-						$('.hb-con5').show()
+						$('.hb-con5').show();
 						$('#loadingWrapper').hide();
 					} else {
 						$('#loadingWrapper').hide();
@@ -267,7 +267,7 @@ function timer(initTim) {
 
 		if (initTim == 0) {
 			$(".cont-inp-btn").html("获取验证码").css("background", "#fff355");
-			$(".cont-inp-btn").css('color', '#fe1504')
+			$(".cont-inp-btn").css('color', '#fe1504');
 			$('.cont-inp-btn').removeClass('active');
 			clearInterval(backInterval);
 			intDiff = parseInt(10);

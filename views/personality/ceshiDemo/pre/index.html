@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <!-- 样式 start -->
+    <!-- 样式 end -->
+    <title></title>
+</head>
+<body>
+<!-- 公共js start -->
+<!--<%-include("../../../include/commonJs") %>-->
+<script src="../../../../yibaozhuanpan1/scripts/lib/jquery-2.2.2.min.js"></script>
+<script src="../../../../yibaozhuanpan1/scripts/lib/jweixin-1.0.0.js"></script>
+<script src="../../../../yibaozhuanpan1/scripts/index_pre.js"></script>
+<!-- 公共js end -->
+
+<script>
+
+
+    var music = new Audio();
+    music.src = "../../../../yibaozhuanpan1/audio/music.mp3";
+    music.loop = true;
+    music.autoplay = true;
+
+    $(function () {
+        wx.config({
+            debug:false,
+            appId:'',
+            timestamp:1,
+            nonceStr:'',
+            signature:'',
+            jsApiList:[]
+        });
+
+        wx.ready(function(){
+            music.play();
+        });
+
+
+        /**
+         * 音乐播放事件
+         */
+        music.addEventListener('playing', function (e) {
+            $('#musicBtn').removeClass('pause');
+            $('#musicBtn').addClass('rotateActive');
+        });
+
+        /**
+         * @desc 音乐暂停事件
+         */
+        music.addEventListener('pause', function (e) {
+            $('#musicBtn').addClass('pause');
+            $('#musicBtn').removeClass('rotateActive');
+        });
+
+
+        /**
+         * @desc 点击音乐按钮，控制音乐暂停和播放
+         */
+        $("#musicBtn").on("click", function () {
+            if ($(this).hasClass("pause")) {
+                music.play();
+            }
+            else {
+                music.pause();
+
+            }
+        });
+    })
+</script>
+
+</body>
+</html>

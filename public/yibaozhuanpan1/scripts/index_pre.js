@@ -1,4 +1,6 @@
+
 $(function() {
+
     var rotate = 360;
 
     var perRotate = rotate / 8;
@@ -6,12 +8,11 @@ $(function() {
 
     // 大转盘
     $('.js-dzpBtn').on('click', function() {
-
         var rand = 0;
 
         $('.js-dzpCon').css({
-            'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
-            'transform': 'rotate(' + -(360 * 4 + 67.5) + 'deg)'
+            '-webkit-transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
+            'transform': 'rotateZ(' + -(360 * 4 + 67.5) + 'deg)',
         });
 
     });
@@ -22,7 +23,7 @@ $(function() {
     });
 
     // 关闭活动须知
-    $('#activity-rule-btn').on('click',function () {
+    $('.close-rule').on('click',function () {
         $('#activity-rule').fadeOut();
     });
 

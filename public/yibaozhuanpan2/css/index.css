@@ -537,7 +537,7 @@ body {
 .container .dzp-wrapper .rule-btn {
   position: absolute;
   right: 0;
-  top: 4%;
+  top: 8%;
   z-index: 10;
 }
 .container .dzp-wrapper .support-img {
@@ -589,6 +589,18 @@ body {
   width: 658px;
   height: 658px;
 }
+.container .dzp-wrapper .dzp-container .dzp-con .dzp-con-border {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 200px;
+  height: 200px;
+  color: #000;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
 .container .dzp-wrapper .dzp-container .dzp-con .award-list {
   position: absolute;
   left: 50%;
@@ -628,22 +640,19 @@ body {
 }
 .container .dzp-wrapper .dzp-container .dzp-btnBg {
   position: absolute;
-  left: 50%;
-  top: 295px;
+  left: 0;
+  top: 0;
   z-index: 2;
-  margin-left: -87.5px;
-  margin-top: -121.5px;
+  width: 658px;
+  height: 658px;
   cursor: pointer;
 }
 .container .dzp-wrapper .dzp-container .dzp-btn {
   position: absolute;
   left: 50%;
-  top: 295px;
+  top: 50%;
   z-index: 10;
-  margin-left: -87.5px;
-  margin-top: -121.5px;
-  cursor: pointer;
-  -webkit-animation: scale 1.2s linear alternate infinite;
+  -webkit-transform: translate(-50%, -50%);
 }
 .container .result-win {
   position: absolute;
@@ -880,4 +889,28 @@ body {
   width: 150px;
   height: 150px;
   text-align: center;
+}
+#musicBtn {
+  width: 60px;
+  height: 60px;
+  background: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yibaozhuanpan1/music-0.png") no-repeat;
+  background-size: 100% 100%;
+  position: fixed;
+  top: 1%;
+  right: 10px;
+  z-index: 99999;
+}
+.rotateActive {
+  -webkit-animation: rotateItem 2s linear forwards infinite;
+}
+.pause {
+  background-image: url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yibaozhuanpan1/music-1.png") !important;
+}
+@-webkit-keyframes rotateItem {
+  0% {
+    -webkit-transform: rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
 }
