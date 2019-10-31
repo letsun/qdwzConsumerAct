@@ -2,8 +2,7 @@ var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = production;
-
+var ip = test;
 
 var api = {
 	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
@@ -15,7 +14,6 @@ var api = {
 	userCashRecord: ip + '/consumerUserCash/userCashRecord', 					// 提现记录查询接口
 	couponCodeDetail: ip + '/lotteryConsumer/couponCodeDetail', 				// 中奖纪录代金券明细
 	lotteryRecord: ip + '/lotteryConsumer/lotteryRecord', 						// 中奖记录列表查询
-	companyLotteryRecord: ip + '/lotteryConsumer/companyLotteryRecord',			//企业中奖纪录
 	getAdvByAdvPositionName: ip + '/platAdv/getAdvByAdvPositionName', 			// 
 	browseRecord: ip + '/platBrowseRecord/browseRecord',
 	scoreLottery: ip + '/lotteryConsumer/scoreLottery', 						// 用户消耗积分参与抽奖
@@ -32,4 +30,7 @@ var api = {
     guestApplyWithdraw: ip + '/consumerUserCash/guestApplyWithdraw',								// 客户发起提现申请
     checkPhoneIsEnabelJoinAct: ip + '/consumerActivity/checkPhoneIsEnabelJoinAct',								// 查询手机号是否可以参加活动
     guestApplyWithdrawRecord: ip + '/consumerUserCash/guestApplyWithdrawRecord',								// 客户提现申请列表查询接口（格瑞蓝达）
+    getShopUrl: ip + '/shopUrl/getShopUrl',								// 获取商城url
+    createJoinActInfo: ip + '/consumerActivity/createJoinActInfo',								// 添加参与记录
+    findProduct: ip + '/product/findProduct'								// 根据二维码查询商品信息
 };

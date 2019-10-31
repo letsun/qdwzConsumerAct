@@ -772,6 +772,43 @@ body {
   background-size: 100% 100%;
   -webkit-transform: translateX(-50%);
 }
+.container .gzh {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container .gzh .gzh-con {
+  position: absolute;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/1_21.png') no-repeat;
+  background-size: 100% 100%;
+  height: 500px;
+  width: 460px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.container .gzh .gzh-con img {
+  margin-top: 110px;
+  height: 260px;
+  width: 260px;
+}
+.container .gzh .gzh-con p {
+  font-size: 22px;
+}
+.container .gzh .gzh-btn {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 75%;
+}
 .advertisement {
   position: absolute;
   left: 0;
