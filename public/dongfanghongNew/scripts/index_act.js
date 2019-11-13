@@ -168,7 +168,7 @@ $(function () {
         if (res.code === 200 || res.code === 201) {
             var data = res.data;
             dzpAwardItem = data.prizes;
-            var perRotate = 360 / 8;
+            var perRotate = 360 / 6;
             var itemRotate = 0;
             var _html = '';
 
@@ -185,12 +185,12 @@ $(function () {
             $('#awardList').html(_html);
         } else if (res.code === 203) {
             var src = 'https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew/';
-            $('.result-title').html('很遗憾');
-            $('.result-dec3').find('.result-img').attr('src', src + '1_14.png');
-            $('.result-dec3').show();
-            $('.result-win').fadeIn(function () {
-                companyLotteryRecord();
-            });
+            // $('.result-title').html('很遗憾');
+            // $('.result-dec3').find('.result-img').attr('src', src + '1_14.png');
+            // $('.result-dec3').show();
+            // $('.result-win').fadeIn(function () {
+            //     companyLotteryRecord();
+            // });
         } else {
             common.alert({
                 mask: true,
