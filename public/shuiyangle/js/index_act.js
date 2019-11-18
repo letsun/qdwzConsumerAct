@@ -67,58 +67,48 @@ $(function () {
 	// 点击开启红包
 	$('#hbbtn').on('click', function () {
 		$('#loadingWrapper').show();
-		Func.isSubscribe(function (res) {
-			if (res.code == 200) {
-				if (!res.data.subscribe) { //!res1.data.subscribe 未关注
+		Func.findActivityByEncode(function (res) {
+			if (res.code == 200 || res.code == 201) {
+				Func.lottery(function (red) {
 					$('#loadingWrapper').hide();
-					$('.gzh').show()
-				} else {
-					Func.findActivityByEncode(function (res) {
-						if (res.code == 200 || res.code == 201) {
-							Func.lottery(function (red) {
-								$('#loadingWrapper').hide();
-								if (red.code == 200) {
-									if (red.data.lotteryId > 0) {
-										lotteryId = red.data.lotteryId;
-									}
-									var prizeAmount = red.data.redPack.prizeAmount;
-									
-									$('.hb-con').hide();
-									$('.hb-con1').find('.num').html(red.data.redPack.prizeAmount);
-									$('.hb-con1').show();
-									$('#hb').fadeIn();
-									
-									userCash(prizeAmount, lotteryId);
-								} else if (red.code == 201) {
-									$('.hb-con').hide();
-									$('.hb-con2').show();
-									$('#hb').fadeIn();
-								} else {
-									common.alert({
-										mask: true,
-										content: red.msg
-									})
-								}
-							});
-
-						} else if (res.code == 203) {
-							$('#loadingWrapper').hide();
-							$('.hb-con').hide();
-							$('.hb-con3').show();
-							$('#hb').fadeIn();
-						} else {
-							$('#loadingWrapper').hide();
-							common.alert({
-								mask: true,
-								content: res.msg
-							})
+					if (red.code == 200) {
+						if (red.data.lotteryId > 0) {
+							lotteryId = red.data.lotteryId;
 						}
-					});
-				}
+						var prizeAmount = red.data.redPack.prizeAmount;
+						
+						$('.hb-con').hide();
+						$('.hb-con1').find('.num').html(red.data.redPack.prizeAmount);
+						$('.hb-con1').show();
+						$('#hb').fadeIn();
+						
+						userCash(prizeAmount, lotteryId);
+					} else if (red.code == 201) {
+						$('.hb-con').hide();
+						$('.hb-con2').show();
+						$('#hb').fadeIn();
+					} else {
+						common.alert({
+							mask: true,
+							content: red.msg
+						})
+					}
+				});
+
+			} else if (res.code == 203) {
+				$('#loadingWrapper').hide();
+				$('.hb-con').hide();
+				$('.hb-con3').show();
+				$('#hb').fadeIn();
 			} else {
 				$('#loadingWrapper').hide();
+				common.alert({
+					mask: true,
+					content: res.msg
+				})
 			}
-		})
+		});
+
 	})
 
 
@@ -126,6 +116,20 @@ $(function () {
 		
 		$('.hb-con-item').hide();
 		$('.hb').fadeOut();
+
+
+		Func.isSubscribe(function (res) {
+			if (res.code == 200) {
+				if (!res.data.subscribe) { //!res1.data.subscribe 未关注
+					$('#loadingWrapper').hide();
+					$('.gzh').show()
+				}else{
+					$('#loadingWrapper').hide();
+				} 
+			} else {
+				$('#loadingWrapper').hide();
+			}
+		})
 	})
 
 

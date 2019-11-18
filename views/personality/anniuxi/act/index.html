@@ -55,7 +55,6 @@
 						<!-- 奖项 -->
 
 
-
 						<!-- 红包 -->
 						<li class="award-item" style="transform: translateX(-50%) rotate(-30deg)">
 
@@ -72,7 +71,6 @@
 							<div class="con lotter1">
 								<img
 									src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_27.png">
-
 								<p>皇家加勒比号国际游轮三人房亲子游</p>
 							</div>
 						</li>
@@ -113,9 +111,6 @@
 								<p>谢谢惠顾</p>
 							</div>
 						</li>
-
-
-
 
 					</ul>
 				</div>
@@ -249,23 +244,30 @@
 				<div class="con-con">
 					<div class="con-item">
 						<div class="con-key">收货人姓名</div>
-						<input type="text" class="con-value">
+						<input type="text" class="con-value" data-validateInfor="{strategy:isEmpty,msg:收货人姓名不能为空}}">
 					</div>
 					<div class="con-item">
-						<div class="con-key">收货电话</div>
-						<input type="text" class="con-value">
+						<div class="con-key">收货人电话</div>
+						<input type="text" class="con-value" maxlength="11" data-validateInfor="{strategy:isEmpty,msg:收货人电话不能为空}|{strategy:isMobile,msg:收货人电话格式不正确}">
 					</div>
 					<div class="con-item">
 						<div class="con-key">收货地址</div>
-						<input type="text" class="con-value">
+						<input type="text" class="con-value" data-validateInfor="{strategy:isEmpty,msg:收货人地址不能为空}}">
 					</div>
 					<div class="con-item">
 						<div class="con-key">购买渠道</div>
-						<input type="text" class="con-value">
+						<select class="con-value1" data-validateInfor="{strategy:isEmpty,msg:购买渠道不能为空}">
+							<option value="">请选择</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+
+						<img class="con-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_62.png">
 					</div>
 					<div class="con-item">
 						<div class="con-key">店铺名称</div>
-						<input type="text" class="con-value">
+						<input type="text" class="con-value" data-validateInfor="{strategy:isEmpty,msg:店铺名称不能为空}}">
 					</div>
 
 					<div class="con-btn">
@@ -273,8 +275,6 @@
 						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_14.png">
 					</div>
 				</div>
-
-
 
 			</div>
 
@@ -364,9 +364,13 @@
 	<!-- 公共js start -->
 	<%-include("../../../include/commonJs") %>
 	<%-include("../../../include/hideMenu") %>
+	<script src="/anniuxi/scripts/lib/validate.js"></script>
 	<script src="/anniuxi/scripts/Func.js"></script>
 	<script src="/anniuxi/scripts/api.js"></script>
 	<script src="/anniuxi/scripts/index_act.js"></script>
+
+
+
 	<!-- 公共js end -->
 
 	<script>

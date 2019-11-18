@@ -103,6 +103,11 @@ body {
   line-height: 70px;
   text-align: center;
 }
+select {
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
 html,
 body {
   width: 100%;
@@ -285,7 +290,7 @@ body {
   bottom: 0;
   background: rgba(0, 0, 0, 0.6);
   z-index: 10;
-  display: none;
+  display: block;
 }
 .container .mask .mask-con1 {
   position: absolute;
@@ -488,7 +493,7 @@ body {
   margin: auto;
 }
 .container .mask .mask-con6 {
-  display: none;
+  display: block;
   border-radius: 40px;
   overflow: hidden;
   position: absolute;
@@ -515,6 +520,8 @@ body {
 .container .mask .mask-con6 .con-item {
   display: flex;
   margin-bottom: 30px;
+  position: relative;
+  line-height: 62px;
 }
 .container .mask .mask-con6 .con-item .con-key {
   width: 140px;
@@ -530,6 +537,25 @@ body {
   border-radius: 10px;
   line-height: 60px;
   font-size: 22px;
+}
+.container .mask .mask-con6 .con-item .con-value1 {
+  position: absolute;
+  right: 0px;
+  width: 382px;
+  background: transparent;
+  border: 1px #543489 solid;
+  padding: 0px 20px;
+  border-radius: 10px;
+  line-height: 62px;
+  height: 62px;
+  z-index: 10;
+  font-size: 22px;
+}
+.container .mask .mask-con6 .con-item .con-img {
+  z-index: 1;
+  position: absolute;
+  right: 25px;
+  top: 25px;
 }
 .container .mask .mask-con6 .con-lastitem {
   display: flex;

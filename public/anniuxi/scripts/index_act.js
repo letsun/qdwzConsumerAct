@@ -34,6 +34,13 @@ $(function () {
         $('.mask').hide()
     })
 
+    $('.con-btn img').on('click',function(){
+        var res = Global.initValidate('.container');
+        if (!res) {
+            return;
+        }
+    })
+
     // 大转盘
     $('.js-dzpBtn').on('click', function () {
 
