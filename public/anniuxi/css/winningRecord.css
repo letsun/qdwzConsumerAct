@@ -126,6 +126,18 @@ body {
   border-radius: 130px;
   border: 4px #fff solid;
 }
+.container .return {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  color: #f4f4f4;
+  font-size: 24px;
+}
+.container .return img {
+  vertical-align: middle;
+  margin-right: 10px;
+  height: 26px;
+}
 .container .nav {
   position: absolute;
   top: 420px;
