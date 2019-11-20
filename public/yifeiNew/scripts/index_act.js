@@ -4,6 +4,7 @@ var couponName;
 var lotteryId;
 var lotteryData = {};
 var awardValue;
+var type;
 var isClick = true;
 var yes1 = new Audio();
 /*var yes2 = new Audio();*/
@@ -73,6 +74,7 @@ $(function () {
 		}
 		isClick = false;
 		awardValue = $(this).find('.num').html();
+        type = $(this).attr('data-type');
 		index = $(this).index();
 		Func.findActivityByEncode(function (res) {
 			if (res.code === 200 || res.code === 201) {
@@ -91,7 +93,7 @@ $(function () {
 
 								$('.award-item').addClass('active');
 								if (lotteryData.code == 200) {
-									var types = reg.data.type
+									var types = reg.data.type;
 
 									if (reg.data.type == 0) {
 										prizeAmount = lotteryData.data.redPack.prizeAmount;
@@ -100,13 +102,11 @@ $(function () {
 										}
 
 										$('.award-item').each(function (i, item) {
-											var type = $(item).attr('data-type');
 											var value = $(item).find('.num').html();
 											if (type == 1) {
 												if (value == prizeAmount) {
-													$(item).find('.num').html(awardValue);
+													$(item).find('.amount').html('<span class="num">' + awardValue + '</span>').removeClass('active');
 												}
-												$(item).find('.amount').html('<span class="num">' + awardValue + '</span>元');
 											} else if (type == 0) {
 												if (value == prizeAmount) {
 													$(item).find('.num').html(awardValue);
@@ -116,17 +116,15 @@ $(function () {
 									}
 
 									if (reg.data.type == 1) {
-										// debugger;
-										// console.log('1111')
 										couponName = lotteryData.data.couponGrants[0].couponName;
-
-
 										$('.award-item').each(function (i, item) {
-											var value = $(item).find('.num').html();
+                                            var value = $(item).find('.num').html();
 
-											if (value == couponName) {
-												$(item).find('.num').html(awardValue);
-											}
+                                            if (type == 0) {
+                                                if (value == couponName) {
+                                                    $(item).find('.amount').html('<span class="num">' + awardValue + '</span>元').addClass('active');
+                                                }
+                                            }
 										})
 									}
 
@@ -180,25 +178,19 @@ $(function () {
 					prizeAmount = lotteryData.data.redPack.prizeAmount;
 					if (lotteryData.data.lotteryId > 0) {
 						lotteryId = lotteryData.data.lotteryId;
-						$('.award-item').eq(index).find('.num').html(prizeAmount);
+						$('.award-item').eq(index).find('.amount').html('<span class="num">' + prizeAmount + '</span>元').addClass('active');
 						$('.award-item').eq(index).find('.award-title').html('恭喜您获得');
 						$('.award-item').find('.award-dec1').show();
-						// userCash(prizeAmount,lotteryId);
-
 						$('.text-img').fadeIn()
 					}
 				}
 
 
 				if (lotteryData.data.type == 1) {
-					// debugger;
-					// console.log('1111')
 					couponName = lotteryData.data.couponGrants[0].couponName;
-
-					$('.award-item').eq(index).find('.num').html(couponName);
+					$('.award-item').eq(index).find('.amount').html('<span class="num">' + couponName + '</span>').removeClass('active');
 					$('.award-item').eq(index).find('.award-title').html('恭喜您获得');
 					$('.award-item').find('.award-dec1').show();
-
 				}
 
 
@@ -213,6 +205,10 @@ $(function () {
 					content: res.msg,
 				})
 			}
+
+            $('.award-item').each(function (i,item) {
+
+            });
 
 			$('.positive-item').fadeIn();
 		}, 1500);
@@ -240,9 +236,9 @@ $(function () {
 			html += '<div class="positive-item">';
 			html += '<div class="award-dec award-dec1">';
 			if (prizes[i].prizeType == 0) {
-				html += '<div class="amount"><span class="num">' + prizes[i].amount + '</span>元</div>';
+				html += '<div class="amount active"><span class="num">' + prizes[i].amount + '</span>元</div>';
 			} else {
-				html += '<div class="amount"><span class="num">' + prizes[i].prizeName + '</span></div>';
+				html += '<div class="amount"><span class="num">' + prizes[i].couponName + '</span></div>';
 			}
 			
 			html += '</div>';
