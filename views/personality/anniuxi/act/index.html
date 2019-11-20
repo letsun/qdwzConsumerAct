@@ -125,7 +125,7 @@
 		<!-- 底部背景图 -->
 		<img class="footer-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_5.png">
 		<!-- 奖项弹窗 -->
-		<div class="mask">
+		<div class="mask" style="display: block;">
 			<!--  红包 -->
 			<div class="mask-item mask-con1">
 				<img class="mask-bg"
@@ -234,14 +234,16 @@
 			</div>
 
 			<!-- 填写中奖信息 -->
-			<div class="mask-item mask-con6">
+			<div class="mask-item mask-con6" style="display: block;">
 
 
 				<div class="rulesmask-img">
-					<img style="height: 880px;width: 640px;" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_15.png">
+					<img style="height: 880px;width: 640px;"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_15.png">
 				</div>
 
 				<div class="con-con">
+
 					<div class="con-item">
 						<div class="con-key">收货人姓名</div>
 						<input type="text" id="receiveName" class="con-value "
@@ -252,27 +254,30 @@
 						<input type="text" id="receivePhone" class="con-value" maxlength="11"
 							data-validateInfor="{strategy:isEmpty,msg:收货人电话不能为空}|{strategy:isMobile,msg:收货人电话格式不正确}">
 					</div>
+
+
 					<div class="con-item">
-							<div class="con-key">收货地址</div>
-			
-							<select class="con-value2" id='province'  data-validateInfor="{strategy:isEmpty,msg:省份不能为空}}">
-								<option value="">请选择</option>
-							</select>
-							<select class="con-value2" id="city"  data-validateInfor="{strategy:isEmpty,msg:市区不能为空}}">
-								<option value="">请选择</option>
-							</select>
-			
-							<select class="con-value2" id="area" >
-								<option value="">请选择</option>
-							</select>
-			
-						</div>
+						<div class="con-key">收货地址</div>
+
+						<select class="con-value2" id='province' data-validateInfor="{strategy:isEmpty,msg:省份不能为空}}">
+							<option value="">请选择</option>
+						</select>
+						<select class="con-value2" id="city" data-validateInfor="{strategy:isEmpty,msg:市区不能为空}}">
+							<option value="">请选择</option>
+						</select>
+
+						<select class="con-value2" id="area">
+							<option value="">请选择</option>
+						</select>
+
+					</div>
 
 					<div class="con-item">
 						<div class="con-key">详细地址</div>
 						<input type="text" id="receiveAddress" class="con-value"
 							data-validateInfor="{strategy:isEmpty,msg:详细地址地址不能为空}}">
 					</div>
+
 					<div class="con-item">
 						<div class="con-key">购买渠道</div>
 						<select class="con-value1" id="buyFrom" data-validateInfor="{strategy:isEmpty,msg:购买渠道不能为空}">
@@ -284,6 +289,7 @@
 						<img class="con-img"
 							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_62.png">
 					</div>
+
 					<div class="con-item">
 						<div class="con-key">店铺名称</div>
 						<input type="text" id="mendianName" class="con-value"
@@ -343,6 +349,29 @@
 					srcset="">
 			</div>
 
+
+
+			<!--  促销员身份 -->
+			<div class="mask-item mask-con9">
+				<img class="mask-bg"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_19.png">
+				<div class="mask-header">
+					提示
+				</div>
+
+				<div class="mask-lotter">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_28.png">
+				</div>
+
+				<div class="mask-text">
+					您已是促销员身份，不可以参与消费者活动
+				</div>
+
+				<img class="mask-btn btn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_48.png" alt=""
+					srcset="">
+			</div>
+
 		</div>
 
 		<!-- 活动规格弹窗 -->
@@ -385,7 +414,7 @@
 	<%-include("../../../include/commonJs") %>
 	<%-include("../../../include/hideMenu") %>
 	<script src="/anniuxi/scripts/lib/validate.js"></script>
-	
+
 	<script src="/anniuxi/scripts/lib/cityData.js"></script>
 	<script src="/anniuxi/scripts/lib/citySelect.js"></script>
 	<script src="/anniuxi/scripts/Func.js"></script>
@@ -406,10 +435,10 @@
 			// def: ["广东", "深圳", "宝安区"]
 		})
 
-		// 禁止整个页面滑动
-		$('#container').on('touchmove', function (e) {
-			e.preventDefault();
-		});
+		// // 禁止整个页面滑动
+		// $('#container').on('touchmove', function (e) {
+		// 	e.preventDefault();
+		// });
 
 		/**加载进度*/
 		common.loading($("#percent"));
@@ -418,6 +447,18 @@
 			$('.loading').hide();
 			$('#container').fadeIn();
 		};
+
+
+		// var height = $(document).height();
+		// $('body').css({ 'height': height + 'px' });
+
+		// $('select').on('click',function (param) { 
+		// 	$('input').blur();
+		// })
+
+		// $('select').on('change',function (param) { 
+		// 	$('input').blur();
+		// })
 
 
 	</script>
