@@ -12,6 +12,10 @@ $(function () {
     var isClick = true;
     var type = '';
 
+    var height = $(document).height();
+    $('body').css({ 'height': height + 'px' });
+
+
     // 打开活动须知
     $('.rules').on('click', function () {
         $('.rulesmask').fadeIn();
@@ -119,15 +123,15 @@ $(function () {
                             })
                         }
                     });
-                }else if (res.code == 202) {
+                } else if (res.code == 202) {
                     lotteryId = res.data.lotteryRecordId;
                     if (res.data.prizeType == 2) {
-                        if(res.data.alreadyExistAddr==false){   
+                        if (res.data.alreadyExistAddr == false) {
                             $('.mask').show();
-                            $('.mask-con6').show()              
-                        }else {
+                            $('.mask-con6').show()
+                        } else {
                             $('.mask').show();
-                            $('.mask-con8').show()   
+                            $('.mask-con8').show()
                         }
                     }
                 } else if (res.code === 203) {
@@ -179,20 +183,20 @@ $(function () {
             }
 
             // $('#awardList').html(_html);
-        }else if(res.code === 202) {
+        } else if (res.code === 202) {
             lotteryId = res.data.lotteryRecordId;
             if (res.data.prizeType == 2) {
-                if(res.data.alreadyExistAddr==false){   
+                if (res.data.alreadyExistAddr == false) {
                     $('.mask').show();
-                    $('.mask-con6').show()              
-                }else {
+                    $('.mask-con6').show()
+                } else {
                     $('.mask').show();
-                    $('.mask-con8').show()   
+                    $('.mask-con8').show()
                 }
             }
 
 
-        }  else if (res.code === 203) {
+        } else if (res.code === 203) {
             $('.mask').show();
             $('.mask-con8').fadeIn()
         } else {
@@ -273,7 +277,7 @@ $(function () {
                 buyFrom: buyFrom,
                 mendianName: mendianName
             }, function (res) {
-                if(res.code==200) {
+                if (res.code == 200) {
                     $('.mask-item').hide();
                     $('.mask').hide();
                 }
