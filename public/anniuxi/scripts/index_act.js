@@ -38,12 +38,12 @@ $(function () {
         $('.mask').hide()
     })
 
-    $('.con-btn img').on('click', function () {
-        var res = Global.initValidate('.container');
-        if (!res) {
-            return;
-        }
-    })
+    // $('.con-btn img').on('click', function () {
+    //     var res = Global.initValidate('.container');
+    //     if (!res) {
+    //         return;
+    //     }
+    // })
 
     // 大转盘
     $('.js-dzpBtn').on('click', function () {
@@ -238,10 +238,6 @@ $(function () {
                 $('#loadingWrapper').hide();
             } else {
                 $('#loadingWrapper').hide();
-                common.alert({
-                    content: res.msg,
-                    mask: true
-                });
             }
         })
     })
@@ -255,7 +251,6 @@ $(function () {
 
     //点击提交信息
     $('.subbtn').on('click', function () {
-
         var res = Global.initValidate('.container');
         var receiveName = $('#receiveName').val();
         var receivePhone = $('#receivePhone').val()

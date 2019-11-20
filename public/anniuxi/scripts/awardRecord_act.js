@@ -14,6 +14,7 @@ var kxRes1, kxRes2, kxRes3, kxRes4;
         initData();
 
         scroll.on('pullingUp', function () {
+
             if (!hasNext) {
                 $('#loading').text('已经没有更多数据了');
                 return;
@@ -103,11 +104,18 @@ var kxRes1, kxRes2, kxRes3, kxRes4;
             var data = res.data;
 
             if (res.code === 200) {
+                common.alert({
+                    content: JSON.stringify(res),
+                    mask: true
+                });
+
                 hasNext = data.hasNext;
                 render(data.lotteryRecordList);
 
-                if (data.lotteryRecordList.length >= 20) {
+                if (data.lotteryRecordList.length > 20) {
                     $('#loading').show();
+                }else{
+                    $('#loading').text('暂无数据')
                 }
             }
 
