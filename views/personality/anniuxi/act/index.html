@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/anniuxi/css/index.css" />
+	<!-- 样式 end -->
+	<title></title>
+</head>
+
+<body>
+	<!--加载页-->
+	<div class="loading">
+		<div class="loadCon">
+			<img src="/anniuxi/images/loading.png" />
+			<div id="percent">1%</div>
+		</div>
+	</div>
+
+	<div class="container" id="container">
+
+		<div class="content">
+			<img class="bg" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_11.jpg"
+				alt="">
+		</div>
+
+
+		<!-- 大转盘弹层 start -->
+		<div class="dzp-wrapper js-dzpWrapper">
+			<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_1.png"
+				alt="">
+			<img class="title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_2.png"
+				alt="">
+			<img class="rules" id="rule-btn"
+				src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_3.png" alt="">
+			<a href="winningRecord" class="record">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_4.png">
+			</a>
+
+			<!-- 大转盘容器 start -->
+			<div class="dzp-container">
+				<div class="dzp-con js-dzpCon">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_8.png"
+						class="abs dzp-img" />
+
+					<img class="dzp-img1"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_9.png">
+
+					<img class="dzp-img2"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_10.png">
+					<ul class="award-list" id="awardList">
+
+						<!-- 奖项 -->
+
+
+						<!-- 红包 -->
+						<li class="award-item" style="transform: translateX(-50%) rotate(-30deg)">
+
+							<div class="con lotter2">
+								<img
+									src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_32.png">
+
+								<p>0.88元-188.8元随机现金红包</p>
+							</div>
+						</li>
+
+						<!-- 游轮 -->
+						<li class="award-item" style="transform: translateX(-50%) rotate(30deg)">
+							<div class="con lotter1">
+								<img
+									src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_27.png">
+								<p>皇家加勒比号国际游轮三人房亲子游</p>
+							</div>
+						</li>
+
+
+						<!-- 足金锁 -->
+						<li class="award-item" style="transform: translateX(-50%) rotate(90deg)">
+							<div class="con lotter3">
+								<img
+									src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_24.png">
+								<p>周大福宝宝足金金锁一个</p>
+							</div>
+						</li>
+
+
+						<li class="award-item" style="transform: translateX(-50%) rotate(150deg)">
+							<div class="con lotter6">
+								<img
+									src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_26.png">
+								<p>350c幼儿奶粉1罐+亨利医生育儿大礼包</p>
+							</div>
+						</li>
+
+						<!-- 电视 -->
+						<li class="award-item" style="transform: translateX(-50%) rotate(210deg)">
+							<div class="con lotter5">
+								<img
+									src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_25.png">
+								<p>50英寸4k超清智能电视一台</p>
+							</div>
+						</li>
+
+						<!-- 谢谢惠顾 -->
+						<li class="award-item" style="transform: translateX(-50%) rotate(270deg)">
+							<div class="con lotter4">
+								<img
+									src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_28.png">
+								<p>谢谢惠顾</p>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+
+				<!-- 启动大转盘按钮 -->
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_6.png"
+					class="abs dzp-btn js-dzpBtn" />
+			</div>
+			<!-- 大转盘容器 end -->
+		</div>
+
+		<!-- 底部背景图 -->
+		<img class="footer-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_5.png">
+		<!-- 奖项弹窗 -->
+		<div class="mask">
+			<!--  红包 -->
+			<div class="mask-item mask-con1">
+				<img class="mask-bg"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_19.png">
+				<div class="mask-header">
+					恭喜您！
+				</div>
+
+				<div class="mask-lotter">
+					<span class="mask-num">1.80</span>元
+				</div>
+
+				<div class="mask-text">
+					(红包将通过公众号发放给您,请注意查收)
+				</div>
+
+				<img class="mask-btn hbbtn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_48.png" alt=""
+					srcset="">
+			</div>
+
+			<!--  游轮 -->
+			<div class="mask-item mask-con2">
+				<img class="mask-bg"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_19.png">
+				<div class="mask-header">
+					恭喜您！
+				</div>
+
+				<div class="mask-lotter">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_27.png">
+				</div>
+
+				<div class="mask-text">
+					获得皇家加勒比号国际游轮三人房亲子游
+				</div>
+
+				<img class="mask-btn swbtn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_48.png" alt=""
+					srcset="">
+			</div>
+
+
+			<!--  金锁-->
+			<div class="mask-item mask-con3">
+				<img class="mask-bg"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_19.png">
+				<div class="mask-header">
+					恭喜您！
+				</div>
+
+				<div class="mask-lotter">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_24.png">
+				</div>
+
+				<div class="mask-text">
+					获得周大福宝宝足金金锁1个
+				</div>
+
+				<img class="mask-btn swbtn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_48.png" alt=""
+					srcset="">
+			</div>
+
+			<!--  育儿大礼包-->
+			<div class="mask-item mask-con4">
+				<img class="mask-bg"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_19.png">
+				<div class="mask-header">
+					恭喜您！
+				</div>
+
+				<div class="mask-lotter">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_26.png">
+				</div>
+
+				<div class="mask-text">
+					获得350c幼儿奶粉1罐+亨利医生育儿大礼包
+				</div>
+
+				<img class="mask-btn swbtn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_48.png" alt=""
+					srcset="">
+			</div>
+
+
+			<!--  电视-->
+			<div class="mask-item mask-con5">
+				<img class="mask-bg"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_19.png">
+				<div class="mask-header">
+					恭喜您！
+				</div>
+
+				<div class="mask-lotter">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_25.png">
+				</div>
+
+				<div class="mask-text">
+					获得50英寸4k超清智能电视1台
+				</div>
+
+				<img class="mask-btn swbtn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_48.png" alt=""
+					srcset="">
+			</div>
+
+			<!-- 填写中奖信息 -->
+			<div class="mask-item mask-con6">
+
+
+				<div class="rulesmask-img">
+					<img style="height: 880px;width: 640px;" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_15.png">
+				</div>
+
+				<div class="con-con">
+					<div class="con-item">
+						<div class="con-key">收货人姓名</div>
+						<input type="text" id="receiveName" class="con-value "
+							data-validateInfor="{strategy:isEmpty,msg:收货人姓名不能为空}}">
+					</div>
+					<div class="con-item">
+						<div class="con-key">收货人电话</div>
+						<input type="text" id="receivePhone" class="con-value" maxlength="11"
+							data-validateInfor="{strategy:isEmpty,msg:收货人电话不能为空}|{strategy:isMobile,msg:收货人电话格式不正确}">
+					</div>
+					<div class="con-item">
+							<div class="con-key">门店地址</div>
+			
+							<select class="con-value2" id='province'  data-validateInfor="{strategy:isEmpty,msg:省份不能为空}}">
+								<option value="">请选择</option>
+							</select>
+							<select class="con-value2" id="city"  data-validateInfor="{strategy:isEmpty,msg:市区不能为空}}">
+								<option value="">请选择</option>
+							</select>
+			
+							<select class="con-value2" id="area" >
+								<option value="">请选择</option>
+							</select>
+			
+						</div>
+
+					<div class="con-item">
+						<div class="con-key">详细地址</div>
+						<input type="text" id="receiveAddress" class="con-value"
+							data-validateInfor="{strategy:isEmpty,msg:详细地址地址不能为空}}">
+					</div>
+					<div class="con-item">
+						<div class="con-key">购买渠道</div>
+						<select class="con-value1" id="buyFrom" data-validateInfor="{strategy:isEmpty,msg:购买渠道不能为空}">
+							<option>请选择</option>
+							<option>门店</option>
+							<option>母婴店</option>
+						</select>
+
+						<img class="con-img"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_62.png">
+					</div>
+					<div class="con-item">
+						<div class="con-key">店铺名称</div>
+						<input type="text" id="mendianName" class="con-value"
+							data-validateInfor="{strategy:isEmpty,msg:店铺名称不能为空}}">
+					</div>
+
+					<div class="con-btn subbtn">
+
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_14.png">
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<!--  未中奖 -->
+			<div class="mask-item mask-con7">
+				<img class="mask-bg"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_19.png">
+				<div class="mask-header">
+					很遗憾
+				</div>
+
+				<div class="mask-lotter">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_28.png">
+				</div>
+
+				<div class="mask-text">
+					您未中奖，谢谢惠顾!
+				</div>
+
+				<img class="mask-btn btn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_48.png" alt=""
+					srcset="">
+			</div>
+
+
+			<!-- 该码已被扫 -->
+			<div class="mask-item mask-con8">
+				<img class="mask-bg"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_19.png">
+				<div class="mask-header">
+					温馨提示
+				</div>
+
+				<div class="mask-lotter">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_17.png">
+				</div>
+
+				<div class="mask-text">
+					该码已被扫!
+				</div>
+
+				<img class="mask-btn btn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_48.png" alt=""
+					srcset="">
+			</div>
+
+		</div>
+
+		<!-- 活动规格弹窗 -->
+		<div class="rulesmask">
+			<div class="rulesmask-con">
+				<div class="rulesmask-img">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_13.png">
+
+					<img class="rulesmask-bg"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_40.png">
+				</div>
+				<div class="rulesmask-btn">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_12.png">
+				</div>
+			</div>
+		</div>
+
+		<!-- 公众号弹窗 -->
+		<div class="gzhmask">
+			<div class="gzhmask-con">
+				<div class="gzhmask-img">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_29.png">
+
+
+					<div class="gzhmask-bg">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_60.png">
+						<p>检测到您尚未关注公众号</p>
+						<p>请长按识别关注公众号后再扫码获取红包</p>
+					</div>
+				</div>
+				<div class="gzhmask-btn">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_12.png">
+				</div>
+			</div>
+		</div>
+
+		<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+	</div>
+	<!-- 公共js start -->
+	<%-include("../../../include/commonJs") %>
+	<%-include("../../../include/hideMenu") %>
+	<script src="/anniuxi/scripts/lib/validate.js"></script>
+	
+	<script src="/anniuxi/scripts/lib/cityData.js"></script>
+	<script src="/anniuxi/scripts/lib/citySelect.js"></script>
+	<script src="/anniuxi/scripts/Func.js"></script>
+	<script src="/anniuxi/scripts/api.js"></script>
+	<script src="/anniuxi/scripts/index_act.js"></script>
+
+
+	<!-- 公共js end -->
+
+	<script>
+
+		var select = new citySelect({
+			province: $("#province"),
+			city: $("#city"),
+			area: $("#area"),
+			cityCon: $(".cityBox"),
+			areaCon: $(".areaBox"),
+			// def: ["广东", "深圳", "宝安区"]
+		})
+
+		// 禁止整个页面滑动
+		$('#container').on('touchmove', function (e) {
+			e.preventDefault();
+		});
+
+		/**加载进度*/
+		common.loading($("#percent"));
+
+		window.onload = function () {
+			$('.loading').hide();
+			$('#container').fadeIn();
+		};
+
+
+	</script>
+
+</body>
+
+</html>
