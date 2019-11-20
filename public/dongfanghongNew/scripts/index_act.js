@@ -37,8 +37,7 @@ $(function () {
                     if (isClick) {
                         isClick = false;
                         $('#loadingWrapper').show();
-            
-            
+
                         Func.findActivityByEncode(function (res) {
                             var data = res.data;
                             dzpAwardItem = data.prizes;
