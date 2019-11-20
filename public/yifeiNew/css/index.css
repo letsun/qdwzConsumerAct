@@ -290,6 +290,9 @@ body {
 #container .content .award-list .positive-item .award-dec1 .amount {
   padding-top: 70px;
 }
+#container .content .award-list .positive-item .award-dec1 .active {
+  padding-top: 84px;
+}
 #container .content .award-list .positive-item .award-dec2 {
   margin-top: 120px;
 }

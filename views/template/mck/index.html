@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<link rel="stylesheet" href="/mck/css/index.css" />
+	<title></title>
+</head>
+<body>
+	<div class="app">
+		<div class="container">
+			<div class="scroll-wrapper">
+				<div class="wrapper">
+					<ul class="btn-list">
+						<li class="item">
+							<a href="javascript:void(0)" id="showErweima">防伪查询</a>
+						</li>
+					</ul>
+
+					<div class="bottom">麦肯森（深圳）生物科技有限公司</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="erweima-wrapper" id="erweimaWrapper">
+		<div class="erweima-container">
+			<a href="javascript:void(0)" class="close-btn" id="closeBtn">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/mck/1_3.png" />
+			</a>
+			<div class="erweima">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/mck/1_4.png" />
+			</div>
+			<div class="erweima-text">
+				<div class="erweima-title">长按进入公众号,进行防伪查询</div>
+			</div>
+		</div>
+	</div>
+
+	<%-include('../../include/commonJs') %>
+	<%-include("../../include/hideMenu") %>
+	<!-- 公共js start -->
+	<script>
+
+        $('.container').on('touchmove',function (e) {
+            e.preventDefault();
+        });
+
+		$(function() {
+			$('#closeBtn').on('click', function() {
+				$('#erweimaWrapper').fadeOut();
+			});
+
+			// 点击防伪查询
+			$('#showErweima').on('click', function() {
+                $('#erweimaWrapper').fadeIn();
+			});
+
+		});
+	</script>
+</body>
+</html>
