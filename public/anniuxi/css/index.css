@@ -290,7 +290,7 @@ body {
   bottom: 0;
   background: rgba(0, 0, 0, 0.6);
   z-index: 10;
-  display: block;
+  display: none;
 }
 .container .mask .mask-con1 {
   position: absolute;
@@ -493,7 +493,7 @@ body {
   margin: auto;
 }
 .container .mask .mask-con6 {
-  display: block;
+  display: none;
   border-radius: 40px;
   overflow: hidden;
   position: absolute;
@@ -550,6 +550,19 @@ body {
   height: 62px;
   z-index: 10;
   font-size: 22px;
+}
+.container .mask .mask-con6 .con-item .con-value2 {
+  width: 124px;
+  background: transparent;
+  border: 1px #543489 solid;
+  padding: 0px 20px;
+  border-radius: 10px;
+  line-height: 60px;
+  margin-right: 5px;
+  font-size: 22px;
+}
+.container .mask .mask-con6 .con-item .con-value2:last-child {
+  margin-right: 0px;
 }
 .container .mask .mask-con6 .con-item .con-img {
   z-index: 1;

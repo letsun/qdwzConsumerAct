@@ -639,4 +639,25 @@ $(function() {
 			}
 		});
 	}	
+
+
+
+		/**
+	 * 获取企业中奖记录
+	 * @param  object 		data 		提交的数据
+	 * @param  function 	callback 	获取成功后的回调
+	 * @return null
+	 */
+	Func.saveEntityObjRewardAddr = function(data, callback) {
+		$.ajax({
+			url: api.saveEntityObjRewardAddr,
+			type: 'GET',
+			data: data,
+			headers: getHeader(),
+			dataType: 'json',
+			success: function(res) {
+				callback(res);
+			}
+		});
+	}	
 });

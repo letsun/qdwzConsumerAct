@@ -2,7 +2,7 @@ var dev = 'http://192.168.1.41:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = dev;
+var ip = test;
 
 
 var api = {
@@ -31,5 +31,9 @@ var api = {
 	register: ip + '/consumerRegister/register',								// 用户注册
     guestApplyWithdraw: ip + '/consumerUserCash/guestApplyWithdraw',								// 客户发起提现申请
     checkPhoneIsEnabelJoinAct: ip + '/consumerActivity/checkPhoneIsEnabelJoinAct',								// 查询手机号是否可以参加活动
-    guestApplyWithdrawRecord: ip + '/consumerUserCash/guestApplyWithdrawRecord',				// 客户提现申请列表查询接口（格瑞蓝达）
+	guestApplyWithdrawRecord: ip + '/consumerUserCash/guestApplyWithdrawRecord',				// 客户提现申请列表查询接口（格瑞蓝达）
+	saveEntityObjRewardAddr: ip + '/lotteryConsumer/saveEntityObjRewardAddr',				// 提交信息接口
+	
+	
+	
 };

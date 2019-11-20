@@ -22,14 +22,14 @@
             <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_46.jpg">
         </div>
 
-        <div class="header">
+        <!-- <div class="header">
             <div class="header-img">
                 <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_53.png">
             </div>
             <div class="header-name">
                 我是微信昵称
             </div>
-        </div>
+        </div> -->
 
 
         <div class="nav">
@@ -42,9 +42,10 @@
             <div class="scroll-wra" id="scrollWra">
                 <div class="wrapper">
                     <div class="list">
-                        <div class="content-item">
+                        <!-- <div class="content-item">
                             <div class="item-img">
-                                <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_44.png">
+                                <img
+                                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_44.png">
                             </div>
 
                             <div class="item-text">
@@ -56,7 +57,8 @@
 
                         <div class="content-item">
                             <div class="item-img">
-                                <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_45.png">
+                                <img
+                                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_45.png">
                             </div>
 
                             <div class="item-text">
@@ -64,10 +66,10 @@
                                 <div class="text2">2019-10-22 13:30:15</div>
                             </div>
                             <div class="item-btn btncolor2">已发货</div>
-                        </div>
+                        </div> -->
                     </div>
 
-                    <div class="loadText">上滑加载更多</div>
+                    <div class="loadText" id="loading">上滑加载更多</div>
                 </div>
             </div>
 
@@ -95,24 +97,38 @@
                         <div class="text-kd">
                             中通快递:409705918423
                             <div class="text-img">
-                                <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_43.png">
+                                <img
+                                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_43.png">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="mask-btn">
-                    <img class="btn-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_12.png">
+                    <img class="btn-img"
+                        src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_12.png">
                 </div>
             </div>
         </div>
     </div>
 
 
+
+    <!-- 公共js start -->
     <%-include("../../../include/commonJs") %>
+    <%-include("../../../include/hideMenu") %>
+
+    <script src="/anniuxi/scripts/currency.js"></script>
+    <script src="/anniuxi/scripts/Func.js"></script>
+    <script src="/anniuxi/scripts/api.js"></script>
+
+    <script src="/anniuxi/scripts/awardRecord_act.js"></script>
+
+
+
 
     <script>
-        var scrollWra = new BScroll('#scrollWra', {
+        var scroll = new BScroll('#scrollWra', {
             scrollbar: {
                 fade: true
             },
@@ -122,63 +138,150 @@
             }
         });
 
-        var hasNext = true;     // 是否有下一页;
-        var page = 1;          // 第一页;   
+        var doc = $(document);
 
-        var html = '';
-        scrollWra.on('pullingUp', function () {
-            if (!hasNext) {
-                $('.loadText').text('没有更多数据了');
-                return false;
-            }
+        $(function () {
+            main.init();
 
-            page++;
-            $('.loadText').text('正在加载中...');
+            $('.container').on("touchmove", function (e) {
+                e.preventDefault();
+            });
 
-            if (page == 5) {
-                hasNext = false;
-            }
-            // 请求后台接口获取数据
-
-            for (var i = 0; i < 6; i++) {
-
-                html += '<div class="content-item">';
-                html += '<div class="item-img">';
-                html += '<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_45.png">';
-                html += '</div>';
-                html += '<div class="item-text">';
-                html += '<div class="text1">获得周大福宝宝足金金锁1个</div>';
-                html += '<div class="text2">2019-10-22 13:30:15</div>';
-                html += '</div>';
-                html += '<div class="item-btn btncolor2">已发货</div>';
-                html += '</div>';
-            }
-            $('.list').append(html);
-            $('.loadText').text('上滑加载更多');
-
-
-            scrollWra.finishPullUp();
-            scrollWra.refresh();
+            doc.on('click', '.back', function () {
+                window.history.back();
+            });
         });
 
 
 
-
-
-
-        //点击收货
-        $('.content-item').on('click', '.btncolor2', function () {
-            $('.mask').fadeIn()
-        })
 
         //关闭弹窗
         $('.btn-img').on('click', function () {
             $('.mask').fadeOut()
         })
 
-
-
     </script>
+
+    <!-- <script>
+
+        $(function () {
+            var scrollWra = new BScroll('#scrollWra', {
+                scrollbar: {
+                    fade: true
+                },
+                click: true,
+                pullUpLoad: {
+                    threshold: 0
+                }
+            });
+
+            Func.lotteryRecord({
+                pageSize: page,
+                pageNum: 20
+            }, function (res) {
+                var data = res.data;
+
+                if (res.code === 200) {
+                    hasNext = data.hasNext;
+                    render(data.lotteryRecordList);
+                }
+                $('#loadingWrapper').hide()
+            });
+
+
+            var hasNext = true;     // 是否有下一页;
+            var page = 1;          // 第一页;   
+
+            var html = '';
+
+
+            scrollWra.on('pullingUp', function () {
+                if (!hasNext) {
+                    $('.loadText').text('没有更多数据了');
+                    return false;
+                }
+
+                page++;
+                $('.loadText').text('正在加载中...');
+
+                if (page == 5) {
+                    hasNext = false;
+                }
+
+                // 请求后台接口获取数据
+                Func.lotteryRecord({
+                    pageSize: page,
+                    pageNum: 20
+                }, function (res) {
+                    var data = res.data;
+
+                    if (res.code === 200) {
+                        hasNext = data.hasNext;
+                        render(data.lotteryRecordList);
+
+                        $('#loading').text('下拉加载更多...');
+                    } else {
+                        common.alert({
+                            content: res.msg,
+                            mask: true
+                        });
+                    }
+
+                });
+                $('.list').append(html);
+                $('.loadText').text('上滑加载更多');
+
+
+                scrollWra.finishPullUp();
+                scrollWra.refresh();
+            });
+
+            /**
+             * 渲染数据
+             * @param  object data 需要的数据
+             * @return null
+             */
+            function render(data) {
+                var html = '';
+                for (var i = 0; i < data.length; i++) {
+                    html += '<div class="content-item">';
+                    html += '<div class="item-img">';
+
+                    if (data[i].prizeType == 0) {
+                        html += '<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_44.png">';
+                    } else {
+                        html += '<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_45.png">';
+                    }
+
+
+                    html += '</div>';
+                    html += '<div class="item-text">';
+                    html += '<div class="text1">' + data[i].prizeName + ' </div>';
+                    html += '<div class="text2">2019-10-22 13:30:15</div>';
+                    html += '</div>';
+                    if (data[i].prizeType == 0) {
+                        html += '<div class="item-btn btncolor1">已领取</div>';
+                    } else if (data[i].prizeType == 2) {
+                        html += '<div class="item-btn btncolor2">已发货</div>';
+                    }
+                    html += '</div>';
+                }
+
+                $('.list').append(html);
+                scroll.finishPullUp();
+                scroll.refresh();
+            }
+
+
+
+
+
+
+        })
+
+
+
+    </script> -->
 </body>
 
 
