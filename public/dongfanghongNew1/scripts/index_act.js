@@ -77,8 +77,6 @@ $(function() {
                     if (isClick) {
                         isClick = false;
                         $('#loadingWrapper').show();
-            
-            
                         Func.findActivityByEncode(function (res) {
                             var data = res.data;
                             dzpAwardItem = data.prizes;
@@ -99,15 +97,15 @@ $(function() {
                                             }
                                         }
                                     }
-            
-            
+
+
                                     var totalRotate = rotate * 4 + perRotate * rand - 22.5;
-            
+
                                     $('.js-dzpCon').css({
                                         'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
                                         'transform': 'rotate(' + (-totalRotate) + 'deg)'
                                     });
-            
+
                                     if (reg.code == 200) {
                                         isLottery = true;
                                         type = reg.data.type;
