@@ -163,6 +163,12 @@ $(function () {
 
 
     Func.findActivityByEncode(function (res) {
+        
+        // common.alert({
+        //     mask: true,
+        //     content:JSON.stringify(res) ,
+        // })
+
 
         isClick = true;
         if (res.code === 200 || res.code === 201) {
@@ -224,12 +230,10 @@ $(function () {
 
 
 
-    //点击红包我知道了swbtn
+    //点击红包我知道了弹出公众号
     $('.hbbtn').on('click', function () {
-
-
         Func.isSubscribe(function (res) {
-            if (!res.data.subscribe) {
+            if (!res.data.subscribe) {   //!res.data.subscribe是否关注公众号
                 $('.gzhmask').show();
                 $('#loadingWrapper').hide();
             } else {
@@ -264,7 +268,7 @@ $(function () {
 
         console.log(buyFrom)
         if (!res) {
-            return;
+            return false;
         } else {
             Func.saveEntityObjRewardAddr({
                 lotteryRecordId: lotteryId,//2198161
