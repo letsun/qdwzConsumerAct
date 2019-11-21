@@ -189,16 +189,12 @@ $(function() {
                     userCash(prizeAmount,lotteryId);
                 }
                 $('#result-win').fadeIn(function(){
-                        companyLotteryRecord()
-
+                     companyLotteryRecord();
                 });
-
-                
 
             } else {
                 $('#result-win').fadeIn(function(){
-                    companyLotteryRecord()
-                
+                    companyLotteryRecord();
                 });
             }
             isClick = true;
