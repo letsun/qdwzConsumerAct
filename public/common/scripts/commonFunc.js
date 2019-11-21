@@ -143,8 +143,6 @@ var Global = {};
 
 			// 弹出验证信息
 			/*layui.layer.msg(msg);*/
-
-			// layui.layer.msg(msg, {icon: 5,anim: 6});
 			common.alert({
                 mask: true,
 				content: msg

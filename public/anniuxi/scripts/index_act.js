@@ -1,4 +1,29 @@
 $(function () {
+    // 输入框失去焦点兼容苹果系统
+    $('input,textarea,select').on('blur',function(){
+      
+
+        setTimeout(function () {
+            window.scroll(0,0)
+        },500 )
+        // setTimeout(function () {
+        //     var hasFocus = $('input').is(':focus');
+        //     if (!hasFocus) {
+        //         window.scroll(0,0);
+        //     }
+        // },100);
+    });
+
+
+    // $('select').on('blur',function(){
+    //     alert('1')
+    //     window.scroll(0,0);
+    // });
+
+
+
+
+    
 
     var prizeAmount = '';
     var lotteryId = '';
@@ -12,8 +37,8 @@ $(function () {
     var isClick = true;
     var type = '';
 
-    var height = $(document).height();
-    $('body').css({ 'height': height + 'px' });
+    // var height = $(document).height();
+    // $('body').css({ 'height': height + 'px' });
 
 
     // 打开活动须知
@@ -36,13 +61,6 @@ $(function () {
         isClick = true;
         $('.mask-item').fadeOut()
         $('.mask').hide()
-    })
-
-    $('.con-btn img').on('click', function () {
-        var res = Global.initValidate('.container');
-        if (!res) {
-            return;
-        }
     })
 
     // 大转盘
@@ -159,6 +177,10 @@ $(function () {
 
     })
 
+    // window.location.replace("https://www.runoob.com")
+
+    // window.location.href = "https://www.runoob.com"
+
 
 
 
@@ -235,13 +257,6 @@ $(function () {
         Func.isSubscribe(function (res) {
             if (!res.data.subscribe) {   //!res.data.subscribe是否关注公众号
                 $('.gzhmask').show();
-                $('#loadingWrapper').hide();
-            } else {
-                $('#loadingWrapper').hide();
-                common.alert({
-                    content: res.msg,
-                    mask: true
-                });
             }
         })
     })
@@ -255,7 +270,6 @@ $(function () {
 
     //点击提交信息
     $('.subbtn').on('click', function () {
-
         var res = Global.initValidate('.container');
         var receiveName = $('#receiveName').val();
         var receivePhone = $('#receivePhone').val()
