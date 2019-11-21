@@ -104,10 +104,10 @@ var kxRes1, kxRes2, kxRes3, kxRes4;
             var data = res.data;
 
             if (res.code === 200) {
-                common.alert({
-                    content: JSON.stringify(res),
-                    mask: true
-                });
+                // common.alert({
+                //     content: JSON.stringify(res),
+                //     mask: true
+                // });
 
                 hasNext = data.hasNext;
                 render(data.lotteryRecordList);

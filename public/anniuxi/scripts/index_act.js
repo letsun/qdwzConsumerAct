@@ -274,7 +274,8 @@ $(function () {
         var receiveName = $('#receiveName').val();
         var receivePhone = $('#receivePhone').val()
         var receiveAddress = $('#receiveAddress').val()
-        var buyFrom = $('#buyFrom').val()
+        var buyFrom = $('#buyFrom').find("option:selected").val();
+        console.log(buyFrom)
         var mendianName = $('#mendianName').val();
         var receiveProvince = $('#province').val()
         var receiveCity = $('#city').val()
