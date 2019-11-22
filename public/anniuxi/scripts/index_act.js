@@ -65,10 +65,9 @@ $(function () {
 
     // 大转盘
     $('.js-dzpBtn').on('click', function () {
-
+        console.log(isClick)
         if (isClick) {
             isClick = false;
-
             Func.findActivityByEncode(function (res) {
                 var data = res.data;
                 dzpAwardItem = data.prizes;
@@ -92,25 +91,40 @@ $(function () {
                             }
                         }
 
+
                         var totalRotate = rotate * 4 + perRotate * rand - 30;
 
 
-                        if (reg.data.prizeId != 0) {
-                            $('.js-dzpCon').css({
-                                'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
-                                'transform': 'rotate(' + (-totalRotate) + 'deg)'
-                            });
-                        } else {
-                            $('.js-dzpCon').css({
-                                'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
-                                'transform': 'rotate(' + (1890) + 'deg)'
-                            });
+                        //未中奖
+                        if (reg.data.prizeId == 0) {
+                            totalRotate = 1710;
                         }
 
 
+                        //判断奖项类型
+                        if (reg.data.type == 0) {
+                            totalRotate = 1410;
+                        }
+                        
+                        $('.js-dzpCon').css({
+                            'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
+                            'transform': 'rotate(' + (-totalRotate) + 'deg)'
+                        });
+
+
+
+
+                        // if (reg.data.prizeId != 0) {
+
+                        // } else {
+                        //     $('.js-dzpCon').css({
+                        //         'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
+                        //         'transform': 'rotate(' + (1890) + 'deg)'
+                        //     });
+                        // }
+
+
                         if (reg.code == 200) {
-
-
                             isLottery = true;
                             type = reg.data.type;
                             lotteryId = reg.data.lotteryId;
@@ -172,9 +186,6 @@ $(function () {
                 content: '抽奖还未结束'
             })
         }
-
-
-
     })
 
     // window.location.replace("https://www.runoob.com")
@@ -254,9 +265,13 @@ $(function () {
 
     //点击红包我知道了弹出公众号
     $('.hbbtn').on('click', function () {
+        isClick = true;
         Func.isSubscribe(function (res) {
             if (!res.data.subscribe) {   //!res.data.subscribe是否关注公众号
                 $('.gzhmask').show();
+            }else {
+                $('.mask-item').hide();
+                $('.mask').hide();
             }
         })
     })
@@ -270,6 +285,8 @@ $(function () {
 
     //点击提交信息
     $('.subbtn').on('click', function () {
+        
+
         var res = Global.initValidate('.container');
         var receiveName = $('#receiveName').val();
         var receivePhone = $('#receivePhone').val()
@@ -299,6 +316,12 @@ $(function () {
                 if (res.code == 200) {
                     $('.mask-item').hide();
                     $('.mask').hide();
+                    common.alert({
+                        mask: true,
+                        content: '信息提交成功',
+                    })
+                    
+                    isClick = true;
                 }
             })
         }
