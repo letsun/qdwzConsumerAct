@@ -167,7 +167,7 @@ $(function () {
         if (res.code === 200 || res.code === 201) {
             var data = res.data;
             dzpAwardItem = data.prizes;
-            var perRotate = 360 / 6;
+            var perRotate = 360 / 8;
             var itemRotate = 0;
             var _html = '';
 
