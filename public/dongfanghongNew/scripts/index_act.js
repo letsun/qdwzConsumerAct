@@ -29,11 +29,11 @@ $(function () {
     
     // 大转盘
     $('.js-dzpBtn').on('click', function () {
-        //Func.isSubscribe(function (res1) {
-            // if (res1.code === 200) {
-            //     if (!res1.data.subscribe) { //!res1.data.subscribe
-            //         $('.gzh').show()
-            //     } else {
+        Func.isSubscribe(function (res1) {
+            if (res1.code === 200) {
+                if (!res1.data.subscribe) { //!res1.data.subscribe
+                    $('.gzh').show()
+                } else {
                     if (isClick) {
                         isClick = false;
                         $('#loadingWrapper').show();
@@ -124,19 +124,19 @@ $(function () {
                             content: '抽奖还未结束'
                         })
                     }
-        //         }
-        //         $('#loadingWrapper').hide();
+                }
+                $('#loadingWrapper').hide();
 
       
-        //     } else {
-        //         isClick = true;
-        //         $('#loadingWrapper').hide();
-        //         common.alert({
-        //             content: res1.msg,
-        //             mask: true
-        //         });
-        //     }
-        // })
+            } else {
+                isClick = true;
+                $('#loadingWrapper').hide();
+                common.alert({
+                    content: res1.msg,
+                    mask: true
+                });
+            }
+        })
 
 
 

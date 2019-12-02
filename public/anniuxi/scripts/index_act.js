@@ -2,28 +2,26 @@ $(function () {
     // 输入框失去焦点兼容苹果系统
     $('input,textarea,select').on('blur',function(){
       
-
         setTimeout(function () {
-            window.scroll(0,0)
-        },500 )
-        // setTimeout(function () {
-        //     var hasFocus = $('input').is(':focus');
-        //     if (!hasFocus) {
-        //         window.scroll(0,0);
-        //     }
-        // },100);
+            var hasFocus = $('input').is(':focus');
+            if (!hasFocus) {
+                window.scroll(0,0);
+            }
+        },100);
+    });
+
+    var winHeight = $(window).height();   //获取当前页面高度
+    $(window).resize(function () {
+        var thisHeight = $(this).height();
+        if (winHeight - thisHeight > 50) {
+            //当软键盘弹出，在这里面操作
+        } else {
+            //当软键盘收起，在此处操作
+            window.scroll(0,0);
+        }
     });
 
 
-    // $('select').on('blur',function(){
-    //     alert('1')
-    //     window.scroll(0,0);
-    // });
-
-
-
-
-    
 
     var prizeAmount = '';
     var lotteryId = '';
