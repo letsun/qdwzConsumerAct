@@ -67,8 +67,7 @@
                 <!-- 企业介绍 -->
                 <div class="content-con1 content-item">
                     <div class="content-con-img">
-                        <img id="coopCompLogo"
-                            src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_4.png">
+                        <img id="coopCompLogo" src="/xinjiangPartner/img/loading.png">
                     </div>
                     <div class="content-con-text" id="coopCompDesc">
 
@@ -78,20 +77,20 @@
                 <!-- 产品信息 -->
                 <div class="content-con2 content-item">
                     <div class="content-con-img">
-                        <img class= "changeImgUrl"
+                        <img class="changeImgUrl"
                             src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_4.png">
                     </div>
 
                     <div class="content-con-con">
                         <div class="text-header"><span></span> 产品信息</div>
                         <div class="text-con" id="productJson">
- 
+
                         </div>
                     </div>
                 </div>
 
                 <!-- 检验报告 -->
-                <div class="content-con3 content-item" id = "inspectionDesc"></div>
+                <div class="content-con3 content-item" id="inspectionDesc"></div>
 
                 <!-- 防伪溯源 -->
                 <div class="content-con4 content-item">
@@ -100,7 +99,7 @@
                     </div>
 
                     <div class="content-inp">
-                        <input type="text" placeholder="请输入序列号" id ="validateCode" >
+                        <input type="text" placeholder="请输入序列号" id="validateCode">
                     </div>
 
                     <div class="content-btn">
@@ -123,11 +122,12 @@
                     src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_7.png">
             </div>
             <div class="banner">
-                <img class ="changeImgUrl" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_2.png">
+                <img class="changeImgUrl"
+                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_2.png">
             </div>
 
             <div class="content">
-                <div class="content-img1"><img id = "addrmapPic"
+                <div class="content-img1"><img id="addrmapPic"
                         src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_5.png">
                 </div>
                 <!-- <div class="content-img2"><img
@@ -138,7 +138,6 @@
 
         <div class="tfooter"></div>
         <div class="footer">
-
             <div class="footer-item"><a id="coopCompWebsite">官方网站 </a><span></span></div>
             <div class="footer-item" id="gzh">关注微信<span></span></div>
             <div class="footer-item"><a id="linkPhone">在线拨号</a><span></span></div>
@@ -155,7 +154,7 @@
                         src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_10.jpg">
                 </div>
                 <div class="gzh-con-text">
-                    <p>微信公众号</p>
+                    <p id="coopCompName">微信公众号</p>
                 </div>
             </div>
             <div class="gzh-gb">
@@ -181,7 +180,7 @@
             /**加载进度*/
             // debugger
             common.loading($("#percent"), function () {
-                $('.loading').hide();
+
                 // $('.container').fadeIn();
                 $.ajax({
                     url: api.findEncodeFunction,
@@ -200,16 +199,16 @@
                         var coopCompWebsite = cooperationCompany.coopCompWebsite; //企业官网链接
                         var linkPhone = cooperationCompany.linkPhone; //企业联系电话
                         var wechatLogo = cooperationCompany.wechatLogo; //企业微信二维码
-                        var addrmapPic  = cooperationCompany.addrmapPic //联系我们
+                        var coopCompName = cooperationCompany.coopCompName //企业名称
+                        var addrmapPic = cooperationCompany.addrmapPic //联系我们      
 
-                    
                         $('#coopCompLogo').attr("src", coopCompLogo);
                         $('#coopCompDesc').html(coopCompDesc);
                         $('#coopCompWebsite').attr("href", coopCompWebsite);
                         $('#linkPhone').attr("href", "tel:" + linkPhone);
                         $('#wechatLogo').attr("src", wechatLogo);
-                        $('#addrmapPic').attr("src",addrmapPic);
-
+                        $('#coopCompName').html(coopCompName);
+                        $('#addrmapPic').attr("src", addrmapPic);
 
                         for (var i in coopCompBanners) {
                             html += `<div class="swiper-slide">`;
@@ -222,15 +221,15 @@
                             loop: true,				//是否无缝轮播
                             autoplay: 2000,		//轮播时间
                             speed: 500,
-                            autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播
+                            autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播                                  
                         });
+                        swiper.update(); //swiper更新
 
                         //产品信息
-                        var html_1 ="";
+                        var html_1 = "";
                         var productRecord = res.data.productRecord;
                         var productJson = productRecord.productJson;
                         var changeImgUrl = productRecord.changeImgUrl;
-
                         for (var key in productJson) {
                             html_1 += `<div class="text-con-item">`;
                             html_1 += `<div class="text-con-item-left">${key}</div>`;
@@ -238,33 +237,34 @@
                             html_1 += `</div>`;
                         }
                         $("#productJson").html(html_1);
-                        $(".changeImgUrl").attr("src",changeImgUrl[0])
+                        $(".changeImgUrl").attr("src", changeImgUrl[0])
 
-
-                        var inspectionDesc =  res.data.productInspection.inspectionDesc; //检验报告
+                        //检验报告
+                        var inspectionDesc = res.data.productInspection.inspectionDesc;
                         $('#inspectionDesc').html(inspectionDesc);
 
+
+                        $('.loading').hide();
                     }
                 });
-            
-                $('.btn').on('click',function(){
+                $('.btn').on('click', function () {
 
                     var html_2 = "";
-
                     var validateCode = $('#validateCode').val();
-                        
+
                     $.ajax({
                         url: api.validate,
                         type: 'GET',
                         dataType: 'json',
-                        data:{
-                            validateCode : validateCode,
-                            companyId:companyId
+                        data: {
+                            validateCode: validateCode,
+                            companyId: companyId
                         },
                         headers: getHeader(),
-                        success: function (res) { 
-                            
-                            if (res.data.checkStatus == 1) {
+                        success: function (res) {
+                            if (res.data.checkStatus == 0) {
+                                html_2 += `尊敬的客户您好!您所查询的产品信息为<span>非法防伪码</span>`;
+                            } else if (res.data.checkStatus == 1) {
                                 html_2 += `尊敬的客户您好!您所查询的产品信息首次被查询`;
                             } else if (res.data.checkStatus == 2) {
                                 html_2 += `尊敬的客户您好!您所查询的产品信息已被查询<span>${res.data.checkStatus}</span>次，`;
@@ -277,6 +277,8 @@
                         }
                     });
                 })
+
+
             });
         })
 
@@ -304,9 +306,6 @@
             }
         });
 
-
-
-
         $('.nav-item').on('click', function () {
             var index = $(this).index();
             $(".nav-item").find('.spana').hide();
@@ -325,12 +324,10 @@
             $(".containera").hide()
         })
 
-
         //关闭联系我们
         $('.header').on('click', function () {
             $(".containera").show()
             $(".containerb").hide()
-
         })
 
         //打开公众号弹窗
