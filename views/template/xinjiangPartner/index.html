@@ -32,12 +32,12 @@
             <div class="banner">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img
+                        <!-- <div class="swiper-slide"><img
                                 src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_1.png">
                         </div>
                         <div class="swiper-slide"><img
                                 src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_2.png">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -67,96 +67,40 @@
                 <!-- 企业介绍 -->
                 <div class="content-con1 content-item">
                     <div class="content-con-img">
-                        <img
+                        <img id="coopCompLogo"
                             src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_4.png">
                     </div>
-                    <div class="content-con-text">
-                        阿克苏嘉邦肥业有限公司成立于2008年，厂址坐落于美丽的南疆水韵之城阿克苏市，公司集科研、生产、农化服务为一体的重点综合肥料企业，是新疆维吾尔自治区内首批取得复合肥合格生产资质的化肥生产企业，是阿克苏地区首批经过新疆自治区批准纳入政府重点帮扶的绿色农业化肥生产企业之一。
-                        主要产品有：高塔造粒复合肥、复混肥、大量元素水溶肥、有机-无机复混肥、生物菌肥、生物有机肥。
-                        销售网络覆盖新疆全区域。
-                        自2015年至今均取得自治区测土施肥企业资格认证，自成立之初，嘉邦肥业本着“嘉以为农，富国兴邦”的经营理念，在10年内迅速发展壮大，现已成为全疆地区复混肥料、大量元素水溶肥的龙头生产企业。
+                    <div class="content-con-text" id="coopCompDesc">
+
                     </div>
                 </div>
 
                 <!-- 产品信息 -->
                 <div class="content-con2 content-item">
-
                     <div class="content-con-img">
-                        <img
+                        <img class= "changeImgUrl"
                             src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_4.png">
                     </div>
 
                     <div class="content-con-con">
                         <div class="text-header"><span></span> 产品信息</div>
-                        <div class="text-con">
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">商品名称：</div>
-                                <div class="text-con-item-right">复合肥料</div>
-                            </div>
-
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">商品品牌：</div>
-                                <div class="text-con-item-right">金一上</div>
-                            </div>
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">生产工艺：</div>
-                                <div class="text-con-item-right">高塔造粒</div>
-                            </div>
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">商品类型：</div>
-                                <div class="text-con-item-right">硫酸钾型</div>
-                            </div>
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">总养分：</div>
-                                <div class="text-con-item-right">51%</div>
-                            </div>
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">净含量：</div>
-                                <div class="text-con-item-right">40kg</div>
-                            </div>
-
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">含量配比：</div>
-                                <div class="text-con-item-right">17-17-17</div>
-                            </div>
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">执行标准：</div>
-                                <div class="text-con-item-right">GB/T15063-2009</div>
-                            </div>
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">适用作物：</div>
-                                <div class="text-con-item-right">苹果、香梨、红枣、核桃、普通、大棚蔬菜等
-                                </div>
-                            </div>
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">适用作物：</div>
-                                <div class="text-con-item-right">苹果、香梨、红枣、核桃、普通、大棚蔬菜等
-                                </div>
-                            </div>
-                            <div class="text-con-item">
-                                <div class="text-con-item-left">适用作物：</div>
-                                <div class="text-con-item-right">苹果、香梨、红枣、核桃、普通、大棚蔬菜等
-                                </div>
-                            </div>
+                        <div class="text-con" id="productJson">
+ 
                         </div>
                     </div>
                 </div>
 
                 <!-- 检验报告 -->
-                <div class="content-con3 content-item">
-                    111
-
-                </div>
+                <div class="content-con3 content-item" id = "inspectionDesc"></div>
 
                 <!-- 防伪溯源 -->
                 <div class="content-con4 content-item">
-
                     <div class="content-text">
                         亲爱的用户，欢迎您购买我们公司的产品，请根据产品包装上的提示输入序列号进行验证真伪操作。
                     </div>
 
                     <div class="content-inp">
-                        <input type="text" placeholder="请输入序列号">
+                        <input type="text" placeholder="请输入序列号" id ="validateCode" >
                     </div>
 
                     <div class="content-btn">
@@ -165,8 +109,7 @@
                     </div>
 
                     <div class="content-footer">
-                        尊敬的客服您好!阿克苏嘉邦肥业有限公司提醒您所查询的产品信息已被查询
-                        <span>3</span>次，最后一次查询与：<span>2019-08-01 18:30:30</span>
+
                     </div>
 
                 </div>
@@ -180,25 +123,25 @@
                     src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_7.png">
             </div>
             <div class="banner">
-                <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_2.png">
+                <img class ="changeImgUrl" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_2.png">
             </div>
 
             <div class="content">
-                <div class="content-img1"><img
+                <div class="content-img1"><img id = "addrmapPic"
                         src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_5.png">
                 </div>
-                <div class="content-img2"><img
+                <!-- <div class="content-img2"><img
                         src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_6.png">
-                </div>
+                </div> -->
             </div>
         </div>
 
         <div class="tfooter"></div>
         <div class="footer">
 
-            <div class="footer-item"><a href="http://jiabang-ag.com">官方网站 </a><span></span></div>
+            <div class="footer-item"><a id="coopCompWebsite">官方网站 </a><span></span></div>
             <div class="footer-item" id="gzh">关注微信<span></span></div>
-            <div class="footer-item"><a href="tel:400-0977-116">在线拨号</a><span></span></div>
+            <div class="footer-item"><a id="linkPhone">在线拨号</a><span></span></div>
             <div class="footer-item" id='contactus'>联系我们</div>
         </div>
 
@@ -208,11 +151,11 @@
         <div class="gzh">
             <div class="gzh-con">
 
-                <div class="gzh-con-img"><img
-                        src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_10.jpg"
-                        alt=""></div>
+                <div class="gzh-con-img"><img id="wechatLogo"
+                        src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_10.jpg">
+                </div>
                 <div class="gzh-con-text">
-                    <p>嘉邦微信公众号</p>
+                    <p>微信公众号</p>
                 </div>
             </div>
             <div class="gzh-gb">
@@ -226,22 +169,116 @@
     <%-include("../../include/commonJs") %>
     <%-include("../../include/hideMenu") %>
     <!-- 公共js end -->
-    <script src="/xinjiangPartner/js/lib/jquery-2.2.2.min.js"></script>
-    <script src="/xinjiangPartner/js/swiper/swiper-3.3.1.jquery.min.js"></script>
+
+
     <script src="/xinjiangPartner/js/api.js"></script>
-    <script src="/xinjiangPartner/js/Func.js"></script>
+    <!-- <script src="/xinjiangPartner/js/Func.js"></script> -->
     <script src="/xinjiangPartner/js/lib/jweixin-1.0.0.js"></script>
+    <script src="/xinjiangPartner/js/swiper/swiper-3.3.1.jquery.min.js"></script>
     <script>
+        var companyId = "";
+        $(function () {
+            /**加载进度*/
+            // debugger
+            common.loading($("#percent"), function () {
+                $('.loading').hide();
+                // $('.container').fadeIn();
+                $.ajax({
+                    url: api.findEncodeFunction,
+                    type: 'GET',
+                    dataType: 'json',
+                    headers: getHeader(),
+                    success: function (res) {
 
-		$(function() {
-			/**加载进度*/
-			// debugger
-			common.loading($("#percent"), function() {
-				$('.loading').hide();
-				$('.container').fadeIn();
-			});
+                        //企业介绍
+                        var html = '';
+                        var cooperationCompany = res.data.cooperationCompany;
+                        var coopCompBanners = (cooperationCompany.coopCompBanners).split(','); //轮播图
+                        companyId = cooperationCompany.companyId //企业id
+                        var coopCompLogo = cooperationCompany.coopCompLogo; // 企业介绍logo
+                        var coopCompDesc = cooperationCompany.coopCompDesc; //企业介绍描述
+                        var coopCompWebsite = cooperationCompany.coopCompWebsite; //企业官网链接
+                        var linkPhone = cooperationCompany.linkPhone; //企业联系电话
+                        var wechatLogo = cooperationCompany.wechatLogo; //企业微信二维码
+                        var addrmapPic  = cooperationCompany.addrmapPic //联系我们
 
-		})
+                    
+                        $('#coopCompLogo').attr("src", coopCompLogo);
+                        $('#coopCompDesc').html(coopCompDesc);
+                        $('#coopCompWebsite').attr("href", coopCompWebsite);
+                        $('#linkPhone').attr("href", "tel:" + linkPhone);
+                        $('#wechatLogo').attr("src", wechatLogo);
+                        $('#addrmapPic').attr("src",addrmapPic);
+
+
+                        for (var i in coopCompBanners) {
+                            html += `<div class="swiper-slide">`;
+                            html += `<img src="${coopCompBanners[i]}">`;
+                            html += `</div>`;
+                        }
+
+                        $('.swiper-wrapper').html(html);
+                        var swiper = new Swiper('.swiper-container', {
+                            loop: true,				//是否无缝轮播
+                            autoplay: 2000,		//轮播时间
+                            speed: 500,
+                            autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播
+                        });
+
+                        //产品信息
+                        var html_1 ="";
+                        var productRecord = res.data.productRecord;
+                        var productJson = productRecord.productJson;
+                        var changeImgUrl = productRecord.changeImgUrl;
+
+                        for (var key in productJson) {
+                            html_1 += `<div class="text-con-item">`;
+                            html_1 += `<div class="text-con-item-left">${key}</div>`;
+                            html_1 += `<div class="text-con-item-right">${productJson[key]}</div>`;
+                            html_1 += `</div>`;
+                        }
+                        $("#productJson").html(html_1);
+                        $(".changeImgUrl").attr("src",changeImgUrl[0])
+
+
+                        var inspectionDesc =  res.data.productInspection.inspectionDesc; //检验报告
+                        $('#inspectionDesc').html(inspectionDesc);
+
+                    }
+                });
+            
+                $('.btn').on('click',function(){
+
+                    var html_2 = "";
+
+                    var validateCode = $('#validateCode').val();
+                        
+                    $.ajax({
+                        url: api.validate,
+                        type: 'GET',
+                        dataType: 'json',
+                        data:{
+                            validateCode : validateCode,
+                            companyId:companyId
+                        },
+                        headers: getHeader(),
+                        success: function (res) { 
+                            
+                            if (res.data.checkStatus == 1) {
+                                html_2 += `尊敬的客户您好!您所查询的产品信息首次被查询`;
+                            } else if (res.data.checkStatus == 2) {
+                                html_2 += `尊敬的客户您好!您所查询的产品信息已被查询<span>${res.data.checkStatus}</span>次，`;
+                                html_2 += `最后一次查询与：<span>${res.data.validateDate}</span>`;
+                            } else {
+                                html_2 += `尊敬的客户您好!您所查询的产品信息已被查询<span>二</span>次以上，`;
+                                html_2 += `最后一次查询与：<span>${res.data.validateDate}</span>`;
+                            }
+                            $('.content-footer').html(html_2)
+                        }
+                    });
+                })
+            });
+        })
 
 
         // 输入框失去焦点兼容苹果系统
@@ -267,22 +304,7 @@
             }
         });
 
-        var swiper = new Swiper('.swiper-container', {
-            loop: true,				//是否无缝轮播
-            autoplay: 2000,		//轮播时间
-            speed: 500,
-            autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播
 
-            // loop: true,
-            // autoplay: {
-            //     delay: 2000,
-            //     disableOnInteraction: false,
-            // },
-
-            // onSlideChangeEnd: function (swiper) {
-            //     swiper.update(); //swiper更新
-            // }
-        });
 
 
         $('.nav-item').on('click', function () {

@@ -232,7 +232,6 @@ body {
   padding: 30px 35px 30px 55px;
   border-radius: 10px;
   background: #fff;
-  height: 400px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
@@ -249,6 +248,9 @@ body {
   position: absolute;
   left: -20px;
   top: 10px;
+}
+.container .containera .content .content-con2 .content-con-con .text-con {
+  padding-top: 10px;
 }
 .container .containera .content .content-con2 .content-con-con .text-con .text-con-item {
   display: flex;
@@ -335,6 +337,8 @@ body {
   margin: 30px 30px 30px 30px;
   height: 320px;
   width: 690px;
+  background: #fff;
+  border-radius: 10px;
 }
 .container .containerb .banner img {
   max-height: 320px;
@@ -348,11 +352,8 @@ body {
   background: #fff;
   border-radius: 10px;
   padding-top: 50px;
-  padding-bottom: 100px;
+  padding-bottom: 40px;
   margin: 30px 30px 0px 30px;
-}
-.container .containerb .content .content-img1 {
-  padding-top: 40px;
 }
 .container .containerb .content .content-img1 img {
   max-width: 100%;
@@ -392,7 +393,10 @@ body {
   background-size: 100% 100%;
 }
 .container .gzh .gzh-con .gzh-con-img {
-  padding-top: 100px;
+  padding-top: 120px;
+  height: 249px;
+  width: 250px;
+  margin: auto;
 }
 .container .gzh .gzh-con .gzh-con-img img {
   margin: auto;
