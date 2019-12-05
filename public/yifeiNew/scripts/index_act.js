@@ -347,6 +347,12 @@ function companyLotteryRecord() {
 			})
 		}
 	});
+
+
+	// 关闭视频弹窗
+	$('.close-video').on('click',function () {
+		$('#video-win').remove();
+	})
 };
 
 
@@ -361,3 +367,4 @@ function swipers() {
 		autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播
 	});
 }
+
