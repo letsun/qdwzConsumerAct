@@ -238,6 +238,7 @@ body {
 .container .containera .content .content-con2 .content-con-con .text-header {
   position: relative;
   font-size: 28px;
+  font-weight: bold;
 }
 .container .containera .content .content-con2 .content-con-con .text-header span {
   background: #3ab502;
@@ -257,6 +258,7 @@ body {
 }
 .container .containera .content .content-con2 .content-con-con .text-con .text-con-item .text-con-item-left {
   width: 135px;
+  color: #666;
 }
 .container .containera .content .content-con2 .content-con-con .text-con .text-con-item .text-con-item-right {
   width: 465px;
@@ -273,12 +275,13 @@ body {
   font-size: 24px;
   padding: 30px;
 }
-.container .containera .content .content-con3 img {
-  padding-top: 30px;
-  padding-bottom: 30px;
+.container .containera .content .content-con3 .content-con-img img {
   max-width: 100%;
   margin: auto;
   display: block;
+}
+.container .containera .content .content-con3 .content-con-text {
+  padding-top: 40px;
 }
 .container .containera .content .content-con4 {
   display: none;
@@ -332,6 +335,9 @@ body {
   background: #fff;
   line-height: 90px ;
   padding-left: 30px;
+}
+.container .containerb .header img {
+  height: 30px;
 }
 .container .containerb .banner {
   margin: 30px 30px 30px 30px;
@@ -401,6 +407,8 @@ body {
 .container .gzh .gzh-con .gzh-con-img img {
   margin: auto;
   display: block;
+  max-height: 250px;
+  max-width: 250px;
 }
 .container .gzh .gzh-con .gzh-con-text {
   padding-top: 40px;
