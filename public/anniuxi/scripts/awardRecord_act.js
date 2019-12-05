@@ -81,11 +81,17 @@ var kxRes1, kxRes2, kxRes3, kxRes4;
             html += '<div class="text1">' + data[i].prizeName + ' </div>';
             html += '<div class="text2">' + data[i].createDate + '</div>';
             html += '</div>';
-            if (data[i].status == 0) {
-                html += '<div class="item-btn btncolor1">未领取</div>';
-            } else if (data[i].status == 1) {
-                html += '<div class="item-btn btncolor1">已发货</div>';
+
+            if(data[i].prizeType == 0) {
+                html += '<div class="item-btn btncolor1">已领取</div>';
+            }else {
+                if (data[i].status == 0) {
+                    html += '<div class="item-btn btncolor1">未领取</div>';
+                } else if (data[i].status == 1) {
+                    html += '<div class="item-btn btncolor1">已发货</div>';
+                }
             }
+
             html += '</div>';
         }
 

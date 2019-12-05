@@ -166,7 +166,6 @@ $(function() {
                 }
                 $('#loadingWrapper').hide();
 
-      
             } else {
                 isClick = true;
                 $('#loadingWrapper').hide();

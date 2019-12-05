@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=750, user-scalable=no">
+
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="/anniuxi/css/winningRecord.css" />
+
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="return">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_62.png">
+        </div>
+
+        <div class="bgimg">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_46.jpg">
+        </div>
+
+        <div class="header">
+            <div class="header-img">
+                <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_53.png">
+            </div>
+            <div class="header-name">
+                我是微信昵称
+            </div>
+        </div>
+
+        <div class="nav">
+            <span></span> 中奖记录
+        </div>
+
+        <div class="content">
+
+            <div class="scroll-wra" id="scrollWra">
+                <div class="wrapper">
+                    <div class="list">
+                        <div class="content-item">
+                            <div class="item-img">
+                                <img
+                                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_44.png">
+                            </div>
+
+                            <div class="item-text">
+                                <div class="text1">获得1.8元现金红包</div>
+                                <div class="text2">2019-10-22 13:30:15</div>
+                            </div>
+                            <div class="item-btn btncolor1">已领取</div>
+                        </div>
+
+                        <div class="content-item">
+                            <div class="item-img">
+                                <img
+                                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_45.png">
+                            </div>
+
+                            <div class="item-text">
+                                <div class="text1">获得周大福宝宝足金金锁1个</div>
+                                <div class="text2">2019-10-22 13:30:15</div>
+                            </div>
+                            <div class="item-btn btncolor2">已发货</div>
+                        </div>
+                    </div>
+
+                    <div class="loadText">上滑加载更多</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 已发货弹窗 -->
+        <div class="mask">
+            <div class="mask-con">
+                <div class="mask-header">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_47.png">
+                    <div class="header-text">已发货</div>
+                </div>
+
+                <div class="mask-middel">
+                    <div class="middel-img">
+                        <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_24.png">
+                    </div>
+
+                    <div class="middel-text">
+                        <div class="text-name">
+                            周大福宝宝足金金锁
+                        </div>
+
+                        <div class="text-kd">
+                            中通快递:409705918423
+                            <div class="text-img">
+                                <img
+                                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_43.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mask-btn">
+                    <img class="btn-img"
+                        src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_12.png">
+                </div>
+            </div>
+        </div>
+
+        <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+    </div>
+
+
+    <%-include("../../../include/commonJs") %>
+    <%-include("../../../include/hideMenu") %>
+    <script src="/anniuxi/scripts/Func.js"></script>
+    <script src="/anniuxi/scripts/api.js"></script>
+
+    <script>
+        var scrollWra = new BScroll('#scrollWra', {
+            scrollbar: {
+                fade: true
+            },
+            click: true,
+            pullUpLoad: {
+                threshold: 0
+            }
+        });
+
+        var hasNext = true;     // 是否有下一页;
+        var page = 1;          // 第一页;   
+
+        var html = '';
+        scrollWra.on('pullingUp', function () {
+            if (!hasNext) {
+                $('.loadText').text('没有更多数据了');
+                return false;
+            }
+
+            page++;
+            $('.loadText').text('正在加载中...');
+
+            if (page == 5) {
+                hasNext = false;
+            }
+            // 请求后台接口获取数据
+
+            for (var i = 0; i < 6; i++) {
+
+                html += '<div class="content-item">';
+                html += '<div class="item-img">';
+                html += '<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/anniuxi/1_45.png">';
+                html += '</div>';
+                html += '<div class="item-text">';
+                html += '<div class="text1">获得周大福宝宝足金金锁1个</div>';
+                html += '<div class="text2">2019-10-22 13:30:15</div>';
+                html += '</div>';
+                html += '<div class="item-btn btncolor2">已发货</div>';
+                html += '</div>';
+            }
+            $('.list').append(html);
+            $('.loadText').text('上滑加载更多');
+
+
+            scrollWra.finishPullUp();
+            scrollWra.refresh();
+        });
+
+
+
+
+
+
+        //点击收货
+        $('.content-item').on('click', '.btncolor2', function () {
+            $('.mask').fadeIn()
+        })
+
+        //关闭弹窗
+        $('.btn-img').on('click', function () {
+            $('.mask').fadeOut()
+        })
+
+
+
+    </script>
+</body>
+
+
+
+</html>

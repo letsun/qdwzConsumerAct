@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=750, user-scalable=no">
+
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="/xinjiangPartner/css/index.css" />
+    <link rel="stylesheet" href="/xinjiangPartner/js/swiper/swiper-3.3.1.min.css">
+
+
+
+</head>
+
+<body>
+
+    <!--加载页-->
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/xinjiangPartner/img/loading.png">
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="containera">
+
+            <div class="banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- <div class="swiper-slide"><img
+                                src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_1.png">
+                        </div>
+                        <div class="swiper-slide"><img
+                                src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_2.png">
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="nav-item ater">
+                    企业介绍
+
+                    <span class="spana"></span>
+                </div>
+                <div class="nav-item">
+
+                    产品信息
+                    <span class="spana"></span>
+                </div>
+                <div class="nav-item">
+
+                    检验报告
+                    <span class="spana"></span>
+                </div>
+                <div class="nav-item">
+                    防伪溯源
+                    <span class="spana"></span>
+                </div>
+            </div>
+            <div class="content" id="content">
+
+                <!-- 企业介绍 -->
+                <div class="content-con1 content-item">
+                    <div class="content-con-img">
+                        <img id="coopCompLogo" src="/xinjiangPartner/img/loading.png">
+                    </div>
+                    <div class="content-con-text" id="coopCompDesc">
+
+                    </div>
+                </div>
+
+                <!-- 产品信息 -->
+                <div class="content-con2 content-item">
+                    <div class="content-con-img">
+                        <img class="changeImgUrl"
+                            src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_4.png">
+                    </div>
+
+                    <div class="content-con-con">
+                        <div class="text-header"><span></span> 产品信息</div>
+                        <div class="text-con" id="productJson">
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 检验报告 -->
+                <div class="content-con3 content-item" id="inspectionDesc"></div>
+
+                <!-- 防伪溯源 -->
+                <div class="content-con4 content-item">
+                    <div class="content-text">
+                        亲爱的用户，欢迎您购买我们公司的产品，请根据产品包装上的提示输入序列号进行验证真伪操作。
+                    </div>
+
+                    <div class="content-inp">
+                        <input type="text" placeholder="请输入序列号" id="validateCode">
+                    </div>
+
+                    <div class="content-btn">
+                        <div class="btn"> 提交查询</div>
+                        <!-- <button>提交查询</button> -->
+                    </div>
+
+                    <div class="content-footer">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 联系我们 -->
+        <div class="containerb">
+            <div class="header"> <img
+                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_7.png">
+            </div>
+            <div class="banner">
+                <img class="changeImgUrl"
+                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_2.png">
+            </div>
+
+            <div class="content">
+                <div class="content-img1"><img id="addrmapPic"
+                        src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_5.png">
+                </div>
+                <!-- <div class="content-img2"><img
+                        src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_6.png">
+                </div> -->
+            </div>
+        </div>
+
+        <div class="tfooter"></div>
+        <div class="footer">
+            <div class="footer-item"><a id="coopCompWebsite">官方网站 </a><span></span></div>
+            <div class="footer-item" id="gzh">关注微信<span></span></div>
+            <div class="footer-item"><a id="linkPhone">在线拨号</a><span></span></div>
+            <div class="footer-item" id='contactus'>联系我们</div>
+        </div>
+
+
+
+        <!-- 关注公众号-->
+        <div class="gzh">
+            <div class="gzh-con">
+
+                <div class="gzh-con-img"><img id="wechatLogo"
+                        src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_10.jpg">
+                </div>
+                <div class="gzh-con-text">
+                    <p id="coopCompName">微信公众号</p>
+                </div>
+            </div>
+            <div class="gzh-gb">
+                <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_9.png"
+                    alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- 公共js start -->
+    <%-include("../../include/commonJs") %>
+    <%-include("../../include/hideMenu") %>
+    <!-- 公共js end -->
+
+
+    <script src="/xinjiangPartner/js/api.js"></script>
+    <!-- <script src="/xinjiangPartner/js/Func.js"></script> -->
+    <script src="/xinjiangPartner/js/lib/jweixin-1.0.0.js"></script>
+    <script src="/xinjiangPartner/js/swiper/swiper-3.3.1.jquery.min.js"></script>
+    <script>
+        var companyId = "";
+        $(function () {
+            /**加载进度*/
+            // debugger
+            common.loading($("#percent"), function () {
+
+                // $('.container').fadeIn();
+                $.ajax({
+                    url: api.findEncodeFunction,
+                    type: 'GET',
+                    dataType: 'json',
+                    headers: getHeader(),
+                    success: function (res) {
+
+                        //企业介绍
+                        var html = '';
+                        var cooperationCompany = res.data.cooperationCompany;
+                        var coopCompBanners = (cooperationCompany.coopCompBanners).split(','); //轮播图
+                        companyId = cooperationCompany.companyId //企业id
+                        var coopCompLogo = cooperationCompany.coopCompLogo; // 企业介绍logo
+                        var coopCompDesc = cooperationCompany.coopCompDesc; //企业介绍描述
+                        var coopCompWebsite = cooperationCompany.coopCompWebsite; //企业官网链接
+                        var linkPhone = cooperationCompany.linkPhone; //企业联系电话
+                        var wechatLogo = cooperationCompany.wechatLogo; //企业微信二维码
+                        var coopCompName = cooperationCompany.coopCompName //企业名称
+                        var addrmapPic = cooperationCompany.addrmapPic //联系我们      
+
+                        $('#coopCompLogo').attr("src", coopCompLogo);
+                        $('#coopCompDesc').html(coopCompDesc);
+                        $('#coopCompWebsite').attr("href", coopCompWebsite);
+                        $('#linkPhone').attr("href", "tel:" + linkPhone);
+                        $('#wechatLogo').attr("src", wechatLogo);
+                        $('#coopCompName').html(coopCompName);
+                        $('#addrmapPic').attr("src", addrmapPic);
+
+                        for (var i in coopCompBanners) {
+                            html += `<div class="swiper-slide">`;
+                            html += `<img src="${coopCompBanners[i]}">`;
+                            html += `</div>`;
+                        }
+
+                        $('.swiper-wrapper').html(html);
+                        var swiper = new Swiper('.swiper-container', {
+                            loop: true,				//是否无缝轮播
+                            autoplay: 2000,		//轮播时间
+                            speed: 500,
+                            autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播                                  
+                        });
+                        swiper.update(); //swiper更新
+
+                        //产品信息
+                        var html_1 = "";
+                        var productRecord = res.data.productRecord;
+                        var productJson = productRecord.productJson;
+                        var changeImgUrl = productRecord.changeImgUrl;
+                        for (var key in productJson) {
+                            html_1 += `<div class="text-con-item">`;
+                            html_1 += `<div class="text-con-item-left">${key}</div>`;
+                            html_1 += `<div class="text-con-item-right">${productJson[key]}</div>`;
+                            html_1 += `</div>`;
+                        }
+                        $("#productJson").html(html_1);
+                        $(".changeImgUrl").attr("src", changeImgUrl[0])
+
+                        //检验报告
+                        var inspectionDesc = res.data.productInspection.inspectionDesc;
+                        $('#inspectionDesc').html(inspectionDesc);
+
+
+                        $('.loading').hide();
+                    }
+                });
+                $('.btn').on('click', function () {
+
+                    var html_2 = "";
+                    var validateCode = $('#validateCode').val();
+
+                    $.ajax({
+                        url: api.validate,
+                        type: 'GET',
+                        dataType: 'json',
+                        data: {
+                            validateCode: validateCode,
+                            companyId: companyId
+                        },
+                        headers: getHeader(),
+                        success: function (res) {
+                            if (res.data.checkStatus == 0) {
+                                html_2 += `尊敬的客户您好!您所查询的产品信息为<span>非法防伪码</span>`;
+                            } else if (res.data.checkStatus == 1) {
+                                html_2 += `尊敬的客户您好!您所查询的产品信息首次被查询`;
+                            } else if (res.data.checkStatus == 2) {
+                                html_2 += `尊敬的客户您好!您所查询的产品信息已被查询<span>${res.data.checkStatus}</span>次，`;
+                                html_2 += `最后一次查询与：<span>${res.data.validateDate}</span>`;
+                            } else {
+                                html_2 += `尊敬的客户您好!您所查询的产品信息已被查询<span>二</span>次以上，`;
+                                html_2 += `最后一次查询与：<span>${res.data.validateDate}</span>`;
+                            }
+                            $('.content-footer').html(html_2)
+                        }
+                    });
+                })
+
+
+            });
+        })
+
+
+        // 输入框失去焦点兼容苹果系统
+        $('.container').on('blur', 'input,textarea,select', function () {
+            setTimeout(function () {
+                var hasFocus = $('input').is(':focus') || $('textarea').is(':focus') || $('select').is(':focus');
+                if (!hasFocus) {
+                    window.scroll(0, 0);
+                }
+            }, 100);
+        });
+
+
+        var winHeight = $(window).height();   //获取当前页面高度
+        $(window).resize(function () {
+            var thisHeight = $(this).height();
+            if (winHeight - thisHeight > 50) {
+                //当软键盘弹出，在这里面操作
+                $('.footer').css({ 'position': 'static' })
+            } else {
+                //当软键盘收起，在此处操作
+                $('.footer').css({ 'position': 'fixed' })
+            }
+        });
+
+        $('.nav-item').on('click', function () {
+            var index = $(this).index();
+            $(".nav-item").find('.spana').hide();
+            $(this).siblings().removeClass('ater');
+
+            $(this).addClass('ater');
+            $(this).find('.spana').show();
+
+            $('.content-item').hide();
+            $('.content-item').eq(index).show();
+        })
+
+        // 联系我们
+        $('#contactus').on('click', function () {
+            $(".containerb").show()
+            $(".containera").hide()
+        })
+
+        //关闭联系我们
+        $('.header').on('click', function () {
+            $(".containera").show()
+            $(".containerb").hide()
+        })
+
+        //打开公众号弹窗
+        $('#gzh').on('click', function () {
+            $('.gzh').show()
+        })
+
+        //关闭公众号弹窗
+        $('.gzh-gb').on('click', function () {
+            $('.gzh').hide()
+        })
+    </script>
+
+</body>
+
+</html>
