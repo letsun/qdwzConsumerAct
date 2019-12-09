@@ -269,6 +269,7 @@ body {
   
             position: relative;
             font-size: 28px;
+            font-weight: bold;
   
             span{
              background: #3ab502;
@@ -291,6 +292,7 @@ body {
               display: flex;
               .text-con-item-left {
                 width: 135px;
+                color: #666;
               }
   
               .text-con-item-right {
@@ -313,15 +315,29 @@ body {
         overflow: scroll;
         font-size: 24px;
         padding: 30px;
-        
-        img {
-          padding-top: 30px;
-          padding-bottom: 30px;
-          max-width:100%;
 
-          margin: auto;
-          display: block;
+
+        .content-con-img {
+          
+          img {
+            max-width: 100%;
+            margin: auto;
+            display: block;
+          }
         }
+  
+        .content-con-text {
+          padding-top: 40px;
+        }
+        
+        // img {
+        //   padding-top: 30px;
+        //   padding-bottom: 30px;
+        //   max-width:100%;
+
+        //   margin: auto;
+        //   display: block;
+        // }
 
 
       }
@@ -400,6 +416,10 @@ body {
       background: #fff;
       line-height:90px ;
       padding-left: 30px;
+
+      img {
+        height: 30px;
+      }
     }
 
 
@@ -480,6 +500,8 @@ body {
         img {
           margin: auto;
           display: block;
+          max-height: 250px;
+          max-width: 250px;
         }
       }
 

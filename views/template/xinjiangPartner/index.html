@@ -30,8 +30,8 @@
         <div class="containera">
 
             <div class="banner">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
+                <div class="swiper-container swiper1">
+                    <div class="swiper-wrapper wrapper1">
                         <!-- <div class="swiper-slide"><img
                                 src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_1.png">
                         </div>
@@ -90,7 +90,16 @@
                 </div>
 
                 <!-- 检验报告 -->
-                <div class="content-con3 content-item" id="inspectionDesc"></div>
+                <div class="content-con3 content-item">
+
+                    <div class="content-con-img" id="inspectionPic">
+
+                    </div>
+                    <div class="content-con-text" id="inspectionDesc">
+
+                    </div>
+
+                </div>
 
                 <!-- 防伪溯源 -->
                 <div class="content-con4 content-item">
@@ -122,8 +131,16 @@
                     src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_7.png">
             </div>
             <div class="banner">
-                <img class="changeImgUrl"
-                    src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_2.png">
+                <div class="swiper-container swiper2">
+                    <div class="swiper-wrapper wrapper2">
+                        <!-- <div class="swiper-slide"><img
+                                src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_1.png">
+                        </div>
+                        <div class="swiper-slide"><img
+                                src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/xinjiangPartner/1_2.png">
+                        </div> -->
+                    </div>
+                </div>
             </div>
 
             <div class="content">
@@ -175,7 +192,9 @@
     <script src="/xinjiangPartner/js/lib/jweixin-1.0.0.js"></script>
     <script src="/xinjiangPartner/js/swiper/swiper-3.3.1.jquery.min.js"></script>
     <script>
-        var companyId = "";
+        var companyId = "";//企业id
+        var coopCompName; //企业名称
+        var swiper1;
         $(function () {
             /**加载进度*/
             // debugger
@@ -199,7 +218,7 @@
                         var coopCompWebsite = cooperationCompany.coopCompWebsite; //企业官网链接
                         var linkPhone = cooperationCompany.linkPhone; //企业联系电话
                         var wechatLogo = cooperationCompany.wechatLogo; //企业微信二维码
-                        var coopCompName = cooperationCompany.coopCompName //企业名称
+                        coopCompName = cooperationCompany.coopCompName //企业名称
                         var addrmapPic = cooperationCompany.addrmapPic //联系我们      
 
                         $('#coopCompLogo').attr("src", coopCompLogo);
@@ -210,20 +229,40 @@
                         $('#coopCompName').html(coopCompName);
                         $('#addrmapPic').attr("src", addrmapPic);
 
+
+
+                        //点击预览图片
+                        $('#addrmapPic').on('click', function () {
+                            var that = this;
+                            var src = $(that).attr('src');
+                            wx.previewImage({
+                                current: 'src', // 当前显示图片的http链接
+                                urls: [src] // 需要预览的图片http链接列表
+                            });
+                        })
+
                         for (var i in coopCompBanners) {
                             html += `<div class="swiper-slide">`;
                             html += `<img src="${coopCompBanners[i]}">`;
                             html += `</div>`;
                         }
 
-                        $('.swiper-wrapper').html(html);
-                        var swiper = new Swiper('.swiper-container', {
-                            loop: true,				//是否无缝轮播
-                            autoplay: 2000,		//轮播时间
-                            speed: 500,
-                            autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播                                  
-                        });
-                        swiper.update(); //swiper更新
+                        $('.wrapper1').html(html);
+
+                        // swiper1 = new Swiper('.swiper1', {
+                        //     loop: true,				//是否无缝轮播
+                        //     autoplay: 2000,		//轮播时间
+                        //     speed: 500,
+                        //     autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播     
+
+                        //     // observer: true,
+                        //     // observerParents: true,
+                        // });
+
+                        $('.wrapper2').html(html);
+
+
+                        //swiper2.update(); //swiper更新
 
                         //产品信息
                         var html_1 = "";
@@ -232,7 +271,7 @@
                         var changeImgUrl = productRecord.changeImgUrl;
                         for (var key in productJson) {
                             html_1 += `<div class="text-con-item">`;
-                            html_1 += `<div class="text-con-item-left">${key}</div>`;
+                            html_1 += `<div class="text-con-item-left">${key}：</div>`;
                             html_1 += `<div class="text-con-item-right">${productJson[key]}</div>`;
                             html_1 += `</div>`;
                         }
@@ -240,9 +279,18 @@
                         $(".changeImgUrl").attr("src", changeImgUrl[0])
 
                         //检验报告
-                        var inspectionDesc = res.data.productInspection.inspectionDesc;
-                        $('#inspectionDesc').html(inspectionDesc);
+                        var inspectionPic = (res.data.productInspection.inspectionPic).split(','); //图片
+                        var inspectionDesc = res.data.productInspection.inspectionDesc; //文字描述
 
+                        var html_3 = "";
+
+                        for (let i in inspectionPic) {
+                            html_3 += `<img id="coopCompLogo" src="${inspectionPic[i]}">`;
+                        }
+
+                        $('#inspectionPic').html(html_3);
+
+                        $('#inspectionDesc').html(inspectionDesc);
 
                         $('.loading').hide();
                     }
@@ -263,21 +311,63 @@
                         headers: getHeader(),
                         success: function (res) {
                             if (res.data.checkStatus == 0) {
-                                html_2 += `尊敬的客户您好!您所查询的产品信息为<span>非法防伪码</span>`;
+                                html_2 += `尊敬的客户您好!${coopCompName}提醒您,您所查询的产品信息为<span>非法防伪码</span>`;
                             } else if (res.data.checkStatus == 1) {
-                                html_2 += `尊敬的客户您好!您所查询的产品信息首次被查询`;
+                                html_2 += `尊敬的客户您好!${coopCompName}提醒您,您所查询的产品信息<span>首次</span>被查询`;
                             } else if (res.data.checkStatus == 2) {
-                                html_2 += `尊敬的客户您好!您所查询的产品信息已被查询<span>${res.data.checkStatus}</span>次，`;
-                                html_2 += `最后一次查询与：<span>${res.data.validateDate}</span>`;
+                                html_2 += `尊敬的客户您好!${coopCompName}提醒您,您所查询的产品信息已被查询<span>${res.data.checkStatus}</span>次，`;
+                                html_2 += `最后一次查询于：<span>${res.data.validateDate}</span>`;
                             } else {
-                                html_2 += `尊敬的客户您好!您所查询的产品信息已被查询<span>二</span>次以上，`;
-                                html_2 += `最后一次查询与：<span>${res.data.validateDate}</span>`;
+                                html_2 += `尊敬的客户您好!${coopCompName}提醒您,您所查询的产品信息已被查询<span>2</span>次以上，`;
+                                html_2 += `最后一次查询于：<span>${res.data.validateDate}</span>`;
                             }
                             $('.content-footer').html(html_2)
                         }
                     });
                 })
+                // 联系我们
+                $('#contactus').on('click', function () {
 
+                    $(".containerb").show()
+                    $(".containera").hide()
+
+
+                    swiper = '';
+
+                    var swiper2 = new Swiper('.swiper2', {
+                        loop: true,				//是否无缝轮播
+                        autoplay: 2000,		//轮播时间
+                        speed: 500,
+                        autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播   
+                        observer: true,
+                        observerParents: true,
+                    });
+                })
+
+                swiper1 = new Swiper('.swiper1', {
+                    loop: true,				//是否无缝轮播
+                    autoplay: 2000,		//轮播时间
+                    speed: 500,
+                    autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播     
+
+                    observer: true,
+                    observerParents: true,
+                });
+                //关闭联系我们
+                $('.header').on('click', function () {
+                    $(".containera").show()
+                    $(".containerb").hide()
+
+
+                    swiper1 = new Swiper('.swiper1', {
+                        loop: true,				//是否无缝轮播
+                        autoplay: 2000,		//轮播时间
+                        speed: 500,
+                        autoplayDisableOnInteraction: false,	//滑动后不会停止继续轮播     
+                        observer: true,
+                        observerParents: true,
+                    });
+                })
 
             });
         })
@@ -318,17 +408,9 @@
             $('.content-item').eq(index).show();
         })
 
-        // 联系我们
-        $('#contactus').on('click', function () {
-            $(".containerb").show()
-            $(".containera").hide()
-        })
 
-        //关闭联系我们
-        $('.header').on('click', function () {
-            $(".containera").show()
-            $(".containerb").hide()
-        })
+
+
 
         //打开公众号弹窗
         $('#gzh').on('click', function () {
