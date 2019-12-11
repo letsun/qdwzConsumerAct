@@ -236,7 +236,7 @@
                             var that = this;
                             var src = $(that).attr('src');
                             wx.previewImage({
-                                current: 'src', // 当前显示图片的http链接
+                                current: src, // 当前显示图片的http链接
                                 urls: [src] // 需要预览的图片http链接列表
                             });
                         })
@@ -295,6 +295,9 @@
                         $('.loading').hide();
                     }
                 });
+
+
+                //点击防伪查询
                 $('.btn').on('click', function () {
 
                     var html_2 = "";
@@ -357,7 +360,6 @@
                 $('.header').on('click', function () {
                     $(".containera").show()
                     $(".containerb").hide()
-
 
                     swiper1 = new Swiper('.swiper1', {
                         loop: true,				//是否无缝轮播
