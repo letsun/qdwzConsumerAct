@@ -208,10 +208,12 @@
                     headers: getHeader(),
                     success: function (res) {
 
+
+
                         //企业介绍
                         var html = '';
                         var cooperationCompany = res.data.cooperationCompany;
-                        var coopCompBanners = (cooperationCompany.coopCompBanners).split(','); //轮播图
+
                         companyId = cooperationCompany.companyId //企业id
                         var coopCompLogo = cooperationCompany.coopCompLogo; // 企业介绍logo
                         var coopCompDesc = cooperationCompany.coopCompDesc; //企业介绍描述
@@ -241,13 +243,17 @@
                             });
                         })
 
-                        for (var i in coopCompBanners) {
-                            html += `<div class="swiper-slide">`;
-                            html += `<img src="${coopCompBanners[i]}">`;
-                            html += `</div>`;
-                        }
+                        if (cooperationCompany.coopCompBanners != "" && cooperationCompany.coopCompBanners != "undefined" && cooperationCompany.coopCompBanners != null) {
+                            var coopCompBanners = (cooperationCompany.coopCompBanners).split(','); //轮播图
+                            for (var i in coopCompBanners) {
+                                html += `<div class="swiper-slide">`;
+                                html += `<img src="${coopCompBanners[i]}">`;
+                                html += `</div>`;
+                            }
 
-                        $('.wrapper1').html(html);
+                            $('.wrapper1').html(html);
+                            $('.wrapper2').html(html);
+                        }
 
                         // swiper1 = new Swiper('.swiper1', {
                         //     loop: true,				//是否无缝轮播
@@ -259,7 +265,7 @@
                         //     // observerParents: true,
                         // });
 
-                        $('.wrapper2').html(html);
+                        
 
 
                         //swiper2.update(); //swiper更新
@@ -279,18 +285,18 @@
                         $(".changeImgUrl").attr("src", changeImgUrl[0])
 
                         //检验报告
-                        var inspectionPic = (res.data.productInspection.inspectionPic).split(','); //图片
-                        var inspectionDesc = res.data.productInspection.inspectionDesc; //文字描述
+                        if (res.data.productInspection != '' && res.data.productInspection != "undefined" && res.data.productInspection != null) {
 
-                        var html_3 = "";
+                            var inspectionPic = (res.data.productInspection.inspectionPic).split(','); //图片
+                            var inspectionDesc = res.data.productInspection.inspectionDesc; //文字描述
+                            var html_3 = "";
+                            for (let i in inspectionPic) {
+                                html_3 += `<img id="coopCompLogo" src="${inspectionPic[i]}">`;
+                            }
 
-                        for (let i in inspectionPic) {
-                            html_3 += `<img id="coopCompLogo" src="${inspectionPic[i]}">`;
+                            $('#inspectionPic').html(html_3);
+                            $('#inspectionDesc').html(inspectionDesc);
                         }
-
-                        $('#inspectionPic').html(html_3);
-
-                        $('#inspectionDesc').html(inspectionDesc);
 
                         $('.loading').hide();
                     }
