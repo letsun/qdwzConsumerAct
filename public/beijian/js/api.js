@@ -26,7 +26,5 @@ var api = {
 	companyLotteryRecord: ip + '/lotteryConsumer/companyLotteryRecord', 		// 企业查询中奖记录列表
 	cancelCoupon: ip + '/lotteryConsumer/cancelCoupon',							// 消费者自主核销接口
 
-	beijianpoint: ip + '/qdwz/api/extend/beijian/point',							// 提积分
-
-	
+	beijianpoint: ip + '/api/extend/beijian/point',							// 提积分
 };

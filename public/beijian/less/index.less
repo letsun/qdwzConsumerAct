@@ -1,0 +1,169 @@
+@import "public";
+
+.container{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/beijian/5.png) no-repeat;
+	background-size: 100% 100%;
+	
+	
+	.submit {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	
+
+	.mask {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, .6);
+		display: none;
+	}
+
+	.mask-con1 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		display: none;
+
+		.mask-close {
+			position: absolute;
+			top: 30px;
+			right: 70px;
+		}
+	
+		.mask-text {
+			position: absolute;
+			top: 130px;
+			text-align: center;
+			width: 100%;
+
+			.text-title {
+				position: absolute;
+				top: 35px;
+				width: 100%;
+			}
+			.text-con {
+				position: absolute;
+				top: 40px;
+				left: 20px;
+				width: 100%;
+				font-size: 50px;
+		
+				.text-num {
+					position: absolute;
+					top: 112px;
+					width: 93%;
+					display: flex;
+
+					justify-content: center;
+
+					.num {
+						padding-right: 15px;
+					}
+				}
+			}
+		
+			.text-btn {
+				position: absolute;
+				top:290px;
+				left: 0;
+				width: 100%;
+			}
+		}
+	}
+
+	.mask-con2 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		display: none;
+
+		.mask-close {
+			position: absolute;
+			top: 30px;
+			right: 70px;
+		}
+	
+		.mask-text {
+			position: absolute;
+			top:290px;
+			text-align: center;
+			width: 100%;
+
+			font-size: 50px;
+			line-height: 70px;
+
+			.text-con {
+				width: 50%;
+				margin: auto;
+			}
+		}
+
+		.mask-footer {
+			position: absolute;
+			top: 500px;
+			text-align: center;
+			width: 100%;
+			color: #666;
+		}
+	}	
+
+
+}
+
+
+.loading {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background-color: #fff;
+
+	.loadCon {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+
+		width: 150px;
+		height: 150px;
+		margin-top: -75px;
+		margin-left: -75px;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			display: block;
+
+			width: 100%;
+
+			-webkit-animation: load 4s linear infinite;
+		}
+		#percent {
+			font-size: 24px;
+			line-height: 150px;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: 150px;
+			height: 150px;
+
+			text-align: center;
+		}
+	}
+}
