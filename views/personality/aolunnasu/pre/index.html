@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/aolunnasu/css/index.css" />
+
+</head>
+
+<body>
+	<!--加载页-->
+	<div class="loading">
+		<div class="loadCon">
+			<img src="/aolunnasu/images/loading.png" />
+			<div id="percent">1%</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="header">
+			<div class="header-logo">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_1.png">
+			</div>
+			<div class="header-text">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_2.png">
+
+				<div class="text-title">第一次验证</div>
+				<div class="text-con">
+					您好!您所查询的产品为奥伦纳素公司生产的产品，验证无误，感谢您的购买，请在保质期内使用!
+					<span>2019/12/17 20:00</span>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="footer">
+			<div class="footer-item submit"><img
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_4.png"></div>
+			<div class="footer-item"><img
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_3.png"></div>
+		</div>
+
+		<div class="mask">
+
+			<!-- 显示二维码 -->
+			<div class="maskcon mask-con1">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_6.png">
+			</div>
+
+			<!-- 积分弹窗 -->
+			<div class="maskcon mask-con2">
+				<div class="mask-title">
+
+					恭喜您获得<span class="num">10</span>积分
+				</div>
+
+				<div class="mask-middel">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_15.png">
+				</div>
+			</div>
+
+			<!-- 关注公众号 -->
+			<div class="maskcon mask-con3">
+
+				<div class="mask-img">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_14.png">
+
+				</div>
+
+				<div class="mask-text">关注小程序，绑定手机号码领取</div>
+			</div>
+
+			<!-- 显示扫码弹窗 -->
+			<div class="maskcon mask-con4">
+				<div class="title">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_9.png">
+				</div>
+
+				<div class="mask-img">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_10.png">
+				</div>
+
+				<div class="mask-btn">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_11.png">
+				</div>
+
+				<div class="mask-text">
+					在奥伦纳素柜台购买注册会员，产品直接累计积分，其他渠道通过扫码获取获取积分;防伪码为一物一码，如撕毁，丢失，破损将无法找回，
+					积分不予补计，请谅解。
+				</div>
+
+			</div>
+
+
+
+			<!-- 积分弹窗 -->
+			<div class="maskcon mask-con5">
+				<div class="mask-title">
+					该码已被扫
+				</div>
+
+				<div class="mask-middel">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_8.png">
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+</body>
+
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+
+<script src="/aolunnasu/js/lib/jquery-2.2.2.min.js"></script>
+<script src="/aolunnasu/js/lib/jweixin-1.0.0.js"></script>
+<script src="/aolunnasu/js/index_act.js"></script>
+
+<script>
+	$(function () {
+		// 页面禁止滑动
+		$('.container').on("touchmove", function (e) {
+			e.preventDefault();
+		});
+		/**加载进度*/
+		common.loading($("#percent"), function () {
+			$('.loading').hide();
+			$('.container').fadeIn();
+		});
+
+
+
+	})
+</script>
+
+</html>

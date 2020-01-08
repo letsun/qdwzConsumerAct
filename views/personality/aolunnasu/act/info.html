@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/aolunnasu/css/info.css" />
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<img class="changeImgUrl" src="">
+		</div>
+
+
+		<div class="con1">
+
+			<div class="con1-item">
+				<div class="con1-con-key">【产品规格】</div>
+				<div class="con1-con-value">150ml</div>
+			</div>
+		</div>
+
+		<div class="con2">
+			<div class="line"></div>
+
+			<div class="title">使用方法</div>
+			<div class="linea"></div>
+
+
+			<div class="con2-con">
+
+
+			</div>
+		</div>
+
+		<div class="con3">
+			<div class="line"></div>
+
+			<div class="title">使用方法</div>
+			<div class="linea"></div>
+
+
+			<div class="con3-con">
+
+				<video src="" width="630" height="300" controls="controls"></video>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+
+<script src="/aolunnasu/js/lib/jquery-2.2.2.min.js"></script>
+<script src="/aolunnasu/js/lib/jweixin-1.0.0.js"></script>
+<script src="/aolunnasu/js/api.js"></script>
+<!-- <script src="/aolunnasu/js/index_act.js"></script> -->
+
+<script>
+	$(function () {
+		// 页面禁止滑动
+		$('.container').on("touchmove", function (e) {
+			e.preventDefault();
+		});
+
+
+
+		$.ajax({
+			url: api.findEncodeFunction,
+			type: 'POST',
+			dataType: 'json',
+			data: {},
+			headers: getHeader(),
+			success: function (res) {
+				
+				var productJson = res.data.productRecord.productJson; //产品信息
+				var productDesc = res.data.productRecord.productDesc; //产品描述
+				var videoUrl  = res.data.videoUrl;     //视频地址
+				var changeImgUrl = res.data.productRecord.changeImgUrl[0]
+
+				var html="";
+
+				for (var i in productJson) {
+					html+= `<div class="con1-item">`;
+					html+= `<div class="con1-con-key">${i}</div>`;
+					html+= `<div class="con1-con-value">${productJson[i]}</div>`;
+
+					html+= `</div>`;
+				}
+
+				$('.con1').html(html)
+				$('.con2-con').html(productDesc)
+
+				$('video').attr("src",videoUrl)
+				$('.changeImgUrl').attr('src',changeImgUrl)
+
+			},
+			error: function (res) {
+
+			}
+
+		});
+	})
+</script>
+
+</html>
