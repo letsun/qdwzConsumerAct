@@ -68,17 +68,17 @@ $(function () {
 
 	})
 
-	$('.container').on('click','.maskcon',function(){
+	$('.container').on('click','.mask',function(){
 		
 		$('.maskcon').fadeOut();
 		$('.mask').fadeOut();
 	})
 
-	$('.mask-btn').on('click',function(){
+	$('.mask-btn').on('click',function(e){
 		
-		$('.mask-con2').hide();
-
-	
+		e.stopPropagation();
+		
+		$('.mask-con2').hide();	
 		$('.mask-con3').fadeIn();
 	})
 

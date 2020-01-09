@@ -41,7 +41,7 @@
 		<div class="con3">
 			<div class="line"></div>
 
-			<div class="title">使用方法</div>
+			<div class="title">视频</div>
 			<div class="linea"></div>
 
 
@@ -67,9 +67,9 @@
 <script>
 	$(function () {
 		// 页面禁止滑动
-		$('.container').on("touchmove", function (e) {
-			e.preventDefault();
-		});
+		// $('.container').on("touchmove", function (e) {
+		// 	e.preventDefault();
+		// });
 
 
 
@@ -86,6 +86,11 @@
 				var videoUrl  = res.data.videoUrl;     //视频地址
 				var changeImgUrl = res.data.productRecord.changeImgUrl[0]
 
+				if(videoUrl!= "undefined"|| videoUrl!= '') {
+					$('video').attr("src",videoUrl)
+					$('.con3').show()
+				}
+				
 				var html="";
 
 				for (var i in productJson) {
@@ -99,7 +104,7 @@
 				$('.con1').html(html)
 				$('.con2-con').html(productDesc)
 
-				$('video').attr("src",videoUrl)
+				
 				$('.changeImgUrl').attr('src',changeImgUrl)
 
 			},
