@@ -2,9 +2,10 @@ var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = test;
+var ip = production;
 
-var ip2 = "https://test-openwx.lxcyhd.com";
+// var ip2 = "https://test-openwx.lxcyhd.com";
+var ip2 = "https://wx.lxcyhd.com";
 
 var api = {
 	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
