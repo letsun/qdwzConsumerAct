@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/wnCoupon/css/reset.css" />
+    <link rel="stylesheet" href="/wnCoupon/css/animate.min.css" />
+    <link rel="stylesheet" href="/wnCoupon/css/index.css" />
+    <!-- 样式 end -->
+    <title></title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/wnCoupon/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div class="container" id="container">
+
+        <img class="logo" src="https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/200_1.png" alt="">
+
+        <img class="title" src="https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/200_2.png" alt="">
+
+        <!--开红包弹窗-->
+        <div class="redPack-win" id="redPack-win">
+            <div class="redPack-con">
+                <div class="redPack-title">您有一个</div>
+                <div class="redPack-type">物农红包</div>
+                <div class="redPack-tips">待领取</div>
+                <img class="redPack-btn" src="https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/1_4.png" alt="">
+            </div>
+        </div>
+
+        <!--关注二维码弹窗-->
+        <div class="attent-win" id="attent-win">
+
+            <div class="attent-content">
+                <div class="attent-title">温馨提示</div>
+                <div class="attent-dec">
+                    <img class="attent-img" src="https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/1_100.png" />
+                    <div class="attent-tips">
+                        检测到您尚未关注物农网公众号<br/>
+                        请长按识别二维码关注公众号后扫码领取红包
+                    </div>
+                </div>
+
+                <img class="attent-btn" id="attent-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifei/1_8.png">
+            </div>
+        </div>
+
+
+        <!--优惠券-->
+        <div class="coupon-win" id="coupon-win">
+            <div class="coupon-content">
+                <div class="coupon-dec">
+                    <div class="coupon-title">
+                        <img src="https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/1_7.png" alt="">
+                    </div>
+                    <div class="coupon-title2">
+                        <img src="https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/1_9.png" alt="">
+                    </div>
+
+                    <div class="coupon-amount"><span></span>元</div>
+                    <!--<div class="coupon-amount"><span></span>折</div>-->
+
+                    <!--&lt;!&ndash;红包已领取&ndash;&gt;
+                    <div class="received">领取成功</div>-->
+
+                    <div class="coupon-tips">请关注物农公众号进入物农网小程序使用</div>
+
+                    <div class="line"></div>
+                    <div class="code-wra">
+                        <img class="code" src="https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/1_100.png" alt="">
+                        <div class="code-text">长按识别二维码关注公众号</div>
+                    </div>
+                    <!--<img class="close-coupon" src="https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/1_6.png" alt="">-->
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--底部-->
+        <div class="bottom">物农科技&nbsp;&nbsp;(深圳)&nbsp;&nbsp;有限公司</div>
+
+        <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/wnCoupon/scripts/api.js"></script>
+<script src="/wnCoupon/scripts/Func.js"></script>
+<script src="/wnCoupon/scripts/index_act.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+
+</body>
+</html>

@@ -24,10 +24,16 @@ var api = {
 	findCouponNum: ip + '/coupon/findCouponNum', 								// 获取优惠券数量
 	lotteryRecordNum: ip + '/lotteryConsumer/lotteryRecordNum', 				// 中奖记录数量查询
 	getVerCode: ip + '/smscode/getVerCode', 									// 获取手机短信验证码
+	btmGetVerCode: ip + '/smscode/btmGetVerCode', 								// 获取手机短信验证码
+	checkPhonesUserStatus: ip + '/consumerActivity/checkPhonesUserStatus', 		// 获取手机短信验证码
 	register: ip + '/consumerRegister/register',								// 用户注册
     guestApplyWithdraw: ip + '/consumerUserCash/guestApplyWithdraw',								// 客户发起提现申请
-    rebackInfoToXmz: ip + '/xmz/rebackInfoToXmz',
     checkPhoneIsEnabelJoinAct: ip + '/consumerActivity/checkPhoneIsEnabelJoinAct',								// 查询手机号是否可以参加活动
     guestApplyWithdrawRecord: ip + '/consumerUserCash/guestApplyWithdrawRecord',								// 客户提现申请列表查询接口（格瑞蓝达）
+    getShopUrl: ip + '/shopUrl/getShopUrl',								// 获取商城url
+    createJoinActInfo: ip + '/consumerActivity/createJoinActInfo',								// 添加参与记录
+    findProduct: ip + '/product/findProduct',								// 根据二维码查询商品信息
+    addUserInfo: ip + '/consumerUserInfo/addUserInfo',								// (罗伯克啤酒)提交用户信息
+    checkUserInfo: ip + '/consumerUserInfo/checkUserInfo',								// (罗伯克啤酒)校验用户是否填写详细信息
     coupon: ip + '/api/extend/wnw/coupon',								//
 };

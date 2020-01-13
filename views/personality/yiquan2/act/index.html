@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <!-- 样式 start -->
+    <link rel="stylesheet" href="/yiquan2/css/reset.css" />
+    <link rel="stylesheet" href="/yiquan2/css/animate.min.css" />
+    <link rel="stylesheet" href="/yiquan2/css/index.css" />
+    <!-- 样式 end -->
+    <title>2020车仆雪种感谢有你</title>
+</head>
+<body>
+
+<div id="app">
+    <!--加载页-->
+
+    <div class="loading">
+        <div class="loadCon">
+            <img src="/yiquan2/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+    <div id="container">
+
+        <div class="content">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan2/1_2.png" alt="" class="logo">
+            <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan2/1_3.png" alt="" class="title">
+            <img class="receive-btn" id="receive-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan2/1_4.png" alt="">
+        </div>
+
+        <!--关注二维码弹窗-->
+        <div class="attent-win" id="attent-win" style="none;">
+
+            <div class="attent-content">
+
+                <div class="attent-title">关注公众号</div>
+                <div class="attent-dec">
+                    <img class="attent-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/5_2.png" />
+                    <div class="attent-tips">请关注车仆公众号，再返回领大奖哦！</div>
+                    <div class="attent-btn" id="attent-btn"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--结果弹窗-->
+        <div class="result-win" id="result-win" style="display: none;">
+            <div class="result-con">
+                <div class="result-title">恭喜您获得</div>
+
+                <!--中现金红包-->
+                <div class="dec dec1">
+                    <div class="num"><span></span>元</div>
+                    <div class="type">现金红包</div>
+                    <div class="tips">(红包将通过公众号发放给您，请注意领取)</div>
+                </div>
+
+                <!--中实物-->
+                <div class="dec dec2">
+                    <div class="name"><span class="award-name"></span><span class="point">1台</span></div>
+                    <img class="award-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/4_1.png" alt="">
+                </div>
+
+                <!--未中奖-->
+                <div class="dec dec3">
+                    <div class="name">您未中奖，谢谢惠顾！</div>
+                    <img class="cry-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/3_2.png" alt="">
+                </div>
+
+                <div class="result-confirm" id="result-confirm1">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/2_2.png" alt="">
+                </div>
+
+                <div class="result-confirm" id="result-confirm2">
+                    <img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/3_1.png" alt="">
+                </div>
+
+            </div>
+
+            <!--<img class="result-img" src="../images/1_14.png" alt="">-->
+        </div>
+
+        <!--提交信息弹窗-->
+        <div class="submit-infor" id="submit-infor" style="display: none;">
+            <div class="submit-content">
+                <div class="infor-title">填写信息</div>
+                <div class="form-wra">
+                    <div class="form">
+                        <div class="form-item">
+                            <span class="asak">*</span>
+                            <img class="form-key" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/6_3.png" alt="">
+                            <input class="form-input" type="text" maxlength="15" id="companyName" placeholder="请输入公司名称">
+                        </div>
+                        <div class="form-item">
+                            <span class="asak">*</span>
+                            <img class="form-key" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/6_4.png" alt="">
+                            <input class="form-input" type="text" maxlength="15" id="name" placeholder="请输入姓名">
+                        </div>
+                        <div class="form-item">
+                            <span class="asak">*</span>
+                            <img class="form-key" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/6_5.png" alt="">
+                            <input class="form-input" type="text" maxlength="15" id="age" placeholder="请输入年龄">
+                        </div>
+                        <div class="form-item">
+                            <span class="asak">*</span>
+                            <img class="form-key" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/6_6.png" alt="">
+                            <input class="form-input" type="text" maxlength="15" id="mobile" placeholder="请输入手机号码">
+                        </div>
+                        <div class="form-item">
+                            <span class="asak">*</span>
+                            <img class="form-key" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/6_7.png" alt="">
+                            <input class="form-input" id="address" type="text" placeholder="请输入您的联系地址" maxlength="50">
+                        </div>
+
+                    </div>
+
+                    <div class="form-text">温馨提示：请仔细核对好您所填的信息后再提交，以免无法收到奖品</div>
+
+                    <div class="form-submit" id="form-submit"></div>
+                </div>
+                <img class="close-submit" id="close-submit" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/6_2.png" alt="">
+            </div>
+        </div>
+
+        <!--提交成功弹窗-->
+        <div class="submit-success" id="submit-success" style="display: none;">
+            <div class="success-con">
+                <div class="sign-title">温馨提示</div>
+                <div class="success-dec">
+                    <img class="success-tip" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yiquan/7_1.png" alt="">
+                    <div class="success-text">提交成功</div>
+                    <div class="form-btn" id="success-close"></div>
+                </div>
+            </div>
+        </div>
+
+        <%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+    </div>
+</div>
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+<!-- 公共js end -->
+
+<!-- 公共js start -->
+<script src="/common/scripts/Func.js"></script>
+<!-- 公共js end -->
+
+<!-- 页面js start -->
+<script src="/yiquan2/scripts/api.js"></script>
+<script src="/yiquan2/scripts/Func.js"></script>
+<script src="/yiquan2/scripts/index_act.js"></script>
+
+<script>
+    $(function() {
+        // 页面禁止滑动
+        $('#container').on("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        /**加载进度*/
+        common.loading($("#percent"), function(){
+            $('.loading').hide();
+            $('#container').fadeIn();
+        });
+
+    })
+</script>
+
+</body>
+</html>

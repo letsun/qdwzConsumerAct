@@ -1,0 +1,396 @@
+@import "common/reset";
+
+
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background: #fff;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	position: relative;
+
+	width: 100%;
+	height: 100%;
+
+	background: url('https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/1_5.jpg') no-repeat;
+	background-size: 100% 100%;
+}
+
+.logo {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	z-index: 99;
+
+	display: block;
+}
+
+.title {
+	position: absolute;
+	left: 50%;
+	top: 100px;
+	z-index: 99;
+
+	display: block;
+
+	width: 460px;
+	margin-left: -460/2px;
+}
+
+.redPack-win {
+	position: absolute;
+	left: 50%;
+	top: 390px;
+	z-index: 99;
+
+	display: block;
+
+	-webkit-transform: translateX(-50%);
+}
+
+.redPack-win .redPack-con {
+	width: 680px;
+	height: 679px;
+	padding-top: 70px;
+
+	font-size: 40px;
+	color: #fcd88a;
+	text-align: center;
+
+	background: url('https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/1_3.png') no-repeat;
+	background-size: 100% 100%;
+
+	box-sizing: border-box;
+}
+
+.redPack-win .redPack-con .redPack-title {
+	color: #fcd88a;
+}
+
+.redPack-win .redPack-con .redPack-type {
+	margin-top: 42px;
+
+	color: #fff;
+	font-weight: bold;
+	font-size: 44px;
+}
+
+.redPack-win .redPack-con .redPack-tips {
+	margin-top: 42px;
+
+	color: #fcd88a;
+}
+
+.redPack-win .redPack-con .redPack-btn {
+	position: absolute;
+	left: 50%;
+	top: 43%;
+	z-index: 99;
+
+	width: 205px;
+	margin-left: -102.5px;
+
+	-webkit-animation: scale 1.2s linear alternate infinite;
+}
+
+.coupon-win {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 99;
+
+	display: none;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0,0,0,.7);
+}
+
+.coupon-win .coupon-content {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 99;
+
+	width: 673px;
+	height: 879px;
+
+	font-size: 40px;
+	color: #fcd88a;
+	text-align: center;
+
+	background: url('https://wnwshopstatic.oss-cn-beijing.aliyuncs.com/shop/jinhuakui20191017/1_8.png') no-repeat;
+	background-size: 100% 100%;
+
+	box-sizing: border-box;
+
+	-webkit-transform: translate(-50%,-50%);
+}
+
+.coupon-win .coupon-content .coupon-dec {
+	position: absolute;
+	left: 54px;
+	top: 50px;
+	right: 46px;
+	bottom: 0px;
+
+	padding: 90px 0 0 0;
+}
+
+.coupon-win .coupon-content .coupon-title {
+	width: 332px;
+	margin: 0 auto;
+}
+
+.coupon-win .coupon-content .coupon-title2 {
+	display: none;
+
+	width: 128px;
+	margin: 0 auto;
+}
+
+.coupon-win .coupon-content .coupon-title img,
+.coupon-win .coupon-content .coupon-title2 img {
+	display: block;
+
+	width: 100%;
+}
+
+.coupon-win .coupon-content .coupon-amount {
+	margin-top: 60px;
+
+	text-align: center;
+	font-size: 32px;
+	color: #e60c02;
+	font-weight: bold;
+}
+
+.received {
+	margin-top: 72px;
+
+	text-align: center;
+	font-size: 44px;
+	color: #e33d01;
+	font-weight: bold;
+}
+
+.coupon-win .coupon-content .coupon-amount span {
+	font-size: 64px;
+}
+
+.coupon-win .coupon-content .coupon-tips {
+	margin-top: 60px;
+
+	text-align: center;
+	font-size: 24px;
+	color: #999999;
+}
+
+.coupon-win .coupon-content .line {
+	position: absolute;
+	left: 18%;
+	top: 363px;
+
+	width: 64%;
+
+	border-bottom: 1px dashed #fbaca5;
+}
+
+.coupon-win .coupon-content .code-wra {
+	position: absolute;
+	left: 0;
+	bottom: 80px;
+	z-index: 1;
+
+	width: 100%;
+}
+
+.coupon-win .coupon-content .code {
+	display: block;
+
+	width: 250px;
+	margin: 0 auto;
+}
+
+.coupon-win .coupon-content .code-text {
+	font-size: 24px;
+	text-align: center;
+	color: #333;
+}
+
+.coupon-win .coupon-content .close-coupon {
+	position: absolute;
+	top: -102px;
+	right: -6px;
+	z-index: 99;
+
+	width: 78px;
+}
+
+@-webkit-keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(0.7);
+	}
+}
+
+.loading {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background-color: #fff;
+
+	.loadCon {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+
+		width: 150px;
+		height: 150px;
+		margin-top: -75px;
+		margin-left: -75px;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			display: block;
+
+			width: 100%;
+
+			-webkit-animation: load 4s linear infinite;
+		}
+		#percent {
+			font-size: 24px;
+			line-height: 150px;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: 150px;
+			height: 150px;
+
+			text-align: center;
+		}
+	}
+}
+
+
+@-webkit-keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(0.7);
+	}
+}
+
+.bottom {
+	position: absolute;
+	left: 0;
+	bottom: 20px;
+	z-index: 1;
+
+	width: 100%;
+
+	font-size: 34px;
+	text-align: center;
+	color: #fff;
+}
+
+
+/*关注二维码*/
+.attent-win {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+
+	display: none;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0, 0, 0, .6);
+
+	.attent-content {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 1;
+
+		width: 558px;
+		height: 590px;
+		padding-top: 70px;
+
+		background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
+		background-size: 100% 100%;
+
+		box-sizing: border-box;
+
+		-webkit-transform: translate(-50%, -50%);
+
+		.attent-title {
+			position: absolute;
+			left: 0;
+			top: 24px;
+			z-index: 1;
+
+			width: 100%;
+
+			font-size: 40px;
+			text-align: center;
+			line-height: 50px;
+			color: #eca330;
+			font-weight: bold;
+		}
+
+		.attent-dec {
+			padding: 100px 0 12px 0;
+
+			border-radius: 0 0 20px 20px;
+		}
+
+		.attent-img {
+			display: block;
+			margin: 0 auto;
+		}
+
+		.attent-tips {
+			margin-top: 17px;
+			font-size: 22px;
+			color: #ec284c;
+			line-height: 34px;
+			text-align: center;
+		}
+
+		.attent-btn {
+			position: absolute;
+			left: 50%;
+			bottom: -18%;
+			z-index: 1;
+
+			-webkit-transform: translateX(-50%);
+		}
+	}
+}
