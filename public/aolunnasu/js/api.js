@@ -2,7 +2,9 @@ var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = production;
+var ip = test;
+
+var ip2 = "https://test-openwx.lxcyhd.com";
 
 var api = {
 	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
@@ -26,7 +28,9 @@ var api = {
 	companyLotteryRecord: ip + '/lotteryConsumer/companyLotteryRecord', 		// 企业查询中奖记录列表
 	cancelCoupon: ip + '/lotteryConsumer/cancelCoupon',							// 消费者自主核销接口
 
-	beijianpoint: ip + '/qdwz/api/extend/beijian/point',							// 提积分
+	beijianpoint: ip + '/api/extend/aolunns/point',								// 提积分
+	findScanNum: ip + '/consumerActivity/findScanNum',							// 扫码次数
 
+	jssdk: ip2 + '/getUserApi/getJsApiSignature',											// 掉扫码接口
 	
 };

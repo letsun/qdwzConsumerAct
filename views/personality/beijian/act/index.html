@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=750, user-scalable=no">		
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/beijian/css/index.css"/>
+		
+	</head>
+	<body>
+		
+			<!--加载页-->
+
+		<div class="loading">
+			<div class="loadCon">
+				<img src="/beijian/images/loading.png" />
+				<div id="percent">1%</div>
+			</div>
+		</div>	
+			
+			
+		<div class="container" >
+			
+			<div class="submit">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/beijian/1.png" alt="" srcset="">
+			</div>
+
+			<div class="mask">
+				<div class="mask-con mask-con1">
+					<div class="mask-bg">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/beijian/2.png">
+					</div>
+					<div class="mask-close">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/beijian/3.png">
+					</div>
+
+					<div class="mask-text">
+						<div class="text-title">
+
+							恭喜您获得
+						</div>
+
+						<div class="text-con">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/beijian/6.png" >
+							<div class="text-num">
+								<div class="num">113</div>积分
+							</div>
+						</div>
+				
+						<a class="text-btn" href="https://www.ymisland.com/app/index.php?i=1&c=entry&m=ewei_shopv2&do=mobile">
+							<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/beijian/4.png" >
+						</a>
+
+					</div>						
+				</div>	
+				
+				
+				<a href="https://www.ymisland.com/app/index.php?i=1&c=entry&m=ewei_shopv2&do=mobile" class="mask-con mask-con2">
+					<div class="mask-bg">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/beijian/2.png">
+					</div>
+					<div class="mask-close">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/beijian/3.png">
+					</div>
+
+					<div class="mask-text">	
+						
+						<div class="text-con">
+							很遗憾您的积分领取失败
+						</div>
+						
+					</div>
+					
+					<div class="mask-footer">
+						积分码可能已被领取
+					</div>
+				</a>			
+			</div>		
+		</div>
+
+
+
+	</body>
+
+
+	<!-- 公共js start -->
+	<%-include("../../../include/commonJs") %>
+	<%-include("../../../include/hideMenu") %>
+	<script src="/beijian/js/lib/jweixin-1.0.0.js"></script>
+	<script src="/beijian/js/api.js"></script>
+	<script src="/common/scripts/Func.js"></script>
+	<script src="/beijian/js/index_act.js"></script>
+
+	<script>
+		$(function() {
+			// 页面禁止滑动
+			$('.container').on("touchmove", function(e) {
+				e.preventDefault();
+			});
+			/**加载进度*/
+			common.loading($("#percent"), function() {			
+				$('.loading').hide();
+				$('.container').fadeIn();
+			});
+
+		})
+	</script>	
+</html>

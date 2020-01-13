@@ -667,9 +667,5 @@ $(function() {
                 callback(res);
             }
         });
-	}
-	
-
-
-
+    }
 });
