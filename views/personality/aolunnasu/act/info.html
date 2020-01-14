@@ -19,10 +19,10 @@
 
 		<div class="con1">
 
-			<div class="con1-item">
+			<!-- <div class="con1-item">
 				<div class="con1-con-key">【产品规格】</div>
 				<div class="con1-con-value">150ml</div>
-			</div>
+			</div> -->
 		</div>
 
 		<div class="con2">
@@ -80,32 +80,47 @@
 			data: {},
 			headers: getHeader(),
 			success: function (res) {
-				
-				var productJson = res.data.productRecord.productJson; //产品信息
+
+
+
+
 				var productDesc = res.data.productRecord.productDesc; //产品描述
-				var videoUrl  = res.data.videoUrl;     //视频地址
+				var videoUrl = res.data.videoUrl;     //视频地址
 				var changeImgUrl = res.data.productRecord.changeImgUrl[0]
 
-				if(videoUrl!= "undefined"|| videoUrl!= '') {
-					$('video').attr("src",videoUrl)
+				if (videoUrl != "undefined" || videoUrl != '') {
+					$('video').attr("src", videoUrl)
 					$('.con3').show()
 				}
-				
-				var html="";
 
-				for (var i in productJson) {
-					html+= `<div class="con1-item">`;
-					html+= `<div class="con1-con-key">${i}</div>`;
-					html+= `<div class="con1-con-value">${productJson[i]}</div>`;
+				var html = "", proJson = res.data.productRecord.productJson;
 
-					html+= `</div>`;
+				if (proJson != '' && proJson != 'null') {
+
+					var productJson = JSON.parse(proJson); //产品信息
+					console.log(productJson)
+
+					for (var i in productJson) {
+						
+						var productJsons = productJson[i]
+
+						for (var j in productJsons) {
+							html += `<div class="con1-item">`;
+							html += `<div class="con1-con-key">${j}</div>`;
+							html += `<div class="con1-con-value">${productJsons[j]}</div>`;
+							html += `</div>`;
+						}
+					}
+					$('.con1').html(html)
 				}
 
-				$('.con1').html(html)
+
+
+
 				$('.con2-con').html(productDesc)
 
-				
-				$('.changeImgUrl').attr('src',changeImgUrl)
+
+				$('.changeImgUrl').attr('src', changeImgUrl)
 
 			},
 			error: function (res) {

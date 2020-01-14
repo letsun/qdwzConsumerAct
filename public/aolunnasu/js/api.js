@@ -7,12 +7,13 @@ var ip = production;
 // var ip2 = "https://test-openwx.lxcyhd.com";
 var ip2 = "https://wx.lxcyhd.com";
 
+
 var api = {
 	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
 	lottery: ip + '/lotteryConsumer/lottery', 									// 用户参与抽奖
-	findActivityByEncode: ip + '/consumerActivity/findActivityByEncode', 		// 查询二维码参与活动状态
+	//findActivityByEncode: ip + '/consumerActivity/findActivityByEncode', 		// 查询二维码参与活动状态
 	userCash: ip + '/consumerUserCash/userCash', 								// 用户提现接口
-	findEncodeFunction: ip + '/consumerActivity/findEncodeFunction', 			// 防伪溯源展示接口
+	
 	personCenter: ip + '/activity/personCenter', 								// 跳转个人中心
 	userCashRecord: ip + '/consumerUserCash/userCashRecord', 					// 提现记录查询接口
 	couponCodeDetail: ip + '/lotteryConsumer/couponCodeDetail', 				// 中奖纪录代金券明细
@@ -33,5 +34,5 @@ var api = {
 	findScanNum: ip + '/consumerActivity/findScanNum',							// 扫码次数
 
 	jssdk: ip2 + '/getUserApi/getJsApiSignature',											// 掉扫码接口
-	
+	findEncodeFunction: ip + '/api/extend/findEncodeFunction', 			// 防伪溯源展示接口
 };
