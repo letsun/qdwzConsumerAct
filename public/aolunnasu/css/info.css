@@ -109,8 +109,11 @@ body {
 .container {
   position: relative;
   width: 100%;
-  background: #f4ece6 !important;
+  background: #F6EFE9 !important;
   padding-bottom: 30px;
+}
+.container .logo {
+  padding: 50px 0 60px 50px;
 }
 .container .con1 {
   background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_12.png) no-repeat;
