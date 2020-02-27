@@ -2,7 +2,11 @@ var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
+<<<<<<< HEAD
 var ip = test;
+=======
+var ip = dev;
+>>>>>>> 2c5072084672de3fe38697e916f6e9ff68c3ada3
 
 // var ip2 = "https://test-openwx.lxcyhd.com";
 var ip2 = "https://wx.lxcyhd.com";
