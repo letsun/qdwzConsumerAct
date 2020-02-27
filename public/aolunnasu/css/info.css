@@ -130,8 +130,9 @@ body {
   -webkit-line-clamp: 2;
   overflow: hidden;
   line-height: 40px;
-  font-size: 40px;
-  padding: 30px;
+  font-size: 30px;
+  padding: 10px 20px;
+  letter-spacing: 5px;
   z-index: 99;
   background: #000;
   color: #f4f4f4;
@@ -179,11 +180,13 @@ body {
 }
 .container .con2 .title {
   color: #333;
+  padding-bottom: 30px;
 }
 .container .con2 .con2-con {
   width: 630px;
   text-align: left;
-  font-size: 22px;
+  font-size: 24px;
+  height: 100%;
 }
 .container .con2 .con2-con img {
   margin-top: 30px;
