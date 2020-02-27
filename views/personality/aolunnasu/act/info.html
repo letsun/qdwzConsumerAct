@@ -12,9 +12,11 @@
 
 <body>
 	<div class="container">
-		<!--<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200219/1_1.png" alt="">-->
+
 		<div class="header">
 			<img class="changeImgUrl" src="">
+			<img class="header-logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200219/1_1.png">
+
 		</div>
 
 
@@ -29,12 +31,36 @@
 		<div class="con2">
 			<div class="line"></div>
 
+			<div class="title">主要成分</div>
+			<div class="linea"></div>
+
+
+			<div class="con2-con" id="mainPart">
+
+			</div>
+		</div>
+
+
+		<div class="con2">
+			<div class="line"></div>
+
+			<div class="title">产品介绍</div>
+			<div class="linea"></div>
+
+
+			<div class="con2-con" id="productRemark">
+
+			</div>
+		</div>
+
+		<div class="con2">
+			<div class="line"></div>
+
 			<div class="title">使用方法</div>
 			<div class="linea"></div>
 
 
-			<div class="con2-con">
-
+			<div class="con2-con" id="productDesc">
 
 			</div>
 		</div>
@@ -72,8 +98,6 @@
 		// 	e.preventDefault();
 		// });
 
-
-
 		$.ajax({
 			url: api.findEncodeFunction,
 			type: 'POST',
@@ -82,10 +106,10 @@
 			headers: getHeader(),
 			success: function (res) {
 
-
-
-
 				var productDesc = res.data.productRecord.productDesc; //产品描述
+				var marketDesc = res.data.productRecord.marketDesc; //标题
+				var mainPart = res.data.productRecord.mainPart; //主要成分
+				var productRemark = res.data.productRecord.productRemark; //产品介绍
 				var videoUrl = res.data.videoUrl;     //视频地址
 				var changeImgUrl = res.data.productRecord.changeImgUrl[0]
 
@@ -94,15 +118,12 @@
 					$('.con3').show()
 				}
 
-				var html = "", proJson = res.data.productRecord.productJson;
+				var html = "", html1 = '', proJson = res.data.productRecord.productJson;
 
 				if (proJson != '' && proJson != 'null') {
-
 					var productJson = JSON.parse(proJson); //产品信息
-					console.log(productJson)
-
 					for (var i in productJson) {
-						
+
 						var productJsons = productJson[i]
 
 						for (var j in productJsons) {
@@ -115,13 +136,18 @@
 					$('.con1').html(html)
 				}
 
-
-
-
-				$('.con2-con').html(productDesc)
-
+				$('#productDesc').html(productDesc);
+				$('#mainPart').html(mainPart);
+				$('#productRemark').html(productRemark);
 
 				$('.changeImgUrl').attr('src', changeImgUrl)
+
+				if (marketDesc != '' && marketDesc != null) {
+					html1 += `<div class="header-text">${marketDesc}</div>`;
+					$('.header-logo').append(html1);
+				}
+
+
 
 			},
 			error: function (res) {
