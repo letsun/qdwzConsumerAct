@@ -69,7 +69,6 @@ $(function () {
 	})
 
 	$('.container').on('click','.mask',function(){
-		
 		$('.maskcon').fadeOut();
 		$('.mask').fadeOut();
 	})

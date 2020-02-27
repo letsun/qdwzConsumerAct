@@ -2,7 +2,7 @@ var dev = 'http://192.168.1.20:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = test;
+var ip = production;
 
 // var ip2 = "https://test-openwx.lxcyhd.com";
 var ip2 = "https://wx.lxcyhd.com";
@@ -11,7 +11,7 @@ var ip2 = "https://wx.lxcyhd.com";
 var api = {
 	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
 	lottery: ip + '/lotteryConsumer/lottery', 									// 用户参与抽奖
-	//findActivityByEncode: ip + '/consumerActivity/findActivityByEncode', 		// 查询二维码参与活动状态
+	findActivityByEncode: ip + '/consumerActivity/findActivityByEncode', 		// 查询二维码参与活动状态
 	userCash: ip + '/consumerUserCash/userCash', 								// 用户提现接口
 	
 	personCenter: ip + '/activity/personCenter', 								// 跳转个人中心
