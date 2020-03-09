@@ -13,6 +13,8 @@
 <body>
 	<div class="container">
 
+		<a onclick="history.go(-1)" class="return">返回</a>
+
 		<div class="header">
 			<img class="changeImgUrl" src="">
 			<img class="header-logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200219/1_1.png">
@@ -59,7 +61,10 @@
 
 			<div class="con3-con">
 
-				<video src="" width="630" height="300" controls="controls"></video>
+				<iframe frameborder="0" src="" allowFullScreen="true" width="100%" height="400"></iframe>
+
+<!-- https://v.qq.com/txp/iframe/player.html?vid=b13587xqiot -->
+				<!-- <video src="" width="630" height="300" controls="controls"></video> -->
 			</div>
 		</div>
 
@@ -99,7 +104,9 @@
 				var changeImgUrl = res.data.productRecord.changeImgUrl[0]
 
 				if (videoUrl != "undefined" || videoUrl != '') {
-					$('video').attr("src", videoUrl)
+					// $('video').attr("src", videoUrl)
+					$('iframe').attr("src", videoUrl)
+					
 					$('.con3').show()
 				}
 

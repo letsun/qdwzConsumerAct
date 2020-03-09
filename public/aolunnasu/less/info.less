@@ -8,6 +8,23 @@
     background: #F6EFE9 !important;
     padding-bottom: 30px;
 
+    .return {
+        position: fixed;
+        right: 30px;
+        bottom: 100px;
+        width: 90px;
+        height: 90px;
+        font-size: 30px;
+        z-index: 99;
+
+        line-height: 90px;
+        text-align: center;
+
+        border-radius: 50%;
+        background: #838383;
+        color: #ddd;
+    }
+
     .header {
         position: relative;
 
@@ -56,8 +73,11 @@
             display: flex;
 
             .con1-con-key {
-                width: 150px;
+                width: 180px;
                 font-weight: bold;
+            }
+            .con1-con-value {
+                width: 440px;
             }
         }
     }
@@ -164,7 +184,7 @@
 
         .con3-con {
             width: 630px;
-            video {
+            iframe {
 
                 margin-top: 30px;
             }
