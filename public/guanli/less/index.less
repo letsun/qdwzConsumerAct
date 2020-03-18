@@ -1,0 +1,637 @@
+@import 'clearFix';
+@import 'newAnimate';
+
+.ellipsisNormal {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ellipsis(@line) {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @line;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    .container {
+		
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+		.content{
+			position: relative;
+			
+			width: 100%;
+			height: 100%;
+			
+			background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/guanli/1_9.jpg') no-repeat;
+			background-size: 100% 100%;
+			.logo {
+			    position: absolute;
+			    left: 3%;
+			    top: 2%;
+			}
+			
+			.rule-btn{
+				position: absolute;
+				top: 45px;
+				right: 0;
+			}
+			
+			.coin-img{
+				width: 80%;
+				
+				position: absolute;
+				top: 110px;
+				left: 10%;
+			}
+			
+			// 大转盘抽奖
+			.big-lottery{
+				width: 100%;
+				height: 700px;
+				
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				
+				background-image: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/guanli/1_4.png);
+				background-repeat: no-repeat;
+				background-size: cover;
+				
+				.turn-table-wrap{
+					width: 640px;
+					height: 640px;
+				
+					margin: -20px auto 0 auto;
+					
+					transform: rotate(0deg);
+					
+					.turn-table{
+						width: 100%;
+					}
+				}
+				
+			}
+			
+			// 奖项内容
+			.big-lottery .turn-table-wrap .award-list li{
+				width: 150px;
+				height: 240px;
+				text-align: center;
+				font-size: 24px;
+				color: #75170b;
+				
+				position: absolute;
+				top: 80px;
+				left: 245px;
+				transform-origin: bottom;
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(1){
+				transform: rotate(18deg);
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(2){
+				transform: rotate(54deg);
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(3){
+				transform: rotate(90deg);
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(4){
+				transform: rotate(126deg);
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(5){
+				transform: rotate(162deg);
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(6){
+				transform: rotate(198deg);
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(7){
+				transform: rotate(234deg);
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(8){
+				transform: rotate(268deg);
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(9){
+				transform: rotate(304deg);
+			}
+			.big-lottery .turn-table-wrap .award-list li:nth-of-type(10){
+				transform: rotate(340deg);
+			}
+			
+			
+			.big-lottery .lottery-btn{
+				width: 160px;
+				
+				position: absolute;
+				left: 50%;
+				top: 200px;
+				
+				margin-left: -80px;
+			}
+			
+		}
+		
+		.cover{
+			display: none;
+			width: 100%;
+			height: 100%;
+			font-size: 24px;
+			line-height: 32px;
+			
+			background-color: rgba(0,0,0,0.7);
+			position: absolute;
+			top: 0;
+			left: 0;
+			
+			.rule-content{
+				width: 600px;
+				height: 660px;
+
+				border-radius: 8px;
+				
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				
+				.rule-img{
+					width: 100%;
+				}
+			}
+			.rule-close-btn{
+				position: absolute;
+				top: 82%;
+				left: 45%;
+			}
+		}
+		
+
+	    .tip {
+			display: none;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 99;
+
+		    width: 100%;
+		    height: 100%;
+
+		    background: rgba(0,0,0,.7);
+
+		    .rule-content{
+		    	width: 600px;
+		    	height: 660px;
+		    
+		    	border-radius: 8px;
+		    	
+		    	position: absolute;
+		    	top: 0;
+		    	left: 0;
+		    	right: 0;
+		    	bottom: 0;
+		    	margin: auto;
+		    	
+		    	.rule-img{
+		    		width: 100%;
+		    	}
+				
+				.erweima-wrap{
+					width: 100%;
+					
+					position: absolute;
+					top: 290px;
+					
+					.erweima{
+						display: block;
+							
+						width: 280px;
+						height: 280px;
+						background-color: #666;
+						
+						margin: 0 auto;
+					}
+					.tip-text{
+						text-align: center;
+						font-size: 24px;
+						color: #333;
+						
+						margin-top: 20px;
+					}
+				}
+		    }
+		    .rule-close-btn{
+		    	position: absolute;
+		    	top: 82%;
+		    	left: 45%;
+		    }
+	    }
+		
+		.submit-info-wrap {
+			display: none;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 99;
+		
+		    width: 100%;
+		    height: 100%;
+		
+		    background: rgba(0,0,0,.7);
+		
+		    .rule-content{
+		    	width: 600px;
+		    	height: 755px;
+		    
+		    	border-radius: 8px;
+		    	
+		    	position: absolute;
+		    	top: 0;
+		    	left: 0;
+		    	right: 0;
+		    	bottom: 0;
+		    	margin: auto;
+				
+				background-image: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/guanli/1_17.png);
+				background-repeat: no-repeat;
+				background-size: cover;
+				
+				.submit-info-content{
+					margin-top: 310px;
+					
+					input{
+						width: 198px;
+						height: 62px;
+						line-height: 62px;
+						font-size: 24px;
+						
+						border: 2px solid #e6e6e6;
+						border-radius: 31px;
+						
+						padding-left: 30px;
+					}
+					input::-webkit-input-placeholder{ /*WebKit browsers*/
+						font-size: 24px;
+						color: #e6e6e;
+					}
+					
+					// 姓名和岗位
+					.name-post{
+						width: 500px;
+						margin: 0 auto;
+						
+						display: flex;
+						justify-content: space-between;
+						
+						//下拉选岗位
+						.post-wrap{
+							width: 188px;
+							height: 62px;
+							line-height: 62px;
+							font-size: 24px;
+							
+							border: 2px solid #e6e6e6;
+							border-radius: 31px;
+							
+							padding-left: 40px;
+							position: relative;
+							//下三角
+							#triangle-down{
+								position: absolute;
+								top: 21px;
+								left: 15px;
+								
+								width: 0;
+								height: 0;
+								border-left: 10px solid transparent;
+								border-right: 10px solid transparent;
+								border-top: 20px solid #333;
+							}
+							//岗位下拉选
+							.post-select{
+								display: none;
+								
+								position: absolute;
+								top: 64px;
+								left: 0;
+								z-index: 1;
+								
+								background-color: #e6e6e6;
+								
+								.post-option{
+									width: 188px;
+									height: 40px;
+									line-height: 40px;
+									font-size: 24px;
+									border: 1px solid #e6e6e6;
+									padding-left: 40px;
+								}
+								// .post-option:hover{
+								// 	background-color: #fff;
+								// }
+							}
+						}
+					}
+					
+					.native-place{
+						display: block;
+						
+						width: 470px;
+						
+						margin: 25px auto 0 auto;
+					}
+					.phone{
+						display: block;
+						
+						width: 470px;
+						
+						margin: 25px auto 0 auto;
+					}
+					.confirm-submit{
+						width: 500px;
+						height: 72px;
+						line-height: 72px;
+						text-align: center;
+						color: #fff;
+						background-color: #f45631;
+						
+						border-radius: 36px;
+						
+						margin: 35px auto 0 auto;
+					}
+					.submit-tip{
+						width: 500px;
+						height: 40px;
+						line-height: 40px;
+						text-align: center;
+						color: #999;
+						
+						margin-top: 20px;
+					}
+				}
+
+		    }
+		    .rule-close-btn{
+		    	position: absolute;
+		    	bottom: -120px;
+		    	left: 45%;
+		    }
+		}
+
+
+	    .lottery-win {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 99;
+
+		    display: none;
+
+		    width: 100%;
+		    height: 100%;
+
+		    background: rgba(0,0,0,.7);
+			
+			.coin-package{
+				display: none;
+				
+				position: absolute;
+				left: 0;
+				top: -90px;
+				right: 0;
+				bottom: 0;
+				z-index: 1;
+
+				margin: auto;
+			}
+
+		    .lottery-con {
+			    position: absolute;
+				left: 0;
+				top: 100px;
+				right: 0;
+				bottom: 0;
+				width: 550px;
+				height: 500px;
+				padding-top: 68px;
+				margin: auto;
+				
+				.winPrize {
+					display: none;
+					text-align: center;
+					
+					.winPrize-bg {
+						position: absolute;
+						top: 0;
+						left: -40px;
+					}
+						
+				}
+				
+				.noPrize {
+					display: none;
+					text-align: center;
+					
+					.no-prize-bg{
+						position: absolute;
+						top: 0;
+						left: -40px;
+					}
+					
+					.lottery-title1{
+						width: 100%;
+						
+						font-size: 46px;
+						font-weight: bold;
+						color: #a96711;
+						line-height: 92px;
+						text-align: center;
+						position: relative;
+						bottom:  50px;
+					}
+					
+					.tear{
+						position: relative;
+						bottom: 35px;
+					}
+				}
+				
+				.scanCode {
+					display: none;
+					text-align: center;
+					
+					.scanCode-bg {
+						position: absolute;
+						top: 0;
+						left: -40px;
+					}
+
+					.tear {
+						position: relative;
+						bottom: 50px;
+					}
+					.scan-code-text{
+						position: relative;
+						bottom: 50px;
+					}
+
+					.scanCode-title {
+						position: relative;
+						z-index: 10;
+
+						display: block;
+
+						margin: -10px auto 0 auto;
+					}
+				}
+
+			    .lottery-title {
+				    width: 100%;
+
+				    font-size: 36px;
+				    font-weight: bold;
+				    color: #eea330;
+				    line-height: 80px;
+				    text-align: center;
+				    position: relative;
+				    bottom:  50px;
+			    }
+
+			    .lottery-dec1 {
+					position: relative;
+				    bottom: 0;
+
+				    .num {
+					    font-size: 28px;
+					    line-height: 50px;
+					    text-align: center;
+					    color: #fa5855;
+					    font-weight: bold;
+
+					    .amount {
+						    font-size: 50px;
+					    }
+						
+						.award-type{
+							color: #666;
+							margin-top: 50px;
+						}
+						
+						.coin{
+							font-size: 28px;
+							color: #a96711;
+						}
+				    }
+			    }
+				
+				.lottery-text {
+					width: 330px;
+					
+					position: absolute;
+					bottom: 40px;
+					left: 110px;
+				}
+
+
+			    .code-wra {
+				    position: absolute;
+				    left: 0;
+				    bottom: 62px;
+				    z-index: 1;
+
+				    width: 100%;
+
+				    .code {
+					    display: block;
+
+					    width: 268px;
+					    height: 253px;
+					    margin: 0 auto;
+				    }
+
+				    .code-text {
+					    font-size: 18px;
+					    text-align: center;
+					    color: #989a99;
+				    }
+			    }
+		    }
+
+		    
+	    }
+    }
+	
+	
+}
+
+
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    .loadCon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+
+        width: 150px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+
+            -webkit-animation: load 4s linear infinite;
+        }
+        #percent {
+            font-size: 24px;
+            line-height: 150px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+        }
+    }
+}
+
+@-webkit-keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(0.7);
+	}
+}
