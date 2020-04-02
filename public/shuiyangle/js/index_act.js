@@ -21,16 +21,16 @@ $(function () {
 	// 	click: true,
 	// })
 
-    /**打开弹出了解活动*/
-    $('.container-img1').on('click', function () {
+	/**打开弹出了解活动*/
+	$('.container-img1').on('click', function () {
 		$('.huodong').fadeIn();
-		
+
 		// scrollWra.refresh();
 	})
-	
-    $('.huodong-con-img2').on('click', function () {
-        $('.huodong').fadeOut()
-    })
+
+	$('.huodong-con-img2').on('click', function () {
+		$('.huodong').fadeOut()
+	})
 
 	/**关闭公众号弹窗*/
 
@@ -67,33 +67,48 @@ $(function () {
 	// 点击开启红包
 	$('#hbbtn').on('click', function () {
 		$('#loadingWrapper').show();
+
+
 		Func.findActivityByEncode(function (res) {
 			if (res.code == 200 || res.code == 201) {
-				Func.lottery(function (red) {
-					$('#loadingWrapper').hide();
-					if (red.code == 200) {
-						if (red.data.lotteryId > 0) {
-							lotteryId = red.data.lotteryId;
+				Func.isSubscribe(function (res) {
+					if (res.code == 200) {
+						if (!res.data.subscribe) { //!res1.data.subscribe 未关注
+							$('#loadingWrapper').hide();
+							$('.gzh').show()
+						} else {
+							Func.lottery(function (red) {
+								$('#loadingWrapper').hide();
+								if (red.code == 200) {
+									if (red.data.lotteryId > 0) {
+										lotteryId = red.data.lotteryId;
+									}
+									var prizeAmount = red.data.redPack.prizeAmount;
+
+									$('.hb-con').hide();
+									$('.hb-con1').find('.num').html(red.data.redPack.prizeAmount);
+									$('.hb-con1').show();
+									$('#hb').fadeIn();
+
+									userCash(prizeAmount, lotteryId);
+								} else if (red.code == 201) {
+									$('.hb-con').hide();
+									$('.hb-con2').show();
+									$('#hb').fadeIn();
+								} else {
+									common.alert({
+										mask: true,
+										content: red.msg
+									})
+								}
+							});
+							$('#loadingWrapper').hide();
 						}
-						var prizeAmount = red.data.redPack.prizeAmount;
-						
-						$('.hb-con').hide();
-						$('.hb-con1').find('.num').html(red.data.redPack.prizeAmount);
-						$('.hb-con1').show();
-						$('#hb').fadeIn();
-						
-						userCash(prizeAmount, lotteryId);
-					} else if (red.code == 201) {
-						$('.hb-con').hide();
-						$('.hb-con2').show();
-						$('#hb').fadeIn();
 					} else {
-						common.alert({
-							mask: true,
-							content: red.msg
-						})
+						$('#loadingWrapper').hide();
 					}
-				});
+				})
+
 
 			} else if (res.code == 203) {
 				$('#loadingWrapper').hide();
@@ -112,54 +127,41 @@ $(function () {
 	})
 
 
-	$('.hb-con-btn').on('click',function(){
-		
+	$('.hb-con-btn').on('click', function () {
+
 		$('.hb-con-item').hide();
 		$('.hb').fadeOut();
 
-
-		Func.isSubscribe(function (res) {
-			if (res.code == 200) {
-				if (!res.data.subscribe) { //!res1.data.subscribe 未关注
-					$('#loadingWrapper').hide();
-					$('.gzh').show()
-				}else{
-					$('#loadingWrapper').hide();
-				} 
-			} else {
-				$('#loadingWrapper').hide();
-			}
-		})
 	})
 
 
-    // // 自动提现
-    function userCash(num, lotteryId) {
-        $.ajax({
-            url: api.userCash,
-            type: 'GET',
-            dataType: 'json',
-            data: {
-                lotteryId: lotteryId,
-                amount: num,
-                cashType: 0,
-            },
-            headers: getHeader(),
-            success: function (res) {
+	// // 自动提现
+	function userCash(num, lotteryId) {
+		$.ajax({
+			url: api.userCash,
+			type: 'GET',
+			dataType: 'json',
+			data: {
+				lotteryId: lotteryId,
+				amount: num,
+				cashType: 0,
+			},
+			headers: getHeader(),
+			success: function (res) {
 
-            },
-            error: function (res) {
+			},
+			error: function (res) {
 
-            }
+			}
 
-        });
-    }
-
-
+		});
+	}
 
 
 
-	
+
+
+
 
 
 })
