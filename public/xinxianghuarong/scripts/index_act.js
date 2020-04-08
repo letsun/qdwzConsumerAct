@@ -47,7 +47,6 @@ $(function() {
                                 } else if (reg.code == 201) {
                                     $('.result-title').html('很遗憾未中奖!');
                                     $('.name').html(reg.msg)
-                                    $('.result-confirm img ').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_8.png');
                                     $('.dec').hide();
                                     $('.dec4').show();
                                 } else if (reg.code == 201) {
