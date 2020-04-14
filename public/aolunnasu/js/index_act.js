@@ -12,7 +12,7 @@ $(function () {
 		data:{},
 		headers: getHeader(),
 		success: function (res) {
-			$('.scanNum').text(res.data.scanNum)
+			$('.scanNum').text(res.data.scanNum);
 
 			$('.scanDate').text(res.data.scanDate)
 		},
