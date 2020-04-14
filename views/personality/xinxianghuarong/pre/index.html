@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/bendakang/css/reset.css">
+	<link rel="stylesheet" href="/bendakang/css/animate.min.css">
+	<link rel="stylesheet" href="/bendakang/css/index.css" />
+	<!-- 样式 end -->
+	<title></title>
+</head>
+<body>
+<!--加载页-->
+<div class="loading">
+	<div class="loadCon">
+		<img src="/bendakang/images/loading.png" />
+		<div id="percent">1%</div>
+	</div>
+</div>
+
+<div class="container" id="container">
+
+	<div class="content">
+		<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_1.png" alt="">
+		<img class="box" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_2.png" alt="">
+		<img class="receive-btn" id="receive-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_3.png" alt="">
+		<img class="bottom" id="receive-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_4.png" alt="">
+		<div class="tips">立信创源提供技术支持</div>
+
+	</div>
+
+	<!--关注二维码弹窗-->
+	<div class="attent-win" id="attent-win">
+
+		<div class="attent-content">
+			<div class="attent-title">温馨提示</div>
+			<div class="attent-dec">
+				<img class="attent-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/4_2.png" />
+				<div class="attent-tips">
+					检测到您尚未关注公众号<br/>
+					请长按识别关注公众号后再扫码获取红包
+				</div>
+			</div>
+
+			<img class="close-attent" id="close-attent" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_13.png">
+		</div>
+	</div>
+
+	<!--抢红包弹窗-->
+	<div class="result-win" id="result-win">
+		<div class="result-con">
+			<div class="result-title">恭喜您获得</div>
+
+			<!--中现金红包-->
+			<div class="dec dec1" style="display: block;">
+				<div class="num"><span>5</span>元</div>
+				<div class="type">现金红包</div>
+				<div class="tips">(红包将通过公众号发放给您，请注意查收)</div>
+			</div>
+
+			<!--未中奖-->
+			<div class="dec dec4">
+				<img class="cry-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_11.png" alt="">
+				<div class="name">感谢使用!</div>
+			</div>
+
+			<!--很遗憾，该码已被扫-->
+			<div class="dec dec5">
+				<img class="cry-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_12.png" alt="">
+				<div class="dec-text">该码红包已被领取<br/>
+					本次扫码是第<span class="scan-num">2</span>次，谨防假冒!
+				</div>
+
+			</div>
+
+			<img class="result-conBg" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_9.png" alt="">
+
+			<!--按钮组-->
+			<div class="result-confirm result-confirm" id="result-confirm" style="display: block;">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/bendakang/1_8.png" alt="">
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<script src="/bendakang/scripts/index_pre.js"></script>
+<!-- 公共js end -->
+
+<script>
+    // 禁止整个页面滑动
+    $('#container').on('touchmove', function (e) {
+        e.preventDefault();
+    });
+
+    /**加载进度*/
+    common.loading($("#percent"));
+
+    window.onload=function () {
+        $('.loading').hide();
+        $('#container').fadeIn();
+    };
+</script>
+
+</body>
+</html>

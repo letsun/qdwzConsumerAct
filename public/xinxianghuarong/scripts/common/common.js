@@ -41,14 +41,14 @@ var timer = [];
     common.alert = function (cfg) {
         //设置默认值
         var ok = cfg.ok || function () {
-        };
+            };
         var okValue = cfg.okValue || "确定";
         var cancel = cfg.cancel || function () {
-        };
+            };
         var cancelValue = cfg.cancelValue || "取消";
         var dialog = cfg.dialog || false;
         var textAlign = cfg.textAlign || "center";
-        var width = cfg.width || "70%";
+        var width = cfg.width || "60%";
 
         //生成随机ID
         var id = Math.ceil(Math.random() * 1000000);
@@ -60,28 +60,28 @@ var timer = [];
             con += 'background-color: rgba(0, 0, 0, 0.5);';
         }
 
-        con += '-webkit-transition: ease-out 0.5s; -moz-transition: ease-out 0.5s;-ms-transition: ease-out 0.3s; -o-transition: ease-out 0.3s;' +
-            'transition: ease-out 0.3s;z-index:9999;opacity:0"><div style="position: absolute;top: 40%;left:50%;width: ' + width +
+        con += '-webkit-transition: ease-out 0.5s; -moz-transition: ease-out 0.5s;-ms-transition: ease-out 0.5s; -o-transition: ease-out 0.5s;' +
+            'transition: ease-out 0.5s;z-index:9999;opacity:0"><div style="position: absolute;top: 40%;left:50%;width: ' + width +
             ';background-color: #fff;border-radius: 10px;overflow: hidden;-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);' +
             '-ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%);transform: translate(-50%,-50%);box-shadow: 3px 3px 10px #666">';
 
         //判断是否有标题
         if (cfg.title) {
-            con += '<div style="font-size: 23px;line-height: 30px;text-align: center;color: #60a0ff;">' + cfg.title + '</div>' +
-                '<div style="font-size: 23px;color: #555;padding: 10px;text-align:' + textAlign + ';border-bottom: 1px solid #ccc;' +
+            con += '<div style="font-size: 24px;line-height: 60px;text-align: center;color: #60a0ff;">' + cfg.title + '</div>' +
+                '<div style="font-size: 24px;color: #555;padding: 20px;line-height:30px;text-align:' + textAlign + ';border-bottom: 1px solid #ccc;' +
                 'word-break:break-all;word-wrap:break-word;position:relative">' + cfg.content + '</div>';
         } else {
-            con += '<div style="font-size: 23px;color: #555;padding: 30px 10px;text-align:' + textAlign + ';border-bottom: 1px solid #ccc;' +
+            con += '<div style="font-size: 24px;color: #555;padding: 40px 20px;line-height:30px;text-align:' + textAlign + ';border-bottom: 1px solid #ccc;' +
                 'word-break:break-all;word-wrap:break-word;position:relative">' + cfg.content + '</div>';
         }
 
         //判断弹框类型，如果为对话框则显示确定和取消按钮
         if (dialog) {
-            con += '<div><button style="width: 48%;height: 60px;border: none;background: none;font-size: 23px;padding: 0;outline: none" ' +
-                'id="dCancel' + id + '">' + cancelValue + '</button><button style="width: 48%;height: 60px;border: none;background: none;' +
-                'font-size: 26px;padding: 0;color: #60a0ff;outline: none;" id="dConfirm' + id + '">' + okValue + '</button></div></div>';
+            con += '<div><button style="width: 48%;height: 80px;border: none;background: none;font-size: 24px;padding: 0;outline: none" ' +
+                'id="dCancel' + id + '">' + cancelValue + '</button><button style="width: 48%;height: 80px;border: none;background: none;' +
+                'font-size: 24px;padding: 0;color: #60a0ff;outline: none;" id="dConfirm' + id + '">' + okValue + '</button></div></div>';
         } else {
-            con += '<div><button style="width: 100%;height: 60px;border: none;background: none;font-size: 26px;' +
+            con += '<div><button style="width: 100%;height: 80px;border: none;background: none;font-size: 24px;' +
                 'padding: 0;color: #60a0ff;outline: none;" id="dConfirm' + id + '">' + okValue + '</button></div></div></div>';
         }
 
@@ -95,16 +95,14 @@ var timer = [];
 
         //取消按钮事件
         $("#dCancel" + id).on("click", function () {
-            cancel();
             $(this).parents(".alert").remove();
+            cancel();
         });
 
         //确定按钮事件
         $("#dConfirm" + id).on("click", function () {
-            var state = ok();
-            if (state !== false) {
-                $(this).parents(".alert").remove();
-            }
+            $(this).parents(".alert").remove();
+            ok();
         });
     };
 
@@ -175,7 +173,7 @@ var timer = [];
      * @desc 显示页面加载百分比
      * @param ele {Object} 显示百分比的元素
      */
-    common.loading = function (ele, callback) {
+    common.loading = function (ele) {
         var loadpicarray;
         var picloaded = 0;
 
@@ -186,13 +184,7 @@ var timer = [];
             img.onload = function () {
                 picloaded++;
                 var lstr = Math.ceil(100 * picloaded / loadpicarray.length) + "%";
-				console.log(picloaded,lstr)
                 $("#percent").html(lstr);
-                if (lstr === "100%") {
-                    if (callback && typeof callback === 'function') {
-                        callback();
-                    }
-                }
             };
             img.src = loadpicarray[i].src;
         }

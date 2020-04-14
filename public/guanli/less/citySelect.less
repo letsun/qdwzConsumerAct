@@ -1,0 +1,53 @@
+@import "reset";
+
+.city-content {
+    
+	width: 500px;
+	margin: 25px auto 0 auto;
+	
+	display: flex;
+	justify-content: space-between;
+
+    .inputBox {
+        width: 90%;
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 16px;
+
+        input[type="text"],
+        select {
+            width: 95%;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 5%;
+            background: rgb(217, 217, 217);
+            font-size: 14px;
+        }
+
+        select {
+            width: 100%;
+			height: 60px;
+			line-height: 60px;
+            border: none;
+            color: #999 !important;
+            font-size: 24px !important;
+            -webkit-appearance: inherit;
+            -moz-appearance: inherit;
+            background: url("../images/regis_2.png") right center no-repeat rgb(217, 217, 217);
+            outline: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        input:-webkit-autofill {
+            box-shadow: 0 0 0 1000px rgb(217, 217, 217) inset;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #999;
+        }
+    }
+
+    .cityBox, .areaBox {
+        display: none;
+    }
+}

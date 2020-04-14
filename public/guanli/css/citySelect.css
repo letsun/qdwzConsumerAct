@@ -1,0 +1,143 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  color: #333;
+  background: #fff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+}
+input[type='text'],
+input[type='password'],
+input[type='submit'],
+textarea,
+button,
+select {
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  position: relative;
+  max-width: 768px;
+  margin: 0 auto;
+}
+.clearFix:before,
+.clearFix:after {
+  display: table;
+  content: ' ';
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.city-content {
+  width: 500px;
+  margin: 25px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.city-content .inputBox {
+  width: 90%;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 16px;
+}
+.city-content .inputBox input[type="text"],
+.city-content .inputBox select {
+  width: 95%;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 5%;
+  background: #d9d9d9;
+  font-size: 14px;
+}
+.city-content .inputBox select {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border: none;
+  color: #999 !important;
+  font-size: 24px !important;
+  -webkit-appearance: inherit;
+  -moz-appearance: inherit;
+  background: url("../images/regis_2.png") right center no-repeat #d9d9d9;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.city-content .inputBox input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #d9d9d9 inset;
+}
+.city-content .inputBox input::-webkit-input-placeholder {
+  color: #999;
+}
+.city-content .cityBox,
+.city-content .areaBox {
+  display: none;
+}
