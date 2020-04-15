@@ -15,7 +15,10 @@ function setSessionHeader(isClearSession) {
 	var timestamp = '';
 
 	// 重置headerInfor
+	
+	
 	if (isClearSession) {
+		
 		session.removeItem('headerInfor');
 	}
 

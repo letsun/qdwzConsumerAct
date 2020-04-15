@@ -1,4 +1,16 @@
 $(function() {
+	// 获取屏幕高度改变活动须知按钮位置
+	// 屏幕适配
+	var innerHeight = window.innerHeight;
+	console.log(innerHeight/2)
+	if (innerHeight / 2 > 610) {
+		$('.rule-btn').attr('src','https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/dongfanghongNew2/1_8.png')
+		$('.rule-btn').css({
+			'right': 35 + '%',
+			'top': 26 + '%',
+		});
+	}
+	
     var prizeAmount = '';
     var lotteryId = '';
 
