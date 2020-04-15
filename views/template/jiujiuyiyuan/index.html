@@ -42,6 +42,10 @@
 		<div class="detail">
 			查询ID
 		</div>
+
+		<div class="footer"></div>
+
+		<%-include("../../include/loading", {loadingTip: '正在加载中'}) %>
 	</div>
 
 	<!-- 隐藏页 -->
@@ -100,6 +104,8 @@
 		</div>
 
 		<div class="footer"></div>
+
+		
 	</div>
 </body>
 
@@ -115,14 +121,15 @@
 <script>
 
 	// 禁止整个页面滑动
-	// $('#container').on('touchmove', function (e) {
-	// 	e.preventDefault();
-	// });
+	$('.container').on('touchmove', function (e) {
+		e.preventDefault();
+	});
 
 
 		// alert(null + null == 0)
 	/**加载进度*/
 	common.loading($("#percent"));
+
 
 	window.onload = function () {
 		$('.loading').hide();
@@ -139,10 +146,26 @@
 		}, 100);
 	});
 
-	$('.detail').on('click', function () {
-		var validateCode = $('.inp input').val();
+	var winHeight = $(window).height();   //获取当前页面高度
+    // $(window).resize(function () {
+    //     var thisHeight = $(this).height();
+    //     if (winHeight - thisHeight > 50) {
+    //         //当软键盘弹出，在这里面操作
+    //     } else {
+    //         //当软键盘收起，在此处操作
+    //         window.scroll(0,0);
+    //     }
+    // });
 
+	
+
+	$('.detail').on('click', function () {
+		
+		var validateCode = $('.inp input').val();
+		
 		if (validateCode != '') {
+
+			$('#loadingWrapper').show();
 			$.ajax({
 				url: api.validate,
 				type: 'GET',
@@ -181,13 +204,15 @@
 						})
 					}
 
-
+					$('#loadingWrapper').hide();
 				},
 				error: function (res) {
 					common.alert({
 						mask: true,
 						content: res.msg
 					})
+
+					$('#loadingWrapper').hide();
 				}
 			});
 		} else {
