@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/shenqing/css/index.css" />
+
+</head>
+
+<body>
+
+	<!--加载页-->
+
+	<div class="loading">
+		<div class="loadCon">
+			<img src="/shenqing/images/loading.png" />
+			<div id="percent">1%</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="logo">
+			<img class="logo1" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/1_5.png">
+			<img class="logo2" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/1_6.png">
+		</div>
+		<div class="con">
+			<img class="con1" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/1_3.png">
+			<img class="con2" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/1_1.png">
+			<img class="con3" id='hongbao'
+				src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/1_2.png">
+		</div>
+
+		<div class="footer">
+			深青供应链管理 （深圳） 有限公司
+		</div>
+
+		<div class="mask">
+
+			<div class="mask-cona">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/2_2.png">
+				<div class="mask-con mask-con1 ">
+					<div class="mask-con-title">恭喜您获得</div>
+					<div class="mask-con-text1">
+						<span class="num">8.88</span>元
+					</div>
+					<div class="mask-con-text2">现金红包</div>
+					<div class="mask-con-text3">已通过微信公众号发放，请注意查收！</div>
+
+					<div class="mask-btn">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/2_1.png">
+					</div>
+				</div>
+
+				<div class="mask-con mask-con2">
+					<div class="mask-con-title">很遗憾未中奖</div>
+					<div class="mask-img">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/3_1.png">
+					</div>
+
+					<div class="mask-btn mask-btn1">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/2_1.png">
+					</div>
+				</div>
+
+				<div class="mask-con mask-con3">
+					<div class="mask-con-title">该码已被扫</div>
+					<div class="mask-img">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/4_1.png">
+					</div>
+					<div class="mask-btn mask-btn1">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/2_1.png">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+	</div>
+
+
+</body>
+
+
+<!-- 公共js start -->
+<%-include("../../../include/commonJs") %>
+<%-include("../../../include/hideMenu") %>
+
+
+<script src="/shenqing/js/api.js"></script>
+<script src="/shenqing/js/Func.js"></script>
+<script src="/shenqing/js/index_act.js"></script>
+
+<script>
+
+	/**加载进度*/
+	common.loading($("#percent"), function () {
+
+		$('.loading').hide();
+		$('.container').fadeIn();
+	});
+</script>
+
+</html>

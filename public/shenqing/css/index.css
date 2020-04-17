@@ -1,0 +1,259 @@
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+select {
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+  cursor: pointer;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+}
+body {
+  background: #fff;
+}
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 9999;
+}
+.loading .loadCon {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-left: -75px;
+  margin-top: -75px;
+}
+.loading .loadCon img {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.loading .loadCon #percent {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 150px;
+  font-size: 24px;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/shenqing/1_4.png);
+  background-size: 100% 100%;
+}
+.container .logo {
+  text-align: center;
+}
+.container .logo .logo1 {
+  margin: 40px 0 20px 0;
+}
+.container .con {
+  position: relative;
+}
+.container .con .con2 {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.container .con .con3 {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -webkit-animation: scale 1.3s linear alternate infinite;
+}
+.container .footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+  color: #f4f4f4;
+}
+.container .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+.container .mask .mask-cona {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.container .mask .mask-cona .mask-con {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.container .mask .mask-cona .mask-con .mask-con-title {
+  margin-top: 70px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #F3AB4D;
+}
+.container .mask .mask-cona .mask-con .mask-con-title {
+  color: #FD4D4C;
+}
+.container .mask .mask-cona .mask-con .mask-con-text1 {
+  color: #FD4D4C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 60px;
+}
+.container .mask .mask-cona .mask-con .mask-con-text1 .num {
+  font-size: 50px;
+}
+.container .mask .mask-cona .mask-con .mask-con-text2 {
+  margin-top: 10px;
+  font-size: 28px;
+  color: #FD4D4C;
+}
+.container .mask .mask-cona .mask-con .mask-con-text3 {
+  margin-top: 40px;
+  color: #FD4D4C;
+}
+.container .mask .mask-cona .mask-con .mask-img {
+  margin-top: 50px;
+}
+.container .mask .mask-cona .mask-con .mask-img img {
+  display: block;
+  margin: auto;
+}
+.container .mask .mask-cona .mask-con .mask-btn {
+  margin-top: 130px;
+}
+.container .mask .mask-cona .mask-con .mask-btn1 {
+  margin-top: 100px;
+}
+.container .mask .mask-cona .mask-con1 {
+  display: none;
+}
+.container .mask .mask-cona .mask-con2 {
+  display: none;
+}
+.container .mask .mask-cona .mask-con3 {
+  display: none;
+}
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.8);
+  }
+}
