@@ -34,6 +34,13 @@ $(function () {
 		}
 	});
 
+
+	if (window.innerHeight>1206) {
+		$('.logo').css({
+			"padding-top":"130px"
+		})
+	}
+
 	// 点击开启红包
 	$('#hongbao').on('click', function () {
 		$('#loadingWrapper').show();
