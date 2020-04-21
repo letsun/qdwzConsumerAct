@@ -24,7 +24,7 @@
 			</div>
 
 
-			<div class="con">
+			<div class="con ">
 				<div class="con-title">
 					<img src="/ouke/images/1_3.png">
 					产品信息
@@ -35,7 +35,7 @@
 			</div>
 
 
-			<div class="con">
+			<div class="con cona">
 				<div class="con-title">
 					<img src="/ouke/images/1_3.png">
 					溯源信息
@@ -51,18 +51,18 @@
 						<div class="con-val" id= 'productSpec'></div>
 					</div>	
 					
-					<!-- <div class="con-item">
+					<div class="con-item">
 						<div class="con-key">出厂时间：</div>
-						<div class="con-val" id= ''></div>
+						<div class="con-val" id= 'createDate'></div>
 					</div>	
 
 					<div class="con-item">
 						<div class="con-key">销售渠道：</div>
-						<div class="con-val" id= ''></div>
-					</div>	 -->
+						<div class="con-val" id= 'dealerRemark'></div>
+					</div>	
 				</div>		
 			</div>
-			<div class="con">
+			<div class="con cona">
 				<div class="con-title">
 					<img src="/ouke/images/1_3.png">
 					防伪信息
@@ -104,7 +104,7 @@
 
 		var html = '';
 		$.ajax({
-			url: api.findEncodeFunction,
+			url: api.findRealEncodeFunction,
 			type: 'GET',
 			dataType: 'json',
 			headers: getHeader(),
@@ -112,6 +112,10 @@
 				if (res.code == 200) {
 					data = res.data.productRecord;
 					var jsonPropArr = data.productJson;	
+
+
+					var originRecord = res.data.originRecord;
+					console.log(originRecord)
 				
 					for (key in jsonPropArr) {
 						html += '<div class="con-item">';
@@ -122,7 +126,14 @@
 					}
 					$('#jsonPropArr').html(html);
 					$('#productName').html(data.productName);
-					$('#productSpec').html(data.productSpec);
+					$('#productSpec').html(data.productSpec + res.data.unit);
+
+					if (originRecord!='') {
+						$('#createDate').html(originRecord[0].createDate);
+						$('#dealerRemark').html(originRecord[0].dealerRemark);
+					}else{
+						$(".cona").hide();
+					}
 
 				} else {
 					common.alert({
