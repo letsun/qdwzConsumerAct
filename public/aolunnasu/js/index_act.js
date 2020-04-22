@@ -5,22 +5,47 @@ $(function () {
 	// 	$('.mask-con1').fadeIn();
 	// })
 
-	$.ajax({
-		url: api.findScanNum,
-		type: 'POST',
-		dataType: 'json',
-		data:{},
-		headers: getHeader(),
-		success: function (res) {
-			$('.scanNum').text(res.data.scanNum);
 
-			$('.scanDate').text(res.data.scanDate)
-		},
-		error: function (res) {
+	var str= window.location.href;
+	var search = "resultType=0";
+	var start = str.indexOf(search);//获得字符串的开始位置
+	var result = str.substring(start,start+search.length);//截取字符串
+	console.log(result)
 
-		}
 
-	});
+	
+	if (result == "resultType=0") {
+		$('.text-title').html('验证为正品');
+		$('.footer').hide();
+	}else {
+		$.ajax({
+			url: api.findScanNum,
+			type: 'POST',
+			dataType: 'json',
+			data:{},
+			headers: getHeader(),
+			success: function (res) {
+				$('.scanNum').text(res.data.scanNum);
+	
+				$('.scanDate').text(res.data.scanDate)
+			},
+			error: function (res) {
+	
+			}
+	
+		});
+	}
+
+	// console.log(window.location.href)
+	// var str= window.location.href;
+	// var search = "resultType=1";
+
+	// var result = str.match(search)[0];//截取字符串
+	
+	
+
+
+
 
 
 

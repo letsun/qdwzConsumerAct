@@ -2,7 +2,7 @@ var dev = 'http://192.168.1.57:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = dev;
+var ip = production;
 
 var api = {
 	validate :ip + '/consumerActivity/jjyy/validate',								//防伪次数接口
