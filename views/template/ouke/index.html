@@ -125,8 +125,8 @@
 						html += '</div>';
 					}
 					$('#jsonPropArr').html(html);
-					$('#productName').html(data.productName);
-					$('#productSpec').html(data.productSpec + res.data.unit);
+					$('#productName').html(res.data.productName);
+					$('#productSpec').html(res.data.productSpec + res.data.unit);
 
 					if (originRecord!='') {
 						$('#createDate').html(originRecord[0].createDate);
