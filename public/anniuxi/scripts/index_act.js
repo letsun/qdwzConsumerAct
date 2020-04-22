@@ -89,9 +89,7 @@ $(function () {
                             }
                         }
 
-
                         var totalRotate = rotate * 4 + perRotate * rand - 30;
-
 
                         //未中奖
                         if (reg.data.prizeId == 0) {
@@ -108,9 +106,6 @@ $(function () {
                             'transition': 'transform 4s cubic-bezier(.68,.06,.39,.97)',
                             'transform': 'rotate(' + (-totalRotate) + 'deg)'
                         });
-
-
-
 
                         // if (reg.data.prizeId != 0) {
 
@@ -184,7 +179,7 @@ $(function () {
                 content: '抽奖还未结束'
             })
         }
-    })
+    });
 
     // window.location.replace("https://www.runoob.com")
 
