@@ -1,0 +1,573 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+  cursor: pointer;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.loading {
+  line-height: 70px;
+  text-align: center;
+}
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.loading .loadCon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.loading .loadCon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  font-size: 24px;
+  line-height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
+.common-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.container .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/1_8.png') no-repeat;
+  background-size: 100% 100%;
+}
+.container .content .logo {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  z-index: 1;
+  width: 150px;
+  margin-left: -75px;
+}
+.container .content .rule-btn {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  z-index: 2;
+  width: 87px;
+}
+.container .content .winning-btn {
+  position: absolute;
+  right: 0;
+  top: 302px;
+  z-index: 2;
+  width: 87px;
+}
+.container .content .verification-wra {
+  position: absolute;
+  left: 0;
+  top: 240px;
+  z-index: 1;
+  width: 100%;
+}
+.container .content .verification-wra .verification-icon {
+  display: none;
+}
+.container .content .verification-wra .verification-icon img {
+  display: block;
+  margin: 0 auto;
+}
+.container .content .verification-wra .verification-icon1 {
+  display: block;
+}
+.container .content .verification-wra .verification-text {
+  position: relative;
+  z-index: 2;
+  padding: 0 122px;
+  margin: -20px auto 0 auto;
+  font-size: 24px;
+  line-height: 40px;
+  color: #ed7d0f;
+  text-align: center;
+}
+.container .content .pack-wra {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  width: 577px;
+  height: 800px;
+  margin-left: -288.5px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/1_7.png') no-repeat;
+  background-size: 100% 100%;
+}
+.container .content .pack-wra .pack-btn {
+  position: absolute;
+  left: 50%;
+  top: 376px;
+  z-index: 1;
+  width: 276px;
+  margin-left: -138px;
+}
+.container .rule-win {
+  display: none;
+  z-index: 999;
+}
+.container .rule-win .rule-content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 1;
+  width: 100%;
+  -webkit-transform: translateY(-50%);
+}
+.container .rule-win .rule-content .rule-title {
+  display: block;
+  margin: 0 auto;
+}
+.container .rule-win .rule-content .rule-dec-wra {
+  width: 630px;
+  margin: -68px auto 0 auto;
+  padding: 0 40px 40px 40px;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 0 0 15px 15px;
+}
+.container .rule-win .rule-content .rule-dec {
+  height: 546px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 46px;
+  color: #bd7314;
+  overflow-y: scroll;
+}
+.container .rule-win .rule-content .close-rule {
+  position: absolute;
+  left: 50%;
+  bottom: -100px;
+  z-index: 1;
+  width: 64px;
+  margin-left: -32px;
+}
+.container .result-win {
+  z-index: 999;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.container .result-win .result-con {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 731px;
+  height: 828px;
+  padding-top: 44px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/3_3.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.container .result-win .result-con .result-title {
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  color: #eeaa47;
+  line-height: 54px;
+  font-weight: bold;
+}
+.container .result-win .result-con .dec {
+  position: relative;
+  display: none;
+  margin-top: 30px;
+  text-align: center;
+}
+.container .result-win .result-con .dec1 .num {
+  line-height: 60px;
+  color: #fd575b;
+}
+.container .result-win .result-con .dec1 .num span {
+  font-size: 60px;
+  color: #fc575b;
+  font-weight: bold;
+}
+.container .result-win .result-con .dec1 .type {
+  margin-top: 10px;
+  color: #fd575b;
+  font-size: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+.container .result-win .result-con .dec1 .result-icon {
+  display: block;
+  width: 190px;
+  margin: 40px auto 0 auto;
+}
+.container .result-win .result-con .dec2 .result-icon {
+  display: block;
+  width: 190px;
+  margin: 60px auto 0 auto;
+}
+.container .result-win .result-con .dec2 .type {
+  margin-top: 60px;
+  color: #000;
+  font-size: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+.container .result-win .result-con .result-btn {
+  position: absolute;
+  left: 23%;
+  bottom: 5%;
+  z-index: 2;
+  display: none;
+  width: 54%;
+  cursor: pointer;
+}
+.container .submit-win {
+  z-index: 999;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.container .submit-win .submit-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 727px;
+  height: 848px;
+  padding-top: 526px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/5_2.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.container .submit-win .submit-content .form {
+  width: 504px;
+  margin: 0 auto;
+}
+.container .submit-win .submit-content .form .form-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+.container .submit-win .submit-content .form .form-item .form-left {
+  flex: 1;
+}
+.container .submit-win .submit-content .form .form-item .form-input {
+  display: block;
+  width: 100%;
+  height: 70px;
+  padding: 0 24px;
+  line-height: 70px;
+  font-size: 30px;
+  border: 1px solid #fcb34d;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+.container .submit-win .submit-content .form .form-item .form-input::-webkit-input-placeholder {
+  color: #ac4604;
+}
+.container .submit-win .submit-content .form .form-item .get-code {
+  display: block;
+  width: 180px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  border-radius: 12px;
+  background: #ffc368;
+}
+.container .submit-win .submit-content .form .form-item .submit-btn {
+  display: block;
+  width: 100%;
+}
+.container .submit-win .submit-content .form .form-other-item .form-input {
+  border-radius: 12px 0 0 12px;
+  border-right: none;
+}
+.container .success-win {
+  z-index: 999;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.container .success-win .success-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 727px;
+  height: 898px;
+  padding-top: 526px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/6_1.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.container .success-win .success-content .code {
+  display: block;
+  margin: 0 auto;
+}
+.container .success-win .success-content .code-text {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 28px;
+  line-height: 44px;
+  color: #fe3e3d;
+}
+.container .record-win {
+  z-index: 999;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+}
+.container .record-win .header {
+  position: relative;
+  width: 100%;
+}
+.container .record-win .header .header-bg {
+  display: block;
+  width: 100%;
+}
+.container .record-win .header .user-info {
+  position: absolute;
+  left: 36px;
+  top: 106px;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.container .record-win .header .user-info .avatar {
+  display: block;
+  width: 116px;
+  height: 116px;
+  border: 6px solid #fdbb81;
+  border-radius: 50%;
+}
+.container .record-win .header .user-info .nickname {
+  margin-left: 16px;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+}
+.container .record-win .record-con {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 410px;
+  bottom: 76px;
+  z-index: 1;
+  padding-top: 60px;
+  border-radius: 18px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.container .record-win .record-con .record-title .item {
+  display: flex;
+  padding: 20px 0;
+  margin: 0 40px;
+  align-items: center;
+  font-size: 30px;
+  color: #000;
+  line-height: 32px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+.container .record-win .record-con .record-title .item .item-name {
+  width: 50%;
+}
+.container .record-win .record-con .record-title .item .item-time {
+  width: 50%;
+}
+.container .record-win .record-con .scroll-wra {
+  position: absolute;
+  left: 0;
+  top: 136px;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+}
+.container .record-win .record-con .scroll-wra .list .item {
+  display: flex;
+  padding: 30px 0;
+  margin: 0 40px;
+  align-items: center;
+  font-size: 24px;
+  color: #999;
+  line-height: 26px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+.container .record-win .record-con .scroll-wra .list .item .item-name {
+  width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.container .record-win .record-con .scroll-wra .list .item .item-time {
+  width: 50%;
+}
+.container .record-win .record-con .scroll-wra .list .item:last-child {
+  border-bottom: none;
+}
+.container .record-win .header-back {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 70px;
+}
+.container .record-win .header-back .back-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 102px;
+  height: 70px;
+  display: block;
+  line-height: 70px;
+  font-size: 24px;
+  color: #fff;
+}
+.container .record-win .header-back .back-icon span {
+  margin-left: 36px;
+  color: #fff;
+  font-size: 24px;
+}
+.container .record-win .header-back h3 {
+  width: 100%;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 70px;
+  color: #fff;
+  letter-spacing: 1px;
+}
