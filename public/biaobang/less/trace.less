@@ -1,0 +1,110 @@
+@import 'reset';
+
+.container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+
+  .header {
+    background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/6_3.png) no-repeat;
+    background-size: 100% 100%;
+    height: 310px;
+    width: 100%;
+    text-align: center;
+
+    .header-return {
+      padding-top: 30px;
+      position: relative;
+      text-align: center;
+      font-size: 40px;
+      color: #fff;
+  
+      img {
+        position: absolute;
+        left: 30px;
+        top: 36px;
+      }
+    }
+  }
+
+  .con {
+    margin: 30px;
+    padding: 30px;
+    border-radius:15px ;
+    box-shadow: 0 0 10px #ddd;
+
+    .con-title {
+      font-size: 30px;
+      font-weight: bold;
+    
+      span {
+        border-right: 8px solid #FE9D4B ;
+        border-radius: 5px;
+        margin-right: 20px;
+      }
+    }
+
+    .con-item {
+      display: flex;
+      padding-left: 30px;
+      line-height: 80px;
+      font-size: 26px;
+
+      .con-item-key {
+        width: 130px;
+        color: #FE9D4B;
+
+      }
+
+      .con-item-val {
+        width:460px;
+        word-break: break-all;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+	.header-back {
+		position: fixed;
+		left: 0;
+		top:0;
+		z-index: 99;
+
+		width: 100%;
+		height: 70px;
+
+		.back-icon {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: 102px;
+			height: 70px;
+			display: block;
+			line-height: 70px;
+			font-size: 24px;
+
+			color: #fff;
+
+			span {
+				margin-left: 36px;
+
+				color: #fff;
+				font-size: 24px;
+			}
+		}
+
+		h3 {
+			width: 100%;
+
+			font-size: 32px;
+			font-weight: bold;
+			text-align: center;
+			line-height: 70px;
+			color: #fff;
+			letter-spacing: 1px;
+		}
+	}
+}

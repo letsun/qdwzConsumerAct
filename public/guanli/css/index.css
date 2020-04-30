@@ -549,7 +549,7 @@ body {
 #app .container .submit-info-wrap .rule-content .submit-info-content input::-webkit-input-placeholder {
   /*WebKit browsers*/
   font-size: 24px;
-  color: #e6e6 e;
+  color: #e6e6e;
 }
 #app .container .submit-info-wrap .rule-content .submit-info-content .name-post {
   width: 500px;
