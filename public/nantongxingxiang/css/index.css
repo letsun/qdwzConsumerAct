@@ -1,0 +1,234 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form,
+input {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  cursor: pointer;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+  cursor: pointer;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+select {
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+body {
+  background: #F9F9F9;
+}
+.container {
+  position: relative;
+  width: 100%;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+.container .header {
+  position: relative;
+}
+.container .header img {
+  display: block;
+}
+.container .header .logo {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.container .con {
+  position: relative;
+  margin: 0 50px;
+  margin-top: -80px;
+  padding: 80px 0;
+  border-radius: 15px;
+  background: #fff;
+}
+.container .con .con-title {
+  text-align: center;
+}
+.container .con .con-form {
+  padding: 30px 50px;
+}
+.container .con .con-form .form-inp {
+  margin-top: 20px;
+  display: flex;
+  padding: 20px 0;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+.container .con .con-form .form-inp .from-key {
+  width: 10%;
+  align-self: center;
+}
+.container .con .con-form .form-inp .from-key img {
+  display: block;
+  margin: auto;
+}
+.container .con .con-form .form-inp .from-value {
+  width: 90%;
+}
+.container .con .con-form .form-inp .from-value input {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+}
+.container .con .con-form .form-inp:last-child {
+  position: relative;
+}
+.container .con .con-form .form-inp:last-child .from-value {
+  width: 300px;
+}
+.container .con .con-form .form-inp:last-child .from-value input {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+}
+.container .con .con-form .form-inp:last-child .from-vcode {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 180px;
+  text-align: center;
+  line-height: 72px;
+  border-radius: 10px;
+  background: #4167F6;
+  color: #f4f4f4;
+}
+.container .con .con-btn {
+  margin: 0 50px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 70px;
+  letter-spacing: 5px;
+  border-radius: 10px;
+  background: #4167F6;
+  color: #f4f4f4;
+}
+.container .mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+.container .mask .mask-con {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.container .mask .mask-con .mask-gzh {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+}
+.container .mask .mask-con .mask-text {
+  position: absolute;
+  top: 425px;
+  left: 0;
+  right: 0;
+  color: #666;
+}
+.container .mask .mask-con .mask-btn {
+  margin-top: 20px;
+}
