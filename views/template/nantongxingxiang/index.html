@@ -127,7 +127,7 @@
 			console.log(!res.data.subscribe)
 			if (!res.data.subscribe) {
 				$('.mask').show();
-			}else {
+			} else {
 				$('.mask').hide();
 			}
 		})
@@ -187,15 +187,18 @@
 					productionDate: productionDate,
 				}, function (res) {
 					if (res.code == 200) {
-						console.log(res.data.province ,res.data.city,res.data.district)
+						console.log(res.data.province, res.data.city, res.data.district)
 
-						if (res.data.province == null) {
-							var address  = '';
-						}else{
-							var address  = res.data.province + res.data.city + res.data.district;
+						var province = res.data.province;
+						var city = res.data.city;
+						var district = res.data.district;
+						if (province == null) {
+							var address = '';
+						} else {
+							var address = encodeURI(encodeURI(province + city + district)); 
 						}
 
-						location.href="productInfo?createDateTimeStr="+ res.data.createDateTimeStr + '&address='+address;
+						location.href = "productInfo?createDateTimeStr=" + res.data.createDateTimeStr + '&address=' + address;
 
 					} else {
 						common.alert({
@@ -203,8 +206,11 @@
 						})
 					}
 				})
-				
+
 			}
+			
+			var address = encodeURI(encodeURI('省市区'));
+			location.href = "productInfo?&address=" + address;
 
 		})
 

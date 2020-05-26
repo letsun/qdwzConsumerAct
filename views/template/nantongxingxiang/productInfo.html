@@ -77,7 +77,7 @@
 <script>
 	$(function () {
 		var createDateTimeStr = Global.getUrlParam('createDateTimeStr');
-		var address = Global.getUrlParam('address');
+		var address =decodeURI(Global.getUrlParam('address'));
 
 		$('#createDateTimeStr').text(createDateTimeStr);
 		$('#address').text(address);
