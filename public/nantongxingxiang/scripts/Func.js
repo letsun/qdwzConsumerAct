@@ -100,6 +100,44 @@ $(function() {
 		});
 	}
 
+
+		/**
+	 * 获取短信验证码
+	 * @return null
+	 */
+	Func.getVerCode = function (data, callback) {
+
+		$.ajax({
+			url: api.getVerCode,
+			type: 'GET',
+			headers: getHeader(),
+			data: data,
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
+
+			/**
+	 * 
+	 * @return null
+	 */
+	Func.productVerificationFunc = function (data, callback) {
+
+		$.ajax({
+			url: api.productVerificationFunc,
+			type: 'GET',
+			headers: getHeader(),
+			data: data,
+			dataType: 'json',
+			success: function (res) {
+				callback(res);
+			}
+		});
+	}
+
 	/**
 	 * 查找二维码情况
 	 * @param  function callback 查找后的回调

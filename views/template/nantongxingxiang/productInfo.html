@@ -30,11 +30,11 @@
 				</div>
 				<div class="companyinfo-con">
 					<div class="companyinfo-con-key">扫码位置</div>
-					<div class="companyinfo-con-value">广东省深圳市宝安区</div>
+					<div class="companyinfo-con-value" id="address"></div>
 				</div>
 				<div class="companyinfo-con">
 					<div class="companyinfo-con-key">扫码时间</div>
-					<div class="companyinfo-con-value">2020.05.12 14:30:15</div>
+					<div class="companyinfo-con-value" id="createDateTimeStr"></div>
 				</div>
 			</div>
 			<div class="companyinfo-right">
@@ -75,8 +75,13 @@
 
 
 <script>
+	$(function () {
+		var createDateTimeStr = Global.getUrlParam('createDateTimeStr');
+		var address = Global.getUrlParam('address');
 
-
+		$('#createDateTimeStr').text(createDateTimeStr);
+		$('#address').text(address);
+	})
 
 </script>
 

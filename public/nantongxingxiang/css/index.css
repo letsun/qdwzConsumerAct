@@ -72,7 +72,7 @@ textarea {
   resize: none;
 }
 body {
-  max-width: 750px;
+  width: 750px;
   margin: 0 auto;
   position: relative;
 }
@@ -221,6 +221,10 @@ body {
   top: 150px;
   left: 0;
   right: 0;
+}
+.container .mask .mask-con .mask-gzh img {
+  width: 260px;
+  height: 260px;
 }
 .container .mask .mask-con .mask-text {
   position: absolute;

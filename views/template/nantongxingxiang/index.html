@@ -31,7 +31,8 @@
 							alt="" srcset="">
 					</div>
 					<div class="from-value">
-						<input type="text" placeholder="请输入铭牌上的产品编号，如：3..." data-validateInfor="{strategy:isEmpty,msg:产品编号不能为空}">
+						<input type="text" id="productCode" placeholder="请输入铭牌上的产品编号，如：3..."
+							data-validateInfor="{strategy:isEmpty,msg:产品编号不能为空}">
 					</div>
 				</label>
 
@@ -41,7 +42,8 @@
 							alt="" srcset="">
 					</div>
 					<div class="from-value">
-						<input type="text" placeholder="请输入铭牌上的出厂年月，如：202001" data-validateInfor="{strategy:isEmpty,msg:出厂年月不能为空}">
+						<input type="text" id="productionDate" placeholder="请输入铭牌上的出厂年月，如：202001"
+							data-validateInfor="{strategy:isEmpty,msg:出厂年月不能为空}">
 					</div>
 				</label>
 
@@ -51,7 +53,8 @@
 							alt="" srcset="">
 					</div>
 					<div class="from-value">
-						<input type="text" id='mobile' placeholder="请输入您的手机号" data-validateInfor="{strategy:isEmpty,msg:手机号不能为空}">
+						<input type="text" id='mobile' maxlength="11" placeholder="请输入您的手机号"
+							data-validateInfor="{strategy:isEmpty,msg:手机号不能为空}">
 					</div>
 				</label>
 
@@ -61,7 +64,8 @@
 							alt="" srcset="">
 					</div>
 					<div class="from-value">
-						<input type="text" placeholder="请输入验证码" data-validateInfor="{strategy:isEmpty,msg:验证码不能为空}">
+						<input type="text" id='verCode' placeholder="请输入验证码"
+							data-validateInfor="{strategy:isEmpty,msg:验证码不能为空}">
 					</div>
 
 					<div class="from-vcode">
@@ -81,7 +85,8 @@
 			<div class="mask-con">
 				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/2_1.png">
 				<div class="mask-gzh">
-					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/2_2.png" >					
+					<img
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/2_2.png">
 				</div>
 
 				<div class="mask-text">
@@ -89,7 +94,8 @@
 					查询防伪验证
 				</div>
 
-				<img class="mask-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/2_3.png">
+				<!-- <img class="mask-btn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/2_3.png"> -->
 			</div>
 		</div>
 	</div>
@@ -105,32 +111,60 @@
 <script src="/common/scripts/validate.js"></script>
 
 
+<script src="/nantongxingxiang/scripts/api.js"></script>
+<script src="/nantongxingxiang/scripts/Func.js"></script>
+
 <script>
 
 	$(function () {
 		// 获取验证码倒计时
 		var doc = $(document);
-		var intDiff = 5;//验证码倒计时总秒数量
+		var intDiff = 60;//验证码倒计时总秒数量
 		var backInterval;
 		var isflag = true;
+
+		Func.isSubscribe(function (res) {
+			console.log(!res.data.subscribe)
+			if (!res.data.subscribe) {
+				$('.mask').show();
+			}else {
+				$('.mask').hide();
+			}
+		})
+
 
 
 		//获取验证码
 		$('.from-vcode').on('click', function () {
 			var that = $(this);
 
-			var mobile =$('#mobile').val();
-			if (mobile=='') {
+			var mobile = $('#mobile').val();
+			if (mobile == '') {
 				common.alert({
-					content:"手机号不能为空"
+					content: "手机号不能为空"
 				})
 				return false;
 			}
 			if (isflag) {
-				isflag = false;
-				if (typeof timer(intDiff) != "undefined") {
-					that.html("验证码" + "(" + timer(intDiff) + ")");
-				}
+				Func.getVerCode({
+					mobile: mobile
+
+				}, function (res) {
+					if (res.code == 200) {
+
+						isflag = false;
+						if (typeof timer(intDiff) != "undefined") {
+							that.html("验证码" + "(" + timer(intDiff) + ")");
+						}
+					} else {
+						common.alert({
+							content: res.msg
+						})
+					}
+
+				})
+
+
 			}
 		})
 
@@ -141,9 +175,37 @@
 			if (!res) {
 				return;
 			} else {
-				location.href="productInfo"
+				var mobile = $('#mobile').val();
+				var verCode = $('#verCode').val();
+				var productCode = $('#productCode').val();
+				var productionDate = $('#productionDate').val();
+
+				Func.productVerificationFunc({
+					mobile: mobile,
+					verCode: verCode,
+					productCode: productCode,
+					productionDate: productionDate,
+				}, function (res) {
+					if (res.code == 200) {
+						console.log(res.data.province ,res.data.city,res.data.district)
+
+						if (res.data.province == null) {
+							var address  = '';
+						}else{
+							var address  = res.data.province + res.data.city + res.data.district;
+						}
+
+						location.href="productInfo?createDateTimeStr="+ res.data.createDateTimeStr + '&address='+address;
+
+					} else {
+						common.alert({
+							content: res.msg
+						})
+					}
+				})
+				
 			}
-			
+
 		})
 
 
@@ -169,6 +231,10 @@
 			}, 1000);
 		}
 
+
+		$('.mask-btn').on('click', function () {
+			$('.mask').fadeOut();
+		})
 
 		// 输入框失去焦点兼容苹果系统
 		$('input,textarea,select').on('blur', function () {
