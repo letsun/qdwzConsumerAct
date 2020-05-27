@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/nantongxingxiang/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="/nantongxingxiang/css/swiper-3.3.1.min.css" />
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="header">
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/1_3.png">
+			<img class="logo"
+				src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/1_1.png">
+		</div>
+
+		<div class="con">
+			<div class="con-title">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/1_2.png">
+			</div>
+
+			<div class="con-form">
+				<label class="form-inp">
+					<div class="from-key">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/1_4.png"
+							alt="" srcset="">
+					</div>
+					<div class="from-value">
+						<input type="text" id="productCode" placeholder="请输入铭牌上的产品编号，如：3..."
+							data-validateInfor="{strategy:isEmpty,msg:产品编号不能为空}">
+					</div>
+				</label>
+
+				<label class="form-inp">
+					<div class="from-key">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/1_5.png"
+							alt="" srcset="">
+					</div>
+					<div class="from-value">
+						<input type="text" id="productionDate" placeholder="请输入铭牌上的出厂年月，如：202001"
+							data-validateInfor="{strategy:isEmpty,msg:出厂年月不能为空}">
+					</div>
+				</label>
+
+				<label class="form-inp">
+					<div class="from-key">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/1_6.png"
+							alt="" srcset="">
+					</div>
+					<div class="from-value">
+						<input type="text" id='mobile' maxlength="11" placeholder="请输入您的手机号"
+							data-validateInfor="{strategy:isEmpty,msg:手机号不能为空}">
+					</div>
+				</label>
+
+				<label class="form-inp">
+					<div class="from-key">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/1_7.png"
+							alt="" srcset="">
+					</div>
+					<div class="from-value">
+						<input type="text" id='verCode' placeholder="请输入验证码"
+							data-validateInfor="{strategy:isEmpty,msg:验证码不能为空}">
+					</div>
+
+					<div class="from-vcode">
+						获取验证码
+					</div>
+				</label>
+			</div>
+
+			<div class="con-btn">
+				验证
+			</div>
+		</div>
+
+
+		<!-- 关注公众号 -->
+		<div class="mask">
+			<div class="mask-con">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/2_1.png">
+				<div class="mask-gzh">
+					<img
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/2_2.png">
+				</div>
+
+				<div class="mask-text">
+					长按关注公众号<br>
+					查询防伪验证
+				</div>
+
+				<!-- <img class="mask-btn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/nantongxingxiang/2_3.png"> -->
+			</div>
+		</div>
+	</div>
+</body>
+
+<!-- 公共js start -->
+<%-include("../../include/commonJs") %>
+<%-include("../../include/hideMenu") %>
+<!-- 页面js end -->
+
+<script src="/common/plugins/city/cityData.js"></script>
+<script src="/common/plugins/city/citySelect.js"></script>
+<script src="/common/scripts/validate.js"></script>
+
+
+<script src="/nantongxingxiang/scripts/api.js"></script>
+<script src="/nantongxingxiang/scripts/Func.js"></script>
+
+<script>
+
+	$(function () {
+		// 获取验证码倒计时
+		var doc = $(document);
+		var intDiff = 60;//验证码倒计时总秒数量
+		var backInterval;
+		var isflag = true;
+
+		Func.isSubscribe(function (res) {
+			console.log(!res.data.subscribe)
+			if (!res.data.subscribe) {
+				$('.mask').show();
+			} else {
+				$('.mask').hide();
+			}
+		})
+
+
+
+		//获取验证码
+		$('.from-vcode').on('click', function () {
+			var that = $(this);
+
+			var mobile = $('#mobile').val();
+			if (mobile == '') {
+				common.alert({
+					content: "手机号不能为空"
+				})
+				return false;
+			}
+			if (isflag) {
+				Func.getVerCode({
+					mobile: mobile
+
+				}, function (res) {
+					if (res.code == 200) {
+
+						isflag = false;
+						if (typeof timer(intDiff) != "undefined") {
+							that.html("验证码" + "(" + timer(intDiff) + ")");
+						}
+					} else {
+						common.alert({
+							content: res.msg
+						})
+					}
+
+				})
+
+
+			}
+		})
+
+
+		//提交信息
+		$('.con-btn').on('click', function () {
+			var res = Global.initValidate('.container');
+			if (!res) {
+				return;
+			} else {
+				var mobile = $('#mobile').val();
+				var verCode = $('#verCode').val();
+				var productCode = $('#productCode').val();
+				var productionDate = $('#productionDate').val();
+
+				Func.productVerificationFunc({
+					mobile: mobile,
+					verCode: verCode,
+					productCode: productCode,
+					productionDate: productionDate,
+				}, function (res) {
+					if (res.code == 200) {
+						console.log(res.data.province, res.data.city, res.data.district)
+
+						var province = res.data.province;
+						var city = res.data.city;
+						var district = res.data.district;
+						if (province == null) {
+							var address = '';
+						} else {
+							var address = encodeURI(encodeURI(province + city + district)); 
+						}
+
+						location.href = "productInfo?createDateTimeStr=" + res.data.createDateTimeStr + '&address=' + address;
+
+					} else {
+						common.alert({
+							content: res.msg
+						})
+					}
+				})
+
+			}
+			
+			// var address = encodeURI(encodeURI('省市区'));
+			// location.href = "productInfo?&address=" + address;
+
+		})
+
+
+		/* 验证码倒计时函数 -- 参数initTim为秒数 */
+		function timer(initTim) {
+
+			$('.from-vcode').html("验证码" + "(" + initTim + "s)").css("background", "#999");
+			backInterval = window.setInterval(function () {
+				initTim--;
+				if (initTim <= 9) {
+					initTim = '0' + initTim;
+				}
+
+				$('.from-vcode').html("验证码" + "(" + initTim + "s)");
+
+				if (initTim == 0) {
+					$(".from-vcode").html("获取验证码").css({ "background": "#4167F6", "color": "#f4f4f4" });
+					clearInterval(backInterval);
+					isflag = true;
+					intDiff = parseInt(60);
+				}
+
+			}, 1000);
+		}
+
+
+		$('.mask-btn').on('click', function () {
+			$('.mask').fadeOut();
+		})
+
+		// 输入框失去焦点兼容苹果系统
+		$('input,textarea,select').on('blur', function () {
+			setTimeout(function () {
+				var hasFocus = $('input').is(':focus') || $('textarea').is(':focus') || $('select').is(':focus');
+				if (!hasFocus) {
+					window.scroll(0, 0);
+				}
+			}, 100);
+		});
+
+
+		// 页面禁止滑动
+		$('.container').on("touchmove", function (e) {
+			e.preventDefault();
+		});
+
+	})
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,163 @@
+@import "reset";
+
+body{
+	background: #F9F9F9;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+
+	background-size: 100% 100%;
+	overflow: hidden;
+	
+
+	.header {
+		position: relative;
+		img {
+			display: block;
+		}
+
+		.logo {
+			position: absolute;
+			top: 60px;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+	}
+
+	.con {
+		position: relative;
+		margin: 0 50px;
+		margin-top: -80px;
+		padding: 80px 0;
+		border-radius: 15px;
+		background: #fff;
+
+		.con-title {
+			text-align: center;
+		}
+
+		.con-form {
+			padding: 30px 50px;
+
+			.form-inp {
+				margin-top: 20px;
+				display: flex;
+				padding: 20px 0;
+				border-radius: 10px;
+				background: #f9f9f9;
+
+
+
+				.from-key {
+					width: 10%;
+					align-self: center;
+					img {
+						display: block;
+						margin: auto;				
+					}			
+				}
+
+				.from-value {
+					width: 90%;					
+					input {
+
+						display: block;
+						height: 100%;
+						width: 100%;
+						background: transparent;
+					}
+				}
+
+
+				&:last-child {
+					position: relative;
+					.from-value {
+						width: 300px;					
+						input {
+	
+							display: block;
+							height: 100%;
+							width: 100%;
+							background: transparent;
+						}
+					}
+
+					.from-vcode {
+						position: absolute;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						width: 180px;
+						text-align: center;
+						line-height: 72px;
+						border-radius: 10px;
+						background: #4167F6;
+						color: #f4f4f4;
+					}
+				}
+			}
+
+
+
+		}
+
+		.con-btn {
+			margin: 0 50px;
+			text-align: center;
+			font-size: 30px;
+			line-height: 70px;
+			letter-spacing: 5px;
+			border-radius: 10px;
+			background: #4167F6;
+			color: #f4f4f4;
+		}
+	}
+
+	.mask {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.7);
+
+		display: none;
+
+		.mask-con {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			text-align: center;
+
+
+			.mask-gzh{
+				position: absolute;
+				top: 150px;
+				left: 0;
+				right: 0;
+
+				img {
+					width: 260px;
+					height: 260px;
+				}
+			}
+
+			.mask-text {
+				position: absolute;
+				top: 425px;
+				left: 0;
+				right: 0;
+				color: #666;
+			}
+
+			.mask-btn {
+				margin-top: 20px;
+				
+			}
+		}
+	}
+}
