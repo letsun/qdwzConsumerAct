@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+    <link rel="stylesheet" href="/commonTemp/scripts/plug/swiper/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="/commonTemp/css/index.css" />
+	<title>产品信息</title>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">产品信息</div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper"></div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="con">
+        <div class="con-title">
+            <span></span>产品信息
+        </div>
+
+        <div class="list">
+            <div class="con-item">
+                <div class="con-item-key">产品名称：</div>
+                <div class="con-item-val" id="productName"></div>
+            </div>
+            <div class="con-item">
+                <div class="con-item-key">产品品牌：</div>
+                <div class="con-item-val" id="productBrand"></div>
+            </div>
+            <div class="con-item">
+                <div class="con-item-key">产品规格：</div>
+                <div class="con-item-val" id="productSpec"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+	<%-include('../../include/commonJs') %>
+	<%-include("../../include/hideMenu") %>
+
+	<!-- 公共js start -->
+	<script src="/commonTemp/scripts/api.js"></script>
+    <script src="/commonTemp/scripts/Func.js"></script>
+    <script src="/commonTemp/scripts/plug/swiper/swiper-3.3.1.jquery.min.js"></script>
+    <script>
+
+        var html = '';
+        var data;
+        $.ajax({
+            url: api.findEncodeFunction,
+            type: 'GET',
+            dataType: 'json',
+            headers: getHeader(),
+            success: function(res) {
+                if (res.code == 200) {
+                    data = res.data;
+                    var swiperHtml = '';
+                    if (data.productRecord.changeImgUrl.length > 0) {
+                        for (var i = 0; i < data.productRecord.changeImgUrl.length; i++) {
+                            swiperHtml += '<div class="swiper-slide">';
+                            swiperHtml += '<img src="' + data.productRecord.changeImgUrl[i] + '" alt="">';
+                            swiperHtml += '</div>';
+                        }
+
+                        $('.swiper-wrapper').html(swiperHtml);
+
+                        var mySwiper = new Swiper('.swiper-container', {
+                            loop: true,
+                            autoplay: 3000,
+                            autoplayDisableOnInteraction: false,
+                            pagination : '.swiper-pagination',
+                        });
+
+                    }
+
+                    $('#productName').html(data.productRecord.productName);
+                    $('#productBrand').html(data.productRecord.productBrand);
+                    $('#productSpec').html(data.productRecord.productSpec);
+                    for (var i in data.productRecord.productJson) {
+                        html += '<div class="con-item">';
+                        html += '<div class="con-item-key">' + i + '：</div>';
+                        html += '<div class="con-item-val">' + data.productRecord.productJson[i] + '</div>';
+                        html += '</div>';
+                    }
+                    $('.list').append(html);
+
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>
