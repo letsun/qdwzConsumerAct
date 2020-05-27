@@ -1,0 +1,895 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+select {
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+  cursor: pointer;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.header-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 82px;
+  background: #359d96;
+}
+.header-wrapper:before,
+.header-wrapper:after {
+  content: " ";
+  display: table;
+}
+.header-wrapper:after {
+  clear: both;
+}
+.header-wrapper .back {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  display: block;
+  height: 36px;
+  line-height: 36px;
+  font-size: 23px;
+  text-align: center;
+  z-index: 9;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.header-wrapper .back span {
+  display: inline-block;
+  margin-left: 10px;
+}
+.header-wrapper .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 82px;
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+}
+.header-wrapper .add-address {
+  position: absolute;
+  top: 30px;
+  right: 56px;
+  line-height: 26px;
+  font-size: 26px;
+  color: #fff;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #fff;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
+#container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_9.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+#container .content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /*.tips {
+			position: absolute;
+			left: 0;
+			bottom: 10px;
+			z-index: 1;
+			width: 100%;
+			text-align: center;
+			font-size: 26px;
+			line-height: 40px;
+			color: #ffeb00;
+		}*/
+}
+#container .content .logo {
+  position: absolute;
+  left: 3%;
+  top: 2%;
+  z-index: 1;
+}
+#container .content .title {
+  position: absolute;
+  left: 11%;
+  top: 12%;
+  z-index: 1;
+  width: 80%;
+}
+#container .content .con-bg {
+  position: absolute;
+  left: 2%;
+  bottom: 7%;
+  z-index: 1;
+  width: 96%;
+}
+#container .content .award-list {
+  position: absolute;
+  left: 20px;
+  top: 34%;
+  z-index: 2;
+  width: 600px;
+  height: 500px;
+}
+#container .content .award-list .award-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 170px;
+  height: 218px;
+}
+#container .content .award-list .award-item:first-child {
+  top: 0;
+  left: 10px;
+}
+#container .content .award-list .award-item:nth-of-type(2) {
+  top: 0;
+  left: 215px;
+}
+#container .content .award-list .award-item:nth-of-type(3) {
+  top: 0;
+  left: 420px;
+}
+#container .content .award-list .award-item:nth-of-type(4) {
+  top: 250px;
+  left: 116px;
+}
+#container .content .award-list .award-item:nth-of-type(5) {
+  top: 250px;
+  left: 324px;
+}
+#container .content .award-list .positive-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: none;
+  height: 100%;
+  width: 100%;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_6.png') no-repeat;
+  background-size: 100% 100%;
+}
+#container .content .award-list .positive-item .award-title {
+  width: 100%;
+  height: 20px;
+  padding-top: 5px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+  color: #e88100;
+}
+#container .content .award-list .positive-item .award-dec {
+  display: none;
+  width: 152px;
+  text-align: center;
+}
+#container .content .award-list .positive-item .award-dec .amount {
+  text-align: center;
+  color: #e51141;
+  line-height: 40px;
+  font-size: 20px;
+  width: 110px;
+  margin: auto;
+}
+#container .content .award-list .positive-item .award-dec .amount .num {
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 999;
+}
+#container .content .award-list .positive-item .award-dec1 {
+  margin-top: 34px;
+}
+#container .content .award-list .positive-item .award-dec1 .amount {
+  padding-top: 70px;
+}
+#container .content .award-list .positive-item .award-dec1 .active {
+  padding-top: 84px;
+}
+#container .content .award-list .positive-item .award-dec2 {
+  margin-top: 120px;
+}
+#container .content .award-list .positive-item .award-dec2 .award-dec-img {
+  display: block;
+  margin: 5px auto 0 auto;
+}
+#container .content .award-list .positive-item .award-dec2 .amount {
+  font-size: 24px;
+}
+#container .content .award-list .back-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 170px;
+  height: 218px;
+  transform: rotateY(-5400deg);
+  -webkit-transform: rotateY(-5400deg);
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_4.png') no-repeat;
+  background-size: 100% 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Chrome 和 Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  overflow: hidden;
+}
+#container .content .award-list .active .back-item {
+  -webkit-animation: fanpai 5s forwards;
+}
+#container .content .award-list .award-item-bg {
+  position: absolute;
+  left: -110px;
+  top: -100px;
+  z-index: 0;
+  display: none;
+  width: 384px;
+}
+#container .content .award-list .award-item-bga {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  display: none;
+}
+#container .content .award-list .layer-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: none;
+  width: 100%;
+  height: 218px;
+}
+#container .content .award-list .layer-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#container .content .baoza {
+  position: absolute;
+  left: 50%;
+  top: 63%;
+  z-index: 6;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+#container .content .baoza img:first-child {
+  width: 1600px;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 6;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+#container .content .baoza img:nth-child(2) {
+  width: 500px;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 6;
+  transform: translate(-55%, -70%);
+  -webkit-transform: translate(-55%, -70%);
+}
+#container .content .openPublic-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  z-index: 999;
+  display: none;
+  -webkit-transform: translateX(-50%);
+}
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+/*关注二维码*/
+.attent-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.attent-win .attent-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 528px;
+  height: 559px;
+  padding-top: 70px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  -webkit-transform: translate(-50%, -50%);
+}
+.attent-win .attent-content .attent-title {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  z-index: 1;
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  line-height: 50px;
+  color: #eca330;
+  font-weight: bold;
+}
+.attent-win .attent-content .attent-dec {
+  padding: 30px 0 12px 0;
+  border-radius: 0 0 20px 20px;
+}
+.attent-win .attent-content .attent-img {
+  display: block;
+  margin: 0 auto;
+}
+.attent-win .attent-content .attent-tips {
+  margin-top: 17px;
+  font-size: 22px;
+  color: #ec284c;
+  line-height: 34px;
+  text-align: center;
+}
+.attent-win .attent-content .attent-btn {
+  position: absolute;
+  left: 50%;
+  bottom: -18%;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+}
+.phone-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+}
+.phone-mask .phone-con {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 214px;
+  width: 356px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_22.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+  padding: 40px 50px;
+}
+.phone-mask .phone-con .phone-con-inp {
+  position: relative;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.phone-mask .phone-con .phone-con-inp input {
+  font-size: 24px;
+  width: 100%;
+  margin-top: -5px;
+}
+.phone-mask .phone-con .phone-con-inp .phone-con-vcode {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  padding: 5px 0;
+  width: 150px;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 22px;
+  background: red;
+  color: #f4f4f4;
+}
+.phone-mask .phone-con .phone-con-submit {
+  margin-top: 10px;
+}
+.phone-mask .phone-con .phone-con-submit img {
+  display: block;
+  width: 356px;
+}
+.phone-mask .phone-con .phone-close {
+  margin-top: 50px;
+  text-align: center;
+}
+.activity {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+}
+.activity .activity-con {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 723px;
+  width: 565px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_19.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+}
+.activity .activity-con .activity-title {
+  margin-top: 80px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 26px;
+}
+.activity .activity-con .activity-time {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.activity .activity-con .activity-time div {
+  margin-right: 10px;
+  width: 30px;
+  text-align: center;
+  border-radius: 5px;
+  background: #D13542;
+  color: #f4f4f4;
+}
+.activity .activity-con .activity-time span {
+  margin-right: 10px;
+  font-size: 24px;
+}
+.activity .activity-con .activity-acount {
+  margin: 30px 80px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 20px;
+  color: #666;
+  background: #FEFDF8;
+}
+.activity .activity-con .activity-acount span {
+  color: #D13542;
+  font-size: 30px;
+  margin: 0 10px;
+}
+.activity .activity-con .activity-text {
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+}
+.activity .activity-con .activity-text span {
+  font-size: 26px;
+  font-weight: bold;
+  color: #D13542;
+}
+.activity .activity-con .activity-uinfo {
+  margin-top: 50px;
+  text-align: center;
+}
+.activity .activity-con .activity-uinfo .activity-uinfo-photo {
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  border: 5px solid #f4f4f4;
+}
+.activity .activity-con .activity-uinfo .activity-uinfo-name {
+  font-size: 24px;
+  color: #f4f4f4;
+}
+.activity .activity-con .activity-close {
+  margin-top: 50px;
+  text-align: center;
+}
+/*打开公众号*/
+.openPub-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.openPub-win .openPub-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 528px;
+  height: 559px;
+  padding-top: 70px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  -webkit-transform: translate(-50%, -50%);
+}
+.openPub-win .openPub-content .openPub-title {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  z-index: 1;
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  line-height: 50px;
+  color: #eca330;
+  font-weight: bold;
+}
+.openPub-win .openPub-content .openPub-dec {
+  padding: 30px 0 12px 0;
+  border-radius: 0 0 20px 20px;
+}
+.openPub-win .openPub-content .openPub-img {
+  display: block;
+  margin: 0 auto;
+}
+.openPub-win .openPub-content .openPub-tips {
+  margin-top: 17px;
+  font-size: 22px;
+  color: #ec284c;
+  line-height: 34px;
+  text-align: center;
+}
+.openPub-win .openPub-content .openPub-btn {
+  position: absolute;
+  left: 50%;
+  bottom: -18%;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+}
+/*被扫二维码*/
+.attent-wina {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.attent-wina .attent-contenta {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 528px;
+  height: 559px;
+  padding-top: 70px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_12.png');
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  -webkit-transform: translate(-50%, -50%);
+}
+.attent-wina .attent-contenta .attent-titlea {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  z-index: 1;
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  line-height: 50px;
+  color: #eca330;
+  font-weight: bold;
+}
+.attent-wina .attent-contenta .attent-deca {
+  padding: 30px 0 12px 0;
+  border-radius: 0 0 20px 20px;
+}
+.attent-wina .attent-contenta .attent-imga {
+  display: block;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+.attent-wina .attent-contenta .attent-tipsa {
+  margin-top: 17px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #ec284c;
+  line-height: 160px;
+  text-align: center;
+}
+.attent-wina .attent-contenta .attent-btna {
+  position: absolute;
+  left: 50%;
+  bottom: -18%;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+}
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.loading .loadCon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.loading .loadCon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  font-size: 24px;
+  line-height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
+.text-img {
+  position: absolute;
+  top: 12%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 99;
+  display: none;
+}
+.result-footer {
+  position: absolute;
+  background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_17.png) no-repeat;
+  left: 4%;
+  right: 4%;
+  bottom: 2%;
+  color: #f5402d;
+  padding-top: 20px;
+  font-size: 20px;
+  height: 140px;
+  background-size: 100% 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.result-footer .swiper-container {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+.result-footer .swiper-slide {
+  height: 40px;
+  font-size: 18px;
+}
+.result-footer .item-text {
+  display: flex;
+}
+.result-footer .item-text div:first-child {
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.result-footer .item-text div {
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+}
+.result-footer .item-text div:last-child {
+  width: 190px;
+  padding-right: 0px;
+}
+.video-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.video-win .video-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_9.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+.video-win .video-content .logo {
+  position: absolute;
+  left: 3%;
+  top: 2%;
+  z-index: 1;
+}
+.video-win .video-content .title {
+  position: absolute;
+  left: 11%;
+  top: 12%;
+  z-index: 1;
+  width: 80%;
+}
+.video-win .video-content .video-con {
+  position: absolute;
+  left: 3%;
+  top: 31%;
+  z-index: 1;
+  width: 94%;
+}
+.video-win .video-content .video-con .video-title {
+  display: block;
+  margin: 0 auto;
+}
+.video-win .video-content .video-con .video-dec {
+  width: 100%;
+  height: 400px;
+  border: 2px solid red;
+}
+.video-win .video-content .close-video {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  z-index: 20;
+  -webkit-transform: translateX(-50%);
+}
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+  }
+}
+@-webkit-keyframes rotateA {
+  0% {
+    -webkit-transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg);
+  }
+}
+@-webkit-keyframes rotateB {
+  0% {
+    -webkit-transform: rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+  }
+}
+@-webkit-keyframes fanpai {
+  0% {
+    -webkit-transform: rotateY(-5400deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+  }
+}

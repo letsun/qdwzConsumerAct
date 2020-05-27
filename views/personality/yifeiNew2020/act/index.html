@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640, user-scalable=no">
+	<!-- 样式 start -->
+	<link rel="stylesheet" href="/yifeiNew2020/css/reset.css" />
+	<link rel="stylesheet" href="/yifeiNew2020/css/animate.min.css" />
+	<link rel="stylesheet" href="/yifeiNew2020/css/index.css" />
+
+
+
+	<link rel="stylesheet" href="/yifeiNew2020/scripts/plug/swiper/swiper-3.3.1.min.css" />
+	<!-- 样式 end -->
+	<title></title>
+</head>
+
+<body>
+
+	<div id="app">
+		<!--加载页-->
+
+		<div class="loading">
+			<div class="loadCon">
+				<img src="/yifeiNew/images/loading.png" />
+				<div id="percent">1%</div>
+			</div>
+		</div>
+
+		<div id="container">
+
+
+			<div class="content">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_1.png" alt=""
+					class="logo">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_2.png" alt=""
+					class="title">
+				<img class="con-bg"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_3.png" alt="">
+
+				<div class="award-list"></div>
+				<div class="baoza">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_7.png" alt="">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_8.png" alt="">
+				</div>
+				<div class="layer"></div>
+
+				<img class="openPublic-btn"
+					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_15.png" alt="">
+			</div>
+
+			<!--关注二维码弹窗-->
+			<div class="attent-win" id="attent-win">
+
+				<div class="attent-content">
+					<div class="attent-title">温馨提示</div>
+					<div class="attent-dec">
+						<img class="attent-img"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_10.png" />
+						<div class="attent-tips">
+							检测到您尚未关注公众号<br />
+							请长按识别关注公众号后再扫码获取红包
+						</div>
+					</div>
+
+					<img class="attent-btn" id="attent-btn"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_11.png">
+				</div>
+			</div>
+
+			<!--进入公众号二维码-->
+			<div class="attent-win" id="public-win">
+
+				<div class="attent-content">
+					<div class="attent-title">温馨提示</div>
+					<div class="attent-dec">
+						<img class="attent-img"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_10.png" />
+						<div class="attent-tips" style="margin-top: 35px;">
+							请长按识别进入公众号
+						</div>
+					</div>
+
+					<img class="attent-btn" id="close-public"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_11.png">
+				</div>
+			</div>
+
+
+			<!-- 打开手机号弹窗 -->
+			<div class="phone-mask">
+				<div class="phone-con">
+					<div class="phone-con-inp">
+						<input type="text" id="mobile" placeholder="请输入手机号">
+					</div>
+					<div class="phone-con-inp">
+						<input style="width:160px" id="verCode" type="text" placeholder="请输入验证码">
+
+						<div class="phone-con-vcode">
+							获取验证码
+						</div>
+					</div>
+					<div class="phone-con-submit">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_20.png">
+					</div>
+
+					<div class="phone-close">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_21.png">
+					</div>
+				</div>
+			</div>
+
+			<!-- 活动弹窗 -->
+			<div class="activity">
+
+				<div class="activity-con">
+					<div class="activity-title">
+						距离活动结束还有
+					</div>
+
+					<div class="activity-time">
+						<div class="day1">0</div>
+						<div class="day2">0</div>
+						<span>天</span>
+						<div class="hours1">0</div>
+						<div class="hours2">0</div>
+						<span>时</span>
+						<div class="minutes1">0</div>
+						<div class="minutes2">0</div>
+						<span>分</span>
+					</div>
+
+					<div class="activity-acount">
+						个人中心红包累计金额：<span id="balance"></span> <br>
+						还差<span id="difference"></span>可以提现
+
+					</div>
+
+					<div class="activity-text">
+						请尽快购买产品进行扫码，提现领红包<br>
+						<span>以免过期清零</span>
+					</div>
+
+					<div class="activity-uinfo">
+						<img id="headimgurl" class="activity-uinfo-photo"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_2.png">
+						<div id="nickname" class="activity-uinfo-name">
+							我是昵称
+						</div>
+					</div>
+
+					<div class="activity-close">
+						<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_21.png">
+					</div>
+				</div>
+			</div>
+
+
+			<!--打开公众号弹窗-->
+			<div class="openPub-win" id="openPub-win">
+
+				<div class="openPub-content">
+					<div class="openPub-title">温馨提示</div>
+					<div class="openPub-dec">
+						<img class="openPub-img"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_10.png" />
+						<div class="openPub-tips">
+							请长按识别进入公众号<br />
+							通过公众号个人中心申请提现
+						</div>
+					</div>
+
+					<img class="openPub-btn" id="close-pub"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_11.png">
+				</div>
+			</div>
+
+			<!--被扫二维码弹窗-->
+			<div class="attent-wina" id="attent-wina">
+				<div class="attent-contenta">
+					<div class="attent-titlea">很遗憾</div>
+					<div class="attent-deca">
+						<img class="attent-imga"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_13.png" />
+						<div class="attent-tipsa">
+							该码已被扫
+						</div>
+					</div>
+
+					<img class="attent-btna" id="attent-btna"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_11.png">
+				</div>
+			</div>
+
+			<!--视频弹窗-->
+			<div class="video-win" id="video-win">
+				<div class="video-content">
+					<img class="logo"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_1.png" alt="">
+					<img class="title"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/20191125/1_1.png"
+						alt="">
+
+					<div class="video-con">
+						<img class="video-title"
+							src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/20191125/1_2.png"
+							alt="">
+						<div class="video-dec">
+							<iframe width="100%" height="100%" frameborder="0"
+								src="https://v.qq.com/txp/iframe/player.html?vid=i0948e8ivdh"
+								allowFullScreen="true"></iframe>
+						</div>
+					</div>
+
+					<img class="close-video"
+						src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/20191125/1_3.png"
+						alt="">
+				</div>
+			</div>
+
+
+			<!-- 显示中奖结果 -->
+			<div class="result-footer ">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide">
+							<div class="item-text">11111</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="item-text">11111</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="item-text">11111</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="item-text">11111</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="item-text">11111</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 中奖后显示字体 -->
+
+			<div class="text-img">
+				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/yifeiNew/1_16.png">
+			</div>
+
+			<%-include("../../../include/loading", {loadingTip: '正在加载中'}) %>
+		</div>
+
+	</div>
+
+	<!-- 公共js start -->
+	<%-include("../../../include/commonJs") %>
+	<%-include("../../../include/hideMenu") %>
+	<!-- 公共js end -->
+
+	<!-- 公共js start -->
+	<script src="/common/scripts/Func.js"></script>
+	<!-- 公共js end -->
+
+	<!-- 页面js start -->
+	<script src="/yifeiNew2020/scripts/lib/jweixin-1.0.0.js"></script>
+	<script src="/yifeiNew2020/scripts/api.js"></script>
+	<script src="/yifeiNew2020/scripts/Func.js"></script>
+	<script src="/yifeiNew2020/scripts/index_act.js"></script>
+
+
+	<script src="/yifeiNew2020/scripts/plug/swiper/swiper-3.3.1.jquery.min.js"></script>
+
+
+	<script>
+		window.onload = function () {
+			// 页面禁止滑动
+			$('#container').on("touchmove", function (e) {
+				e.preventDefault();
+			});
+
+			/**加载进度*/
+			common.loading($("#percent"), function () {
+				$('.loading').hide();
+				$('#container').fadeIn();
+			});
+		}
+	</script>
+
+</body>
+
+</html>
