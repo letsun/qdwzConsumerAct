@@ -1,3 +1,6 @@
+var dev = "http://192.168.1.7:8080";
+
+var ip = dev;
 var index = 0;
 var prizeAmount;
 var couponName;
@@ -75,14 +78,14 @@ $(function () {
 	//关闭手机号弹窗
 	$('.phone-close').on('click', function () {
 		$('.phone-mask').hide();
-		$('.activity').fadeIn();
-		timeCountDown()
+
 	})
 
 
 	//关闭弹窗活动弹窗
 	$('.activity-close').on('click', function () {
 		$('.activity').fadeOut();
+		$('.video-win').fadeIn();
 		clearInterval(interval)
 	})
 
@@ -94,8 +97,7 @@ $(function () {
 		if (res.data.type == 1) {
 			$('.phone-mask').show();
 		} else {
-
-			$('.activity').fadeIn();
+	
 			timeCountDown()
 		}
 	})
@@ -139,9 +141,7 @@ $(function () {
 		}, function (res) {
 			if (res.code == 200) {
 				$('.phone-mask').hide();
-				$('.activity').fadeIn(function () {
-
-				})
+				timeCountDown()
 			} else {
 				common.alert({
 					content: res.msg
@@ -285,7 +285,8 @@ $(function () {
 						$('.award-item').eq(index).find('.amount').html('<span class="num">' + prizeAmount + '</span>元').addClass('active');
 						$('.award-item').eq(index).find('.award-title').html('恭喜您获得');
 						$('.award-item').find('.award-dec1').show();
-						$('.text-img').fadeIn()
+						$('.text-img').fadeIn();
+						$('.mycenter').fadeIn();
 					}
 				}
 
@@ -388,6 +389,12 @@ $(function () {
 	// 中奖纪录列表
 	companyLotteryRecord();
 
+	// 跳转个人中心
+	$('#container').on('click','.mycenter',function(){
+
+		window.location.href=ip+'/consumer/center/188';
+	})
+
 
 	// 输入框失去焦点兼容苹果系统
 	$('input,textarea,select').on('blur', function () {
@@ -399,6 +406,8 @@ $(function () {
 		}, 100);
 	});
 });
+
+
 
 // 自动提现
 function userCash(num, lotteryId) {
@@ -505,6 +514,7 @@ function timeCountDown() {
 			$('#nickname').text(res.data.nickname);
 			
 			$('#loadingWrapper').hide();
+			$('.activity').fadeIn();
 		} else {
 			$('#loadingWrapper').hide();
 			common.alert({
