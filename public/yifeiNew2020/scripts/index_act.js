@@ -1,6 +1,3 @@
-var dev = "http://192.168.1.7:8080";
-
-var ip = dev;
 var index = 0;
 var prizeAmount;
 var couponName;
@@ -392,19 +389,33 @@ $(function () {
 	// 跳转个人中心
 	$('#container').on('click','.mycenter',function(){
 
-		window.location.href=ip+'/consumer/center/188';
+		window.location.href=api.route;
 	})
 
-
 	// 输入框失去焦点兼容苹果系统
-	$('input,textarea,select').on('blur', function () {
+	$('#container').on('blur','input,textarea,select', function () {
 		setTimeout(function () {
 			var hasFocus = $('input').is(':focus') || $('textarea').is(':focus') || $('select').is(':focus');
 			if (!hasFocus) {
 				window.scroll(0, 0);
+
 			}
 		}, 100);
 	});
+
+
+	var winHeight = $(window).height();   //获取当前页面高度
+    $(window).resize(function () {
+        var thisHeight = $(this).height();
+        if (winHeight - thisHeight > 50) {
+			//当软键盘弹出，在这里面操作
+			$('.result-footer').css({"position":"static"})		
+        } else {
+			//当软键盘收起，在此处操作
+			$('.result-footer').css({"position":"absolute"})
+            window.scroll(0,0);
+        }
+    });
 });
 
 

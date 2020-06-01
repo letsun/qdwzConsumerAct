@@ -1,10 +1,15 @@
-var dev = 'http://192.168.1.20:8085/qdwz';
+var dev = 'http://192.168.1.7:8085/qdwz';
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
-var ip = production;
 
+var dev1 = "http://192.168.1.7:8080";
+var test1 = "https://test-wap.lxcyhd.com";
+var production1 = "https://q.lxcyhd.com";
+var ip = test;
+var ip1 = test1;
 var api = {
+	route: ip1 + '/consumer/center/188',										//跳转到个人中心
 	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
 	lottery: ip + '/lotteryConsumer/lottery', 									// 用户参与抽奖
 	findActivityByEncode: ip + '/consumerActivity/findActivityByEncode', 		// 查询二维码参与活动状态

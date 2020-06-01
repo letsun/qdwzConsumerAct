@@ -74,7 +74,7 @@ $(function () {
 		}
 		isClick = false;
 		awardValue = $(this).find('.num').html();
-        type = $(this).attr('data-type');
+		type = $(this).attr('data-type');
 		index = $(this).index();
 		Func.findActivityByEncode(function (res) {
 			if (res.code === 200 || res.code === 201) {
@@ -118,13 +118,13 @@ $(function () {
 									if (reg.data.type == 1) {
 										couponName = lotteryData.data.couponGrants[0].couponName;
 										$('.award-item').each(function (i, item) {
-                                            var value = $(item).find('.num').html();
+											var value = $(item).find('.num').html();
 
-                                            if (type == 0) {
-                                                if (value == couponName) {
-                                                    $(item).find('.amount').html('<span class="num">' + awardValue + '</span>元').addClass('active');
-                                                }
-                                            }
+											if (type == 0) {
+												if (value == couponName) {
+													$(item).find('.amount').html('<span class="num">' + awardValue + '</span>元').addClass('active');
+												}
+											}
 										})
 									}
 
@@ -181,7 +181,8 @@ $(function () {
 						$('.award-item').eq(index).find('.amount').html('<span class="num">' + prizeAmount + '</span>元').addClass('active');
 						$('.award-item').eq(index).find('.award-title').html('恭喜您获得');
 						$('.award-item').find('.award-dec1').show();
-						$('.text-img').fadeIn()
+						$('.text-img').fadeIn();
+						$('.mycenter').fadeIn();
 					}
 				}
 
@@ -206,9 +207,9 @@ $(function () {
 				})
 			}
 
-            $('.award-item').each(function (i,item) {
+			$('.award-item').each(function (i, item) {
 
-            });
+			});
 
 			$('.positive-item').fadeIn();
 		}, 1500);
@@ -240,7 +241,7 @@ $(function () {
 			} else {
 				html += '<div class="amount"><span class="num">' + prizes[i].couponName + '</span></div>';
 			}
-			
+
 			html += '</div>';
 			html += '<div class="award-dec award-dec2">';
 			html += '<div class="amount">未中奖</div>';
@@ -282,7 +283,13 @@ $(function () {
 
 
 	// 中奖纪录列表
-	companyLotteryRecord()
+	companyLotteryRecord();
+
+	// 跳转个人中心
+	$('#container').on('click', '.mycenter', function () {
+
+		window.location.href = api.route;
+	})
 });
 
 // 自动提现
@@ -350,7 +357,7 @@ function companyLotteryRecord() {
 
 
 	// 关闭视频弹窗
-	$('.close-video').on('click',function () {
+	$('.close-video').on('click', function () {
 		$('#video-win').remove();
 	})
 };
