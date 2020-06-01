@@ -627,7 +627,7 @@ body {
 }
 .mycenter {
   position: absolute;
-  display: none;
+  display: block;
   top: 4%;
   right: 30px;
   color: #f4f4f4;
