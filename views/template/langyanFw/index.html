@@ -1,42 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=750, user-scalable=no">
 	<link rel="stylesheet" href="/langyanFw/css/index.css" />
 	<title></title>
 </head>
+
 <body>
 	<div class="app">
 		<div class="container">
 
-			<img class="header" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanFw/1_1.png" alt="">
+			<img class="header" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanFw/1_1.png"
+				alt="">
 
 			<!--验证次数-->
-			<div class="num">第<span>1</span>次验证成功</div>
+			<div class="num">第<span></span>次验证成功</div>
 
-			<div class="title">购买的产品属于<span>「</span>狼烟天下<span>」</span>旗下产品<br/>请放心使用</div>
+			<div class="title">购买的产品属于<span>「</span>狼烟天下<span>」</span>旗下产品<br />请放心使用</div>
 
-			<div class="tip">获得<span>10</span>积分，进入积分商城可兑换产品</div>
+			<div class="tip">获得<span id="point"></span>积分，进入积分商城可兑换产品</div>
 
 
-			<a class="btn btn1" href="">进入积分商城</a>
-			<a class="btn btn2" href="">注册会员</a>
+			<a class="btn btn1">进入积分商城</a>
+			<a class="btn btn2">注册会员</a>
 		</div>
 	</div>
 
 	<%-include('../../include/commonJs') %>
 	<%-include("../../include/hideMenu") %>
 	<!-- 公共js start -->
-	<script src="/common/scripts/Func.js"></script>
-	<script src="/langyanNew/js/api.js"></script>
-	<script src="/langyanNew/js/lib/jweixin-1.0.0.js"></script>
-	<script>
-        $('.app').on('touchmove',function (e) {
-            e.preventDefault();
-        });
 
+
+	<script src="/langyanFw/scripts/api.js"></script>
+	<script src="/langyanFw/scripts/Func.js"></script>
+
+
+	<script>
+		$('.app').on('touchmove', function (e) {
+			e.preventDefault();
+		});
+
+		$('.btn').on('click', function () {
+			console.log(api.ip +
+				`/shop/wx/1/` +
+				getHeader().cpi +
+				`?parentOpenid=` +
+				getHeader().oi)
+
+			window.location.href = api.ip +
+				`/shop/wx/1/` +
+				getHeader().cpi +
+				`?parentOpenid=` +
+				getHeader().oi
+
+			// window.location.href = api.ip +
+			// 	`/shop/wx/1/` +
+			// 	getHeader().cpi +
+			// 	`?parentOpenid=` +
+			// 	getHeader().oi;
+		})
+
+		$(function () {
+			Func.checkUserMobile(function (res) {
+				if (res.code == 200) {
+					console.log(res)
+					if (res.data.type == 1) {
+						$('.btn2').show();
+					} else {
+						$('.btn2').hide();
+						createJoinActInfo()
+					}
+
+				}
+			})
+
+			//抽奖
+			function createJoinActInfo() {
+				Func.createJoinActInfo(function (res) {
+					if (res.code == 200) {
+						Func.lottery(api.lottery, function (reg) {
+							if (reg.code == 200) {
+								var point = reg.data.point.point;
+								$('#point').text(point)
+							} else {
+								$('.tip').text('该码已被扫')
+							}
+						})
+					} else if (res.code == 201) {
+						$('.tip').text('该码已被扫');
+					} else if (res.code == 202) {
+						//0未领奖 1已领奖 2领取失败	
+						if (res.data.status == 0) {
+							var point = res.data.prizeAmount;
+							$('#point').text(point);
+						} else if (res.data.status == 1) {
+							$('.tip').text('该码已被扫');
+						}
+					} else {
+						common.alert({
+							mask: true,
+							content: res.msg
+						})
+					}
+				})
+			}
+
+			Func.findRealEncodeFunction(function (res) {
+				console.log(res)
+				if (res.code == 200) {
+					var valiCount = res.data.securityCheckRecord.valiCount;
+					if (valiCount < 3) {
+						var html = '第<span>' + valiCount + '</span>次验证成功';
+					} else {
+						var html = '多次验证成功';
+					}
+					$('.num').html(html)
+				} else {
+					common.alert({
+						mask: true,
+						content: res.msg
+					})
+				}
+			})
+
+		})
 
 	</script>
 </body>
+
 </html>

@@ -3,16 +3,16 @@ var Func = {};
 $(function() {
 
 	/**
-	 * 防伪溯源展示接口
+	 * 查找二维码情况
 	 * @param  function callback 查找后的回调
 	 * @return null
 	 */
-	Func.findEncodeFunction = function(callback) {
+	Func.findRealEncodeFunction = function(callback) {
 
 		$('#loadingWrapper').show();
 
 		$.ajax({
-			url: api.findEncodeFunction,
+			url: api.findRealEncodeFunction,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
@@ -22,10 +22,49 @@ $(function() {
 		});
 	};
 
-	var isLottery = false;
-
 	/**
-	 * 积分抽奖
+	 * checkUserMobile
+	 * @param  function callback 查找后的回调
+	 * @return null
+	 */
+	Func.checkUserMobile = function(callback) {
+
+		$('#loadingWrapper').show();
+
+		$.ajax({
+			url: api.checkUserMobile,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function(res) {
+				callback(res);
+			}
+		});
+	};
+
+
+		/**
+	 * checkUserMobile
+	 * @param  function callback 查找后的回调
+	 * @return null
+	 */
+	Func.createJoinActInfo = function(callback) {
+
+		$('#loadingWrapper').show();
+
+		$.ajax({
+			url: api.createJoinActInfo,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			success: function(res) {
+				callback(res);
+			}
+		});
+	};
+
+		/**
+	 * 抽奖
 	 * @param  function callback 抽奖后的回调函数
 	 * @return null
 	 */
@@ -38,7 +77,7 @@ $(function() {
 		isLottery = true;
 
 		$.ajax({
-			url: url,
+			url: api.lottery,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
@@ -52,30 +91,66 @@ $(function() {
 		});
 	}
 
+	var isLottery = false;
+
 	/**
-	 * 查找二维码情况
-	 * @param  function callback 查找后的回调
+	 * 去抽奖
+	 * @param { } [varname] [description]
 	 * @return null
 	 */
-	Func.findActivityByEncode = function(callback) {
-		$('#loadingWrapper').show();
+	Func.toLottery = function(url,callback) {
 		$.ajax({
-			url: api.findActivityByEncode,
+			url: url,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
 			success: function(res) {
-				$('#loadingWrapper').hide();
-				callback(res);
-			},
-			error:function () {
+                $('#loadingWrapper').hide();
+				var html = '';
+				var data = res.data;
 
-            }
+				$('#actLoading').fadeOut();
+
+				if (res.code === 200) {
+
+					if (res.data.prizeType === 0) {
+						Global.requestTempByAjax('/nantian/temp/dan.ejs', res.data, function(template) {
+
+							$('#resultContent').html(template);
+							callback(res);
+						});
+					}
+
+				} else if (res.code === 201) {
+
+					Func.fail(res, callback);
+
+				} else {
+					common.alert({
+						content: res.msg,
+						mask: true
+					});
+				}
+			}
 		});
 	}
 
+	Func.fail = function(res, callback) {
+		
+		$('#resultContainer').css({
+			'background': 'url("https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/commonAct_2/images/5/1_17.png") no-repeat'
+		});
+		Global.requestTempByAjax('/nantian/temp/error.ejs', res, function(template) {
 
-		/**
+			$('#resultContent').html(template);
+
+			$('#getAwardBtn').hide();
+
+			callback(res);
+		});
+	}
+
+	/**
 	 * 查询是否关注公众号接口
 	 * @param  	function 	callback 	查找后的回调
 	 * @return 	null
@@ -93,93 +168,22 @@ $(function() {
 			}
 		});
 	}
+
 	/**
-	 * 获取手机短信验证码
-	 * @param 	object 		data 		数据
-	 * @param  	function 	callback 	查找后的回调
-	 * @return 	null
+	 * 查找二维码情况
+	 * @param  function callback 查找后的回调
+	 * @return null
 	 */
-	Func.getVerCode = function(data, callback) {
+	Func.findActivityByEncode = function(callback) {
 
 		$('#loadingWrapper').show();
 
 		$.ajax({
-			url: api.getVerCode,
-			type: 'POST',
-			data: data,
+			url: api.findActivityByEncode,
+			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
 			success: function(res) {
-				$('#loadingWrapper').hide();
-				callback(res);
-			}
-		});
-	}
-
-	/**
-	 * 获取手机短信验证码（彼特明）
-	 * @param 	object 		data 		数据
-	 * @param  	function 	callback 	查找后的回调
-	 * @return 	null
-	 */
-	Func.btmGetVerCode = function(data, callback) {
-
-		$('#loadingWrapper').show();
-
-		$.ajax({
-			url: api.btmGetVerCode,
-			type: 'POST',
-			data: data,
-			headers: getHeader(),
-			dataType: 'json',
-			success: function(res) {
-				$('#loadingWrapper').hide();
-				callback(res);
-			}
-		});
-	}
-
-	/**
-	 * 获取手机短信验证码（彼特明）
-	 * @param 	object 		data 		数据
-	 * @param  	function 	callback 	查找后的回调
-	 * @return 	null
-	 */
-	Func.checkPhonesUserStatus = function(data, callback) {
-
-		$('#loadingWrapper').show();
-
-		$.ajax({
-			url: api.checkPhonesUserStatus,
-			type: 'POST',
-			data: data,
-			headers: getHeader(),
-			dataType: 'json',
-			success: function(res) {
-				$('#loadingWrapper').hide();
-				callback(res);
-			}
-		});
-	}
-
-	/**
-	 * 消费者注册
-	 * @param 	object 		data 		数据
-	 * @param  	function 	callback 	查找后的回调
-	 * @return 	null
-	 */
-	Func.register = function(data, callback) {
-
-		$('#loadingWrapper').show();
-
-		$.ajax({
-			url: api.register,
-			type: 'POST',
-			data: data,
-			headers: getHeader(),
-			dataType: 'json',
-			success: function(res) {
-				$('#loadingWrapper').hide();
 				callback(res);
 			}
 		});
@@ -210,6 +214,7 @@ $(function() {
 	 * @return null
 	 */
 	Func.userCash = function(data, callback) {
+		$('#loadingWrapper').show();
 
 		$.ajax({
 			url: api.userCash,
@@ -391,65 +396,70 @@ $(function() {
 					// var random = Math.floor(Math.random() * res.data.length);
 					// var data = res.data[random];
 
-					Global.requestTempByAjax('/commonAct_1/temp/swiper.ejs', res.data, function(template) {
-						// $(ele).append('<img class="ad" src="' + data.picUrl + '" data-advId="' + data.advId + '" data-href="' + data.linkUrl + '" />');
+					if(res.data != "") {
+						Global.requestTempByAjax('/commonAct_1/temp/swiper.ejs', res.data, function (template) {
+							// $(ele).append('<img class="ad" src="' + data.picUrl + '" data-advId="' + data.advId + '" data-href="' + data.linkUrl + '" />');
 
-						$(ele).append(template);
+							$(ele).append(template);
 
-						var swiperSlide = $(ele).find('.swiper-slide');
+							var swiperSlide = $(ele).find('.swiper-slide');
 
-						if (swiperSlide.length <= 1) {
-							$(ele).find('.swiper-pagination').hide();
-						}
-						// debugger;
-						if (swiperSlide.length === 0) {
-							$(ele).prev().css({bottom: 0});
-							$(ele).hide();
-						}
+							if (swiperSlide.length <= 1) {
+								$(ele).find('.swiper-pagination').hide();
+							}
+							// debugger;
+							if (swiperSlide.length === 0) {
+								$(ele).prev().css({bottom: 0});
+								$(ele).hide();
+							}
 
-						var swiper = new Swiper('.swiper-container', {
-							pagination: {
-								el: '.swiper-pagination',
-							},
-							autoplay: true,
-							on: {
-								init: function() {
-									var index = this.activeIndex;
-
-									var img = $(ele).find('.swiper-slide').eq(index).find('img');
-
-									if (img.attr('data-loading') === 'true') {
-										return;
-									}
-
-									img.attr('data-loading', 'true');
-
-									Func.browseRecord(img.attr('data-advId'), 0);
-
-									this.emit('transitionEnd'); //在初始化时触发一次transitionEnd事件
+							var swiper = new Swiper('.swiper-container', {
+								pagination: {
+									el: '.swiper-pagination',
 								},
-								slideChangeTransitionEnd: function() {
-									var index = this.activeIndex;
+								autoplay: true,
+								on: {
+									init: function () {
+										var index = this.activeIndex;
 
-									var img = $(ele).find('.swiper-slide').eq(index).find('img');
+										var img = $(ele).find('.swiper-slide').eq(index).find('img');
 
-									if (img.attr('data-loading') === 'true') {
-										return;
+										if (img.attr('data-loading') === 'true') {
+											return;
+										}
+
+										img.attr('data-loading', 'true');
+
+										Func.browseRecord(img.attr('data-advId'), 0);
+
+										this.emit('transitionEnd'); //在初始化时触发一次transitionEnd事件
+									},
+									slideChangeTransitionEnd: function () {
+										var index = this.activeIndex;
+
+										var img = $(ele).find('.swiper-slide').eq(index).find('img');
+
+										if (img.attr('data-loading') === 'true') {
+											return;
+										}
+
+										img.attr('data-loading', 'true');
+
+										Func.browseRecord(img.attr('data-advId'), 0);
 									}
+								},
+							});
 
-									img.attr('data-loading', 'true');
+							if (typeof callback !== 'undefined') {
+								callback(res.data);
+							}
 
-									Func.browseRecord(img.attr('data-advId'), 0);
-								}
-							},
+							// Func.browseRecord(data.advId, 0);
 						});
-
-						if (typeof callback !== 'undefined') {
-							callback(res.data);
-						}
-
-						// Func.browseRecord(data.advId, 0);
-					});
+					} else {
+						$("#awardInforWrapper").css({bottom: 0});
+						$("#advertisement").css({background: "transparent"});
+					}
 
 				} else {
 					$(ele).prev().css({bottom: 0});
@@ -528,6 +538,24 @@ $(function() {
 	};
 
 	/**
+	 * 消费者自主核销
+	 * @return null
+	 */
+	Func.cancelCoupon = function(data, callback) {
+		
+		$.ajax({
+			url: api.cancelCoupon,
+			type: 'GET',
+			headers: getHeader(),
+			dataType: 'json',
+			data: data,
+			success: function(res) {
+				callback(res);
+			}
+		});
+	}
+
+	/**
 	 * 获取用户信息
 	 * @param  function 	callback 	提交成功后的回调
 	 * @return null
@@ -578,65 +606,43 @@ $(function() {
 		});
 	}
 
-    /**
-     * 查询手机号是否可以参与某活动
-	 * @param 	object 		phone		手机号
-     * @param  function 	callback 	提交成功后的回调
-     * @return null
-     */
-    Func.checkPhoneIsEnabelJoinAct = function(data,callback) {
-        $.ajax({
-            url: api.checkPhoneIsEnabelJoinAct,
-            type: 'GET',
-            headers: getHeader(),
-            dataType: 'json',
-			data:data,
-            success: function(res) {
-                callback(res);
-            }
-        });
-    }
-
-    /**
-     * 发起提现申请
-     * @param 	object 		amount		申请提现的金额
-     * @param  function 	callback 	提交成功后的回调
-     * @return null
-     */
-    Func.guestApplyWithdraw = function(data,callback) {
-        $.ajax({
-            url: api.guestApplyWithdraw,
-            type: 'GET',
-            headers: getHeader(),
-            dataType: 'json',
-            data:data,
-            success: function(res) {
-                callback(res);
-            }
-        });
-	}
-	
-	/**
-	 * 获取企业中奖记录
-	 * @param  object 		data 		提交的数据
-	 * @param  function 	callback 	获取成功后的回调
-	 * @return null
-	 */
 	Func.companyLotteryRecord = function(data, callback) {
-
-		if (data.page === 1) {
-			$('#loadingWrapper').show();
-		}
-
 		$.ajax({
 			url: api.companyLotteryRecord,
 			type: 'GET',
-			data: data,
 			headers: getHeader(),
+			data: data,
 			dataType: 'json',
 			success: function(res) {
 				callback(res);
 			}
 		});
-	}	
-});
+	}
+
+	/**
+	 * 中奖记录滚动
+	 * @return null
+	 */
+	Func.awardScroll = function() {
+		
+
+		$('#awardInforScrollContent').append($('#awardInforScrollContent').html());
+
+		var awardInforScrollContentWidth = $('#awardInforScrollContent').width();
+		var left = 0;
+		
+		// debugger;
+		var timer = setInterval(function() {
+
+			left--;
+
+			if (Math.abs(left) >= awardInforScrollContentWidth - $(window).width()) {
+				left = 0;
+			}
+
+			$('#awardInforScrollContent').css({
+				left: left
+			});
+		}, 10);
+	}
+})
