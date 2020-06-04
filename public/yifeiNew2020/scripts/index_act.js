@@ -151,6 +151,10 @@ $(function () {
 
 	// 点击抽奖
 	$('#container').on('click', '.award-item', function () {
+        awardValue = $(this).find('.num').html();
+        type = $(this).attr('data-type');
+        index = $(this).index();
+
 		//校验是否绑定手机号码
 		Func.checkUserMobile(function (res) {
 			if (res.data.type == 1) {
@@ -167,11 +171,6 @@ $(function () {
 				}
 
 				isClick = false;
-				awardValue = $(this).find('.num').html();
-				type = $(this).attr('data-type');
-				index = $(this).index();
-
-
 				$('#loadingWrapper').hide();
 				Func.findActivityByEncode(function (res) {
 					if (res.code === 200 || res.code === 201) {

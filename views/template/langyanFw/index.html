@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<link rel="stylesheet" href="/langyanFw/css/index.css" />
+	<title></title>
+</head>
+<body>
+	<div class="app">
+		<div class="container">
+
+			<img class="header" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/langyanFw/1_1.png" alt="">
+
+			<!--验证次数-->
+			<div class="num">第<span>1</span>次验证成功</div>
+
+			<div class="title">购买的产品属于<span>「</span>狼烟天下<span>」</span>旗下产品<br/>请放心使用</div>
+
+			<div class="tip">获得<span>10</span>积分，进入积分商城可兑换产品</div>
+
+
+			<a class="btn btn1" href="">进入积分商城</a>
+			<a class="btn btn2" href="">注册会员</a>
+		</div>
+	</div>
+
+	<%-include('../../include/commonJs') %>
+	<%-include("../../include/hideMenu") %>
+	<!-- 公共js start -->
+	<script src="/common/scripts/Func.js"></script>
+	<script src="/langyanNew/js/api.js"></script>
+	<script src="/langyanNew/js/lib/jweixin-1.0.0.js"></script>
+	<script>
+        $('.app').on('touchmove',function (e) {
+            e.preventDefault();
+        });
+
+
+	</script>
+</body>
+</html>

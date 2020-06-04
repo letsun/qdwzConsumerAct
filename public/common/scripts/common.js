@@ -186,7 +186,6 @@ var timer = [];
             img.onload = function () {
                 picloaded++;
                 var lstr = Math.ceil(100 * picloaded / loadpicarray.length) + "%";
-				console.log(picloaded,lstr)
                 $("#percent").html(lstr);
                 if (lstr === "100%") {
                     if (callback && typeof callback === 'function') {
