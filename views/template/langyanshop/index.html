@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=hotcss content="max-width=640">
+    <meta name=hotcss content="design-width=640">
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js></script>
+    <meta name=viewport content="width=750,user-scalable=no">
+    <title></title>
+    <script src=langyanshop/static/js/jquery-3.2.1.min.js></script>
+    <script src=langyanshop/static/js/utf.js></script>
+    <script src=langyanshop/static/js/jquery.qrcode.js></script>
+    <script src=langyanshop/static/js/html2canvas.min.js></script>
+    <style>
+        .swiper-pagination-bullet {
+
+            width: 16px !important;
+            height: 16px !important;
+
+            background: #000 !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            width: 16px !important;
+            height: 16px !important;
+
+            background: #fff !important;
+        }
+
+        .area_ctrl {
+            font-size: 24px !important;
+        }
+    </style>
+    <link href=/langyanshop/static/css/app.a5f6b13e9101aac4e6c7a11735cade1d.css rel=stylesheet>
+</head>
+
+<body>
+    <div id=app></div>
+    <script>$(function () {
+            // 输入框失去焦点兼容苹果系统
+            $('#app').on('blur', 'input,textarea,select', function () {
+                setTimeout(function () {
+                    var hasFocus = $('input').is(':focus') || $('textarea').is(':focus') || $('select').is(':focus');
+                    if (!hasFocus) {
+                        window.scroll(0, 0);
+                    }
+                }, 100);
+            });
+        })</script>
+    <script type=text/javascript src=/langyanshop/static/js/manifest.2ae2e69a05c33dfc65f8.js></script>
+    <script type=text/javascript src=/langyanshop/static/js/vendor.3e9e3cddc6835f52e60d.js></script>
+    <script type=text/javascript src=/langyanshop/static/js/app.6de8ff0e9f7cc6e9c46f.js></script>
+</body>
+
+</html>

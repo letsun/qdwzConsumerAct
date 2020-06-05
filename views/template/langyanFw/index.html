@@ -20,11 +20,11 @@
 
 			<div class="title">购买的产品属于<span>「</span>狼烟天下<span>」</span>旗下产品<br />请放心使用</div>
 
-			<div class="tip">获得<span id="point"></span>积分，进入积分商城可兑换产品</div>
+			<div class="tip" style="display: none;">获得<span id="point"></span>积分，进入积分商城可兑换产品</div>
 
 
 			<a class="btn btn1">进入积分商城</a>
-			<a class="btn btn2">注册会员</a>
+			<a class="btn btn2" style="display: none;">注册会员</a>
 		</div>
 	</div>
 
@@ -68,7 +68,10 @@
 					console.log(res)
 					if (res.data.type == 1) {
 						$('.btn2').show();
+
+						$('.tip').hide();
 					} else {
+						$('.tip').show();
 						$('.btn2').hide();
 						createJoinActInfo()
 					}
