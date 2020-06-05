@@ -20,7 +20,7 @@
 
 			<div class="title">购买的产品属于<span>「</span>狼烟天下<span>」</span>旗下产品<br />请放心使用</div>
 
-			<div class="tip" style="display: none;">获得<span id="point"></span>积分，进入积分商城可兑换产品</div>
+			<div class="tip" >获得<span id="point"></span>积分，进入积分商城可兑换产品</div>
 
 
 			<a class="btn btn1">进入积分商城</a>
@@ -66,9 +66,8 @@
 					if (res.data.type == 1) {
 						$('.btn2').show();
 
-						$('.tip').hide();
+						$('.tip').text('您未注册会员，请先注册会员后再扫码即可领取积分');
 					} else {
-						$('.tip').show();
 						$('.btn2').hide();
 						createJoinActInfo()
 					}
@@ -85,18 +84,18 @@
 								var point = reg.data.point.point;
 								$('#point').text(point)
 							} else {
-								$('.tip').text('该码已被扫')
+								$('.tip').text('该积分已被领取')
 							}
 						})
 					} else if (res.code == 201) {
-						$('.tip').text('该码已被扫');
+						$('.tip').text('该积分已被领取');
 					} else if (res.code == 202) {
 						//0未领奖 1已领奖 2领取失败	
 						if (res.data.status == 0) {
 							var point = res.data.prizeAmount;
 							$('#point').text(point);
 						} else if (res.data.status == 1) {
-							$('.tip').text('该码已被扫');
+							$('.tip').text('该积分已被领取');
 						}
 					} else {
 						common.alert({
