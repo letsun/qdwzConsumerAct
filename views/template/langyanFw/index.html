@@ -46,14 +46,12 @@
 			console.log(api.ip +
 				`/shop/wx/1/` +
 				getHeader().cpi +
-				`?parentOpenid=` +
-				getHeader().oi)
+				`?parentOpenid=`)
 
 			window.location.href = api.ip +
 				`/shop/wx/1/` +
 				getHeader().cpi +
-				`?parentOpenid=` +
-				getHeader().oi
+				`?parentOpenid=`
 
 			// window.location.href = api.ip +
 			// 	`/shop/wx/1/` +
@@ -65,7 +63,6 @@
 		$(function () {
 			Func.checkUserMobile(function (res) {
 				if (res.code == 200) {
-					console.log(res)
 					if (res.data.type == 1) {
 						$('.btn2').show();
 
@@ -111,7 +108,6 @@
 			}
 
 			Func.findRealEncodeFunction(function (res) {
-				console.log(res)
 				if (res.code == 200) {
 					var valiCount = res.data.securityCheckRecord.valiCount;
 					if (valiCount < 3) {
