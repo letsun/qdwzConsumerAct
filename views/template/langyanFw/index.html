@@ -20,7 +20,7 @@
 
 			<div class="title">购买的产品属于<span>「</span>狼烟天下<span>」</span>旗下产品<br />请放心使用</div>
 
-			<div class="tip" >获得<span id="point"></span>积分，进入积分商城可兑换产品</div>
+			<div class="tip">获得<span id="point"></span>积分，进入积分商城可兑换产品</div>
 
 
 			<a class="btn btn1">进入积分商城</a>
@@ -48,50 +48,60 @@
 		});
 
 		$('.btn').on('click', function () {
-			console.log(api.ip +
-				`/shop/wx/1/` +
-				getHeader().cpi +
-				`?parentOpenid=`)
 
-			window.location.href = api.ip +
-				`/shop/wx/1/` +
-				getHeader().cpi +
-				`?parentOpenid=`
-
-			// window.location.href = api.ip +
-			// 	`/shop/wx/1/` +
-			// 	getHeader().cpi +
-			// 	`?parentOpenid=` +
-			// 	getHeader().oi;
+			console.log(getHeader())
+				//  /shop/index/1/ /qdwz/goods/index/1/
+			// console.log( api.ip + `/shop/index/1/` + getHeader().cpi + `&csi=`+getHeader().csi + `&oi=`+getHeader().oi  )
+			window.location.href = api.ip + `/shop/index/1/` + getHeader().cpi + `?csi=`+getHeader().csi + `&oi=`+getHeader().oi 
 		})
 
 		$(function () {
-			Func.checkUserMobile(function (res) {
-				if (res.code == 200) {
-					if (res.data.type == 1) {
-						$('.btn2').show();
 
-						$('.tip').text('您未注册会员，请先注册会员后再扫码即可领取积分');
+			Func.findRealEncodeFunction(function (res) {
+				if (res.code == 200) {
+					var valiCount = res.data.securityCheckRecord.valiCount;
+					if (valiCount < 3) {
+						var html = '第<span>' + valiCount + '</span>次验证成功';
 					} else {
-						$('.btn2').hide();
-						createJoinActInfo()
+						var html = '多次验证成功';
+					}
+					if (valiCount >= 2) {
+						$('.title').html('注意!该产品已被多次验证,<br/>请谨慎购买')
 					}
 
+					$('.num').html(html);
+					checkUserMobile()
+				} else {
+					common.alert({
+						mask: true,
+						content: res.msg
+					})
 				}
 			})
 
-			//抽奖
+			//验证是否注册
+			function checkUserMobile() {
+				Func.checkUserMobile(function (res) {
+					if (res.code == 200) {
+						if (res.data.type == 1) {
+							$('.btn2').show();
+
+							$('.tip').text('您未注册会员，请先注册会员后再扫码即可领取积分');
+						} else {
+							$('.btn2').hide();
+							createJoinActInfo()
+						}
+
+					}
+				})
+			}
+
+
+			//查找活动参与记录
 			function createJoinActInfo() {
 				Func.createJoinActInfo(function (res) {
 					if (res.code == 200) {
-						Func.lottery(api.lottery, function (reg) {
-							if (reg.code == 200) {
-								var point = reg.data.point.point;
-								$('#point').text(point)
-							} else {
-								$('.tip').text('该积分已被领取')
-							}
-						})
+						lottery()
 					} else if (res.code == 201) {
 						$('.tip').text('该积分已被领取');
 					} else if (res.code == 202) {
@@ -102,6 +112,8 @@
 						} else if (res.data.status == 1) {
 							$('.tip').text('该积分已被领取');
 						}
+					}else if(res.code ==203) {
+						$('.tip').text('该积分已被领取');
 					} else {
 						common.alert({
 							mask: true,
@@ -111,26 +123,18 @@
 				})
 			}
 
-			Func.findRealEncodeFunction(function (res) {
-				if (res.code == 200) {
-					var valiCount = res.data.securityCheckRecord.valiCount;
-					if (valiCount < 3) {
-						var html = '第<span>' + valiCount + '</span>次验证成功';
+			//抽奖
+			function lottery() {
+				Func.lottery(api.lottery, function (reg) {
+					if (reg.code == 200) {
+						var point = reg.data.point.point;
+						$('#point').text(point)
 					} else {
-						var html = '多次验证成功';
+						$('.tip').text('该积分已被领取')
 					}
-					if (valiCount>=2) {
-						$('.title').html('注意!该产品已被多次验证,<br/>请谨慎购买')
-					}
+				})
+			}
 
-					$('.num').html(html)
-				} else {
-					common.alert({
-						mask: true,
-						content: res.msg
-					})
-				}
-			})
 
 		})
 
