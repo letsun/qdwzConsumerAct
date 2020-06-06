@@ -168,3 +168,8 @@ body {
   border: 1px solid #ddd;
   background: #f7f7f7;
 }
+.app .container .prompt {
+  padding-top: 20px;
+  text-align: center;
+  color: red;
+}
