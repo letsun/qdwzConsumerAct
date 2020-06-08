@@ -94,14 +94,6 @@
 			function createJoinActInfo() {
 				Func.createJoinActInfo(function (res) {
 					if (res.code == 200) {
-						Func.lottery(api.lottery, function (reg) {
-							if (reg.code == 200) {
-								var point = reg.data.point.point;
-								$('#point').text(point)
-							} else {
-								$('.tip').text('该积分已被领取').show();
-							}
-						})
 						lottery()
 					} else if (res.code == 201) {
 						$('.tip').text('该积分已被领取').show();
