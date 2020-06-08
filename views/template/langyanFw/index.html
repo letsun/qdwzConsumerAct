@@ -47,7 +47,7 @@
 
 		$('.btn').on('click', function () {
 			window.location.href = api.ip + `/shop/index/1/` + getHeader().cpi + `?csi=`+getHeader().csi + `&oi=`+getHeader().oi 
-		})
+		});
 
 		$(function () {
             Func.findRealEncodeFunction(function (res) {
@@ -70,7 +70,7 @@
                         content: res.msg
                     })
                 }
-            })
+            });
 
 			//验证是否注册
 			function checkUserMobile() {
