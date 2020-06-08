@@ -7,8 +7,8 @@ var test1 = 'https://test-api.lxcyhd.com';
 var production1 = 'https://api.lxcyhd.com';
 
 
-var ip = test;
-var ip1 = test1;
+var ip = dev;
+var ip1 = dev1;
 
 var api = {
 	ip:ip1,
