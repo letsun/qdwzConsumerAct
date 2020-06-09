@@ -102,6 +102,7 @@
 						if (res.data.status == 0) {
 							var point = res.data.prizeAmount;
 							$('#point').text(point);
+							$('.tip').show();
 						} else if (res.data.status == 1) {
 							$('.tip').text('该积分已被领取').show();
 						}
@@ -121,7 +122,8 @@
 				Func.lottery(api.lottery, function (reg) {
 					if (reg.code == 200) {
 						var point = reg.data.point.point;
-						$('#point').text(point)
+						$('#point').text(point);
+                        $('.tip').show();
 					} else {
 						$('.tip').text('该积分已被领取').show();
 					}
