@@ -34,5 +34,7 @@ var api = {
 	findScanNum: ip + '/consumerActivity/findScanNum',							// 扫码次数
 
 	jssdk: ip2 + '/getUserApi/getJsApiSignature',											// 掉扫码接口
-	findEncodeFunction: ip + '/api/extend/findEncodeFunction', 			// 防伪溯源展示接口
+	findEncodeFunction: ip + '/api/extend/findEncodeFunction', 					// 防伪溯源展示接口
+
+	createJoinActInfo: ip + '/consumerActivity/createJoinActInfo',        // 创建参与活动记录
 };

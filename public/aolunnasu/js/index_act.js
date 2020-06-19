@@ -34,17 +34,21 @@ $(function () {
 			}
 
 		});
+
+
+		Func.createJoinActInfo(function (res) {
+			if (res.code == 200) {
+				findActivityByEncode()
+			}
+		})
+
 	}
 
-	// console.log(window.location.href)
-	// var str= window.location.href;
-	// var search = "resultType=1";
-	// var result = str.match(search)[0];//截取字符串
 
 
 
-	// 点击开启积分
-	$('.submit').on('click', function () {
+
+	function findActivityByEncode() {
 		Func.findActivityByEncode(function (res) {
 			$('#loadingWrapper').hide();
 			if (res.code === 200 || res.code === 201) {
@@ -81,6 +85,13 @@ $(function () {
 				})
 			}
 		});
+	}
+
+
+
+	// 点击开启积分
+	$('.submit').on('click', function () {
+
 
 	})
 
