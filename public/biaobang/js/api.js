@@ -1,4 +1,4 @@
-var dev = 'http://192.168.1.20:8085/qdwz';
+var dev = 'http://192.168.1.41:8085/qdwz'; // 41-春玲姐，57-陈凯
 var test = 'https://test-api.lxcyhd.com/qdwz';
 var production = 'https://api.lxcyhd.com/qdwz';
 
@@ -34,5 +34,9 @@ var api = {
 	findScanNum: ip + '/consumerActivity/findScanNum',							// 扫码次数
 
 	jssdk: ip2 + '/getUserApi/getJsApiSignature',											// 掉扫码接口
-	findEncodeFunction: ip + '/api/extend/findEncodeFunction', 			// 防伪溯源展示接口
+	findEncodeFunction: ip + '/consumerActivity/findEncodeFunction', 			// 二维码防伪溯源展示接口
+	checkUserMobile: ip + '/consumerUser/checkUserMobile',	// 是否绑定手机号
+	saveUserInfo: ip + '/consumerUser/saveUserInfo',	// 绑定手机号
+	getVerCode: ip + '/smscode/checkPhondeAndSendCode',	// 获取验证码
+	createJoinActInfo: ip + '/consumerActivity/createJoinActInfo',	// 创建保存参与记录
 };

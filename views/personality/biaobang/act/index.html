@@ -6,130 +6,175 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=750, user-scalable=no">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="/aolunnasu/css/index.css" />
+	<link rel="stylesheet" href="/biaobang/fonts/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="/biaobang/css/index.css" />
 
 </head>
 
 <body>
 	<!--加载页-->
-	<div class="loading">
+	<div class="loading" style="display: none;">
 		<div class="loadCon">
-			<img src="/aolunnasu/images/loading.png" />
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/common/images/loading.png" />
 			<div id="percent">1%</div>
 		</div>
 	</div>
 
-
 	<div class="container">
-		<div class="header">
-			<div class="header-logo">
-				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_1.png">
-			</div>
-			<div class="header-text">
-				<!--<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_2.png">-->
 
-				<div class="text-title">第 <span class="scanNum"></span> 次验证</div>
-				<img class="text-border" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200219/1_2.png" alt="">
-				<div class="text-con">
-					<div class="text-con-top">您好,您所查询的产品为奥伦纳素品牌的产品，验证无误，感谢您的购买，请在保质期内使用。</div>
-					<div class="scanDate"></div>
+		<div class="content">
+
+			<img class="logo" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/1_1.png" alt="">
+
+			<img class="rule-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/1_2.png" alt="">
+
+			<!--中奖记录-->
+			<img class="winning-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/1_9.png" alt="">
+
+			<!--验证次数-->
+			<div class="verification-wra">
+				<div class="verification-icon verification-icon1">
+					<div class="validate-time">第<span class="detail-time"></span>次验证</div>
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/1_3_1.png" alt="">
+				</div>
+
+				<div class="verification-icon verification-icon2">
+					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/1_4.png" alt="">
+				</div>
+
+				<div class="verification-text">您好！您所查询的产品为标榜公司生产的产品
+					验证无误，感谢您的购买，请在保质期内使用！<br/><span class="validate-date"></span>
 				</div>
 			</div>
-
-
+			
+			<!--开红包-->
+			
+			<div class="pack-wra">
+				<img class="pack-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/1_5.png" alt="">
+			</div>
 		</div>
 
-		<div class="footer">
-			<div class="footer-item submit">
-				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200219/1_3.png"></div>
-			<a href="info" class="footer-item"><img
-					src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200219/1_4.png"></a>
-		</div>
+		<!--活动规则-->
+		<div class="rule-win common-win">
+			<div class="rule-content">
+				<img class="rule-title" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/2_1.png" alt="">
 
-		<div class="mask">
+				<div class="rule-dec-wra">
+					<div class="rule-dec">
+						
+						<div class="scroll-wra" id="scrollWrapper1">
+							<div class="rule-text">
+								1. 即日起，凡购买标榜公司产品即可参与扫码领红包。<br>
+								2. 打开微信扫一扫，扫箱内二维码，按提示操作即可领取。<br>
+								3. 活动区域，中国全境，所有产品均有红包。<br>
+								4. 活动期间，即日起，消费者扫描二维码后24小时内兑换领取，逾期未兑换视自动弃奖。<br>
+								5. 本次活动奖项为现金红包，奖金为0.88元~888元。
+							</div>
+						</div>
+						
+					</div>
+				</div>
 
-			<!-- 显示二维码 -->
-			<div class="maskcon mask-con1">
-				<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_6.png">
+				<img class="close-rule" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/2_2.png" alt="">
 			</div>
+		</div>
+		
+		<!--中奖结果-->
+		<div class="result-win common-win">
+			<div class="result-con">
+				<div class="result-title"></div><!-- 恭喜您获得、很遗憾 -->
 
-			<!-- 积分弹窗 -->
-			<div class="maskcon mask-con2">
-				<div class="mask-title">
-
-					恭喜您获得<span class="num"></span>积分
+				<!--中现金红包-->
+				<div class="dec dec1">
+					<div class="num"><span></span>元</div>
+					<div class="type">现金红包</div>
+					<img class="result-icon" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/3_2.png" alt="">
 				</div>
 
-				<div class="mask-middel">
-					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200219/1_11.png">
-				</div>
+				<!--该码已被扫-->
+				<div class="dec dec2">
+					<img class="result-icon" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/4_1.png" alt="">
 
-				<div class="mask-text">长按关注绑定，即可激活积分</div>
-
-				<div class="mask-bottom">
-					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200219/1_12.png">
+					<div class="type">该码已被扫</div>
 				</div>
 				
-
-				<!--<div class="mask-btn">-->
-					<!--<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_7.png">-->
-				<!--</div>-->
-
-			
+				<!-- 去领取按钮 -->
+				<img class="result-btn go-receive" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/3_1.png" alt="">
+				<!-- 我知道了 -->
+				<img class="result-btn i-know" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/4_2.png" alt="">
 			</div>
+		</div>
 
-			<!-- 关注公众号 -->
-			<div class="maskcon mask-con3">
+		<!--提交信息-->
+		<div class="submit-win common-win">
+			<div class="submit-content">
+				<div class="form">
+					<div class="form-item">
+						<input class="form-input" id="mobile" maxlength="11" type="text" placeholder="请输入手机号">
+					</div>
 
-				<div class="mask-img">
-					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_14.png">
+					<div class="form-item form-other-item">
+						<div class="form-left">
+							<input class="form-input" id="ver-code" maxlength="6" type="text" placeholder="请输入收到的验证码">
+						</div>
 
-				</div>
+						<div class="get-code">获取验证码</div>
+					</div>
 
-				<div class="mask-text">关注小程序，绑定手机号码领取</div>
-			</div>
-
-			<!-- 显示扫码弹窗 -->
-			<div class="maskcon mask-con4">
-				<div class="title">
-					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_9.png">
-				</div>
-
-				<div class="mask-img">
-					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_10.png">
-				</div>
-
-				<div class="mask-btn">
-					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/1_11.png">
-				</div>
-
-				<div class="mask-text">
-					在奥伦纳素柜台购买注册会员，产品直接累计积分，其他渠道通过扫码获取获取积分;防伪码为一物一码，如撕毁，丢失，破损将无法找回，
-					积分不予补计，请谅解。
-				</div>
-
-			</div>
-
-			<!-- 积分弹窗 -->
-			<div class="maskcon mask-con5">
-				<div class="mask-title">
-					该码已被扫
-				</div>
-
-				<div class="mask-middel">
-					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200226/1_1.png">
-				</div>
-
-				<div class="mask-bottom">
-					<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/aolunnasu/20200219/1_12.png">
+					<div class="form-item">
+						<img class="submit-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/5_1.png" alt="">
+					</div>
 				</div>
 			</div>
+		</div>
 
+		<!--提交成功-->
+		<div class="success-win common-win">
+			<div class="success-content">
+				<img class="code" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/6_2.png" alt="">
+
+				<div class="code-text">信息提交成功<br/>长按关注公众号，查看更多活动</div>
+				<img class="close-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/guanli/1_15.png" >
+			</div>
+		</div>
+
+		<!--中奖记录-->
+		<div class="record-win common-win">
+			<div class="header-back">
+				<a class="back-icon" href="javascript:void(0);"><span class="iconfont icon-fanhui"></span></a>
+				<h3>中奖记录</h3>
+			</div>
+
+			<div class="header">
+				<img class="img header-bg" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/biaobang/7_3.png" alt="">
+
+				<div class="user-info">
+					<img class="avatar" src="" alt="">
+					<div class="nickname"></div>
+				</div>
+
+
+			</div>
+			<div class="record-con">
+
+				<div class="record-title">
+					<div class="item">
+						<div class="item-name">奖品名称</div>
+						<div class="item-time">时间</div>
+					</div>
+				</div>
+				<div class="scroll-wra" id="scrollWrapper">
+					<div class="list" id="list">
+						<!-- <div class="item">
+							<div class="item-name">腾讯体育会员一个月</div>
+							<div class="item-time">2020-04-22 16:04:04</div>
+						</div> -->
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</div>
-
-
-
 
 </body>
 
@@ -138,27 +183,28 @@
 <%-include("../../../include/commonJs") %>
 <%-include("../../../include/hideMenu") %>
 
-
-<script src="/aolunnasu/js/lib/jweixin-1.0.0.js"></script>
-<script src="/aolunnasu/js/api.js"></script>
-<script src="/common/scripts/Func.js"></script>
-<!-- <script src="/aolunnasu/js/Func.js"></script> -->
-<script src="/aolunnasu/js/index_act.js"></script>
-
+<script src="/biaobang/js/lib/jweixin-1.0.0.js"></script>
+<script src="/biaobang/js/api.js"></script>
+<script src="/biaobang/js/Func.js"></script>
+<script src="/biaobang/js/index_act.js"></script>
 
 <script>
-	$(function () {
-		// 页面禁止滑动
-		$('.container').on("touchmove", function (e) {
-			e.preventDefault();
-		});
-		/**加载进度*/
-		common.loading($("#percent"), function () {
-			$('.loading').hide();
-			$('.container').fadeIn();
-		});
 
-	})
+    // 页面禁止滑动
+    $('.container').on("touchmove", function (e) {
+        e.preventDefault();
+    });
+
+    // $('.rule-dec').on("touchmove", function (e) {
+    //     e.stopPropagation();
+    // });
+
+    /**加载进度*/
+    /*common.loading($("#percent"), function () {});
+
+    window.onload = function () {
+        $('.loading').hide();
+    }*/
 </script>
 
 </html>
