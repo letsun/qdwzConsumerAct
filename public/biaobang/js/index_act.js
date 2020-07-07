@@ -300,30 +300,38 @@ $(function() {
 			},
 			headers: getHeader(),
 			success: function(res) {
-				var validateTime = res.data.securityCheckRecord.valiCount;
-				var validateDate = res.data.securityCheckRecord.firstValiTime;
+				if (res.code == 200) {
+                    var validateTime = res.data.securityCheckRecord.valiCount;
+                    var validateDate = res.data.securityCheckRecord.firstValiTime;
 
-				var date = new Date(validateDate);
-				var year = date.getFullYear();
-				var month = date.getMonth() + 1;
-				var day = date.getDate();
-				var hour = date.getHours();
-				if (hour < 10) {
-					hour = '0' + hour;
-				}
-				var munite = date.getMinutes();
-				if (munite < 10) {
-					munite = '0' + munite;
+                    var date = new Date(validateDate);
+                    var year = date.getFullYear();
+                    var month = date.getMonth() + 1;
+                    var day = date.getDate();
+                    var hour = date.getHours();
+                    if (hour < 10) {
+                        hour = '0' + hour;
+                    }
+                    var munite = date.getMinutes();
+                    if (munite < 10) {
+                        munite = '0' + munite;
+                    }
+
+                    var dateStr = year + '年' + month + '月' + day + '日 ' + hour + ':' + munite;
+                    // console.log(dateStr)
+                    if(validateTime <= 3){
+                        $('.detail-time').html(validateTime);
+                    }else{
+                        $('.validate-time').html('多次验证');
+                    }
+                    $('.validate-date').html(dateStr);
+				} else {
+					common.alert({
+						mask: true,
+						content: res.msg,
+					})
 				}
 
-				var dateStr = year + '年' + month + '月' + day + '日 ' + hour + ':' + munite;
-				// console.log(dateStr)
-				if(validateTime <= 3){
-					$('.detail-time').html(validateTime);
-				}else{
-					$('.validate-time').html('多次验证');
-				}
-				$('.validate-date').html(dateStr);
 			},
 			error: function(res) {
 

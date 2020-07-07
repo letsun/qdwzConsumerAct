@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <link rel="stylesheet" href="/pnManpowerH5/css/index.css" />
+    <title>2020第二届人力高峰盛典</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="loading">
+        <div class="loadCon">
+            <img class="img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/alading/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+
+    <div class="content">
+
+        <div class="form-win">
+            <img class="top-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManpowerH5/1_7.png" alt="">
+            <div class="nav-list">
+                <div class="nav-item active">
+                    <div class="nav-text">我是外勤</div>
+                    <div class="nav-line"></div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-text">我是内勤</div>
+                    <div class="nav-line"></div>
+                </div>
+            </div>
+
+            <div class="form">
+                <div class="form-item">
+                    <input class="form-input form-input1" id="name" type="text" placeholder="姓名">
+                </div>
+
+                <div class="form-item">
+                    <input class="form-input form-input2" id="num" type="text" placeholder="工号">
+                </div>
+
+                <div class="form-tip">内勤输入姓名&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;外勤输入姓名工号</div>
+
+                <!--打开海报页-->
+                <img class="open-poster" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManpowerH5/1_2.png">
+            </div>
+        </div>
+    </div>
+
+    <!--海报页-->
+    <div class="poster-win" id="poster">
+        <img class="bg img" src="/pnManpowerH5/images/1_5.jpg" alt="">
+
+        <!--上传图片-->
+        <div class="upload-wra" id="uploadBtn">
+            <img class="upload-bg img" src="/pnManpowerH5/images/1_3.png" alt="">
+            <div class="upload-text">点击上传图片</div>
+            <div class="upload-img">
+                <img src="" alt="">
+            </div>
+
+            <!--<div class="border border1"></div>-->
+            <!--<div class="border border2"></div>-->
+            <!--<div class="border border3"></div>-->
+            <!--<div class="border border4"></div>-->
+            <!--<div class="border border5"></div>-->
+            <!--<div class="border border6"></div>-->
+
+        </div>
+
+        <div class="user">
+            <div class="name"></div>
+            <div class="area"></div>
+        </div>
+
+        <div class="prize-wra">
+            <img class="prize-title img" src="/pnManpowerH5/images/1_4.png" alt="">
+            <div class="prize-list"></div>
+        </div>
+
+        <div class="state">——&nbsp;<span></span>&nbsp;——</div>
+    </div>
+    <view class="tip">长按图片保存并分享</view>
+    <img class="generate-btn" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManpowerH5/1_8.png" alt="">
+
+    <%-include("../../include/loading", {loadingTip: '正在加载中'}) %>
+
+</div>
+
+<script src="/pnManpowerH5/scripts/lib/jquery-2.2.2.min.js"></script>
+<script src="/pnManpowerH5/scripts/lib/jweixin-1.0.0.js"></script>
+<script src="/pnManpowerH5/scripts/common.js"></script>
+<script src="/pnManpowerH5/scripts/lib/html2canvas.min.js"></script>
+<script src="/pnManpowerH5/scripts/lib/upload.js"></script>
+<script src="/pnManpowerH5/scripts/api.js"></script>
+<script src="/pnManpowerH5/scripts/index.js"></script>
+<script>
+
+    var height = $(document).height();
+    $('body').css({'height': height + 'px'});
+
+    common.loading('#percent');
+
+    window.onload = function () {
+        $('.loading').hide();
+    }
+</script>
+</body>
+</html>

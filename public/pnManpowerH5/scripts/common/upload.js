@@ -91,7 +91,7 @@ var upload = function(cfg) {
         // 删除图片的事件
         $(document).on('click', self.removeUploadPicBtn, function() {
             self.deleteOperation($(this), $(this).attr('data-src'));
-        });
+        })
 
         //选择文件事件
         $("#fileUpload" + n).on("change", function(e) {
@@ -169,7 +169,7 @@ var upload = function(cfg) {
             xhr.onreadystatechange = function(e) {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
-                        $("#fileUpload" + n).val('');
+
                         //文件上传成功
                         self.success(xhr.responseText, fileObj.file, index);
 
