@@ -16,7 +16,8 @@ var api = {
 	createJoinActInfo: ip + '/consumerActivity/createJoinActInfo', 		// 查询二维码参与活动状态
 	findRealEncodeFunction: ip + '/consumerActivity/findRealEncodeFunction', 	// 防伪溯源展示接口
 	checkUserMobile: ip + '/consumerUser/checkUserMobile',						//是否绑定手机号
-
+	findEncode: ip + '/consumerActivity/findEncode',						//通过防伪码获取相关联的二维码信息
+	isSubscribe: ip + '/wechat/isSubscribe', 									// 查询是否关注公众号接口
 	shopUrlindex: ip + '/shopUrl/index',								//商城入口
 
 };

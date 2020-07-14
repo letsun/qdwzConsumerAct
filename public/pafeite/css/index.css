@@ -151,29 +151,34 @@ body {
   background-size: 100% 100%;
   overflow: hidden;
 }
-.container .scancode {
+.container .contenta {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.container .contenta .scancode {
   text-align: center;
   padding-top: 50px;
 }
-.container .text {
+.container .contenta .text {
   text-align: center;
 }
-.container .text div:first-child {
+.container .contenta .text div:first-child {
   font-size: 28px;
   color: #E28653;
 }
-.container .text div:nth-child(2) {
+.container .contenta .text div:nth-child(2) {
   padding: 10px 0;
   color: #fff;
 }
-.container .text div:nth-child(3) {
+.container .contenta .text div:nth-child(3) {
   font-size: 28px;
   font-weight: bold;
 }
-.container .inp {
+.container .contenta .inp {
   margin: 30px 100px;
 }
-.container .inp input {
+.container .contenta .inp input {
   width: 505px;
   margin-left: -15px;
   font-size: 28px;
@@ -182,6 +187,109 @@ body {
   background: #F1C3A9;
   border: 1px solid #E28653;
 }
-.container .btn {
+.container .contenta .btn1 {
+  text-align: center;
+}
+.container .contentb {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.container .contentb .integral {
+  text-align: center;
+  display: none;
+  position: relative;
+}
+.container .contentb .integral .integral-num {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  font-size: 30px;
+  color: #FD9458;
+}
+.container .contentb .phoneimg1,
+.container .contentb .phoneimg2,
+.container .contentb .phoneimg3 {
+  margin-top: 50px;
+  text-align: center;
+  display: none;
+}
+.container .contentb .phoneimg1 img,
+.container .contentb .phoneimg2 img,
+.container .contentb .phoneimg3 img {
+  padding-left: 50px;
+}
+.container .contentb .text1,
+.container .contentb .text2,
+.container .contentb .text3 {
+  text-align: center;
+  display: none;
+}
+.container .contentb .text1 div:first-child,
+.container .contentb .text2 div:first-child,
+.container .contentb .text3 div:first-child {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  color: #CC672F;
+}
+.container .contentb .text1 div .tiemr,
+.container .contentb .text2 div .tiemr,
+.container .contentb .text3 div .tiemr {
+  color: #fff;
+}
+.container .contentb .text1 .btn,
+.container .contentb .text2 .btn,
+.container .contentb .text3 .btn {
+  margin-top: 20px;
+  text-align: center;
+}
+.container .contentb .text2,
+.container .contentb .text3 {
+  margin-top: 50px;
+}
+.container .contentb .text2 .btn,
+.container .contentb .text3 .btn {
+  margin-top: 60px;
+  text-align: center;
+}
+.container .mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container .mask .mask-popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pafeite/2_6.png') no-repeat;
+  background-size: 100% 100%;
+  height: 647px;
+  width: 599px;
+}
+.container .mask .mask-popup .mask-title {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 50px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+.container .mask .mask-popup .mask-img {
+  margin-top: 40px;
+  text-align: center;
+}
+.container .mask .mask-popup .mask-text {
+  text-align: center;
+  color: #fff;
+}
+.container .mask .mask-popup .mask-btn {
+  margin-top: 80px;
   text-align: center;
 }
