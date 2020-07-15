@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <link rel="stylesheet" href="/pnManInquireH5/css/cropper.css" />
+    <link rel="stylesheet" href="/pnManInquireH5/css/index.css" />
+    <title>2020第二届人力高峰盛典</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="loading">
+        <div class="loadCon">
+            <img class="img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/alading/images/loading.png" />
+            <div id="percent">1%</div>
+        </div>
+    </div>
+
+
+    <div class="content">
+
+        <div class="form-win">
+            <img class="top-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManpowerH5/1_7.png" alt="">
+            <div class="nav-list">
+                <div class="nav-item active">
+                    <div class="nav-text">我是外勤</div>
+                    <div class="nav-line"></div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-text">我是内勤</div>
+                    <div class="nav-line"></div>
+                </div>
+            </div>
+
+            <div class="form">
+                <div class="form-item">
+                    <input class="form-input form-input1" id="name" type="text" placeholder="姓名">
+                </div>
+
+                <div class="form-item">
+                    <input class="form-input form-input2" id="num" type="text" placeholder="工号">
+                </div>
+
+                <div class="form-tip">内勤输入姓名&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;外勤输入姓名工号</div>
+
+                <!--去查询信息-->
+                <img class="open-poster" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManInquireH5/2_15.png">
+
+            </div>
+        </div>
+
+        <!--信息展示-->
+        <div class="info-win">
+            <div class="info-content">
+                <img class="top-img" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManpowerH5/1_7.png" alt="">
+
+                <div class="info-list">
+                    <div class="info-item">
+                        <img class="info-top" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManInquireH5/2_16.png" alt="">
+                        <div class="info-bottom" id="name2"></div>
+                    </div>
+                    <div class="info-item">
+                        <img class="info-top" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManInquireH5/2_17.png" alt="">
+                        <div class="info-bottom" id="seat"></div>
+                    </div>
+                    <div class="info-item">
+                        <img class="info-top" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManInquireH5/2_18.png" alt="">
+                        <div class="info-bottom" id="round"></div>
+                    </div>
+                    <div class="info-item">
+                        <img class="info-top" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManInquireH5/2_19.png" alt="">
+                        <div class="info-bottom" id="car_no"></div>
+                    </div>
+                    <div class="info-item">
+                        <img class="info-top" src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/micro/pnManInquireH5/2_20.png" alt="">
+                        <div class="info-bottom" id="address"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%-include("../../include/loading", {loadingTip: '正在加载中'}) %>
+
+</div>
+
+<script src="/pnManInquireH5/scripts/lib/jquery-2.2.2.min.js"></script>
+<script src="/pnManInquireH5/scripts/lib/jweixin-1.0.0.js"></script>
+<script src="/pnManInquireH5/scripts/common.js"></script>
+<script src="/pnManInquireH5/scripts/api.js"></script>
+<script src="/pnManInquireH5/scripts/index.js"></script>
+<script>
+
+    $('.container').on("touchmove", function (e) {
+        e.preventDefault();
+    });
+
+    var height = $(document).height();
+    $('body').css({'height': height + 'px'});
+
+    common.loading('#percent');
+
+    window.onload = function () {
+        $('.loading').hide();
+    }
+</script>
+</body>
+</html>

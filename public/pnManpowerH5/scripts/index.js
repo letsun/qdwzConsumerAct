@@ -3,6 +3,8 @@ $(function () {
         $('.form-win').css({'padding-top': '210px'});
     }
 
+    var src = '';
+
     getWx();
 
     var index = 0;
@@ -149,10 +151,42 @@ $(function () {
             success: function (res, file) {
                 $('.upload-text').hide();
                 $('.file').val('');
-                var src = JSON.parse(file).src;
-                getBase64(src.replace('http','https'),function (res) {
-                    $('.upload-img').find('img').attr('src',res);
+                src = JSON.parse(file).src;
+                // $('.upload-img').find('img').attr('src',src);
+                // getBase64(src.replace('http','https'),function (res) {
+                //     $('.upload-img').find('img').attr('src',res);
+                // });
+                $('.prev-win').css({'display':'block'});
+                $('#prevImg').attr('src',src.replace('http','https'));
+
+                $('#prevImg').cropper({
+                    aspectRatio: 8.24 / 8,
+                    viewMode: 1,
+                    autoCrop: true,
+                    dragMode: 'move',
+                    scalable: true,
+                    cropBoxMovable: true,
+                    modal: false,
+                    movable: true,
+                    //rotatable: false,
+                    minCanvasWidth: 398,
+                    minCropBoxWidth: 398,
+                    minCropBoxHeight: 385,
+                    guides: false,
+                    ready: function() {
+                        var cas = $('#prevImg').cropper('getCroppedCanvas');
+                        src =  cas.toDataURL('image/jpeg');
+                    },
+                    crop: function (e) {
+
+                    },
+                    cropend: function(e) {
+                        var cas = $('#prevImg').cropper('getCroppedCanvas');
+                        src =  cas.toDataURL('image/jpeg');
+
+                    }
                 });
+
             },
             error: function (res, file) {
                 common.alert({
@@ -164,6 +198,19 @@ $(function () {
             }
         })
     }
+
+    // 点击取消
+    $('.cancel').on('click',function () {
+        $('.prev-win').hide();
+        $('#prevImg').cropper('destroy');
+    });
+
+    // 点击确认
+    $('.confirm').on('click',function () {
+        $('.upload-img img').attr('src',src);
+        $('.prev-win').hide();
+        $('#prevImg').cropper('destroy');
+    });
 
 
     // // 点击上传图片
