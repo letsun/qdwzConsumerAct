@@ -219,13 +219,15 @@
 			$('.mask').fadeOut()
 		})
 
+
+		//是否关注公众号
 		$('.btn').on('click', function () {
 			Func.isSubscribe(function (res) {
 				if (res.code == 200) {
 					if (!res.data.subscribe) {
 						$('.mask').show()
 					} else {
-						window.location.href = '';
+						window.location.href = api.ip + `/shop/index/1/` + getHeader().cpi + `?csi=`+getHeader().csi + `&oi=`+getHeader().oi 
 					}
 				} else {
 					common.alert({
@@ -325,6 +327,17 @@
 			// var s = date.getSeconds();
 			return Y + M + D + h + m + s;
 		};
+
+
+		// 输入框失去焦点兼容苹果系统
+		$('.container').on('blur', 'input,textarea,select', function () {
+			setTimeout(function () {
+				var hasFocus = $('input').is(':focus') || $('textarea').is(':focus') || $('select').is(':focus');
+				if (!hasFocus) {
+					window.scroll(0, 0);
+				}
+			}, 100);
+		});
 	})
 
 </script>
