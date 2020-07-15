@@ -248,7 +248,8 @@
 					if (!res.data.subscribe) {
 						$('.mask').show()
 					} else {
-						window.location.href = api.ip + `/shop/index/1/` + getHeader().cpi + `?csi=` + getHeader().csi + `&oi=` + getHeader().oi
+						var address = api.ip + `/shop/index/1/` + getHeader().cpi + `?csi=` + getHeader().csi + `&oi=` + getHeader().oi;
+						window.location.href = address;
 					}
 				} else {
 					common.alert({
