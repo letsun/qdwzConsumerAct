@@ -126,17 +126,38 @@
 <%-include("../../include/hideMenu") %>
 
 <!-- 页面js end -->
+<script src="/yifeinewmuban/scripts/lib/jweixin-1.0.0.js"></script>
 <script src="/pafeite/js/api.js"></script>
 <script src="/pafeite/js/Func.js"></script>
 
 <script>
-	$(function () {
+	// 签名处理
+	var encode = Global.getUrlParam('encode');
+
+
+	if (encode != undefined) {
 		var encode = Global.getUrlParam('encode');
-		if (encode != undefined) {
+		window.sessionStorage.setItem('encode', encode)
+	}
+
+	getHeader();
+	var href = window.location.href.split('?');
+	if (window.sessionStorage.headerInfor) {
+		if (href[1]) {
+			window.location.href = href[0];
+		}
+
+	}
+
+	$(function () {
+
+		encode = window.sessionStorage.getItem('encode');
+		if (encode) {
 			$('.contentb').show();
 			createJoinActInfo()//查找活动参与记录
 			findRealEncodeFunction()// 查询防伪信息
 		} else {
+
 			$('.contenta').show();
 			$.ajax({
 				url: api.jssdk,
@@ -227,7 +248,7 @@
 					if (!res.data.subscribe) {
 						$('.mask').show()
 					} else {
-						window.location.href = api.ip + `/shop/index/1/` + getHeader().cpi + `?csi=`+getHeader().csi + `&oi=`+getHeader().oi 
+						window.location.href = api.ip + `/shop/index/1/` + getHeader().cpi + `?csi=` + getHeader().csi + `&oi=` + getHeader().oi
 					}
 				} else {
 					common.alert({

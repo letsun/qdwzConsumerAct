@@ -23,6 +23,9 @@ $(function () {
 	};
 
 
+
+
+
 	/**
 	 * 查找二维码情况
 	 * @param  function callback 查找后的回调
