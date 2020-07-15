@@ -7,7 +7,6 @@ var ip = production;
 var cpi = 355;
 
 var api = {
-    getInfo: ip + '/qdwz/wk/personnel/info/getInfo',  // 获取员工信息
+    getInfo: ip + '/qdwz/wk/personnel/info/getInfo1',  // 获取员工信息
     jssdk: ip + '/qdwz/wechat/jssdk',    // 获取微信签名
-    upload: ip + '/qdwz/wk/personnel/info/upload',    // 下载图片
 };
