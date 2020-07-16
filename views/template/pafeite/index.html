@@ -285,6 +285,7 @@
 		}
 
 
+
 		//抽奖创建参与记录
 		function createJoinActInfo() {
 			Func.createJoinActInfo(function (res) {
@@ -294,13 +295,14 @@
 					// $('.tip').text('该积分已被领取').show();
 				} else if (res.code == 202) {
 					// //0未领奖 1已领奖 2领取失败	
-					// if (res.data.status == 0) {
-					// 	var point = res.data.prizeAmount;
-					// 	$('#point').text(point);
-					// 	$('.tip').show();
-					// } else if (res.data.status == 1) {
-					// 	$('.tip').text('该积分已被领取').show();
-					// }
+					if (res.data.status == 0) {
+						var point = res.data.prizeAmount;
+						$('#point').text(point);
+						$('.tip').show();
+					} else if (res.data.status == 1) {
+
+						$('.integral-num').text(res.data.prizeAmount);
+					}
 				} else if (res.code == 203) {
 					// $('.tip').text('该积分已被领取').show();
 				} else {
