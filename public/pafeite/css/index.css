@@ -147,9 +147,22 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/pafeite/1_3.png') no-repeat;
-  background-size: 100% 100%;
   overflow: hidden;
+}
+.container .bgimg {
+  position: static;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+.container .cona,
+.container .conb {
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 .container .contenta {
   display: none;
@@ -164,7 +177,7 @@ body {
   text-align: center;
 }
 .container .contenta .text div:first-child {
-  font-size: 28px;
+  font-size: 30px;
   color: #E28653;
 }
 .container .contenta .text div:nth-child(2) {
@@ -172,7 +185,7 @@ body {
   color: #fff;
 }
 .container .contenta .text div:nth-child(3) {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
 }
 .container .contenta .inp {
@@ -181,7 +194,7 @@ body {
 .container .contenta .inp input {
   width: 505px;
   margin-left: -15px;
-  font-size: 28px;
+  font-size: 30px;
   padding: 15px 30px;
   border-radius: 40px;
   background: #F1C3A9;
@@ -206,7 +219,7 @@ body {
   left: 0;
   right: 0;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 32px;
   color: #FD9458;
 }
 .container .contentb .phoneimg1,
@@ -230,7 +243,7 @@ body {
 .container .contentb .text1 div:first-child,
 .container .contentb .text2 div:first-child,
 .container .contentb .text3 div:first-child {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
   margin-bottom: 10rpx;
   color: #CC672F;
@@ -255,6 +268,12 @@ body {
   margin-top: 60px;
   text-align: center;
 }
+.container .bottomimg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .container .mask {
   position: fixed;
   top: 0;
@@ -262,6 +281,7 @@ body {
   left: 0;
   bottom: 0;
   display: none;
+  z-index: 99;
   background: rgba(0, 0, 0, 0.7);
 }
 .container .mask .mask-popup {
