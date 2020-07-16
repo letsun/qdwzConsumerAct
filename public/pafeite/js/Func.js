@@ -9,7 +9,7 @@ $(function () {
 	 */
 	Func.findRealEncodeFunction = function (callback) {
 
-		$('#loadingWrapper').show();
+		// $('#loadingWrapper').show();
 
 		$.ajax({
 			url: api.findRealEncodeFunction,
@@ -27,16 +27,13 @@ $(function () {
 
 
 	/**
-	 * 查找二维码情况
+	 * //点击防伪查找防伪信息
 	 * @param  function callback 查找后的回调
 	 * @return null
 	 */
-	Func.findEncode = function (data, callback) {
-
-		$('#loadingWrapper').show();
-
+	Func.findByAntifakeCodeFunction = function (data, callback) {
 		$.ajax({
-			url: api.findEncode,
+			url: api.findByAntifakeCodeFunction,
 			type: 'GET',
 			headers: getHeader(),
 			dataType: 'json',
@@ -74,7 +71,7 @@ $(function () {
  */
 	Func.createJoinActInfo = function (callback) {
 
-		$('#loadingWrapper').show();
+		// $('#loadingWrapper').show();
 
 		$.ajax({
 			url: api.createJoinActInfo,
@@ -93,7 +90,7 @@ $(function () {
  * @return null
  */
 	Func.lottery = function (callback) {
-		$('#loadingWrapper').show();
+		// $('#loadingWrapper').show();
 		if (isLottery) {
 			return;
 		}
