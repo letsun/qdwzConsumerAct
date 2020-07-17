@@ -28,7 +28,7 @@
 				</div>
 
 				<div class="text">
-					<div class="">点击上面扫一扫</div>
+					<div class="">点击上面扫一扫扫描二维码</div>
 					<div>立即识别真伪 积分轻松享</div>
 					<div>或手动输入防伪码(区分大小写)</div>
 				</div>
@@ -397,6 +397,12 @@
 					window.scroll(0, 0);
 				}
 			}, 100);
+		});
+
+		document.body.addEventListener('touchmove', function (e) {
+			e.preventDefault();
+		}, {
+			passive: false
 		});
 	})
 

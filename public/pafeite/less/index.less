@@ -45,6 +45,10 @@ button {
   border-radius: 0;
 }
 
+input::-webkit-input-placeholder {
+  color: #666;
+}
+
 select {
   outline: none;
   -webkit-appearance: none;
@@ -233,10 +237,11 @@ body {
       margin: 30px 100px;
 
       input {
+        line-height: 60px;
         width: 505px;
         margin-left: -15px;
         font-size: 30px;
-        padding: 15px 30px;
+        padding: 5px 30px;
         border-radius: 40px;
         background: #F1C3A9;
         border: 1px solid #E28653;
@@ -263,8 +268,8 @@ body {
         top: 50px;
         left: 0;
         right: 0;
-        font-weight: bold;
-        font-size: 32px;
+        // font-weight: bold;
+        font-size: 40px;
         color: #FD9458;
       }
     }
