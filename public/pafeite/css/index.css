@@ -109,6 +109,14 @@ body {
 body {
   background: #fff;
 }
+div,
+p,
+span {
+  -webkit-user-select: none;
+}
+img {
+  -webkit-touch-callout: none;
+}
 .loading {
   position: fixed;
   width: 100%;
