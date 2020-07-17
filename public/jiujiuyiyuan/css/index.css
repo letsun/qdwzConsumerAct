@@ -162,9 +162,11 @@ body {
 .container .logo img {
   max-width: 450px;
 }
-.container .logotext2 {
-  padding-top: 50px;
-  text-align: center;
+.container .con {
+  margin: 80px 80px 0 80px;
+  padding: 30px;
+  color: #f5f5f5;
+  background: rgba(0, 0, 0, 0.5);
 }
 .container .inp {
   text-align: center;
@@ -205,12 +207,20 @@ body {
   overflow-y: auto;
   display: none;
 }
+.containera .logotext {
+  padding-top: 50px;
+  text-align: center;
+}
 .containera .logo {
   text-align: center;
   padding-top: 50px;
 }
 .containera .logo img {
   max-width: 560px;
+}
+.containera .logotext2 {
+  padding-top: 50px;
+  text-align: center;
 }
 .containera .con {
   margin: 80px 80px 0 80px;

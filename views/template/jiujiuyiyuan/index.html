@@ -23,21 +23,28 @@
 
 	<div class="container">
 		<div class="logotext">
-			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_1.png" alt=""
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_1_1.png" alt=""
 				srcset="">
 		</div>
 
 		<div class="logo">
-			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_2.png" alt="">
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_7.png" alt="">
 		</div>
 
-		<div class="logotext2">
-			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_3.png" alt="">
-		</div>
 
+		<div class="con">
+
+			<div class="con-desc" id="productDesc">
+
+			</div>
+
+		</div>
 		<div class="inp">
 			<input type="text" placeholder="请输入验证码">
 		</div>
+
+
+
 
 		<div class="detail">
 			查询ID
@@ -50,13 +57,23 @@
 
 	<!-- 隐藏页 -->
 	<div class="containera">
+		<div class="logotext">
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_1_1.png" alt=""
+				srcset="">
+		</div>
 		<div class="logo">
-			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_7.png" alt="">
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_2.png" alt="">
+		</div>
+
+		<div class="logotext2">
+			<img src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_3_1.png" alt="">
 		</div>
 
 		<div class="con">
 			<div class="con-title">
-				您所查询的是國際茶葉收藏家俱樂部有限公司 <br />出品的普洱餅茶<span>《玖玖逸韻》</span>
+				您所查询的是:<br />
+				國際茶葉收藏家俱樂部有限公司出品<br />
+				的普洱餅茶<span>《玖玖逸韻》</span>
 			</div>
 
 			<div class="con-text">
@@ -81,7 +98,7 @@
 					</div>
 				</div>
 
-				<div class="con-text-item address" >
+				<div class="con-text-item address">
 					<div class="key">
 						查询地点：
 					</div>
@@ -93,9 +110,7 @@
 
 			</div>
 
-			<div class="con-desc" id="productDesc">
-				
-			</div>
+
 
 			<div class="con-detail">
 
@@ -105,7 +120,7 @@
 
 		<div class="footer"></div>
 
-		
+
 	</div>
 </body>
 
@@ -121,12 +136,12 @@
 <script>
 
 	// 禁止整个页面滑动
-	$('.container').on('touchmove', function (e) {
-		e.preventDefault();
-	});
+	// $('.container').on('touchmove', function (e) {
+	// 	e.preventDefault();
+	// });
 
 
-		// alert(null + null == 0)
+	// alert(null + null == 0)
 	/**加载进度*/
 	common.loading($("#percent"));
 
@@ -147,22 +162,22 @@
 	});
 
 	var winHeight = $(window).height();   //获取当前页面高度
-    // $(window).resize(function () {
-    //     var thisHeight = $(this).height();
-    //     if (winHeight - thisHeight > 50) {
-    //         //当软键盘弹出，在这里面操作
-    //     } else {
-    //         //当软键盘收起，在此处操作
-    //         window.scroll(0,0);
-    //     }
-    // });
+	// $(window).resize(function () {
+	//     var thisHeight = $(this).height();
+	//     if (winHeight - thisHeight > 50) {
+	//         //当软键盘弹出，在这里面操作
+	//     } else {
+	//         //当软键盘收起，在此处操作
+	//         window.scroll(0,0);
+	//     }
+	// });
 
-	
+
 
 	$('.detail').on('click', function () {
-		
+
 		var validateCode = $('.inp input').val();
-		
+
 		if (validateCode != '') {
 
 			$('#loadingWrapper').show();
@@ -185,12 +200,12 @@
 						} else {
 							$('#checkStatus').html(res.data.validateTime);
 
-							if(res.data.province==null||res.data.province=='') {
+							if (res.data.province == null || res.data.province == '') {
 								$('.address').remove()
-							}else{
-								$('#city').html( res.data.province + res.data.city);
-								
-							}							
+							} else {
+								$('#city').html(res.data.province + res.data.city);
+
+							}
 
 							$('#validateDate').html(formatDateTime(new Date(res.data.validateDate)))
 							$('.container').hide();
