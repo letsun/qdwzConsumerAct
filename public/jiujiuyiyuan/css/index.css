@@ -145,9 +145,10 @@ body {
 .container {
   position: relative;
   width: 100%;
+  height: 100%;
   background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_4.jpg) no-repeat;
   background-size: 100% 100%;
-  overflow: hidden;
+  overflow-y: auto;
   display: none;
 }
 .container .logotext {
@@ -200,6 +201,7 @@ body {
 .containera {
   position: relative;
   width: 100%;
+  height: 100%;
   background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/jiujiuyiyuan/1_4.jpg) no-repeat;
   background-size: 100% 100%;
   overflow-y: auto;
