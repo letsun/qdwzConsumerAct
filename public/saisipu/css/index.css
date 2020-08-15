@@ -1,0 +1,1027 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+}
+body {
+  color: #333;
+  font: normal normal normal 28px/40px 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz--tap-highlight-color: rgba(0, 0, 0, 0);
+  -o--tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+  cursor: pointer;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table td {
+  padding: 0;
+}
+textarea {
+  resize: none;
+}
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+.pullLeft {
+  float: left;
+}
+.pullRight {
+  float: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+.ellipsisNormal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.loading {
+  line-height: 70px;
+  text-align: center;
+}
+.clearFix:before,
+.clearFix:after {
+  content: " ";
+  display: table;
+}
+.clearFix:after {
+  clear: both;
+}
+/* 新增一些iPhone下不兼容的动画库 */
+/*
+ * 1.从左向右出动画
+*/
+@-webkit-keyframes left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes left {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes left {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 2.从右向左出动画
+*/
+@-webkit-keyframes right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes right {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes right {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+/*
+ * 3.从上向下出动画
+*/
+@-webkit-keyframes up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes up {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-o-keyframes up {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+/*
+ * 4.从下往上出动画
+*/
+@-webkit-keyframes down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes down {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-o-keyframes down {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+/*
+ * 5.上下浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown1 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-moz-keyframes upDown1 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+@-o-keyframes upDown1 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(10px);
+  }
+}
+/*
+ * 6.上下浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown2 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-moz-keyframes upDown2 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+  }
+}
+@-o-keyframes upDown2 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(20px);
+  }
+}
+/*
+ * 7.上下浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes upDown3 {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-moz-keyframes upDown3 {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+  }
+}
+@-o-keyframes upDown3 {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(30px);
+  }
+}
+/*
+ * 8.左右浮动动画1
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight1 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes leftRight1 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-o-keyframes leftRight1 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(10px);
+  }
+}
+/*
+ * 9.左右浮动动画2
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight2 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-moz-keyframes leftRight2 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+  }
+}
+@-o-keyframes leftRight2 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(20px);
+  }
+}
+/*
+ * 10.左右浮动动画3
+ * 0%从零开始可以实现先淡入后动画的无缝衔接效果，图片可以先加淡入动画，再通过js给它加上漂浮效果
+ * 所有漂浮动画都会有一种突兀显示的效果，可以先让图片淡入，然后再加动画（一定要加上反向属性alternate才那实现无缝循环动画）
+*/
+@-webkit-keyframes leftRight3 {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-moz-keyframes leftRight3 {
+  0% {
+    -moz-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
+  }
+}
+@-o-keyframes leftRight3 {
+  0% {
+    -o-transform: translateX(0);
+  }
+  100% {
+    -o-transform: translateX(30px);
+  }
+}
+@-webkit-keyframes leftDown {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-60px, 50px);
+    opacity: 0;
+  }
+}
+@-moz-keyframes leftDown {
+  0% {
+    -moz-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-60px, 50px);
+    opacity: 0;
+  }
+}
+@-o-keyframes leftDown {
+  0% {
+    -o-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -o-transform: translate(-60px, 50px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes leftDown_2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-15px, 15px);
+    opacity: 0;
+  }
+}
+@-moz-keyframes leftDown_2 {
+  0% {
+    -moz-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-15px, 15px);
+    opacity: 0;
+  }
+}
+@-o-keyframes leftDown_2 {
+  0% {
+    -o-transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    -o-transform: translate(-15px, 15px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+  }
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/saisipu/1_4.jpg') no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  /*活动须知*/
+}
+.container .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.container .content .bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.container .content .logo {
+  position: absolute;
+  left: 44px;
+  top: 87px;
+}
+.container .content .title {
+  position: absolute;
+  left: 50%;
+  top: 200px;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+}
+.container .content .bottom {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  width: 100%;
+}
+.container .content .bottom .inquire-btn {
+  display: block;
+  margin: 0 auto;
+}
+.container .content .bottom .bottom-tips {
+  margin-top: 10px;
+  font-size: 23px;
+  color: #000;
+  line-height: 22px;
+  text-align: center;
+}
+.container .dzp-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/saisipu/4_6.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+.container .dzp-wrapper .logo {
+  position: absolute;
+  left: 50%;
+  top: 96px;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+}
+.container .dzp-wrapper .rule-btn {
+  position: absolute;
+  right: 0;
+  top: 135px;
+  z-index: 10;
+}
+.container .dzp-wrapper .verification-wra {
+  position: absolute;
+  left: 0;
+  top: 211px;
+  z-index: 1;
+  width: 100%;
+}
+.container .dzp-wrapper .verification-wra .verification-item {
+  display: none;
+}
+.container .dzp-wrapper .verification-wra .verification-item1 .verification-title img {
+  display: block;
+  margin: 0 auto;
+}
+.container .dzp-wrapper .verification-wra .verification-item1 .verification-dec {
+  padding: 0 30px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+}
+.container .dzp-wrapper .verification-wra .verification-item2 .verification-title img,
+.container .dzp-wrapper .verification-wra .verification-item3 .verification-title img {
+  display: block;
+  margin: 0 auto;
+}
+.container .dzp-wrapper .verification-wra .verification-item2 .verification-dec,
+.container .dzp-wrapper .verification-wra .verification-item3 .verification-dec {
+  padding: 0 30px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+}
+.container .dzp-wrapper .dzp-container {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con {
+  width: 100%;
+  height: 100%;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .dzp-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  color: #fff;
+  overflow: hidden;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 220px;
+  height: 223px;
+  text-align: center;
+  font-size: 20px;
+  transform-origin: bottom center;
+  box-sizing: border-box;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item .con {
+  position: relative;
+  padding-top: 10px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item .con .prize-name {
+  font-size: 22px;
+  text-align: center;
+  color: #985a03;
+  line-height: 24px;
+}
+.container .dzp-wrapper .dzp-container .dzp-con .award-list .award-item .con .prize-icon {
+  display: block;
+  width: 82px;
+  margin: 16px auto 0 auto;
+}
+.container .dzp-wrapper .dzp-container .dzp-btn {
+  position: absolute;
+  left: 50%;
+  top: 48.5%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.container .dzp-wrapper .bottom {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  z-index: 1;
+  width: 100%;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+}
+.container .result-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container .result-win .result-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 649px;
+  height: 671px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/saisipu/7_1.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+}
+.container .result-win .result-content .result-con {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 238px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.container .result-win .result-content .result-con .result-title {
+  width: 100%;
+  color: #df924e;
+  font-size: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-weight: bold;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec {
+  display: none;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec .result-name {
+  margin-top: 42px;
+  font-size: 26px;
+  color: #000;
+  line-height: 26px;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec .result-img {
+  display: block;
+  margin: 0 auto;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec1 .num-wra {
+  position: relative;
+  margin: 40px auto 0 auto;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec1 .num-wra .result-img {
+  display: block;
+  margin: 0 auto;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec1 .num-wra .result-num {
+  position: absolute;
+  left: 0;
+  top: 80px;
+  width: 100%;
+  text-align: center;
+  color: #feef78;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 26px;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec1 .close-result {
+  display: block;
+  margin: 44px auto 0 auto;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec2 .num-wra,
+.container .result-win .result-content .result-con .result-dec-wra .result-dec3 .num-wra {
+  position: relative;
+  margin: 40px auto 0 auto;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec2 .num-wra .result-img,
+.container .result-win .result-content .result-con .result-dec-wra .result-dec3 .num-wra .result-img {
+  display: block;
+  margin: 0 auto;
+}
+.container .result-win .result-content .result-con .result-dec-wra .result-dec2 .close-result,
+.container .result-win .result-content .result-con .result-dec-wra .result-dec3 .close-result {
+  display: block;
+  margin: 44px auto 0 auto;
+}
+.container .result-win .result-footer {
+  position: absolute;
+  background: url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/saisipu/1_19.png) no-repeat;
+  left: 14%;
+  right: 14%;
+  bottom: -210px;
+  color: #f5402d;
+  padding-top: 20px;
+  font-size: 20px;
+  height: 140px;
+  background-size: 100% 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.container .result-win .result-footer .swiper-container {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+.container .result-win .result-footer .swiper-slide {
+  height: 40px;
+  font-size: 18px;
+}
+.container .result-win .result-footer .item-text {
+  display: flex;
+}
+.container .result-win .result-footer .item-text div {
+  padding-right: 40px;
+}
+.container .result-win .result-footer .item-text div:first-child {
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.container .activity-rule {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container .activity-rule .activity-rule-con {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 545px;
+  height: 736px;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/saisipu/10_2.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translate(-50%, -50%);
+}
+.container .activity-rule .activity-rule-con .rule-dec {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  bottom: 80px;
+  z-index: 1;
+  width: 472px;
+  -webkit-transform: translateX(-50%);
+}
+.container .activity-rule .activity-rule-con .rule-dec div {
+  font-size: 26px;
+  color: #783508;
+  line-height: 46px;
+}
+.container .activity-rule .close-rule {
+  position: absolute;
+  left: 50%;
+  bottom: -100px;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+}
+.container .gzh {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container .gzh .gzh-con {
+  position: absolute;
+  background: url('https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/saisipu/2_1.png') no-repeat;
+  background-size: 100% 100%;
+  height: 537px;
+  width: 545px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.container .gzh .gzh-con img {
+  margin: 138px auto 0 auto;
+  height: 260px;
+  width: 260px;
+}
+.container .gzh .gzh-con p {
+  font-size: 26px;
+  color: #000;
+}
+.container .form-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: #94d8ff;
+  overflow: scroll;
+}
+.container .form-win .form-con {
+  position: relative;
+  width: 100%;
+}
+.container .form-win .form-con .form-bg {
+  display: block;
+  width: 100%;
+}
+.container .form-win .form-con .form {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding-top: 132px;
+  box-sizing: border-box;
+}
+.container .form-win .form-con .form .form-logo {
+  display: block;
+  margin: 0 auto;
+}
+.container .form-win .form-con .form .form-input {
+  width: 640px;
+  margin: 20px auto 0 auto;
+  border: 1px solid #0156c0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.container .form-win .form-con .form .form-input input {
+  display: block;
+  width: 100%;
+  height: 70px;
+  padding: 0 36px;
+  font-size: 26px;
+  line-height: 70px;
+  color: #0156c0;
+  background: #97d2fe;
+  box-sizing: border-box;
+}
+.container .form-win .form-con .form .form-submit {
+  width: 640px;
+  margin: 30px auto 0 auto;
+  line-height: 70px;
+  color: #fff;
+  font-size: 26px;
+  text-align: center;
+  background: #0156c0;
+  border: 1px solid #0156c0;
+  border-radius: 12px;
+}
+.container .form-win .form-con .form-tip {
+  width: 642px;
+  margin: 30px auto 0 auto;
+  color: #fff;
+}
+.container .form-win .form-con .form-tip .tip-title {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 26px;
+}
+.container .form-win .form-con .form-tip .tip-dec p {
+  margin-top: 20px;
+  font-size: 22px;
+  line-height: 28px;
+}
+.container .form-win .form-con .form-img3 {
+  display: block;
+  margin: 30px auto 0 auto;
+}
+.container .form-win .form-con .form-img4 {
+  display: block;
+  margin: 30px auto 0 auto;
+}
+.container .error-win {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding-top: 108px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.container .error-win .back-wra {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  z-index: 1;
+  padding: 20px 0;
+  display: flex;
+  color: #676767;
+}
+.container .error-win .back-wra .back {
+  font-size: 30px;
+  font-weight: bold;
+}
+.container .error-win .back-wra .title {
+  margin-left: 14px;
+  font-size: 28px;
+  font-weight: bold;
+}
+.container .error-win img {
+  display: block;
+  margin: 0 auto;
+}
+.container .error-win .error-tip {
+  margin-top: 90px;
+  color: #666666;
+  font-size: 26px;
+  text-align: center;
+  line-height: 46px;
+}
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.loading .loadCon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.loading .loadCon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  -webkit-animation: load 4s linear infinite;
+}
+.loading .loadCon #percent {
+  font-size: 24px;
+  line-height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
